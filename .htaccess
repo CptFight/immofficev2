@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /ImmofficeV2/
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ /ImmofficeV2/index.php/$1 [L,QSA]
+</IfModule>
+<IfModule !mod_rewrite.c>
+	ErrorDocument 404 /index.php
+</IfModule>
+
+AuthUserFile /Applications/AMPPS/www/ImmofficeV2/.htpasswd
+AuthName "L'accès à ce répertoire est sécurisé."
+AuthType Basic
+Require valid-user
