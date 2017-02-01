@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="page-logo">
                 <a href="">
-                    <img style="margin:0" height="75" src="<?php echo base_url(); ?>/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default">
+                    <!--<img style="margin:0" height="75" src="<?php echo base_url(); ?>/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default"> -->
                 </a>
             </div>
 			<?php $this->load->view('common/top') ?>
