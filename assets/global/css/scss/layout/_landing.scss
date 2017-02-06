@@ -1,0 +1,84 @@
+/* ==|====================
+   Layout/Landing
+   ======================= */
+
+.l-landing 
+{
+	//footer
+	footer 
+	{
+		padding:30px 40px;
+		text-align:center;
+	}
+	.copyright
+	{
+		font-size: 16px;
+		color: #aeaeae;
+		font-weight:bold;
+
+	}
+	.l-header 
+	{
+		background:white;
+		position:fixed;
+		top:0;
+	}
+}
+.l-landing-welcome
+{
+	padding: 40px 55px;
+	background:$bg-grey-light;
+	margin-top:66px;
+	h2 
+	{
+		margin:0;
+	}
+	input 
+	{
+		display:block;
+		margin-bottom:15px;
+	}
+	@media screen and (min-width: $medium) {
+
+
+	}
+}
+.link-password
+{
+	color:$textlight;
+	margin-top:20px;
+	display:inline-block;
+	font-size: 0.8em;
+}
+
+.l-landing-contact 
+{
+	padding:70px 55px;
+	background: url("img/word_map.png") center top no-repeat;
+    margin-top: 30px;
+    text-align:center;
+    .clearfix 
+	{
+		max-width:550px;
+		margin:10px auto 50px;
+		display:block;
+	}
+	.clearfix p:first-child
+	{
+		font-size:13px;
+		color:$green;
+		font-weight:bolder;
+	}
+	.clearfix p:last-child
+	{
+		font-size:16px;
+	}
+    @media screen and (min-width: $medium) {
+    	.clearfix p 
+    	{
+    		@extend .float-middle;
+    		text-align:left;
+    	}
+    }
+}
+

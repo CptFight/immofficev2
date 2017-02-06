@@ -1,0 +1,223 @@
+/* ==|====================
+   Layout/Nav
+   ======================= */
+
+@media screen and (max-width: 768px) {
+	.l-nav-top {
+		display:none;
+	}
+}
+@media screen and (min-width: $small) {
+	.l-nav-small
+	{
+		display:none;
+	}
+	.l-landing #btn-toggle-nav
+	{
+		display:none;
+	}
+	.content 
+	{
+		margin-left:220px;
+	}
+	.l-nav-aside 
+	{
+		margin-left:0px !important;
+	}
+	.l-landing .l-nav-aside 
+	{
+		display:none;
+	}
+	.l-landing .content 
+	{
+		margin-left:0px;
+	}
+}
+@media screen and (max-width: 890px) {
+	.welcome
+	{
+		display:none !important;
+	}
+}
+
+
+/* ------ Nav Small ------*/
+/* --------------------- */
+#btn-toggle-nav
+{
+	position: absolute;
+    left: 20px;
+    top: 14px;
+    padding: 4px 12px;
+    font-size: 14px;
+    z-index:100;
+}
+.l-landing #btn-toggle-nav
+{
+	position: fixed;
+	left:initial;
+	right: 20px;
+}
+.content 
+{
+	@include transition();
+}
+.l-nav-aside 
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:220px;
+	min-height:100%;
+	background:$bg-blue;
+	@include transition();
+	a 
+	{
+		display:block;
+		padding: 14px 20px 14px 25px;
+		color:$textbluelight;
+		font-weight: 600;
+		border-left:4px solid $bg-blue;
+	}
+	a:hover, a.active
+	{
+		border-left:10px solid $green;
+		background:$bg-blue-dark;
+		color:white;
+	}
+	.btn-grey
+	{
+		background:$bg-blue;
+		border-bottom:1px solid $bg-blue-dark;
+		text-align:left;
+		&:hover 
+		{
+			background:$bg-blue-dark;
+			border-bottom:1px solid $bg-blue-dark;
+		}
+	}
+}
+.l-nav-big
+{
+	a 
+	{
+		@extend .clearfix;
+		min-width:200px;
+	}
+	i 
+	{
+		margin-top:3px;
+	}
+	span 
+	{	
+		margin-left:10px;
+	}
+	i, span 
+	{
+		float:left;
+	}
+}	
+a.profile-btn
+{
+	background:url("img/header-profile.png") no-repeat center center;
+	background-size:100%;
+	background-size:cover;
+	font-weight:100;
+	padding: 33px 25px;
+	span
+	{
+		display:block;
+		color:white;
+	}
+}
+.l-nav-aside.hide 
+{
+	margin-left:-220px;
+
+}
+@media screen and (max-width: $small - 1) {
+	.l-landing .content.move
+	{
+		opacity:0.3;
+	}
+	.csstransforms .content.move
+	{
+		-webkit-animation: contentMove 0.3s forwards 0s ease-in-out;
+	  	-moz-animation:    contentMove 0.3s forwards 0s ease-in-out;
+	  	-o-animation:      contentMove 0.3s forwards 0s ease-in-out;
+	  	animation:         contentMove 0.3s forwards 0s ease-in-out;
+	}
+	.csstransforms .content.remove
+	{
+		-webkit-animation: contentReMove 0.3s  0s ease-in-out;
+	  	-moz-animation:    contentReMove 0.3s  0s ease-in-out;
+	  	-o-animation:      contentReMove 0.3s  0s ease-in-out;
+	  	animation:         contentReMove 0.3s  0s ease-in-out;
+	}
+}
+@media screen and (min-width: $small - 1) {
+	.l-nav-aside.hide 
+	{
+		width:220px;
+	}
+	.l-nav-aside
+	{
+		width:70px;
+		overflow:hidden;
+		.l-nav-big span
+		{
+			display:none;
+		}
+	}
+	.l-nav-aside.hide 
+	{
+		.l-nav-big span
+		{
+			display:inline-block;
+		}
+	}
+	.content.move
+	{	
+		margin-left:70px;		
+	}
+	.content.remove
+	{
+		margin-left:220px;	
+
+	}
+	.l-landing .content.move, .l-landing .content.remove
+	{	
+		margin-left:0px;
+	}
+}
+/* ------ Nav BIG ------*/
+/* --------------------- */
+.l-nav-top
+{
+	float:right;
+	a, li 
+	{
+		display:inline-block;
+	}
+	a 
+	{
+		margin-top:12px;
+	}
+}
+.l-nav-top-link
+{
+	a
+	{
+		margin-top:0px;
+		border-top: 6px solid white;
+    	padding: 17px 10px 10px 10px;
+    	text-transform: uppercase;
+    	font-weight: bold;
+    	color:#676a6c;
+    	font-size: 14px;
+	}
+	a:hover, a.active
+	{
+		border-top: 6px solid $green;
+	}
+}
