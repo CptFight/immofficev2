@@ -30,41 +30,69 @@
                 </ul>
             </div>
             <section class="l-annonces-search l-annonces-section">
-                <div>
-                    <div></div>
-                    <p>0 annonces trouvées 1715</p>
-                    <a href="" class="btn-inverse">Exporter</a>
+                <div class="clearfix l-top-annonces-export">
+                    <div class="float-middle">
+                        <p class="number-annonces"><span>0</span> annonces trouvées 1715</p>
+                    </div>
+                    <div class="float-middle">
+                        <a href="" class="btn-inverse">Exporter</a>
+                    </div>
                 </div>
 
                 <div>
-                    <div class="dropdown-container">
-                        <a href="javascript:;" class="btn-dropdown" data-id="dates">January 29, 2017 - January 30, 2017</a>
-                        <div class="dropdown hidden" id="dates">
-                            <ul>
-                                <li><a href="">Aujourd'hui</a></li>
-                                <li><a href="">Depuis 2 jours</a></li>
-                                <li><a href="">Depuis 1 semaine</a></li>
-                                <li><a href="">Depuis 1 mois</a></li>
-                                <li><a href="">Depuis début du mois</a></li>
-                                <li><a href="">Détaillé</a></li>
-                            </ul>
-                            <input type="date">
-                            <input type="date">
-                            <button>Envoyer</button>
-                            <button>Annuler</button>
+                    <div class="clearfix">
+                        <div class="float-middle">
+                            <div class="dropdown-container">
+                                <a href="javascript:;" class="btn-dropdown" data-id="dates">January 29, 2017 - January 30, 2017</a>
+                                <div class="dropdown hidden" id="dates">
+                                    <ul>
+                                        <li><a href="">Aujourd'hui</a></li>
+                                        <li><a href="">Depuis 2 jours</a></li>
+                                        <li><a href="">Depuis 1 semaine</a></li>
+                                        <li><a href="">Depuis 1 mois</a></li>
+                                        <li><a href="">Depuis début du mois</a></li>
+                                        <li><a href="">Détaillé</a></li>
+                                    </ul>
+                                    <input type="date">
+                                    <input type="date">
+                                    <button>Envoyer</button>
+                                    <button>Annuler</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="float-middle">
+                            <input type="text" placeholder="Choissez une province"/>
                         </div>
                     </div>
-                    <input type="texte"/>
-                    <input type="texte"/>
-                    <input type="texte"/>
-                    <input type="texte"/>
-                    <input type="texte"/><button>Map</button>
-                    <input type="radio"/>FR/NL
-                    <input type="radio"/>FR
-                    <input type="radio"/>NL
-
-                    <input type="radio"/>Vente 
-                    <input type="radio"/>Location
+                    <div class="clearfix">
+                        <div class="float-middle">
+                            <div class="float-middle">
+                                <input type="number" placeholder="Prix minimum"/>
+                            </div>
+                            <div class="float-middle">
+                                <input type="number" placeholder="Prix maximum"/>
+                            </div>
+                        </div>
+                        <div class="float-middle">
+                            <input type="text" placeholder="Code Postaux"/><a href="" class="btn">Map</a>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="float-middle">
+                            <input type="text" placeholder="Mots Clefs"/>
+                        </div>
+                        <div class="float-middle">
+                            <div class="float-middle">
+                                <input type="radio"/>FR/NL
+                                <input type="radio"/>FR
+                                <input type="radio"/>NL
+                            </div>
+                            <div class="float-middle">
+                                <input type="radio"/>Vente 
+                                <input type="radio"/>Location
+                            </div>
+                        </div>
+                    </div>
                     <a href="" class="btn">Rechercher</a>
                     <p>Si vous changez votre zone d'action habituelle ( provinces, codes postaux ), rafraichissez la page après avoir cliqué sur le bouton 'rechercher'. De cette manière vous importerez plus d'annonces.</p>
                 </div>

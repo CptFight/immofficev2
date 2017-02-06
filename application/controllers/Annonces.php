@@ -118,9 +118,9 @@ class Annonces extends CI_Controller {
 			$data[] = array(
 				$product->title,
 				$product->zip_code,
-				$product->price,
+				$product->price.' €',
 				$product->web_site,
-				$product->date_publication,
+				date('d/m/Y',$product->date_publication),
 				'',
 				"<a href='".$product->url."' target='_blank'>Voir l'annonce</a>"
 				

@@ -120,3 +120,21 @@
         width:calc(100% - 40px);
     }
 }
+
+/* FORM */
+
+.l-top-annonces-export
+{
+	border-bottom:1px solid #e7eaec;
+	padding:10px 0;
+	display:block;
+}
+.number-annonces
+{
+	font-size:0.7em;
+	span 
+	{
+		font-size: 14px;
+		font-weight:bold;
+	}
+}

@@ -628,6 +628,7 @@ html {
    Base/Form
    ======================= */
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
@@ -644,6 +645,7 @@ textarea {
   width: 100%;
   font-size: 14px; }
   input[type="text"]::-webkit-input-placeholder,
+  input[type="number"]::-webkit-input-placeholder,
   input[type="email"]::-webkit-input-placeholder,
   input[type="password"]::-webkit-input-placeholder,
   input[type="date"]::-webkit-input-placeholder,
@@ -651,6 +653,7 @@ textarea {
   textarea::-webkit-input-placeholder {
     color: inherit; }
   input[type="text"]:-moz-placeholder,
+  input[type="number"]:-moz-placeholder,
   input[type="email"]:-moz-placeholder,
   input[type="password"]:-moz-placeholder,
   input[type="date"]:-moz-placeholder,
@@ -658,6 +661,7 @@ textarea {
   textarea:-moz-placeholder {
     color: inherit; }
   input[type="text"]:-ms-input-placeholder,
+  input[type="number"]:-ms-input-placeholder,
   input[type="email"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder,
   input[type="date"]:-ms-input-placeholder,
@@ -665,6 +669,7 @@ textarea {
   textarea:-ms-input-placeholder {
     color: inherit; }
   input[type="text"]:focus,
+  input[type="number"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus,
   input[type="date"]:focus,
@@ -1037,6 +1042,18 @@ a.profile-btn {
 .l-annonces-search:after {
   background: #1ab394;
   width: calc(100% - 40px); }
+
+/* FORM */
+.l-top-annonces-export {
+  border-bottom: 1px solid #e7eaec;
+  padding: 10px 0;
+  display: block; }
+
+.number-annonces {
+  font-size: 0.7em; }
+  .number-annonces span {
+    font-size: 14px;
+    font-weight: bold; }
 
 /* Modules */
 /* ==|====================
