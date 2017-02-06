@@ -9,7 +9,3 @@
 	ErrorDocument 404 /index.php
 </IfModule>
 
-AuthUserFile /Applications/AMPPS/www/ImmofficeV2/.htpasswd
-AuthName "L'accès à ce répertoire est sécurisé."
-AuthType Basic
-Require valid-user

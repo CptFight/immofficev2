@@ -36,7 +36,7 @@ $config['base_url'] = 'http://178.62.251.50';
 
 
 if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'immofficev2'){
-	$config['base_url'] = 'http://localhost/ImmofficeV2/';
+	$config['base_url'] = '';
 }
 
 
