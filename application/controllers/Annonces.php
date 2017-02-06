@@ -4,10 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Annonces extends CI_Controller {
 
 	public function index() {
-		/* Database */
-		$this->data['plugins_to_load'][] = "/assets/global/scripts/datatable.js";
-		$this->data['plugins_to_load'][] = "/assets/global/plugins/datatables/datatables.min.js";
-		$this->data['plugins_to_load'][] = "/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js";
 		/* Custom Scripts */
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
 

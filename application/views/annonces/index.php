@@ -38,13 +38,13 @@
                         <a href="" class="btn-inverse">Exporter</a>
                     </div>
                 </div>
-
-                <div>
+                <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
+                <div class="l-annonces-form">
                     <div class="clearfix">
-                        <div class="float-middle">
+                        <div class="float-middle input-separation">
                             <div class="dropdown-container">
-                                <a href="javascript:;" class="btn-dropdown" data-id="dates">January 29, 2017 - January 30, 2017</a>
-                                <div class="dropdown hidden" id="dates">
+                                <a href="javascript:;" class="btn-dropdown" data-id="dates"><i class="fa fa-calendar"></i> January 29, 2017 - January 30, 2017</a>
+                                <div class="dropdown hidden dropdown-dates" id="dates">
                                     <ul>
                                         <li><a href="">Aujourd'hui</a></li>
                                         <li><a href="">Depuis 2 jours</a></li>
@@ -53,93 +53,137 @@
                                         <li><a href="">Depuis début du mois</a></li>
                                         <li><a href="">Détaillé</a></li>
                                     </ul>
-                                    <input type="date">
-                                    <input type="date">
-                                    <button>Envoyer</button>
-                                    <button>Annuler</button>
+                                    <div class="range_inputs">
+                                        <div class="datepicker-cont daterangepicker_start_input">
+                                            <label for="daterangepicker_start">Depuis</label><input class="input-mini" type="text" name="daterangepicker_start" value="">
+                                        </div>
+                                        <div class="datepicker-cont daterangepicker_end_input">
+                                            <label for="daterangepicker_end">jusqu'à</label>
+                                            <input class="input-mini" type="text" name="daterangepicker_end" value="">
+                                        </div>
+                                    </div>
+                                    <button class="btn">Envoyer</button>
+                                    <button class="btn-inverse">Annuler</button>
                                 </div>
+                                <!-- TODO ME : AJOUTER COOL DATEPICKER -->
                             </div>
                         </div>
-                        <div class="float-middle">
+                        <div class="float-middle input-separation">
                             <input type="text" placeholder="Choissez une province"/>
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div class="float-middle">
-                            <div class="float-middle">
-                                <input type="number" placeholder="Prix minimum"/>
+                        <div class="float-middle input-separation">
+                            <div class="float-middle input-separation">
+                                <div class="input-field number-euro">
+                                    <input type="number" placeholder="Prix minimum"/>
+                                </div>
                             </div>
-                            <div class="float-middle">
-                                <input type="number" placeholder="Prix maximum"/>
+                            <div class="float-middle input-separation">
+                                <div class="input-field number-euro">
+                                    <input type="number" placeholder="Prix maximum"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="float-middle">
-                            <input type="text" placeholder="Code Postaux"/><a href="" class="btn">Map</a>
+                        <div class="float-middle input-separation m-input-postalcode">
+                            <input type="text" placeholder="Code Postaux"/>
+                            <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> Map</a>
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div class="float-middle">
+                        <div class="float-middle input-separation">
                             <input type="text" placeholder="Mots Clefs"/>
                         </div>
-                        <div class="float-middle">
-                            <div class="float-middle">
-                                <input type="radio"/>FR/NL
-                                <input type="radio"/>FR
-                                <input type="radio"/>NL
+                        <div class="float-middle input-separation">
+                            <div class="float-middle ">
+                                <label class="radio-inline"> 
+                                    <input type="radio" value="all" name="lang">FR/NL
+                                </label> 
+                                <label class="radio-inline">
+                                    <input type="radio" value="fr" name="lang" checked="checked">FR
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="nl" name="lang">NL
+                                </label>
                             </div>
                             <div class="float-middle">
-                                <input type="radio"/>Vente 
-                                <input type="radio"/>Location
+                                <label class="radio-inline pull-right">
+                                    <input type="radio" value="location" name="sell_location">Location
+                                </label>
+                                  <label class="radio-inline pull-right">
+                                    <input type="radio" value="sell" checked="checked" name="sell_location">Vente
+                                </label>
                             </div>
                         </div>
                     </div>
                     <a href="" class="btn">Rechercher</a>
                     <p>Si vous changez votre zone d'action habituelle ( provinces, codes postaux ), rafraichissez la page après avoir cliqué sur le bouton 'rechercher'. De cette manière vous importerez plus d'annonces.</p>
                 </div>
-                
-                <div>
-                    <ul>
-                        <li>Titre</li>
-                        <li>Code postal</li>
-                        <li>Site</li>
-                        <li>Date</li>
-                        <li>Visité</li>
-                        <li>Action</li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <article>
-                                <h3>Huis in Veurne</h3>
-                                <p>8630</p>
-                                <p>249,000 €</p>
-                                <p>Kapaza</p>
-                                <p>30/01/2017</p>
-                                <p><input type="checkbox"/></p>
+                <table  class="table table-striped table-bordered table-hover dt-responsive" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Code postal</th>
+                            <th>Site</th>
+                            <th>Date</th>
+                            <th>Visité</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Huis in Veurne</td>
+                            <td>8630</td>
+                            <td>249,000 €</td>
+                            <td>Kapaza</td>
+                            <td>30/01/2017</td>
+                            <td>    
                                 <ul>
                                     <li><a href="">Exporter</a></li>
                                     <li><a href="">Heart</a></li>
                                     <li><a href="">Téléphoner</a></li>
                                     <li><a href="">List</a></li>
                                 </ul>
-                                <div>
-                                    <h4>Id:</h4> <p>pdX9wHAeg8dJTpRbK</p>
-                                    <h4>Prix:</h4>   <p>249,000 €</p>
-                                    <h4>Publications: </h4>  <p>26/12/2016,...,24/01/2017 30/01/2017</p>
-                                    <h4>Adresse:</h4>    <p>Furnes Non communiqu退</p>
-                                    <h4>Province:</h4>   <p>Flandre occidentale</p>
-                                    <h4>Ville:</h4>  <p>Furnes</p>
-                                    <h4>Espace:</h4> <p>244 m2</p>
-                                    <h4>Chambres:</h4>   <p>4</p>
-                                    <h4>Description:</h4>    
-                                    <p>Ruime woning met zonnige koer en dakterras te koop in het centrum van Veurne. Deze woning heeft tal van mogelijkheden en werd voorheen uitgebaat als B&B. Deze B&B werd dan ook met een ster opgenomen in de groene Michelingids.De woning omvat: ruime inkom - living met aparte eetruimte - keuken - veranda met zicht op de zonnige koer - toilet - douche - dakterras. Op de eerste verdieping zijn er twee slaapkamers en een badkamer met ligbad en toilet . Op de bovenste verdieping zijn er opnieuw twee slaapkamers en een badkamer met toilet. De ganse woning is voorzien van centrale verwarming op aardgas.In de living staat er een houtkachel / kolenkachel. Deze woning heeft ook een uitgang langs de achterzijde. Klein beschrijf. Aarzel niet om ons te contacteren voor een bezoek aan deze woning</p>     
-
-                                    <a href="">Voir l'annonce</a>
-
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
-                </div>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>Huis in Veurne</td>
+                            <td>8630</td>
+                            <td>249,000 €</td>
+                            <td>Kapaza</td>
+                            <td>30/01/2017</td>
+                            <td>    
+                                <ul>
+                                    <li><a href="">Exporter</a></li>
+                                    <li><a href="">Heart</a></li>
+                                    <li><a href="">Téléphoner</a></li>
+                                    <li><a href="">List</a></li>
+                                </ul>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>Huis in Veurne</td>
+                            <td>8630</td>
+                            <td>249,000 €</td>
+                            <td>Kapaza</td>
+                            <td>30/01/2017</td>
+                            <td>    
+                                <ul>
+                                    <li><a href="">Exporter</a></li>
+                                    <li><a href="">Heart</a></li>
+                                    <li><a href="">Téléphoner</a></li>
+                                    <li><a href="">List</a></li>
+                                </ul>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 <a href="">Charger plus d'annonces</a>
             </section>
             <footer class="footer-annonces">

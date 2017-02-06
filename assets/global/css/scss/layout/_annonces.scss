@@ -100,7 +100,7 @@
 	background:white;
 	margin:20px;
 	position:relative;
-	padding: 45px 20px 20px 20px;
+	padding: 30px 20px 20px 20px;
 }
 .l-annonces-search
 {
@@ -121,20 +121,126 @@
     }
 }
 
+/* */
 /* FORM */
+/* */
 
+/* TOP */
 .l-top-annonces-export
 {
 	border-bottom:1px solid #e7eaec;
-	padding:10px 0;
+	padding: 5px 15px;
 	display:block;
+	margin-bottom:15px;
+	.btn-inverse 
+	{
+		float:right;
+	}
 }
 .number-annonces
 {
-	font-size:0.7em;
+	font-size:0.8em;
+	padding:0;
 	span 
 	{
 		font-size: 14px;
 		font-weight:bold;
+	}
+}
+/* BTN */
+.l-annonces-form
+{
+	.input-separation
+	{
+		margin-bottom:15px;
+	}
+	.input-separation:first-child 
+	{
+		padding-right: 15px;
+	}
+	.input-separation:last-child 
+	{
+		padding-left: 15px;
+	}
+	input[type="number"]
+	{
+		width: calc(100% - 33px);
+	}
+	.dropdown-container a
+	{
+		@extend .input;
+	}
+	.radio-inline
+	{
+		margin-right:10px;
+	}
+}
+.dropdown-dates
+{
+	z-index:10;
+	left:0;
+	right:initial;
+	top:50px;
+	padding:10px;
+	ul 
+	{
+		padding:0 0 10px;
+	}
+	li:last-child a {
+	    border-bottom: 1px solid #e5e6e7 !important;
+	}
+	a 
+	{
+		margin-bottom:5px !important; 
+		border-radius:10px !important; 
+
+	}
+	&:before
+	{
+		content:"";
+		position:absolute;
+		left:20px;
+		top:-5px;
+		width:10px;
+		border:1px solid #e5e5e5;
+		height:10px;
+		-webkit-transform:rotate(-45deg);
+		-moz-transform:rotate(-45deg);
+		transform:rotate(-45deg);
+	}
+	&:after
+	{
+		content: "";
+	    position: absolute;
+	    left: 20px;
+	    top: -3px;
+	    width: 11px;
+	    background: white;
+	    height: 11px;
+		-webkit-transform:rotate(-45deg);
+		-moz-transform:rotate(-45deg);
+		transform:rotate(-45deg);
+	}
+	.btn, .btn-inverse
+	{
+		margin:20px 0 10px;
+		display:inline-block;
+	}
+}
+.range_inputs
+{
+	@extend .clearfix;
+	.datepicker-cont 
+	{
+		width:50%;
+		float:left;
+		margin:0;
+		padding:0;
+		padding-right:15px;
+	}
+	.datepicker-cont:last-child 
+	{
+		padding-right:0;
+		padding-left:15px;
 	}
 }

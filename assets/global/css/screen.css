@@ -95,24 +95,25 @@
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.clearfix:before, .content:before, .l-header:before, .l-nav-big a:before,
+.clearfix:before, .content:before, .l-header:before, .l-nav-big a:before, .range_inputs:before,
 .clearfix:after,
 .content:after,
 .l-header:after,
-.l-nav-big a:after {
+.l-nav-big a:after,
+.range_inputs:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.clearfix:after, .content:after, .l-header:after, .l-nav-big a:after {
+.clearfix:after, .content:after, .l-header:after, .l-nav-big a:after, .range_inputs:after {
   clear: both; }
 
 /*
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.clearfix, .content, .l-header, .l-nav-big a {
+.clearfix, .content, .l-header, .l-nav-big a, .range_inputs {
   *zoom: 1; }
 
 /* =Layout
@@ -163,7 +164,7 @@
    Tools/Grille
    =========================== */
 @media screen and (min-width: 992px) {
-  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p {
+  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p {
     width: 50%;
     float: left;
     margin: 0;
@@ -633,7 +634,7 @@ input[type="email"],
 input[type="password"],
 input[type="date"],
 input[type="search"],
-textarea {
+textarea, .input, .l-annonces-form .dropdown-container a {
   background-color: #FFFFFF;
   background-image: none;
   border: 1px solid #e5e6e7;
@@ -643,40 +644,76 @@ textarea {
   padding: 6px 12px;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   width: 100%;
-  font-size: 14px; }
+  font-size: 14px;
+  -webkit-appearance: none; }
   input[type="text"]::-webkit-input-placeholder,
   input[type="number"]::-webkit-input-placeholder,
   input[type="email"]::-webkit-input-placeholder,
   input[type="password"]::-webkit-input-placeholder,
   input[type="date"]::-webkit-input-placeholder,
   input[type="search"]::-webkit-input-placeholder,
-  textarea::-webkit-input-placeholder {
-    color: inherit; }
+  textarea::-webkit-input-placeholder, .input::-webkit-input-placeholder, .l-annonces-form .dropdown-container a::-webkit-input-placeholder {
+    color: #acacac; }
   input[type="text"]:-moz-placeholder,
   input[type="number"]:-moz-placeholder,
   input[type="email"]:-moz-placeholder,
   input[type="password"]:-moz-placeholder,
   input[type="date"]:-moz-placeholder,
   input[type="search"]:-moz-placeholder,
-  textarea:-moz-placeholder {
-    color: inherit; }
+  textarea:-moz-placeholder, .input:-moz-placeholder, .l-annonces-form .dropdown-container a:-moz-placeholder {
+    color: #acacac; }
   input[type="text"]:-ms-input-placeholder,
   input[type="number"]:-ms-input-placeholder,
   input[type="email"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder,
   input[type="date"]:-ms-input-placeholder,
   input[type="search"]:-ms-input-placeholder,
-  textarea:-ms-input-placeholder {
-    color: inherit; }
+  textarea:-ms-input-placeholder, .input:-ms-input-placeholder, .l-annonces-form .dropdown-container a:-ms-input-placeholder {
+    color: #acacac; }
   input[type="text"]:focus,
   input[type="number"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus,
   input[type="date"]:focus,
   input[type="search"]:focus,
-  textarea:focus {
+  textarea:focus, .input:focus, .l-annonces-form .dropdown-container a:focus {
     outline: 0;
     border-color: #1ab394 !important; }
+
+.input-field {
+  position: relative; }
+
+.number-euro input {
+  width: calc(100% - 32px); }
+.number-euro:after {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f153";
+  position: absolute;
+  right: 0;
+  width: 33px;
+  border: 1px solid #e5e6e7;
+  top: 0;
+  padding: 9px 12px; }
+
+.radio-inline input {
+  margin-right: 5px; }
+
+.m-input-postalcode input {
+  width: calc(100% - 67px);
+  display: inline-block;
+  margin: 0 -4px 0 0; }
+.m-input-postalcode a {
+  padding: 5px 12px;
+  font-size: 14px;
+  width: 67px;
+  margin: 0;
+  display: inline-block;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px; }
 
 /* ==|====================
    Base/Typos // Import, Tailles, couleurs, fonts
@@ -957,18 +994,18 @@ a.profile-btn {
   background: url("img/word_map.png") center top no-repeat;
   margin-top: 30px;
   text-align: center; }
-  .l-landing-contact .clearfix, .l-landing-contact .content, .l-landing-contact .l-header, .l-landing-contact .l-nav-big a, .l-nav-big .l-landing-contact a {
+  .l-landing-contact .clearfix, .l-landing-contact .content, .l-landing-contact .l-header, .l-landing-contact .l-nav-big a, .l-nav-big .l-landing-contact a, .l-landing-contact .range_inputs {
     max-width: 550px;
     margin: 10px auto 50px;
     display: block; }
-  .l-landing-contact .clearfix p:first-child, .l-landing-contact .content p:first-child, .l-landing-contact .l-header p:first-child, .l-landing-contact .l-nav-big a p:first-child, .l-nav-big .l-landing-contact a p:first-child {
+  .l-landing-contact .clearfix p:first-child, .l-landing-contact .content p:first-child, .l-landing-contact .l-header p:first-child, .l-landing-contact .l-nav-big a p:first-child, .l-nav-big .l-landing-contact a p:first-child, .l-landing-contact .range_inputs p:first-child {
     font-size: 13px;
     color: #1ab394;
     font-weight: bolder; }
-  .l-landing-contact .clearfix p:last-child, .l-landing-contact .content p:last-child, .l-landing-contact .l-header p:last-child, .l-landing-contact .l-nav-big a p:last-child, .l-nav-big .l-landing-contact a p:last-child {
+  .l-landing-contact .clearfix p:last-child, .l-landing-contact .content p:last-child, .l-landing-contact .l-header p:last-child, .l-landing-contact .l-nav-big a p:last-child, .l-nav-big .l-landing-contact a p:last-child, .l-landing-contact .range_inputs p:last-child {
     font-size: 16px; }
   @media screen and (min-width: 992px) {
-    .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p {
+    .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p {
       text-align: left; } }
 
 /* ==|======================
@@ -1029,7 +1066,7 @@ a.profile-btn {
   background: white;
   margin: 20px;
   position: relative;
-  padding: 45px 20px 20px 20px; }
+  padding: 30px 20px 20px 20px; }
 
 .l-annonces-search:before, .l-annonces-search:after {
   content: "";
@@ -1043,17 +1080,85 @@ a.profile-btn {
   background: #1ab394;
   width: calc(100% - 40px); }
 
+/* */
 /* FORM */
+/* */
+/* TOP */
 .l-top-annonces-export {
   border-bottom: 1px solid #e7eaec;
-  padding: 10px 0;
-  display: block; }
+  padding: 5px 15px;
+  display: block;
+  margin-bottom: 15px; }
+  .l-top-annonces-export .btn-inverse {
+    float: right; }
 
 .number-annonces {
-  font-size: 0.7em; }
+  font-size: 0.8em;
+  padding: 0; }
   .number-annonces span {
     font-size: 14px;
     font-weight: bold; }
+
+/* BTN */
+.l-annonces-form .input-separation {
+  margin-bottom: 15px; }
+.l-annonces-form .input-separation:first-child {
+  padding-right: 15px; }
+.l-annonces-form .input-separation:last-child {
+  padding-left: 15px; }
+.l-annonces-form input[type="number"] {
+  width: calc(100% - 33px); }
+.l-annonces-form .radio-inline {
+  margin-right: 10px; }
+
+.dropdown-dates {
+  z-index: 10;
+  left: 0;
+  right: initial;
+  top: 50px;
+  padding: 10px; }
+  .dropdown-dates ul {
+    padding: 0 0 10px; }
+  .dropdown-dates li:last-child a {
+    border-bottom: 1px solid #e5e6e7 !important; }
+  .dropdown-dates a {
+    margin-bottom: 5px !important;
+    border-radius: 10px !important; }
+  .dropdown-dates:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -5px;
+    width: 10px;
+    border: 1px solid #e5e5e5;
+    height: 10px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .dropdown-dates:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -3px;
+    width: 11px;
+    background: white;
+    height: 11px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  .dropdown-dates .btn, .dropdown-dates .btn-grey, .dropdown-dates .btn-inverse {
+    margin: 20px 0 10px;
+    display: inline-block; }
+
+.range_inputs .datepicker-cont {
+  width: 50%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  padding-right: 15px; }
+.range_inputs .datepicker-cont:last-child {
+  padding-right: 0;
+  padding-left: 15px; }
 
 /* Modules */
 /* ==|====================
@@ -1085,6 +1190,7 @@ a.profile-btn {
 
 .btn-inverse {
   display: inline-block;
+  background: white;
   padding: 10px 20px;
   color: #676a6c;
   border-radius: 3px;

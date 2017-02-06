@@ -4,6 +4,9 @@ var annonces = annonces || {
    tableObject : false
 };
 
+$(document).ready(function(){
+    $('#sample_1').DataTable();
+});
 
 
 /*********************************
