@@ -23,6 +23,24 @@
 		position:fixed;
 		top:0;
 	}
+	.max-width
+	{
+		max-width: 1170px;
+	    margin: 0 auto;
+	    display: block;
+	}
+	.l-header 
+	{
+		.max-width
+		{
+		    left: 50%;
+		    width: 100%;
+		    position: absolute;
+		    -moz-transform: translateX(-50%);
+		    -wekit-transform: translateX(-50%);
+		    transform: translateX(-50%);
+		}
+	}
 }
 .l-landing-welcome
 {
@@ -39,14 +57,16 @@
 		margin-bottom:15px;
 	}
 	@media screen and (min-width: $medium) {
-
-
+		padding:50px 150px;
+		.subtitle 
+		{
+			margin-top: 9px;
+		}
 	}
 }
 .link-password
 {
 	color:$textlight;
-	margin-top:20px;
 	display:inline-block;
 	font-size: 0.8em;
 }

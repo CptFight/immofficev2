@@ -18,6 +18,10 @@
         top:0;
         left:0;
     }
+    .max-width 
+    {
+        padding:0 15px;
+    }
 }
 .l-header.scroll 
 {
@@ -44,6 +48,7 @@ h1
     	padding: 15px 20px 15px 20px;
     	margin:-8px 0;
     	font-size:14px;
+        left:0px;
     	border-top-left-radius:0px;
     	border-top-right-radius:0px;
     }

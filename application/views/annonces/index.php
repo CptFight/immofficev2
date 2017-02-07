@@ -29,7 +29,7 @@
                     </li>
                 </ul>
             </div>
-            <section class="l-annonces-search l-annonces-section">
+            <section class="l-annonces-search l-annonces-section apparitionright">
                 <div class="clearfix l-top-annonces-export">
                     <!--<div class="float-middle">
                         <p class="number-annonces"><span>0</span> annonces trouvées 1715</p>
