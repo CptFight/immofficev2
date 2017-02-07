@@ -1,6 +1,6 @@
 <body class="l-annonces" id="annonces">
     <div class="wrapper">
-        <div class="content"  data-equalizer-max="menu">      
+        <div class="content" >      
             <header class="l-header clearfix">
                 <button id="btn-toggle-nav" class="btn"><i class="fa fa-navicon"></i></button>
                 <h1 class="visuallyhidden">Immoffice</h1>
@@ -22,7 +22,7 @@
             </header>
             <div class="title-container">
                 <h2>Annonces</h2>
-                <ul class="breadcrumb">
+                <ul>
                     <li>
                         <a href="">Accueil</a>
                         <a href="" class="active">Annonces</a>
@@ -42,14 +42,17 @@
                 <div class="l-annonces-form">
                     <div class="clearfix">
                         <div class="float-middle input-separation">
-                            <div class="dropdown-container">
+                            <div class="reportrange-container">
+                                <input type="text" name="daterange" id="reportrange" value="01/01/2015 - 01/31/2015" /> 
+                            </div>
+                            <!--<div class="dropdown-container">
                                 <div id="reportrange" class="form-group form-control">
                                     <i class="fa fa-calendar"></i>
                                     <span></span> <b class="caret"></b>
                                     <input type="hidden" id="date-min" value="" />
                                     <input type="hidden" id="date-max" value="" />
                                 </div>
-                              <!--  <a href="javascript:;" class="btn-dropdown" data-id="dates"><i class="fa fa-calendar"></i> January 29, 2017 - January 30, 2017</a>
+                               <a href="javascript:;" class="btn-dropdown" data-id="dates"><i class="fa fa-calendar"></i> January 29, 2017 - January 30, 2017</a>
                                 <div class="dropdown hidden dropdown-dates" id="dates">
                                     <ul>
                                         <li><a href="">Aujourd'hui</a></li>
@@ -70,9 +73,8 @@
                                     </div>
                                     <button class="btn">Envoyer</button>
                                     <button class="btn-inverse">Annuler</button>
-                                </div>-->
-                                <!-- TODO ME : AJOUTER COOL DATEPICKER -->
-                            </div>
+                                </div>
+                            </div>-->
                         </div>
                         <div class="float-middle input-separation">
                             <input type="text" placeholder="Choissez une province"/>
@@ -100,8 +102,8 @@
                         <!--<div class="float-middle input-separation">
                             <input type="text" placeholder="Mots Clefs"/>
                         </div>-->
-                        <div class="float-middle input-separation">
-                            <div class="float-middle ">
+                        <div class="float-middle">
+                            <div class="float-middle input-separation">
                                 <label class="radio-inline"> 
                                     <input type="radio" value="all" name="lang">FR/NL
                                 </label> 
@@ -112,13 +114,11 @@
                                     <input type="radio" value="nl" name="lang">NL
                                 </label>
                             </div>
-                        </div>
-                        <div class="float-middle input-separation">
-                            <div class="float-middle">
-                                <label class="radio-inline pull-right">
+                            <div class="float-middle input-separation">
+                                <label class="radio-inline">
                                     <input type="radio" value="location" name="sell_location">Location
                                 </label>
-                                  <label class="radio-inline pull-right">
+                                  <label class="radio-inline">
                                     <input type="radio" value="sell" checked="checked" name="sell_location">Vente
                                 </label>
                             </div>
@@ -127,35 +127,37 @@
                     <a href="" class="btn">Rechercher</a>
                     <br/>
                 </div>
-                <table  class="table table-striped table-bordered table-hover dt-responsive" id="sample_1">
-                    <thead>
-                        <tr>
-                            <th >Titre</th>
-                            <th >Code postal</th>
-                            <th >Prix</th>
-                            <th >Site web</th>
-                            <th >Date</th>
-                            <th >Visité</th>
-                            <th >Action</th>
-                        </tr>
-                    </thead>
+                <div class="table-responsive">
+                    <table class="footable table table-stripped toggle-arrow-tiny default breakpoint " data-page-size="50" id="sample_1">
+                        <thead>
+                            <tr>
+                                <th >Titre</th>
+                                <th >Code postal</th>
+                                <th >Prix</th>
+                                <th >Site web</th>
+                                <th >Date</th>
+                                <th >Visité</th>
+                                <th >Action</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                    <?php foreach($annonces as $key => $annonce){ ?>
-                        <tr>
-                            <td><?php echo $annonce->title; ?></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
+                        <tbody>
+                        <?php foreach($annonces as $key => $annonce){ ?>
+                            <tr>
+                                <td><?php echo $annonce->title; ?></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
 
-                  
-                </table>
+                      
+                    </table>
+                </div>
                 <a href="">Charger plus d'annonces</a>
             </section>
             <footer class="footer-annonces">
@@ -164,7 +166,7 @@
         </div>
         
         </div>
-        <aside class="l-nav-aside hide" data-equalizer-max="menu">
+        <aside class="l-nav-aside hide-menu" >
             <ul class="l-nav-small">
                 <li><a href="">Besoin d'aide?</a></li>
                 <li><a href="">Notifications<span></span></a></li>

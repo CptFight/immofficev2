@@ -52,6 +52,10 @@
     font-size: 14px;
     z-index:100;
 }
+#btn-toggle-nav:hover, #btn-toggle-nav:focus
+{
+	color:white;
+}
 .l-landing #btn-toggle-nav
 {
 	position: fixed;
@@ -77,11 +81,11 @@
 		padding: 14px 20px 14px 25px;
 		color:$textbluelight;
 		font-weight: 600;
-		border-left:4px solid $bg-blue;
+		border-left:0px solid $bg-blue;
 	}
 	a:hover, a.active
 	{
-		border-left:10px solid $green;
+		border-left:4px solid $green;
 		background:$bg-blue-dark;
 		color:white;
 	}
@@ -130,7 +134,7 @@ a.profile-btn
 		color:white;
 	}
 }
-.l-nav-aside.hide 
+.l-nav-aside.hide-menu 
 {
 	margin-left:-220px;
 
@@ -156,7 +160,7 @@ a.profile-btn
 	}
 }
 @media screen and (min-width: $small - 1) {
-	.l-nav-aside.hide 
+	.l-nav-aside.hide-menu
 	{
 		width:220px;
 	}
@@ -169,7 +173,7 @@ a.profile-btn
 			display:none;
 		}
 	}
-	.l-nav-aside.hide 
+	.l-nav-aside.hide-menu 
 	{
 		.l-nav-big span
 		{

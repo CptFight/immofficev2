@@ -68,7 +68,7 @@
     color: #a7b1c2;
     display:none;
 }
-.l-nav-aside.hide  
+.l-nav-aside.hide-menu  
 {
 	.dropdown-profile
 	{
@@ -154,21 +154,16 @@
 	{
 		margin-bottom:15px;
 	}
-	.input-separation:first-child 
-	{
-		padding-right: 15px;
-	}
-	.input-separation:last-child 
-	{
-		padding-left: 15px;
-	}
-	input[type="number"]
-	{
-		width: calc(100% - 33px);
-	}
-	.dropdown-container a
-	{
-		@extend .input;
+	@media screen and (min-width: $medium) {
+		
+		.input-separation:first-child 
+		{
+			padding-right: 15px;
+		}
+		.input-separation:last-child 
+		{
+			padding-left: 15px;
+		}
 	}
 	.radio-inline
 	{

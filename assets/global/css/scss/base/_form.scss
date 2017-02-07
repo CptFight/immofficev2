@@ -83,3 +83,25 @@ textarea, .input{
        border-bottom-left-radius:0px;
     }
 }
+.reportrange-container
+{
+    position:relative;
+    input 
+    {
+        padding-left: 33px;
+    }
+    &:after 
+    {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        content: "\f073";
+        position: absolute;
+        left: 13px;
+        width:33px;
+        top: 9px;
+    }
+        
+}

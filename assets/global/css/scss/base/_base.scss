@@ -28,6 +28,11 @@ a {
     overflow:hidden;
     width:100%;
 }
+.wrapper-size
+{
+    max-width:1170px; 
+    margin: 0 auto;
+}
 .content 
 {
     @extend .clearfix;

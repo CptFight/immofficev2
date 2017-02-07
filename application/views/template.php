@@ -10,17 +10,9 @@
         <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, corrupti, fugit, vero ipsum nobis esse asperiores eligendi quam rerum nisi nulla nemo quod! Iusto, incidunt repudiandae sed enim est recusandae." />
         <meta name="keywords" content="mot, mot, mot" />
         <meta name="google-site-verification" content="ohU9UZxMyldgxXdJeX3kRO9RZpwDAnAmko9c36AeN7s" />
+        <?php $this->load->view('common/css') ?>
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-2.2.4/dt-1.10.13/datatables.min.css"/>
-
-         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/global/plugins/daterangepicker/daterangepicker.css"/>
-
-             <link href="<?php echo base_url(); ?>/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />   
-        <link href="<?php echo base_url(); ?>/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
-
-        <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>assets/global/css/screen.css">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="favicon.ico" />
         <script src="<?php echo base_url(); ?>/assets/global/libs/modernizr.js"></script>

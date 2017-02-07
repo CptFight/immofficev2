@@ -37,6 +37,7 @@ annonces.initTableDatatablesResponsive = function () {
                 "zeroRecords": "No matching records found",
                 
             },
+            searching:false,
             /* for loadging server side. */
             "processing": true,
             "serverSide": true,
@@ -57,11 +58,7 @@ annonces.initTableDatatablesResponsive = function () {
             ],
 
             // setup responsive extension: http://datatables.net/extensions/responsive/
-            responsive: {
-                details: {
-                   
-                }
-            },
+            responsive: true,
             parseTime: false,
             fnDrawCallback : function(){
                 annonces.bind();
@@ -197,6 +194,9 @@ annonces.init = function(){
 *********************************/
 $(document).ready(function() {     
     annonces.init();
+
+
+
 });
 
 
