@@ -102,6 +102,6 @@ if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'ImmofficeV2
 	$db['default']['database'] = 'immofficeimport';
 	$db['default']['hostname'] = '188.166.33.69';*/
 
-	$db['default']['password'] = 'root';
+	$db['default']['password'] = 'mysql';
 }
 

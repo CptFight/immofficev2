@@ -6,6 +6,13 @@ class Annonces extends CI_Controller {
 	public function index() {
 		$this->lang->load('annonces', 'french');
 
+		if($this->input->post('search')){
+			echo "<pre style='float:right'>";
+			print_r($this->input->post());
+			echo "</pre>";
+
+		}
+
 		/* Custom Scripts */
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
 
@@ -19,6 +26,8 @@ class Annonces extends CI_Controller {
 		//echo "test".count($this->data['Annonces']); die();
 
 		$this->load->view('template', $this->data);
+
+
 	}
 
 	public function getDatas(){
@@ -120,7 +129,8 @@ class Annonces extends CI_Controller {
 				$product->web_site,
 				date('d/m/Y',$product->date_publication),
 				'',
-				"<a href='".$product->url."' target='_blank'>Voir l'annonce</a>"
+				"<a href='".$product->url."' target='_blank'>Voir l'annonce</a>",
+				''
 				
 			);
 		}
