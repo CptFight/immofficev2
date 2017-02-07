@@ -31,12 +31,12 @@
             </div>
             <section class="l-annonces-search l-annonces-section">
                 <div class="clearfix l-top-annonces-export">
-                    <div class="float-middle">
+                    <!--<div class="float-middle">
                         <p class="number-annonces"><span>0</span> annonces trouvées 1715</p>
                     </div>
                     <div class="float-middle">
                         <a href="" class="btn-inverse">Exporter</a>
-                    </div>
+                    </div>-->
                 </div>
                 <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
                 <div class="l-annonces-form">
@@ -158,7 +158,7 @@
                       
                     </table>
                 </div>
-                <a href="">Charger plus d'annonces</a>
+                <!--<a href="" class="btn">Charger plus d'annonces</a>-->
             </section>
             <footer class="footer-annonces">
                 <p><span>Copyright</span> Immoffice © 2016-2017</p>

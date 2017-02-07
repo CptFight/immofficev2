@@ -1,0 +1,27 @@
+.dataTables_wrapper
+{
+	position:inherit;
+}
+
+.dataTables_wrapper
+{
+	& > .row:first-child
+	{
+		position: absolute;
+    	top: 40px;
+    	right:20px;
+	}
+	.dt-button 
+	{
+		@extend .btn-inverse;
+	}
+	.button.dt-button:hover:not(.disabled), div.dt-button:hover:not(.disabled), a.dt-button:hover:not(.disabled)
+	{
+		display:inline-block;
+    	padding: 10px 20px;
+    	color:$textdark;
+        background: $bg-grey-light;
+    	border-radius: 3px;
+    	border: 1px solid #e7eaec;
+	}
+}
