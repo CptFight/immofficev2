@@ -122,67 +122,31 @@
                 <table  class="table table-striped table-bordered table-hover dt-responsive" id="sample_1">
                     <thead>
                         <tr>
-                            <th>Titre</th>
-                            <th>Code postal</th>
-                            <th>Site</th>
-                            <th>Date</th>
-                            <th>Visité</th>
-                            <th>Action</th>
+                            <th >Titre</th>
+                            <th >Code postal</th>
+                            <th >Prix</th>
+                            <th >Site web</th>
+                            <th >Date</th>
+                            <th >Visité</th>
+                            <th >Action</th>
                         </tr>
                     </thead>
+
                     <tbody>
+                    <?php foreach($annonces as $key => $annonce){ ?>
                         <tr>
-                            <td>Huis in Veurne</td>
-                            <td>8630</td>
-                            <td>249,000 €</td>
-                            <td>Kapaza</td>
-                            <td>30/01/2017</td>
-                            <td>    
-                                <ul>
-                                    <li><a href="">Exporter</a></li>
-                                    <li><a href="">Heart</a></li>
-                                    <li><a href="">Téléphoner</a></li>
-                                    <li><a href="">List</a></li>
-                                </ul>
-                            </td>
-                            <td>
-                            </td>
+                            <td><?php echo $annonce->title; ?></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                         <tr>
-                            <td>Huis in Veurne</td>
-                            <td>8630</td>
-                            <td>249,000 €</td>
-                            <td>Kapaza</td>
-                            <td>30/01/2017</td>
-                            <td>    
-                                <ul>
-                                    <li><a href="">Exporter</a></li>
-                                    <li><a href="">Heart</a></li>
-                                    <li><a href="">Téléphoner</a></li>
-                                    <li><a href="">List</a></li>
-                                </ul>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                         <tr>
-                            <td>Huis in Veurne</td>
-                            <td>8630</td>
-                            <td>249,000 €</td>
-                            <td>Kapaza</td>
-                            <td>30/01/2017</td>
-                            <td>    
-                                <ul>
-                                    <li><a href="">Exporter</a></li>
-                                    <li><a href="">Heart</a></li>
-                                    <li><a href="">Téléphoner</a></li>
-                                    <li><a href="">List</a></li>
-                                </ul>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
+                    <?php } ?>
                     </tbody>
+
+                  
                 </table>
                 <a href="">Charger plus d'annonces</a>
             </section>
