@@ -39,17 +39,18 @@
                     </div>-->
                 </div>
                 <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
+                <form action="" method="POST">
                 <div class="l-annonces-form">
                     <div class="clearfix">
                         <div class="float-middle input-separation">
                             <div class="reportrange-container">
                                 <input type="text" name="daterange" id="reportrange" value="01/01/2015 - 01/31/2015" /> 
-                                <input type="hidden" id="date-min" value="" />
-                                <input type="hidden" id="date-max" value="" />
+                                <input type="hidden" name="date-min" id="date-min" value="" />
+                                <input type="hidden" name="date-max" id="date-max" value="" />
                             </div>
                         </div>
                         <div class="float-middle input-separation">
-                            <select data-placeholder="<?php echo $this->lang->line('choose_province'); ?>" id="province" class="chosen-select form-control" multiple tabindex="4">
+                            <select name="province" data-placeholder="<?php echo $this->lang->line('choose_province'); ?>" id="province" class="chosen-select form-control" multiple tabindex="4">
                                 <option value="Anvers"><?php echo $this->lang->line('anvers'); ?></option>
                                 <option value="Limbourg"><?php echo $this->lang->line('limbourg'); ?></option>
                                 <option value="Bruxelles"><?php echo $this->lang->line('bruxelles'); ?></option>
@@ -68,32 +69,32 @@
                         <div class="float-middle input-separation">
                             <div class="float-middle input-separation">
                                 <div class="input-field number-euro">
-                                    <input type="number" id="price-min" placeholder="Prix minimum"/>
+                                    <input type="number" name="price-min" id="price-min" placeholder="Prix minimum"/>
                                 </div>
                             </div>
                             <div class="float-middle input-separation">
                                 <div class="input-field number-euro">
-                                    <input type="number" id="price-max" placeholder="Prix maximum"/>
+                                    <input type="number" name="price-max" id="price-max" placeholder="Prix maximum"/>
                                 </div>
                             </div>
                         </div>
                         <div class="float-middle input-separation m-input-postalcode">
-                            <input type="text" id="input-zipcode" placeholder="Code Postaux"/>
+                            <input type="text" id="input-zipcode" name="zipcode" placeholder="Code Postaux"/>
                             <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> Map</a>
                         </div>
                     </div>
                     <div class="clearfix">
                        <div class="radio-inline-cont pull-left">
                             <fieldset >
-                                <input name="numbers" type="radio" value="FR/NL" id="FR/NL">
+                                <input name="lang" type="radio" value="FR/NL" id="FR/NL">
                                 <label for="FR/NL">FR/NL</label>
                             </fieldset><!--
                              --><fieldset>
-                                <input name="numbers" type="radio" value="FR" id="FR">
+                                <input name="lang" type="radio" value="FR" id="FR">
                                 <label for="FR">FR</label>
                             </fieldset><!--
                              --><fieldset >
-                                <input name="numbers" type="radio" value="NL" id="NL">
+                                <input name="lang" type="radio" value="NL" id="NL">
                                 <label for="NL">NL</label>
                             </fieldset>
                         </div>
@@ -108,9 +109,11 @@
                             </fieldset>
                         </div>
                     </div>
-                    <a href="" class="btn submit">Rechercher</a>
+                    <input type="submit" name="search" class="btn submit">Rechercher</a>
+                    
                     <br/>
                 </div>
+                </form>
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="sample_1">
                         <thead>

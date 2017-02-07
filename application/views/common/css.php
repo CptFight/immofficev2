@@ -13,6 +13,7 @@
 
 <!-- RANGE PICKER -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/global/plugins/chosen/chosen.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/global/plugins/daterangepicker/daterangepicker.css"/>
 
 <!-- chosen -->
 <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>assets/global/css/screen.css">

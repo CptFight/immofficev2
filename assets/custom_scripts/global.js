@@ -1,8 +1,6 @@
 
 
-function translate(value){
-	return value;
-}
+
 
 /* ==|====================
    Main/JS
