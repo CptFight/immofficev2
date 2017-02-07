@@ -99,28 +99,33 @@
                         </div>
                     </div>
                     <div class="clearfix">
-                        <!--<div class="float-middle input-separation">
+                        <div class="float-middle input-separation">
                             <input type="text" placeholder="Mots Clefs"/>
-                        </div>-->
-                        <div class="float-middle">
-                            <div class="float-middle input-separation">
-                                <label class="radio-inline"> 
-                                    <input type="radio" value="all" name="lang">FR/NL
-                                </label> 
-                                <label class="radio-inline">
-                                    <input type="radio" value="fr" name="lang" checked="checked">FR
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" value="nl" name="lang">NL
-                                </label>
+                        </div>
+                        <div class="float-middle input-separation">
+                            <div class="radio-inline-cont pull-left">
+                                <fieldset >
+                                    <input name="numbers" type="radio" value="FR/NL" id="FR/NL">
+                                    <label for="FR/NL">FR/NL</label>
+                                </fieldset><!--
+                                 --><fieldset>
+                                    <input name="numbers" type="radio" value="FR" id="FR">
+                                    <label for="FR">FR</label>
+                                </fieldset><!--
+                                 --><fieldset >
+                                    <input name="numbers" type="radio" value="NL" id="NL">
+                                    <label for="NL">NL</label>
+                                </fieldset>
                             </div>
-                            <div class="float-middle input-separation">
-                                <label class="radio-inline">
-                                    <input type="radio" value="location" name="sell_location">Location
-                                </label>
-                                  <label class="radio-inline">
-                                    <input type="radio" value="sell" checked="checked" name="sell_location">Vente
-                                </label>
+                            <div class="radio-inline-cont pull-right">
+                                <fieldset >
+                                    <input name="vente" type="radio" value="Location" id="Location">
+                                    <label for="Location">Location</label>
+                                </fieldset><!--
+                                 --><fieldset>
+                                    <input name="vente" type="radio" value="Vente" id="Vente">
+                                    <label for="Vente">Vente</label>
+                                </fieldset>
                             </div>
                         </div>
                     </div>

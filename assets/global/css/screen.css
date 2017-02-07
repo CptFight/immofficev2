@@ -704,9 +704,6 @@ textarea, .input {
   top: 0;
   padding: 9px 12px; }
 
-.radio-inline input {
-  margin-right: 5px; }
-
 .m-input-postalcode input {
   width: calc(100% - 67px);
   display: inline-block;
@@ -735,6 +732,42 @@ textarea, .input {
     left: 13px;
     width: 33px;
     top: 9px; }
+
+.radio-inline-cont fieldset {
+  align-items: stretch;
+  flex-grow: 1;
+  flex-basis: auto;
+  display: flex;
+  padding: 0;
+  border: 0;
+  display: inline-block;
+  margin: 0 -1px 0 0; }
+.radio-inline-cont label {
+  display: inline-block;
+  background: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  color: #676a6c;
+  border-radius: 0px;
+  border: 1px solid #e7eaec;
+  display: inline-block;
+  cursor: pointer; }
+.radio-inline-cont fieldset:first-child label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px; }
+.radio-inline-cont fieldset:last-child label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; }
+.radio-inline-cont label:hover {
+  background-color: #f4f4f4; }
+.radio-inline-cont input[type="radio"] {
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer; }
+.radio-inline-cont input[type="radio"]:checked ~ label {
+  background-color: #1ab394;
+  color: white; }
 
 /* ==|====================
    Base/Typos // Import, Tailles, couleurs, fonts
@@ -1151,15 +1184,13 @@ a.profile-btn {
     font-weight: bold; }
 
 /* BTN */
-.l-annonces-form .input-separation {
+.l-annonces-form input, .l-annonces-form .radio-inline {
   margin-bottom: 15px; }
 @media screen and (min-width: 992px) {
   .l-annonces-form .input-separation:first-child {
     padding-right: 15px; }
   .l-annonces-form .input-separation:last-child {
     padding-left: 15px; } }
-.l-annonces-form .radio-inline {
-  margin-right: 10px; }
 
 .dropdown-dates {
   z-index: 10;
