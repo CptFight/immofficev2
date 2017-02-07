@@ -83,9 +83,9 @@
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div class="float-middle input-separation">
+                        <!--<div class="float-middle input-separation">
                             <input type="text" placeholder="Mots Clefs"/>
-                        </div>
+                        </div>-->
                         <div class="float-middle input-separation">
                             <div class="radio-inline-cont pull-left">
                                 <fieldset >
