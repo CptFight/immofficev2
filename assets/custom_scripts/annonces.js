@@ -89,6 +89,95 @@ annonces.initTableDatatablesResponsive = function () {
 };
 
 
+annonces.initSearchValues = function(){
+
+    var date_min = false;
+    var date_max = false;
+    var province = '';
+    var price_min = '';
+    var price_max = '';
+    var input_search = '';
+    var zipcodes = '';
+    var lang = 'fr';
+    var sale = 'sale';
+
+    jQuery("input[name='lang'][value='"+lang+"']").attr('checked', 'checked');
+    jQuery("input[name='sell_location'][value='"+sale+"']").attr('checked', 'checked');
+    
+    if(!date_min){
+        date_min = moment().subtract(1, 'days').format("X");
+    }
+
+    if(!date_max){
+        date_max = moment().format("X");
+    }
+
+    var today_label = translate('today');
+    var two_days_ago = translate('two_days_ago');
+    var one_week_ago = translate('one_week_ago');
+    var one_month_ago = translate('one_month_ago');
+    var since_begin_of_the_month = translate('since_begin_of_the_month');
+     
+    var ranges = [
+        today_label,
+        two_days_ago,
+        one_week_ago,
+        one_month_ago,
+        since_begin_of_the_month
+    ];
+
+    ranges[today_label] = [moment(), moment()];
+    ranges[two_days_ago] = [moment().subtract(1, 'days'), moment()];
+    ranges[one_week_ago] = [moment().subtract(6, 'days'), moment()];
+    ranges[one_month_ago] = [moment().subtract(29, 'days'), moment()];
+    ranges[since_begin_of_the_month] = [moment().startOf('month'), moment().endOf('month')];
+
+    $('#reportrange').daterangepicker({
+        format: 'DD/MM/YYYY',
+        startDate: moment.unix(date_min),
+        endDate: moment.unix(date_max),
+        minDate: '01/01/2016',
+        maxDate: '12/31/2019',
+        dateLimit: { days: 60 },
+        showDropdowns: true,
+        showWeekNumbers: true,
+        timePicker: false,
+        timePickerIncrement: 1,
+        timePicker12Hour: true,
+        ranges: ranges,
+        opens: 'right',
+        drops: 'down',
+        buttonClasses: ['btn', 'btn-sm'],
+        applyClass: 'btn-primary',
+        cancelClass: 'btn-default',
+        separator: translate('separator'),
+        locale: {
+            applyLabel: translate('submit'),
+            cancelLabel: translate('cancel'),
+            fromLabel: translate('from'),
+            toLabel: translate('to'),
+            customRangeLabel: translate('custom'),
+            daysOfWeek: [translate('week_7_small'),translate('week_1_small'), translate('week_2_small'), translate('week_3_small'), translate('week_4_small'), translate('week_5_small'), translate('week_6_small')],
+            monthNames: [translate('month_1'), translate('month_2'), translate('month_3'), translate('month_4'), translate('month_5'), translate('month_6'), translate('month_7'), translate('month_8'), translate('month_9'), translate('month_10'), translate('month_11'), translate('month_12')],
+            firstDay: 1
+        }
+    }, function(start, end, label) {
+        $('#annonces #date-min').val(start.hours(0).minutes(0).seconds(0).format("X"));
+        $('#annonces #date-max').val(end.hours(22).minutes(59).seconds(59).format("X"));
+    });
+
+    $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
+    $('#annonces #date-max').val(moment.unix(date_max).hours(22).minutes(59).seconds(59).format("X"));
+
+    $('#annonces #province').val(province);
+    $('#annonces #price-min').val(price_min);
+    $('#annonces #price-max').val(price_max);
+    $('#annonces #input-search').val(input_search);
+    $('#annonces #input-zipcode').val(zipcodes);
+
+}
+
+
 
 
 /*********************************
@@ -98,6 +187,7 @@ annonces.initTableDatatablesResponsive = function () {
 *********************************/
 annonces.init = function(){
     annonces.initTableDatatablesResponsive();
+    annonces.initSearchValues();
 }
 
 /*********************************

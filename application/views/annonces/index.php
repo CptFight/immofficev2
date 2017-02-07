@@ -1,4 +1,4 @@
-<body class="l-annonces">
+<body class="l-annonces" id="annonces">
     <div class="wrapper">
         <div class="content"  data-equalizer-max="menu">      
             <header class="l-header clearfix">
@@ -43,7 +43,13 @@
                     <div class="clearfix">
                         <div class="float-middle input-separation">
                             <div class="dropdown-container">
-                                <a href="javascript:;" class="btn-dropdown" data-id="dates"><i class="fa fa-calendar"></i> January 29, 2017 - January 30, 2017</a>
+                                <div id="reportrange" class="form-group form-control">
+                                    <i class="fa fa-calendar"></i>
+                                    <span></span> <b class="caret"></b>
+                                    <input type="hidden" id="date-min" value="" />
+                                    <input type="hidden" id="date-max" value="" />
+                                </div>
+                              <!--  <a href="javascript:;" class="btn-dropdown" data-id="dates"><i class="fa fa-calendar"></i> January 29, 2017 - January 30, 2017</a>
                                 <div class="dropdown hidden dropdown-dates" id="dates">
                                     <ul>
                                         <li><a href="">Aujourd'hui</a></li>
@@ -64,7 +70,7 @@
                                     </div>
                                     <button class="btn">Envoyer</button>
                                     <button class="btn-inverse">Annuler</button>
-                                </div>
+                                </div>-->
                                 <!-- TODO ME : AJOUTER COOL DATEPICKER -->
                             </div>
                         </div>

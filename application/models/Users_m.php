@@ -15,9 +15,10 @@ class Users_m extends CI_Model {
     }
 
 
-    function login($username, $password){
-     
-        return true;
+    function login($login, $password){
+        $this->db->where('login',$login);
+        $this->db->where('password',md5($password));
+        return $this->db->get($this->_db)->row();
     }
 
 

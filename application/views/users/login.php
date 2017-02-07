@@ -26,9 +26,9 @@
                     </div>
                     <div class="float-middle">
                         <form action="" method="POST">
-                            <input type="email" id="login-email" class="form-control" placeholder="Email" required="">
-                            <input type="password" id="login-password" class="form-control" placeholder="Mot de passe" required="">
-                            <input type="submit" class="btn" name="login" value="Se connecter" />
+                            <input type="email" id="login-email" name="login" class="form-control" placeholder="Email" required="">
+                            <input type="password" id="login-password" name="password" class="form-control" placeholder="Mot de passe" required="">
+                            <input type="submit" class="btn" name="send-login" value="Se connecter" />
                         </form>
                         <a href="" class="link-password">Mot de passe oublié</a>
                     </div>
