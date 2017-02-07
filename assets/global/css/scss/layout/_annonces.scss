@@ -151,7 +151,7 @@
 /* BTN */
 .l-annonces-form
 {
-	input, .radio-inline
+	input, .radio-inline, .chosen-container
 	{
 		margin-bottom:15px;
 	}
@@ -165,6 +165,10 @@
 		{
 			padding-left: 15px;
 		}
+	}
+	.btn.submit
+	{
+		margin-top:10px;
 	}
 }
 .dropdown-dates

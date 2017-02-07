@@ -15,6 +15,8 @@
 
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/datatables/datatables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+
 
 <!-- RANGEPICKER -->
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/scripts/moment.js"></script>
