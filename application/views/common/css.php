@@ -10,7 +10,7 @@
 <link href="<?php echo base_url(); ?>/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
 
 <!-- RANGE PICKER -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/global/plugins/daterangepicker/daterangepicker.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/global/plugins/chosen/chosen.css"/>
 
-
+<!-- chosen -->
 <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>assets/global/css/screen.css">
