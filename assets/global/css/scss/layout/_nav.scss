@@ -165,6 +165,10 @@ a.profile-btn
 	background:url("img/bg-annonces-big.png") left top;
 	background-repeat: repeat-y;
 }
+.l-landing .wrapper 
+{
+	background:white !important;
+}
 @media screen and (min-width: $small - 1) {
 	.l-nav-aside.hide-menu
 	{
