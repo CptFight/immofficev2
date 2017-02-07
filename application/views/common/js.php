@@ -9,7 +9,7 @@
 
 
 <!-- BOOTSTRAP -->
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- DATATABLE -->
 
