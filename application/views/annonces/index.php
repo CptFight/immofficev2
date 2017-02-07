@@ -91,9 +91,9 @@
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div class="float-middle input-separation">
+                        <!--<div class="float-middle input-separation">
                             <input type="text" placeholder="Mots Clefs"/>
-                        </div>
+                        </div>-->
                         <div class="float-middle input-separation">
                             <div class="float-middle ">
                                 <label class="radio-inline"> 
@@ -106,6 +106,8 @@
                                     <input type="radio" value="nl" name="lang">NL
                                 </label>
                             </div>
+                        </div>
+                        <div class="float-middle input-separation">
                             <div class="float-middle">
                                 <label class="radio-inline pull-right">
                                     <input type="radio" value="location" name="sell_location">Location
@@ -117,7 +119,7 @@
                         </div>
                     </div>
                     <a href="" class="btn">Rechercher</a>
-                    <p>Si vous changez votre zone d'action habituelle ( provinces, codes postaux ), rafraichissez la page après avoir cliqué sur le bouton 'rechercher'. De cette manière vous importerez plus d'annonces.</p>
+                    <br/>
                 </div>
                 <table  class="table table-striped table-bordered table-hover dt-responsive" id="sample_1">
                     <thead>
