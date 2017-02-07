@@ -182,6 +182,7 @@ annonces.initSearchValues = function(){
     //$('#annonces #input-search').val(input_search);
     $('#annonces #input-zipcode').val(zipcodes);
 
+
 }
 
 /*********************************
