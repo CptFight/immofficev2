@@ -83,41 +83,36 @@
                         </div>
                     </div>
                     <div class="clearfix">
-                        <div class="float-middle input-separation">
-                            <input type="text" placeholder="Mots Clefs"/>
+                       <div class="radio-inline-cont pull-left">
+                            <fieldset >
+                                <input name="numbers" type="radio" value="FR/NL" id="FR/NL">
+                                <label for="FR/NL">FR/NL</label>
+                            </fieldset><!--
+                             --><fieldset>
+                                <input name="numbers" type="radio" value="FR" id="FR">
+                                <label for="FR">FR</label>
+                            </fieldset><!--
+                             --><fieldset >
+                                <input name="numbers" type="radio" value="NL" id="NL">
+                                <label for="NL">NL</label>
+                            </fieldset>
                         </div>
-                        <div class="float-middle input-separation">
-                            <div class="radio-inline-cont pull-left">
-                                <fieldset >
-                                    <input name="numbers" type="radio" value="FR/NL" id="FR/NL">
-                                    <label for="FR/NL">FR/NL</label>
-                                </fieldset><!--
-                                 --><fieldset>
-                                    <input name="numbers" type="radio" value="FR" id="FR">
-                                    <label for="FR">FR</label>
-                                </fieldset><!--
-                                 --><fieldset >
-                                    <input name="numbers" type="radio" value="NL" id="NL">
-                                    <label for="NL">NL</label>
-                                </fieldset>
-                            </div>
-                            <div class="radio-inline-cont pull-right">
-                                <fieldset >
-                                    <input name="vente" type="radio" value="Location" id="Location">
-                                    <label for="Location">Location</label>
-                                </fieldset><!--
-                                 --><fieldset>
-                                    <input name="vente" type="radio" value="Vente" id="Vente">
-                                    <label for="Vente">Vente</label>
-                                </fieldset>
-                            </div>
+                        <div class="radio-inline-cont pull-right">
+                            <fieldset >
+                                <input name="vente" type="radio" value="Location" id="Location">
+                                <label for="Location">Location</label>
+                            </fieldset><!--
+                             --><fieldset>
+                                <input name="vente" type="radio" value="Vente" id="Vente">
+                                <label for="Vente">Vente</label>
+                            </fieldset>
                         </div>
                     </div>
-                    <a href="" class="btn">Rechercher</a>
+                    <a href="" class="btn submit">Rechercher</a>
                     <br/>
                 </div>
                 <div class="table-responsive">
-                    <table class="footable table table-stripped toggle-arrow-tiny default breakpoint " data-page-size="50" id="sample_1">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="sample_1">
                         <thead>
                             <tr>
                                 <th >Titre</th>
@@ -127,6 +122,7 @@
                                 <th >Date</th>
                                 <th >Visité</th>
                                 <th >Action</th>
+                                <th class="none">Ajouts</ht>
                             </tr>
                         </thead>
 
@@ -140,6 +136,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td>Ajout</td>
                             </tr>
                         <?php } ?>
                         </tbody>

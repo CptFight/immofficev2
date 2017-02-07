@@ -37,7 +37,6 @@ annonces.initTableDatatablesResponsive = function () {
                 "zeroRecords": "No matching records found",
                 
             },
-            searching:false,
             /* for loadging server side. */
             "processing": true,
             "serverSide": true,

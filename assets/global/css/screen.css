@@ -1194,6 +1194,8 @@ a.profile-btn {
     padding-right: 15px; }
   .l-annonces-form .input-separation:last-child {
     padding-left: 15px; } }
+.l-annonces-form .btn.submit, .l-annonces-form .submit.btn-grey {
+  margin-top: 10px; }
 
 .dropdown-dates {
   z-index: 10;
