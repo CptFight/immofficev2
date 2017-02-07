@@ -8,7 +8,6 @@ function translate(value){
    Main/JS
    ======================= */
 
-
 /* ------ Dropdown ------*/
 /* --------------------- */
 $(".btn-dropdown").on("click", function(){
@@ -18,37 +17,49 @@ $(".btn-dropdown").on("click", function(){
 
 /* ------ Nav Toggle ---------- */
 /* ---------------------------- */
-$("#btn-toggle-nav").on("click" , function(){
+function togglemenu(){
 	$(".l-nav-aside").toggleClass("hide-menu");
-	if($(".content").hasClass("move"))
+	if($(".wrapper").hasClass("move"))
 	{
-		$(".content").toggleClass("move remove");
+		$(".wrapper").toggleClass("move remove");
 	}
 	else 
 	{
-		$(".content").addClass("move");
-		$(".content").removeClass("remove");
+		$(".wrapper").addClass("move");
+		$(".wrapper").removeClass("remove");
 	}
-});
-$(".l-nav-big a").on("click" , function(){
+}
+function clickmenu(){
 	$(".l-nav-aside").toggleClass("hide-menu");
-	$(".content").toggleClass("move remove");
-	
-});
+	$(".wrapper").toggleClass("move remove");
+}
+
 
 /* ------ Smooth Scroll ---- */
 /* ---------------------------- */
-$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
+function linkScroll(){
+  	$('a[href*="#"]:not([href="#"])').click(function() {
+    	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      		var target = $(this.hash);
+      		target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      		if (target.length) {
+        		$('html, body').animate({
+        	  		scrollTop: target.offset().top
+        		}, 1000);
+        		return false;
+      		}
+    	}
+	});
+}
+
+
+$(document).ready(function() {     
+    linkScroll();
+
+	$(".l-nav-big a").click( clickmenu );
+
+	$("#btn-toggle-nav").click( togglemenu);
+
+});
+$( window ).resize(function() {
 });

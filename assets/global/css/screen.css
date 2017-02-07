@@ -891,6 +891,14 @@ h1 {
       background: #293846;
       border-bottom: 1px solid #293846; }
 
+.wrapper.remove, .wrapper {
+  background: url("img/bg-annonces-big.png") left top;
+  background-repeat: repeat-y; }
+
+.wrapper.move {
+  background: url("img/bg-annonces-small.png") left top;
+  background-repeat: repeat-y; }
+
 .l-nav-big a {
   min-width: 200px; }
 .l-nav-big i {
@@ -914,16 +922,16 @@ a.profile-btn {
   margin-left: -220px; }
 
 @media screen and (max-width: 768px) {
-  .l-landing .content.move {
+  .l-landing .move .content {
     opacity: 0.3; }
 
-  .csstransforms .content.move {
+  .csstransforms .move .content {
     -webkit-animation: contentMove 0.3s forwards 0s ease-in-out;
     -moz-animation: contentMove 0.3s forwards 0s ease-in-out;
     -o-animation: contentMove 0.3s forwards 0s ease-in-out;
     animation: contentMove 0.3s forwards 0s ease-in-out; }
 
-  .csstransforms .content.remove {
+  .csstransforms .remove .content {
     -webkit-animation: contentReMove 0.3s  0s ease-in-out;
     -moz-animation: contentReMove 0.3s  0s ease-in-out;
     -o-animation: contentReMove 0.3s  0s ease-in-out;
@@ -941,13 +949,13 @@ a.profile-btn {
   .l-nav-aside.hide-menu .l-nav-big span {
     display: inline-block; }
 
-  .content.move {
+  .move .content {
     margin-left: 70px; }
 
-  .content.remove {
+  .remove .content {
     margin-left: 220px; }
 
-  .l-landing .content.move, .l-landing .content.remove {
+  .l-landing .move .content, .l-landing .remove .content {
     margin-left: 0px; } }
 /* ------ Nav BIG ------*/
 /* --------------------- */
