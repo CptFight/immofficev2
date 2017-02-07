@@ -1014,7 +1014,7 @@ a.profile-btn {
 .l-landing .wrapper {
   background: white !important; }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .l-nav-aside.hide-menu {
     width: 220px; }
 

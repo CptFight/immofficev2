@@ -140,7 +140,7 @@ a.profile-btn
 	margin-left:-220px;
 
 }
-@media screen and (max-width: $small - 1) {
+@media screen and (max-width: 768px) {
 	.l-landing .move .content
 	{
 		opacity:0.3;
@@ -169,7 +169,7 @@ a.profile-btn
 {
 	background:white !important;
 }
-@media screen and (min-width: $small - 1) {
+@media screen and (min-width: $small) {
 	.l-nav-aside.hide-menu
 	{
 		width:220px;
