@@ -101,16 +101,7 @@
 		}
 	}
 }
-.wrapper.remove, .wrapper 
-{
-	background:url("img/bg-annonces-big.png") left top;
-	background-repeat: repeat-y;
-}
-.wrapper.move
-{
-	background:url("img/bg-annonces-small.png") left top;
-	background-repeat: repeat-y;
-}
+
 .l-nav-big
 {
 	a 
@@ -169,6 +160,11 @@ a.profile-btn
 	  	animation:         contentReMove 0.3s  0s ease-in-out;
 	}
 }
+.wrapper.move
+{
+	background:url("img/bg-annonces-big.png") left top;
+	background-repeat: repeat-y;
+}
 @media screen and (min-width: $small - 1) {
 	.l-nav-aside.hide-menu
 	{
@@ -202,6 +198,16 @@ a.profile-btn
 	.l-landing .move .content, .l-landing .remove .content
 	{	
 		margin-left:0px;
+	}
+	.wrapper.remove, .wrapper 
+	{
+		background:url("img/bg-annonces-big.png") left top;
+		background-repeat: repeat-y;
+	}
+	.wrapper.move
+	{
+		background:url("img/bg-annonces-small.png") left top;
+		background-repeat: repeat-y;
 	}
 }
 /* ------ Nav BIG ------*/

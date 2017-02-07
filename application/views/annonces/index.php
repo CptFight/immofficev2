@@ -169,7 +169,7 @@
         <aside class="l-nav-aside hide-menu" >
             <ul class="l-nav-small">
                 <li><a href="">Besoin d'aide?</a></li>
-                <li><a href="">Notifications<span></span></a></li>
+                <li><a href="">Notifications <span class="badge">1</span></a></li>
                 <li><a href="">Se déconnecter</a></li>
                 <li class="dropdown-container">
                     <a href="javascript:;" class="btn-grey btn-dropdown" data-id="langue">Français</a>
@@ -194,7 +194,6 @@
                 <li><a href="" class='active'><i class="fa fa-search"></i><span>Annonces</span></a></li>
                 <li><a href=""><i class="fa fa-reddit"></i> <span>Alerte mail</span></a></li>
                 <li><a href=""><i class="fa fa-heart"></i> <span>Favoris</span></a></li>
-                <li><a href=""><i class="fa fa-heart"></i> <span >Favoris 2.0</span></a></li>
                 <li><a href=""><i class="fa fa-phone"></i> <span >Mes rappels</span></a></li>
                 <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>
                 <li><a href=""><i class="fa fa-calendar"></i> <span >News</span></a></li>
