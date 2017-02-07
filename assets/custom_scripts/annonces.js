@@ -88,6 +88,15 @@ annonces.initTableDatatablesResponsive = function () {
 
 annonces.initSearchValues = function(){
 
+    var config = {
+        '.chosen-select' : {
+           'width' : '100%'
+        }  
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
     var date_min = false;
     var date_max = false;
     var province = '';
@@ -116,11 +125,11 @@ annonces.initSearchValues = function(){
     var since_begin_of_the_month = translate('since_begin_of_the_month');
      
     var ranges = [
-        today_label,
+        /*today_label,
         two_days_ago,
         one_week_ago,
         one_month_ago,
-        since_begin_of_the_month
+        since_begin_of_the_month*/
     ];
 
     ranges[today_label] = [moment(), moment()];
@@ -128,13 +137,13 @@ annonces.initSearchValues = function(){
     ranges[one_week_ago] = [moment().subtract(6, 'days'), moment()];
     ranges[one_month_ago] = [moment().subtract(29, 'days'), moment()];
     ranges[since_begin_of_the_month] = [moment().startOf('month'), moment().endOf('month')];
-
+   
     $('#reportrange').daterangepicker({
-        format: 'DD/MM/YYYY',
         startDate: moment.unix(date_min),
         endDate: moment.unix(date_max),
-        minDate: '01/01/2016',
-        maxDate: '12/31/2019',
+        minDate: '01/01/2017',
+        maxDate: '12/31/2020',
+      
         dateLimit: { days: 60 },
         showDropdowns: true,
         showWeekNumbers: true,
@@ -149,6 +158,7 @@ annonces.initSearchValues = function(){
         cancelClass: 'btn-default',
         separator: translate('separator'),
         locale: {
+            format: 'DD/MM/YYYY',
             applyLabel: translate('submit'),
             cancelLabel: translate('cancel'),
             fromLabel: translate('from'),
@@ -169,36 +179,10 @@ annonces.initSearchValues = function(){
     $('#annonces #province').val(province);
     $('#annonces #price-min').val(price_min);
     $('#annonces #price-max').val(price_max);
-    $('#annonces #input-search').val(input_search);
+    //$('#annonces #input-search').val(input_search);
     $('#annonces #input-zipcode').val(zipcodes);
 
 }
-
-/* COMMENT AVEC CA CA MARCHE
-var start = moment().subtract(29, 'days');
-var end = moment();
-
-function cb(start, end) {
-    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-}
-
-$('#reportrangetest').daterangepicker({
-    startDate: start,
-    endDate: end,
-    buttonClasses: ['btn-range', 'btn-sm'],
-    ranges: {
-       'Today': [moment(), moment()],
-       'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-       'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-       'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-       'This Month': [moment().startOf('month'), moment().endOf('month')],
-       'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-    }
-}, cb);
-
-cb(start, end);
-*/
-
 
 /*********************************
 *   @name : init

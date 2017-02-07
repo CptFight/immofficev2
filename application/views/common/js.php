@@ -18,8 +18,11 @@
 
 <!-- RANGEPICKER -->
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/scripts/moment.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/scripts/daterangepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/chosen/chosen.jquery.js"></script>
 
+
+chosen
 
 
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/global.js'> </script>

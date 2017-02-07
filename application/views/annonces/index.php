@@ -44,57 +44,41 @@
                         <div class="float-middle input-separation">
                             <div class="reportrange-container">
                                 <input type="text" name="daterange" id="reportrange" value="01/01/2015 - 01/31/2015" /> 
+                                <input type="hidden" id="date-min" value="" />
+                                <input type="hidden" id="date-max" value="" />
                             </div>
-                            <!--<div class="dropdown-container">
-                                <div id="reportrange" class="form-group form-control">
-                                    <i class="fa fa-calendar"></i>
-                                    <span></span> <b class="caret"></b>
-                                    <input type="hidden" id="date-min" value="" />
-                                    <input type="hidden" id="date-max" value="" />
-                                </div>
-                               <a href="javascript:;" class="btn-dropdown" data-id="dates"><i class="fa fa-calendar"></i> January 29, 2017 - January 30, 2017</a>
-                                <div class="dropdown hidden dropdown-dates" id="dates">
-                                    <ul>
-                                        <li><a href="">Aujourd'hui</a></li>
-                                        <li><a href="">Depuis 2 jours</a></li>
-                                        <li><a href="">Depuis 1 semaine</a></li>
-                                        <li><a href="">Depuis 1 mois</a></li>
-                                        <li><a href="">Depuis début du mois</a></li>
-                                        <li><a href="">Détaillé</a></li>
-                                    </ul>
-                                    <div class="range_inputs">
-                                        <div class="datepicker-cont daterangepicker_start_input">
-                                            <label for="daterangepicker_start">Depuis</label><input class="input-mini" type="text" name="daterangepicker_start" value="">
-                                        </div>
-                                        <div class="datepicker-cont daterangepicker_end_input">
-                                            <label for="daterangepicker_end">jusqu'à</label>
-                                            <input class="input-mini" type="text" name="daterangepicker_end" value="">
-                                        </div>
-                                    </div>
-                                    <button class="btn">Envoyer</button>
-                                    <button class="btn-inverse">Annuler</button>
-                                </div>
-                            </div>-->
                         </div>
                         <div class="float-middle input-separation">
-                            <input type="text" placeholder="Choissez une province"/>
+                            <select data-placeholder="<?php echo $this->lang->line('choose_province'); ?>" id="province" class="chosen-select form-control" multiple tabindex="4">
+                                <option value="Anvers"><?php echo $this->lang->line('anvers'); ?></option>
+                                <option value="Limbourg"><?php echo $this->lang->line('limbourg'); ?></option>
+                                <option value="Bruxelles"><?php echo $this->lang->line('bruxelles'); ?></option>
+                                <option value="Flandre orientale"><?php echo $this->lang->line('flandre_orientale'); ?></option>
+                                <option value="Brabant flamand"><?php echo $this->lang->line('brabant_flamand'); ?></option>
+                                <option value="Flandre occidentale"><?php echo $this->lang->line('flandre_occidentale'); ?></option>
+                                <option value="Brabant wallon"><?php echo $this->lang->line('brabant_wallon'); ?></option>
+                                <option value="Hainaut"><?php echo $this->lang->line('hainaut'); ?></option>
+                                <option value="Liège"><?php echo $this->lang->line('liege'); ?></option>
+                                <option value="Luxembourg"><?php echo $this->lang->line('luxembourg'); ?></option>
+                                <option value="Namur"><?php echo $this->lang->line('namur'); ?></option>
+                            </select>
                         </div>
                     </div>
                     <div class="clearfix">
                         <div class="float-middle input-separation">
                             <div class="float-middle input-separation">
                                 <div class="input-field number-euro">
-                                    <input type="number" placeholder="Prix minimum"/>
+                                    <input type="number" id="price-min" placeholder="Prix minimum"/>
                                 </div>
                             </div>
                             <div class="float-middle input-separation">
                                 <div class="input-field number-euro">
-                                    <input type="number" placeholder="Prix maximum"/>
+                                    <input type="number" id="price-max" placeholder="Prix maximum"/>
                                 </div>
                             </div>
                         </div>
                         <div class="float-middle input-separation m-input-postalcode">
-                            <input type="text" placeholder="Code Postaux"/>
+                            <input type="text" id="input-zipcode" placeholder="Code Postaux"/>
                             <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> Map</a>
                         </div>
                     </div>
