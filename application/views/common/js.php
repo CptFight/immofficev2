@@ -15,5 +15,11 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/datatables/datatables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js"></script>
 
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/scripts/moment.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/scripts/daterangepicker.js"></script>
+
+
+
+<script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/global.js'> </script>
 
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/annonces.js'> </script>

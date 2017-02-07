@@ -25,9 +25,11 @@
                         <p class="subtitle">L’outil de prospection indispensable.</p>
                     </div>
                     <div class="float-middle">
-                        <input type="email" id="login-email" class="form-control" placeholder="Email" required="">
-                        <input type="password" id="login-password" class="form-control" placeholder="Mot de passe" required="">
-                        <a href="" class="btn">Se connecter</a>
+                        <form action="" method="POST">
+                            <input type="email" id="login-email" name="login" class="form-control" placeholder="Email" required="">
+                            <input type="password" id="login-password" name="password" class="form-control" placeholder="Mot de passe" required="">
+                            <input type="submit" class="btn" name="send-login" value="Se connecter" />
+                        </form>
                         <a href="" class="link-password">Mot de passe oublié</a>
                     </div>
                 </section>
