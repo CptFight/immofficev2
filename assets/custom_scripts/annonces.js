@@ -97,19 +97,15 @@ annonces.initSearchValues = function(){
         $(selector).chosen(config[selector]);
     }
 
-    var date_min = false;
-    var date_max = false;
-    var province = '';
-    var price_min = '';
+    var date_min = $('#date-min').val();
+    var date_max = $('#date-max').val();
+    /*var province = $('#province').val();
+    var price_min = $('#date-').val();
     var price_max = '';
-    var input_search = '';
     var zipcodes = '';
     var lang = 'fr';
-    var sale = 'sale';
-
-    jQuery("input[name='lang'][value='"+lang+"']").attr('checked', 'checked');
-    jQuery("input[name='sell_location'][value='"+sale+"']").attr('checked', 'checked');
-    
+    var sale = 'sale';*/
+ 
     if(!date_min){
         date_min = moment().subtract(1, 'days').format("X");
     }
@@ -125,11 +121,6 @@ annonces.initSearchValues = function(){
     var since_begin_of_the_month = translate('since_begin_of_the_month');
      
     var ranges = [
-        /*today_label,
-        two_days_ago,
-        one_week_ago,
-        one_month_ago,
-        since_begin_of_the_month*/
     ];
 
     ranges[today_label] = [moment(), moment()];
@@ -173,14 +164,14 @@ annonces.initSearchValues = function(){
         $('#annonces #date-max').val(end.hours(22).minutes(59).seconds(59).format("X"));
     });
 
-    $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
+  /*  $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
     $('#annonces #date-max').val(moment.unix(date_max).hours(22).minutes(59).seconds(59).format("X"));
 
     $('#annonces #province').val(province);
     $('#annonces #price-min').val(price_min);
     $('#annonces #price-max').val(price_max);
     //$('#annonces #input-search').val(input_search);
-    $('#annonces #input-zipcode').val(zipcodes);
+    $('#annonces #input-zipcode').val(zipcodes);*/
 
 
 }

@@ -6,12 +6,29 @@ class Annonces extends CI_Controller {
 	public function index() {
 		$this->lang->load('annonces', 'french');
 
-		if($this->input->post('search')){
-			echo "<pre style='float:right'>";
-			print_r($this->input->post());
-			echo "</pre>";
+		//TODO SET USER INFORMATIONS.
+		$this->data['date_min'] = '';
+		$this->data['date_max'] = '';
+		$this->data['price_min'] = '';
+		$this->data['price_max'] = '';
+		$this->data['zipcode'] = '';
+		$this->data['province'] = '';
+		$this->data['lang'] = '';
+		$this->data['vente'] = '';
 
+		if($this->input->post('search')){
+			$this->data['daterange'] = $this->input->post('daterange');
+			$this->data['date_min'] = $this->input->post('date-min');
+			$this->data['date_max'] = $this->input->post('date-max');
+			$this->data['price_min'] = $this->input->post('price-min');
+			$this->data['price_max'] = $this->input->post('price-max');
+			$this->data['zipcode'] = $this->input->post('zipcode');
+			$this->data['province'] = $this->input->post('province');
+			$this->data['lang'] = $this->input->post('lang');
+			$this->data['vente'] = $this->input->post('vente');
 		}
+		
+		$this->session->set_userdata('search_criteria', $this->data);
 
 		/* Custom Scripts */
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
@@ -114,14 +131,16 @@ class Annonces extends CI_Controller {
 			"search" => $search,
 			"start" => $start,
 			"length" => $length,
-			"order" => $order
+			"order" => $order,
+			"criterias" => $this->session->get_userdata('search_criteria')['search_criteria']
 		);
 
-		$Annonces = $this->Annonces_m->get($params);
+		
+		$annonces = $this->Annonces_m->get($params);
 		//echo $this->db->last_query();
 		$data = array();
 
-		foreach($Annonces as $key => $product){
+		foreach($annonces as $key => $product){
 			$data[] = array(
 				$product->title,
 				$product->zip_code,
@@ -130,7 +149,7 @@ class Annonces extends CI_Controller {
 				date('d/m/Y',$product->date_publication),
 				'',
 				"<a href='".$product->url."' target='_blank'>Voir l'annonce</a>",
-				''
+				$product->description
 				
 			);
 		}
@@ -138,7 +157,7 @@ class Annonces extends CI_Controller {
 		$return["recordsTotal"] = $this->Annonces_m->countAllDatas();
 		$return["recordsFiltered"] = $this->Annonces_m->countAllDatasFiltered($params['search']);
 
-		//echo $this->db->last_query();
+		
 		$return["data"] = $data;
 
 		echo json_encode($return);

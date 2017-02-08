@@ -37,6 +37,45 @@ class Annonces_m extends CI_Model {
                 $this->db->or_where('description LIKE','%'.$params['search'].'%');
             }
 
+            if($params['criterias']['date_min']){
+                $this->db->where('date_publication >=',$params['criterias']['date_min']);
+            }
+            if($params['criterias']['date_max']){
+                $this->db->where('date_publication <=',$params['criterias']['date_max']);
+            }
+            if($params['criterias']['price_min']){
+                $this->db->where('price >=',$params['criterias']['price_min']);
+            }
+            if($params['criterias']['price_max']){
+                $this->db->where('price <=',$params['criterias']['price_max']);
+            }
+            
+            if($params['criterias']['zipcode'] == '' && $params['criterias']['province']){
+                $provinces = $params['criterias']['province'];
+                $province_request = "province LIKE '".$provinces[0]."'";
+                for($cpt=1;$cpt<count($provinces); $cpt++){
+                    $province_request .= " OR province LIKE '".$provinces[$cpt]."'";
+                }
+                $this->db->where($province_request);
+            }
+
+            if($params['criterias']['zipcode']){
+                $zipcode_list = explode(' ',$params['criterias']['zipcode']);
+                $zipcode_request = "zip_code LIKE '".$zipcode_list[0]."'";
+                for($cpt=1;$cpt<count($zipcode_list); $cpt++){
+                    $zipcode_request .= " OR zip_code LIKE '".$zipcode_list[$cpt]."'";
+                }
+                $this->db->where($zipcode_request);
+                
+            }
+
+            if($params['criterias']['lang']){
+                $this->db->where('lang',$params['criterias']['lang']);
+            }
+            if($params['criterias']['vente']){
+                $this->db->where('sale',$params['criterias']['vente']);
+            }
+
             if(isset($params['order'])){
                 $this->db->order_by($params['order']['column'],$params['order']['dir']);
             }
