@@ -69,7 +69,7 @@ class Annonces_m extends CI_Model {
                 
             }
 
-            if($params['criterias']['lang']){
+            if($params['criterias']['lang'] && $params['criterias']['lang'] != 'FR/NL'){
                 $this->db->where('lang',$params['criterias']['lang']);
             }
             if($params['criterias']['vente']){

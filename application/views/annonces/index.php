@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="float-middle input-separation m-input-postalcode">
-                            <input type="text" id="input-zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="Code Postaux"/>
+                            <input type="text" id="zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="Code Postaux"/>
                             <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> Map</a>
                         </div>
                     </div>

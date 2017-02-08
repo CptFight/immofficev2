@@ -41,8 +41,20 @@ annonces.initTableDatatablesResponsive = function () {
             /* for loadging server side. */
             "processing": true,
             "serverSide": true,
-            "ajax": "http://localhost/Immofficev2/index.php/annonces/getAllannoncesDataTable",
-
+            "ajax": {
+                data : {
+                    date_min : $('#date-min').val(),
+                    date_max : $('#date-max').val(),
+                    price_min : $('#price-min').val(),
+                    price_max : $('#price-max').val(),
+                    zipcode : $('#zipcode').val(),
+                    province : $('#province').val(),
+                    lang : $("input[name='lang']").val(),
+                    vente : $("input[name='vente']").val(),
+                },
+                url : "http://localhost/Immofficev2/index.php/annonces/getAllannoncesDataTable",
+            },
+            
             /* end param server side */
 
             // Or you can use remote translation file
