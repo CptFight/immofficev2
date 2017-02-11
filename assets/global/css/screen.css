@@ -55,7 +55,7 @@
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-.visuallyhidden {
+.visuallyhidden, .list-tables-buttons span {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -69,8 +69,9 @@
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:active, .list-tables-buttons span.focusable:active,
+.visuallyhidden.focusable:focus,
+.list-tables-buttons span.focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;
@@ -694,6 +695,9 @@ textarea, .input, .chosen-container-multi .chosen-choices {
     outline: 0;
     border-color: #1ab394 !important; }
 
+textarea {
+  min-height: 150px; }
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset; }
 
@@ -751,16 +755,44 @@ input[type="submit"] {
     width: 33px;
     top: 9px; }
 
-.radio-inline-cont fieldset {
+fieldset {
   align-items: stretch;
   flex-grow: 1;
   flex-basis: auto;
   display: flex;
   padding: 0;
+  position: relative;
   border: 0;
+  display: block; }
+
+.inputstyle.active input {
+  transition: .1s all linear; }
+
+.l-form fieldset {
+  margin-top: 20px; }
+  .l-form fieldset input {
+    margin: 0; }
+
+.inputstyle label {
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  font-size: 1em;
+  font-weight: lighter;
+  color: #acacac;
+  z-index: 10;
+  transition: .1s all linear;
+  cursor: text; }
+
+fieldset.active label {
+  top: -15px;
+  left: 0;
+  font-size: 0.8em; }
+
+.radio-inline-cont div, .checkbox-inline-cont div {
   display: inline-block;
   margin: 0 -1px 0 0; }
-.radio-inline-cont label {
+.radio-inline-cont label, .checkbox-inline-cont label {
   display: inline-block;
   background: white;
   font-weight: 500;
@@ -771,19 +803,19 @@ input[type="submit"] {
   border: 1px solid #e7eaec;
   display: inline-block;
   cursor: pointer; }
-.radio-inline-cont fieldset:first-child label {
+.radio-inline-cont div:first-child label, .checkbox-inline-cont div:first-child label {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px; }
-.radio-inline-cont fieldset:last-child label {
+.radio-inline-cont div:last-child label, .checkbox-inline-cont div:last-child label {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px; }
-.radio-inline-cont label:hover {
+.radio-inline-cont label:hover, .checkbox-inline-cont label:hover {
   background-color: #f4f4f4; }
-.radio-inline-cont input[type="radio"] {
+.radio-inline-cont input[type="radio"], .radio-inline-cont input[type="checkbox"], .checkbox-inline-cont input[type="radio"], .checkbox-inline-cont input[type="checkbox"] {
   visibility: hidden;
   position: absolute;
   cursor: pointer; }
-.radio-inline-cont input[type="radio"]:checked ~ label {
+.radio-inline-cont input[type="radio"]:checked ~ label, .radio-inline-cont input[type="checkbox"]:checked ~ label, .checkbox-inline-cont input[type="radio"]:checked ~ label, .checkbox-inline-cont input[type="checkbox"]:checked ~ label {
   background-color: #1ab394;
   color: white; }
 
@@ -1097,7 +1129,8 @@ a.profile-btn {
 .l-landing .l-header {
   background: white;
   position: fixed;
-  top: 0; }
+  top: 0;
+  z-index: 1000; }
 .l-landing .max-width {
   max-width: 1170px;
   margin: 0 auto;
@@ -1244,6 +1277,8 @@ a.profile-btn {
 /* BTN */
 .l-annonces-form input, .l-annonces-form .radio-inline, .l-annonces-form .chosen-container {
   margin-bottom: 15px; }
+.l-annonces-form .inputstyle input {
+  margin-bottom: 0px; }
 @media screen and (min-width: 992px) {
   .l-annonces-form .input-separation:first-child {
     padding-right: 15px; }
@@ -1300,6 +1335,38 @@ a.profile-btn {
 .range_inputs .datepicker-cont:last-child {
   padding-right: 0;
   padding-left: 15px; }
+
+.list-tables-buttons li {
+  display: inline-block; }
+.list-tables-buttons a {
+  display: block;
+  padding: 10px 16px;
+  background: #676a6c;
+  color: white;
+  font-size: 12px;
+  border-radius: 5px; }
+@media screen and (min-width: 992px) {
+  .list-tables-buttons a {
+    padding: 5px 8px; } }
+.list-tables-buttons a:hover {
+  background: #1ab394; }
+
+.desktop {
+  min-width: 60px !important; }
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+  background-color: #1ab394;
+  text-indent: 0px; }
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  background-color: #2f4050;
+  border-color: #2f4050; }
+
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover, .pagination > li > a, .pagination > li > span {
+  color: #2f4050; }
+
+.dataTables_wrapper .dataTables_processing {
+  top: 70%; }
 
 /* Modules */
 /* ==|====================

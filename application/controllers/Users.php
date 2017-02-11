@@ -22,7 +22,7 @@ class Users extends CI_Controller {
 				
 			}
 		}		
-		$this->load->view('template');
+		$this->load->view('template_landing');
 	}
 
 	public function lock() {

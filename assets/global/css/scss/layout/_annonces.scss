@@ -155,6 +155,10 @@
 	{
 		margin-bottom:15px;
 	}
+	.inputstyle input 
+	{
+		margin-bottom:0px;
+	}
 	@media screen and (min-width: $medium) {
 		
 		.input-separation:first-child 
@@ -239,4 +243,59 @@
 		padding-right:0;
 		padding-left:15px;
 	}
+}
+
+.list-tables-buttons
+{
+	li 
+	{
+		display:inline-block;
+	}
+	a 
+	{
+		display:block;
+		padding:10px 16px; 
+		background:$textdark;
+		color:white;
+		font-size: 12px;
+		border-radius:5px;
+	}
+	@media screen and (min-width: $medium) {
+		a 
+		{
+			padding:5px 8px; 
+		}
+	}
+	a:hover 
+	{
+		background:$green;
+	}
+	span 
+	{
+		@extend .visuallyhidden;
+	}
+}
+.desktop
+{
+	min-width:60px !important;
+}
+
+//OVERRIDE
+table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before
+{
+	background-color: #1ab394;
+	text-indent: 0px;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover
+{
+	    background-color: #2f4050;
+    border-color: #2f4050;
+}
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover, .pagination>li>a, .pagination>li>span
+{
+	color: #2f4050;
+}
+.dataTables_wrapper .dataTables_processing
+{
+	top: 70%;
 }

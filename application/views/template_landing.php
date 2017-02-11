@@ -29,9 +29,8 @@
 }
 </script> -->
     </head>
-	   <?php $this->load->view('common/header') ?>
-	   <?php $this->load->view($this->router->class.'/'.$this->router->method) ?>
+	 <?php $this->load->view($this->router->class.'/'.$this->router->method) ?>
 		
-     <?php $this->load->view('common/footer') ?>
-     <?php $this->load->view('common/js') ?>
+   
+    <?php $this->load->view('common/js') ?>
 </html>

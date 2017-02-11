@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Annonces extends CI_Controller {
+class Favoris extends CI_Controller {
 
 	public function index() {
 		$this->lang->load('annonces', 'french');
@@ -36,12 +36,11 @@ class Annonces extends CI_Controller {
 
 		$this->load->model(array('Annonces_m','Updates_m'));
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
-		
+		$this->data['pagename'] = "favoris";
 		$value = $this->Annonces_m->countAllDatas();
 
 		$this->data['last_update'] = $this->Updates_m->getLastUpdateDate();
 
-		$this->data['pagename'] = "annonces";
 		//echo "test".count($this->data['Annonces']); die();
 
 
@@ -163,11 +162,7 @@ class Annonces extends CI_Controller {
 				$product->web_site,
 				date('d/m/Y',$product->date_publication),
 				'',
-				'<ul class="list-tables-buttons">
-                                <li><a href=""><i class="fa fa-heart"></i><span>Ajouter aux favoris</span></a></li>
-                                <li><a target="_blank" href="'.$product->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
-                                <li><a href=""><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
-                            </ul>',
+				"<a href='".$product->url."' target='_blank'>Voir l'annonce</a>",
 				$product->description
 				
 			);
