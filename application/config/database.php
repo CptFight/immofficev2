@@ -77,8 +77,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
+	'username' => 'immoffice',
+	'password' => 'ux2VeT8Ku2Wp2W84',
 	'database' => 'immofficeimport',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -101,7 +101,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'ImmofficeV2
 	$db['default']['password'] = 'ux2VeT8Ku2Wp2W84';
 	$db['default']['database'] = 'immofficeimport';
 	$db['default']['hostname'] = '188.166.33.69';*/
-
-	$db['default']['password'] = 'root';
+	$db['default']['username'] = 'root';
+	$db['default']['password'] = 'mysql';
 }
 

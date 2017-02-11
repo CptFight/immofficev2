@@ -21,9 +21,8 @@ class Users extends CI_Controller {
 			}else{
 				
 			}
-			
 		}		
-		$this->load->view('template',$this->data);
+		$this->load->view('template');
 	}
 
 	public function lock() {

@@ -12,9 +12,10 @@ class Annonces extends CI_Controller {
 		$this->data['price_min'] = '';
 		$this->data['price_max'] = '';
 		$this->data['zipcode'] = '';
-		$this->data['province'] = '';
+		$this->data['province'] = array();
 		$this->data['lang'] = '';
 		$this->data['vente'] = '';
+		$this->data['daterange'] = '';
 
 		if($this->input->post('search')){
 			$this->data['daterange'] = $this->input->post('daterange');
@@ -23,12 +24,12 @@ class Annonces extends CI_Controller {
 			$this->data['price_min'] = $this->input->post('price-min');
 			$this->data['price_max'] = $this->input->post('price-max');
 			$this->data['zipcode'] = $this->input->post('zipcode');
-			$this->data['province'] = $this->input->post('province');
+			if(is_array($this->input->post('province'))){
+				$this->data['province'] = $this->input->post('province');
+			}
 			$this->data['lang'] = $this->input->post('lang');
 			$this->data['vente'] = $this->input->post('vente');
 		}
-		
-		$this->session->set_userdata('search_criteria', $this->data);
 
 		/* Custom Scripts */
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
@@ -41,6 +42,7 @@ class Annonces extends CI_Controller {
 		$this->data['last_update'] = $this->Updates_m->getLastUpdateDate();
 
 		//echo "test".count($this->data['Annonces']); die();
+
 
 		$this->load->view('template', $this->data);
 
@@ -126,13 +128,25 @@ class Annonces extends CI_Controller {
 			}
 		}
 
+		$criterias = array(
+			'date_min' => $this->input->get('date_min'),
+			'date_max' => $this->input->get('date_max'),
+			'price_min' => $this->input->get('price_min'),
+			'price_max' => $this->input->get('price_max'),
+			'zipcode' => $this->input->get('zipcode'),
+			'province' => $this->input->get('province'),
+			'lang' => $this->input->get('lang'),
+			'vente' => $this->input->get('vente')
+		);
+
+
 		$params = array(
 			"id" => false,
 			"search" => $search,
 			"start" => $start,
 			"length" => $length,
 			"order" => $order,
-			"criterias" => $this->session->get_userdata('search_criteria')['search_criteria']
+			"criterias" => $criterias
 		);
 
 		
