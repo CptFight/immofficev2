@@ -1,7 +1,17 @@
 
 
 var annonces = annonces || {
-   tableObject : false
+    tableObject : false,
+    criterias : {
+        date_min : $('#date-min').val(),
+        date_max : $('#date-max').val(),
+        price_min : $('#price-min').val(),
+        price_max : $('#price-max').val(),
+        zipcode : $('#zipcode').val(),
+        province : $('#province').val(),
+        lang : $("input[name='lang']:checked").val(),
+        vente : $("input[name='vente']:checked").val()
+    }
 };
 
 
@@ -11,9 +21,51 @@ var annonces = annonces || {
 *   bind  instance  
 *********************************/
 annonces.bind = function(){
-    /* Au lancement */
+   //console.log(annonces.tableObject);
    
+   $('#button-search').click(function(e){
+    e.preventDefault();
+
+    //$('#form_search .clearfix').fadeOut();
+
+   // $('#price-min').val(1000);
+    annonces.criterias.price_min = $('#price-min').val(); 
+    annonces.criterias.price_max = $('#price-max').val(); 
+    annonces.criterias.date_min = $('#date-min').val(); 
+    annonces.criterias.date_max = $('#date-max').val(); 
+    annonces.criterias.province = $('#province').val();
+    annonces.criterias.zipcode = $('#zipcode').val(); 
+    annonces.criterias.lang = $("input[name='lang']:checked").val();
+    annonces.criterias.vente = $("input[name='vente']:checked").val();    
+    annonces.tableObject.api().ajax.reload(); 
+
+    $.ajax({
+        type: "POST",
+        url: base_url()+"index.php/users/saveLastSearch",
+        dataType: 'json',
+        data: {
+            user_id : $('#user_id').val(),
+            price_min : $('#price-min').val(), 
+            price_max : $('#price-max').val(),
+            province : $('#province').val(),
+            zipcode : $('#zipcode').val(),
+            lang : $("input[name='lang']:checked").val(),
+            vente : $("input[name='vente']:checked").val(),
+            daterange : $('#reportrange').val(),
+        },
+        success: function(response){
+           
+        }
+    });
+
+   });
 }
+
+annonces.bindElementTable = function(){
+    
+}
+
+
 
 /* ----- Tables ----- */
 /* ------------------- */
@@ -42,17 +94,19 @@ annonces.initTableDatatablesResponsive = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
-                data : {
+                data :function ( d ) {
+                   return  $.extend(d, annonces.criterias);
+                }/*{
                     date_min : $('#date-min').val(),
                     date_max : $('#date-max').val(),
                     price_min : $('#price-min').val(),
                     price_max : $('#price-max').val(),
                     zipcode : $('#zipcode').val(),
                     province : $('#province').val(),
-                    lang : $("input[name='lang']").val(),
-                    vente : $("input[name='vente']").val(),
-                },
-                url : "http://localhost/Immofficev2/index.php/annonces/getAllannoncesDataTable",
+                    lang : $("input[name='lang']:checked").val(),
+                    vente : $("input[name='vente']:checked").val(),
+                }*/,
+                url : base_url()+"index.php/annonces/getAllannoncesDataTable",
             },
             
             /* end param server side */
@@ -73,7 +127,7 @@ annonces.initTableDatatablesResponsive = function () {
             responsive: true,
             parseTime: false,
             fnDrawCallback : function(){
-                annonces.bind();
+                annonces.bindElementTable();
             },
 
             "order": [
@@ -176,9 +230,9 @@ annonces.initSearchValues = function(){
         $('#annonces #date-max').val(end.hours(22).minutes(59).seconds(59).format("X"));
     });
 
-  /*  $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
+    $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
     $('#annonces #date-max').val(moment.unix(date_max).hours(22).minutes(59).seconds(59).format("X"));
-
+/*
     $('#annonces #province').val(province);
     $('#annonces #price-min').val(price_min);
     $('#annonces #price-max').val(price_max);
@@ -196,6 +250,7 @@ annonces.initSearchValues = function(){
 annonces.init = function(){
     annonces.initTableDatatablesResponsive();
     annonces.initSearchValues();
+    annonces.bind();
 }
 
 /*********************************
