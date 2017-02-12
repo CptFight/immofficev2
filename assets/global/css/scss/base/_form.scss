@@ -32,6 +32,10 @@ textarea, .input, .chosen-container-multi .chosen-choices{
         border-color: #1ab394 !important;
     }
 }
+textarea 
+{
+    min-height:150px;
+}
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
@@ -47,6 +51,7 @@ input[type="submit"]
 {
     position:relative;
 }
+
 .number-euro
 {
     input 
@@ -112,16 +117,53 @@ input[type="submit"]
         
 }
 
-
-.radio-inline-cont
+fieldset 
 {
-    fieldset{
-        align-items: stretch;
-        flex-grow: 1;
-        flex-basis: auto;
-        display: flex;
-        padding: 0;
-        border: 0;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-basis: auto;
+    display: flex;
+    padding: 0;
+    position:relative;
+    border: 0;
+    display:block;
+}
+//moving label
+.inputstyle.active input {
+  transition: .1s all linear;
+}
+.l-form fieldset
+{
+    margin-top:20px;
+    input 
+    {
+        margin:0;
+    }
+    
+}
+.inputstyle label {
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    font-size: 1em;
+    font-weight:lighter;
+    color: #acacac;
+    z-index: 10;
+    transition: .1s all linear;
+    cursor: text;
+}
+fieldset.active label {
+    top: -15px;
+    left: 0;
+    font-size: 0.8em;
+}
+
+
+.radio-inline-cont, .checkbox-inline-cont
+{
+
+    div 
+    {
         display:inline-block;
         margin:0 -1px 0 0;
     }
@@ -138,12 +180,12 @@ input[type="submit"]
         display:inline-block;
         cursor: pointer;
     }
-    fieldset:first-child label 
+    div:first-child label 
     {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
     }
-    fieldset:last-child label 
+    div:last-child label 
     {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -153,13 +195,13 @@ input[type="submit"]
         background-color: $bg-grey-light;
     }
 
-    input[type="radio"]{
+    input[type="radio"], input[type="checkbox"]{
       visibility: hidden;
       position: absolute;
       cursor: pointer;
     }
 
-    input[type="radio"]:checked ~ label{
+    input[type="radio"]:checked ~ label, input[type="checkbox"]:checked ~ label{
       background-color: $green;
       color:white;
     }
