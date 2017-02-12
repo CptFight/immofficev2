@@ -1,9 +1,10 @@
+
 <div class="title-container">
-    <h2>Favoris</h2>
+    <h2><?php echo $this->lang->line('annonces'); ?></h2>
     <ul>
         <li>
-            <a href="">Accueil</a>
-            <a href="" class="active">Favoris</a>
+            <a href=""><?php echo $this->lang->line('french'); ?></a>
+            <a href="" class="active"><?php echo $this->lang->line('favoris'); ?></a>
         </li>
     </ul>
 </div>
@@ -13,6 +14,7 @@
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">
+    <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id; ?>" />
     <div class="l-annonces-form">
         <div class="clearfix">
             <div class="float-middle input-separation">
@@ -53,36 +55,36 @@
             </div>
             <div class="float-middle input-separation m-input-postalcode">
                 <input type="text" id="zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="Code Postaux"/>
-                <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> Map</a>
+                <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> <?php echo $this->lang->line('map'); ?></a>
             </div>
         </div>
         <div class="clearfix">
-           <fieldset class="radio-inline-cont pull-left">
-                    <div>
-                        <input name="lang" type="radio" <?php if($lang == 'FR/NL') echo "checked"; ?> value="FR/NL" id="FR/NL">
-                        <label for="FR/NL">FR/NL</label>
-                    </div><!--
-                     --><div>
-                        <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="FR">
-                        <label for="FR">FR</label>
-                    </div><!--
-                     --><div>
-                        <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="NL" id="NL">
-                        <label for="NL">NL</label>
-                    </div>
+           <div class="radio-inline-cont pull-left">
+                <fieldset >
+                    <input name="lang" type="radio" <?php if($lang == 'FR/NL') echo "checked"; ?> value="FR/NL" id="FR/NL">
+                    <label for="FR/NL">FR/NL</label>
+                </fieldset><!--
+                 --><fieldset>
+                    <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="FR">
+                    <label for="FR">FR</label>
+                </fieldset><!--
+                 --><fieldset >
+                    <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="nl" id="NL">
+                    <label for="NL">NL</label>
                 </fieldset>
-                <fieldset class="radio-inline-cont pull-right">
-                    <div >
-                        <input name="vente" type="radio" <?php if($vente == '0') echo "checked"; ?> value="0" id="Location">
-                        <label for="Location">Location</label>
-                    </div><!--
-                     --><div>
-                        <input name="vente" type="radio" <?php if($vente == '1') echo "checked"; ?> value="1" id="Vente">
-                        <label for="Vente">Vente</label>
-                    </div>
+            </div>
+            <div class="radio-inline-cont pull-right">
+               <fieldset>
+                    <input name="vente" type="radio" <?php if($vente == '1') echo "checked"; ?> value="1" id="Vente">
+                    <label for="Vente"><?php echo $this->lang->line('sell'); ?></label>
+                </fieldset><!--
+                 --><fieldset >
+                    <input name="vente" type="radio" <?php if($vente == '0') echo "checked"; ?> value="0" id="Location">
+                    <label for="Location"><?php echo $this->lang->line('location'); ?></label>
                 </fieldset>
+            </div>
         </div>
-        <input type="submit" name="search" class="btn submit">Rechercher</a>
+        <input type="submit" id="button-search" name="search" value="<?php echo $this->lang->line('search'); ?>" class="btn submit">
         
         <br/>
     </div>
@@ -91,30 +93,20 @@
         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="sample_1">
             <thead>
                 <tr>
-                    <th >Titre</th>
-                    <th >Code postal</th>
-                    <th >Prix</th>
-                    <th >Site web</th>
-                    <th >Date</th>
-                    <th >Visité</th>
-                    <th >Action</th>
-                    <th class="none">Description : </ht>
+                    <th ><?php echo $this->lang->line('title'); ?></th>
+                    <th ><?php echo $this->lang->line('zip_code'); ?></th>
+                    <th ><?php echo $this->lang->line('price'); ?></th>
+                    <th ><?php echo $this->lang->line('web_site'); ?></th>
+                    <th ><?php echo $this->lang->line('date'); ?></th>
+                    <th ><?php echo $this->lang->line('visited'); ?></th>
+                    <th ><?php echo $this->lang->line('actions'); ?></th>
+                    <th class="none">ID : </th>
+                    <th class="none"><?php echo $this->lang->line('description'); ?> : </th>
                 </tr>
             </thead>
 
             <tbody>
-            <?php foreach($annonces as $key => $annonce){ ?>
-                <tr>
-                    <td><?php echo $annonce->title; ?></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            <?php } ?>
+            
             </tbody>
 
           
@@ -122,3 +114,4 @@
     </div>
     <!--<a href="" class="btn">Charger plus d'annonces</a>-->
 </section>
+           
