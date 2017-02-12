@@ -270,6 +270,10 @@
 	{
 		background:$green;
 	}
+	a.active:hover 
+	{
+		background:$textdark;
+	}
 	span 
 	{
 		@extend .visuallyhidden;

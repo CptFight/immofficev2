@@ -1350,6 +1350,11 @@ a.profile-btn {
     padding: 5px 8px; } }
 .list-tables-buttons a:hover, .list-tables-buttons a.active {
   background: #1ab394; }
+  
+  a.active:hover 
+  {
+    background: #676a6c;
+  }
 
 .desktop {
   min-width: 60px !important; }
