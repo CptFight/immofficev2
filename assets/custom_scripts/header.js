@@ -24,7 +24,7 @@ header.bind = function(){
             },
             success: function(response){
                location.reload();
-                console.log('response');
+             
             }
         });
     });
