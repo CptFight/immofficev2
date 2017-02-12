@@ -59,30 +59,29 @@
             </div>
         </div>
         <div class="clearfix">
-           <div class="radio-inline-cont pull-left">
-                <fieldset >
-                    <input name="lang" type="radio" <?php if($lang == 'FR/NL') echo "checked"; ?> value="FR/NL" id="FR/NL">
+            <fieldset class="radio-inline-cont pull-left">
+                <div>
+                   <input name="lang" type="radio" <?php if($lang == 'FR/NL') echo "checked"; ?> value="FR/NL" id="FR/NL">
                     <label for="FR/NL">FR/NL</label>
-                </fieldset><!--
-                 --><fieldset>
+                </div><!--
+                 --><div>
                     <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="FR">
-                    <label for="FR">FR</label>
-                </fieldset><!--
-                 --><fieldset >
+                </div><!--
+                 --><div>
                     <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="nl" id="NL">
                     <label for="NL">NL</label>
-                </fieldset>
-            </div>
-            <div class="radio-inline-cont pull-right">
-               <fieldset>
+                </div>
+            </fieldset>
+            <fieldset class="radio-inline-cont pull-right">
+                <div>
                     <input name="vente" type="radio" <?php if($vente == '1') echo "checked"; ?> value="1" id="Vente">
                     <label for="Vente"><?php echo $this->lang->line('sell'); ?></label>
-                </fieldset><!--
-                 --><fieldset >
-                    <input name="vente" type="radio" <?php if($vente == '0') echo "checked"; ?> value="0" id="Location">
+                </div><!--
+                 --><div>
+                     <input name="vente" type="radio" <?php if($vente == '0') echo "checked"; ?> value="0" id="Location">
                     <label for="Location"><?php echo $this->lang->line('location'); ?></label>
-                </fieldset>
-            </div>
+                </div>
+            </fieldset>
         </div>
         <input type="submit" id="button-search" name="search" value="<?php echo $this->lang->line('search'); ?>" class="btn submit">
         
@@ -99,14 +98,14 @@
                     <th ><?php echo $this->lang->line('web_site'); ?></th>
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th ><?php echo $this->lang->line('visited'); ?></th>
-                    <th ><?php echo $this->lang->line('actions'); ?></th>
+                    <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                     <th class="none">ID : </th>
                     <th class="none"><?php echo $this->lang->line('description'); ?> : </th>
                 </tr>
             </thead>
 
             <tbody>
-            
+                
             </tbody>
 
           
