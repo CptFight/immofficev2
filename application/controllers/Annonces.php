@@ -4,20 +4,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Annonces extends CI_Controller {
 
 	public function index() {
-		$this->lang->load('annonces', 'french');
+		$this->load->model(array('Annonces_m','Updates_m','Users_m'));
+		$user = $this->Users_m->getCurrentUser();
+
+		$this->data['user_id'] = $user->id;
+		$this->lang->load('global', $user->lang);
 
 		//TODO SET USER INFORMATIONS.
 		$this->data['date_min'] = '';
 		$this->data['date_max'] = '';
-		$this->data['price_min'] = '';
-		$this->data['price_max'] = '';
-		$this->data['zipcode'] = '';
-		$this->data['province'] = array();
-		$this->data['lang'] = '';
-		$this->data['vente'] = '';
 		$this->data['daterange'] = '';
 
-		if($this->input->post('search')){
+		$this->data['price_min'] = $user->search_price_min;
+		$this->data['price_max'] = $user->search_price_max;
+		$this->data['zipcode'] = $user->search_zipcodes;
+		$provinces = json_decode($user->search_provinces);
+		if(!$provinces) $provinces = array();
+		$this->data['province'] = $provinces;
+		$this->data['lang'] = $user->search_lang;
+		$this->data['vente'] = $user->search_sell;
+		
+		/*if($this->input->post('search') ){
 			$this->data['daterange'] = $this->input->post('daterange');
 			$this->data['date_min'] = $this->input->post('date-min');
 			$this->data['date_max'] = $this->input->post('date-max');
@@ -26,25 +33,20 @@ class Annonces extends CI_Controller {
 			$this->data['zipcode'] = $this->input->post('zipcode');
 			if(is_array($this->input->post('province'))){
 				$this->data['province'] = $this->input->post('province');
+			}else{
+				$this->data['province'] = array();
 			}
 			$this->data['lang'] = $this->input->post('lang');
 			$this->data['vente'] = $this->input->post('vente');
-		}
+			
+			$this->Users_m->saveLastSearch($user->id,$this->data);
+		}*/
 
 		/* Custom Scripts */
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
-
-		$this->load->model(array('Annonces_m','Updates_m'));
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
-		
-		$value = $this->Annonces_m->countAllDatas();
-
-		$this->data['last_update'] = $this->Updates_m->getLastUpdateDate();
-
 		$this->data['pagename'] = "annonces";
-		//echo "test".count($this->data['Annonces']); die();
-
-
+	
 		$this->load->view('template', $this->data);
 
 
@@ -77,6 +79,8 @@ class Annonces extends CI_Controller {
 	}
 
 	public function getAllAnnoncesDataTable(){
+
+
 		$this->load->model(array('Annonces_m'));
 		
 		$return = $this->input->get();
@@ -152,7 +156,7 @@ class Annonces extends CI_Controller {
 
 		
 		$annonces = $this->Annonces_m->get($params);
-		//echo $this->db->last_query();
+	//	echo $this->db->last_query();
 		$data = array();
 
 		foreach($annonces as $key => $product){
@@ -168,19 +172,21 @@ class Annonces extends CI_Controller {
                                 <li><a target="_blank" href="'.$product->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
                                 <li><a href=""><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                             </ul>',
+                $product->id,
 				$product->description
-				
 			);
 		}
 
 		$return["recordsTotal"] = $this->Annonces_m->countAllDatas();
-		$return["recordsFiltered"] = $this->Annonces_m->countAllDatasFiltered($params['search']);
-
+		$return["recordsFiltered"] = $this->Annonces_m->countDataLastRequest($params);
 		
 		$return["data"] = $data;
 
 		echo json_encode($return);
 		 
 	}
+
+	
+
 }
 

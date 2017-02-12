@@ -1,3 +1,12 @@
+<script>
+translate_words = {
+<?php
+foreach($this->lang->language as $key => $translate){
+    ?>
+    <?php echo $key; ?> : "<?php echo $translate; ?>" ,
+<?php } ?>
+}
+</script>
 <body class="l-annonces" id="annonces">
     <div class="wrapper">
         <div class="content" >      
