@@ -1348,7 +1348,7 @@ a.profile-btn {
 @media screen and (min-width: 992px) {
   .list-tables-buttons a {
     padding: 5px 8px; } }
-.list-tables-buttons a:hover {
+.list-tables-buttons a:hover, .list-tables-buttons a.active {
   background: #1ab394; }
 
 .desktop {
