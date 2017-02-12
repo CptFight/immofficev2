@@ -27,7 +27,7 @@ class Favoris extends CI_Controller {
 		/* Custom Scripts */
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
-		$this->data['pagename'] = "annonces";
+		$this->data['pagename'] = "favoris";
 	
 		$this->load->view('template', $this->data);
 

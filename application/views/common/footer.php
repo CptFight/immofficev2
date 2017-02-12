@@ -29,10 +29,10 @@
                 </ul>
             </div>
             <ul class="l-nav-big">
-                <li><a href="<?php echo site_url('annonces/index'); ?>" class='active'><i class="fa fa-search"></i><span><?php echo $this->lang->line('annonces'); ?></span></a></li>
+                <li><a href="<?php echo site_url('annonces/index'); ?>" class='<?php if($pagename == "annonces") echo "active"; ?>'><i class="fa fa-search"></i><span><?php echo $this->lang->line('annonces'); ?></span></a></li>
                 <li><a href=""><i class="fa fa-reddit"></i> <span><?php echo $this->lang->line('alert_mail'); ?></span></a></li>
-                <li><a href="<?php echo site_url('favoris/index'); ?>"><i class="fa fa-heart"></i> <span><?php echo $this->lang->line('favoris'); ?></span></a></li>
-                <li><a href="<?php echo site_url('rappels/index'); ?>"><i class="fa fa-phone"></i> <span ><?php echo $this->lang->line('my_remembers'); ?></span></a></li>
+                <li><a href="<?php echo site_url('favoris/index'); ?>" class='<?php if($pagename == "favoris") echo "active"; ?>'><i class="fa fa-heart"></i> <span><?php echo $this->lang->line('favoris'); ?></span></a></li>
+                <li><a href="<?php echo site_url('rappels/index'); ?>" class='<?php if($pagename == "rappels") echo "active"; ?>'><i class="fa fa-phone"></i> <span ><?php echo $this->lang->line('my_remembers'); ?></span></a></li>
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->
                 <li><a href="#"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
                 <li><a href="#"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>

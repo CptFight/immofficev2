@@ -71,7 +71,7 @@ function linkScroll(){
 $(document).ready(function() {     
     linkScroll();
 
-	$(".l-nav-big a").click( clickmenu );
+	//$(".l-nav-big a").click( clickmenu );
 
 	$("#btn-toggle-nav").click( togglemenu);
 
