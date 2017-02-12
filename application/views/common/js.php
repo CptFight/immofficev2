@@ -3,6 +3,8 @@
 	<script src="<?php echo base_url(); ?>/assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
 
+
+
 <!--  JQUERY -->
 <script src="<?php echo base_url(); ?>/assets/global/libs/jquery-1.11.2.js"></script>
 <script src="<?php echo base_url(); ?>/assets/global/libs/equalizer.js"></script>
@@ -28,5 +30,6 @@
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/translate.js'> </script>
 
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/global.js'> </script>
-
+<script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/header.js'> </script>
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/annonces.js'> </script>
+

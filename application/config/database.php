@@ -77,8 +77,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'immoffice',
-	'password' => 'ux2VeT8Ku2Wp2W84',
+	'username' => 'root',
+	'password' => 'h=Bw6IN9rs',
 	'database' => 'immofficeimport',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
