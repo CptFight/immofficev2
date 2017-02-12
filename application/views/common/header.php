@@ -15,15 +15,15 @@ foreach($this->lang->language as $key => $translate){
                 <h1 class="visuallyhidden">Immoffice</h1>
                 <nav class="l-nav-top">
                     <ul>
-                        <li class="welcome">Bienvenue sur Immoffice</li>
-                        <li><a href="">Besoin d'aide?</a></li>
-                        <li><a href="" class="notification-link"><i class="fa fa-bell"></i><span class="badge">1</span><span class="visuallyhidden">Notifications</span></a></li>
-                        <li><a href=""><i class="fa fa-sign-out"></i> Se déconnecter</a></li>
+                        <li class="welcome"><?php echo $this->lang->line('welkome_immoffice'); ?></li>
+                        <li><a href=""><?php echo $this->lang->line('need_help'); ?>?</a></li>
+                        <!--<li><a href="" class="notification-link"><i class="fa fa-bell"></i><span class="badge">1</span><span class="visuallyhidden"><?php echo $this->lang->line('notifications'); ?></span></a></li>-->
+                        <li><a href="<?php echo base_url(); ?>"><i class="fa fa-sign-out"></i> <?php echo $this->lang->line('logout'); ?></a></li>
                         <li class="dropdown-container">
-                            <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue-big">Français</a>
+                            <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue-big"><?php echo $this->lang->line('lang'); ?></a>
                             <ul class="dropdown hidden" id="langue-big">
-                                <li><a href="">Français</a></li>
-                                <li><a href="">Néerlandais</a></li>
+                                <li><a href="#" class="change_lang" data-lang="french"><?php echo $this->lang->line('french'); ?></a></li>
+                                <li><a href="#" class="change_lang" data-lang="dutch"><?php echo $this->lang->line('dutch'); ?></a></li>
                             </ul>
                         </li>
                     </ul>
