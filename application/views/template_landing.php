@@ -29,6 +29,7 @@
 }
 </script> -->
     </head>
+     <?php $this->load->view('common/set_js_var') ?>
 	 <?php $this->load->view($this->router->class.'/'.$this->router->method) ?>
 		
    

@@ -12,9 +12,9 @@ var header = header || {
 *********************************/
 header.bind = function(){
     /* Au lancement */
+
     $('#langue-big .change_lang').click(function(e){
         e.preventDefault();
-       
         $.ajax({
             type: "POST",
             url: base_url()+"index.php/users/changeLang",

@@ -4,8 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Annonces extends CI_Controller {
 
 	public function index() {
+
 		$this->load->model(array('Annonces_m','Updates_m','Users_m'));
 		$user = $this->Users_m->getCurrentUser();
+
+		if(isset($_GET['lang'])){
+			$user->lang = $_GET['lang'];
+			$this->Users_m->updateLang($user->id,$user->lang);
+		}
 
 		$this->data['user_id'] = $user->id;
 		$this->lang->load('global', $user->lang);
@@ -46,9 +52,9 @@ class Annonces extends CI_Controller {
 		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
 		$this->data['pagename'] = "annonces";
+		//$this->data['actual_link'] = site_url('annonces/index');
 	
 		$this->load->view('template', $this->data);
-
 
 	}
 

@@ -38,19 +38,26 @@ class Users extends CI_Controller {
 	}
 
 
-	//AJAX
-	public function changeLang(){
-		$user = $this->load->model(array('Users_m'));
-		$user->lang = $this->input->post('lang');
-		$this->session->set_userdata('user', $user);
-		echo json_encode($user);
-	}
+	
 
 	public function logout() {
 		$this->session->session_destroy();
 		redirect('users/login');
 	}
 
+	//AJAX
+
+
+	/*public function changeLang(){
+		$this->load->model(array('Users_m'));
+		$user_id = $this->input->post('user_id');
+
+		/*$user = $this->session->get_userdata('user');
+		$user->lang = $this->input->post('lang');
+		$this->session->set_userdata('user', $user);
+		echo json_encode($user);
+	}*/
+	
 	public function saveLastSearch(){
 		$this->load->model(array('Users_m'));
 		$user_id = $this->input->post('user_id');

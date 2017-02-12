@@ -1,12 +1,4 @@
-<script>
-translate_words = {
-<?php
-foreach($this->lang->language as $key => $translate){
-    ?>
-    <?php echo $key; ?> : "<?php echo $translate; ?>" ,
-<?php } ?>
-}
-</script>
+
 <body class="l-annonces" id="annonces">
     <div class="wrapper">
         <div class="content" >      
@@ -22,8 +14,8 @@ foreach($this->lang->language as $key => $translate){
                         <li class="dropdown-container">
                             <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue-big"><?php echo $this->lang->line('lang'); ?></a>
                             <ul class="dropdown hidden" id="langue-big">
-                                <li><a href="#" class="change_lang" data-lang="french"><?php echo $this->lang->line('french'); ?></a></li>
-                                <li><a href="#" class="change_lang" data-lang="dutch"><?php echo $this->lang->line('dutch'); ?></a></li>
+                                <li><a href="<?php echo site_url('annonces/index').'?lang=french'; ?>" ><?php echo $this->lang->line('french'); ?></a></li>
+                                <li><a href="<?php echo site_url('annonces/index').'?lang=dutch'; ?>"><?php echo $this->lang->line('dutch'); ?></a></li>
                             </ul>
                         </li>
                     </ul>

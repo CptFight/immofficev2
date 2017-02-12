@@ -41,16 +41,26 @@ class Users_m extends CI_Model {
         $this->db->update('users', $data);       
     }
 
+    public function updateLang($user_id,$lang){
+        $data = array(
+           'lang' => $lang
+        );
+        $this->db->where('id', $user_id);
+        $this->db->update('users', $data); 
+    }
+
     public function login($login, $password){
         $this->db->where('login',$login);
         $this->db->where('password',md5($password));
         return $this->db->get($this->_db)->row();
     }
 
+
     public function getCurrentUser(){
         $user = $this->session->get_userdata('user');
+      
         if(!$user || !isset($user['user']) || !isset($user['user']->id)){
-            redirect('/users/login');
+            //redirect('/users/login');
         }else{
             $user = $user['user'];
         }
