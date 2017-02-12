@@ -47,7 +47,6 @@ class Users extends CI_Controller {
 
 	//AJAX
 
-
 	/*public function changeLang(){
 		$this->load->model(array('Users_m'));
 		$user_id = $this->input->post('user_id');
@@ -57,6 +56,14 @@ class Users extends CI_Controller {
 		$this->session->set_userdata('user', $user);
 		echo json_encode($user);
 	}*/
+
+	public function updateFavoris(){
+		$this->load->model(array('Favoris_m','Annonces_m') );
+		$user_id = $this->input->post('user_id');
+		$annonce_id = $this->input->post('annonce_id');
+		$annonce = $this->Annonces_m->get($annonce_id);
+		$this->Favoris_m->addFavoris($user_id,$annonce);
+	}
 	
 	public function saveLastSearch(){
 		$this->load->model(array('Users_m'));

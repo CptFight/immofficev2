@@ -1,17 +1,7 @@
 
 
-var annonces = annonces || {
-    tableObject : false,
-    criterias : {
-        date_min : $('#date-min').val(),
-        date_max : $('#date-max').val(),
-        price_min : $('#price-min').val(),
-        price_max : $('#price-max').val(),
-        zipcode : $('#zipcode').val(),
-        province : $('#province').val(),
-        lang : $("input[name='lang']:checked").val(),
-        vente : $("input[name='vente']:checked").val()
-    }
+var favoris = favoris || {
+    tableObject : false
 };
 
 
@@ -20,49 +10,10 @@ var annonces = annonces || {
 *   params : /
 *   bind  instance  
 *********************************/
-annonces.bind = function(){
-   //console.log(annonces.tableObject);
-
-   
-   $('#button-search').click(function(e){
-    e.preventDefault();
-
-    //$('#form_search .clearfix').fadeOut();
-
-   // $('#price-min').val(1000);
-    annonces.criterias.price_min = $('#price-min').val(); 
-    annonces.criterias.price_max = $('#price-max').val(); 
-    annonces.criterias.date_min = $('#date-min').val(); 
-    annonces.criterias.date_max = $('#date-max').val(); 
-    annonces.criterias.province = $('#province').val();
-    annonces.criterias.zipcode = $('#zipcode').val(); 
-    annonces.criterias.lang = $("input[name='lang']:checked").val();
-    annonces.criterias.vente = $("input[name='vente']:checked").val();    
-    annonces.tableObject.api().ajax.reload(); 
-
-    $.ajax({
-        type: "POST",
-        url: base_url()+"index.php/users/saveLastSearch",
-        dataType: 'json',
-        data: {
-            user_id : $('#user_id').val(),
-            price_min : $('#price-min').val(), 
-            price_max : $('#price-max').val(),
-            province : $('#province').val(),
-            zipcode : $('#zipcode').val(),
-            lang : $("input[name='lang']:checked").val(),
-            vente : $("input[name='vente']:checked").val(),
-            daterange : $('#reportrange').val(),
-        },
-        success: function(response){
-           
-        }
-    });
-
-   });
+favoris.bind = function(){
 }
 
-annonces.bindElementTable = function(){
+favoris.bindElementTable = function(){
     
     $('#annonces .add_favoris').click(function(e){
         e.preventDefault();
@@ -89,7 +40,7 @@ annonces.bindElementTable = function(){
         
     });
 
-    $('#annonces_table td').click(function(e){
+    $('#favoris_table td').click(function(e){
         //Set historic price and publication
       //  console.log('passe',$(this).closest('tr').next().find('span.historic_price').html() );
       //  $(this).closest('tr').find('span.historic_price').html('test');
@@ -101,11 +52,11 @@ annonces.bindElementTable = function(){
 
 /* ----- Tables ----- */
 /* ------------------- */
-annonces.initTableDatatablesResponsive = function () {
-    var table = $('#annonces_table');
-
-    if(!annonces.tableObject){
-        annonces.tableObject = table.dataTable({
+favoris.initTableDatatablesResponsive = function () {
+    var table = $('#favoris_table');
+    
+    if(!favoris.tableObject){
+        favoris.tableObject = table.dataTable({
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
@@ -127,7 +78,7 @@ annonces.initTableDatatablesResponsive = function () {
             "serverSide": true,
             "ajax": {
                 data :function ( d ) {
-                   return  $.extend(d, annonces.criterias);
+                   return  $.extend(d, favoris.criterias);
                 }/*{
                     date_min : $('#date-min').val(),
                     date_max : $('#date-max').val(),
@@ -138,7 +89,7 @@ annonces.initTableDatatablesResponsive = function () {
                     lang : $("input[name='lang']:checked").val(),
                     vente : $("input[name='vente']:checked").val(),
                 }*/,
-                url : base_url()+"index.php/annonces/getAllannoncesDataTable",
+                url : base_url()+"index.php/favoris/getAllannoncesDataTable",
             },
             
             /* end param server side */
@@ -159,7 +110,7 @@ annonces.initTableDatatablesResponsive = function () {
             responsive: true,
             parseTime: false,
             fnDrawCallback : function(){
-                annonces.bindElementTable();
+                favoris.bindElementTable();
             },
 
             "order": [
@@ -185,7 +136,7 @@ annonces.initTableDatatablesResponsive = function () {
 };
 
 
-annonces.initSearchValues = function(){
+favoris.initSearchValues = function(){
 
     var config = {
         '.chosen-select' : {
@@ -265,13 +216,6 @@ annonces.initSearchValues = function(){
 
     $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
     $('#annonces #date-max').val(moment.unix(date_max).hours(22).minutes(59).seconds(59).format("X"));
-/*
-    $('#annonces #province').val(province);
-    $('#annonces #price-min').val(price_min);
-    $('#annonces #price-max').val(price_max);
-    //$('#annonces #input-search').val(input_search);
-    $('#annonces #input-zipcode').val(zipcodes);*/
-
 
 }
 
@@ -280,10 +224,10 @@ annonces.initSearchValues = function(){
 *   params : /
 *   init  instance  
 *********************************/
-annonces.init = function(){
-    annonces.initTableDatatablesResponsive();
-    annonces.initSearchValues();
-    annonces.bind();
+favoris.init = function(){
+    favoris.initTableDatatablesResponsive();
+    favoris.initSearchValues();
+    favoris.bind();
 }
 
 /*********************************
@@ -292,9 +236,7 @@ annonces.init = function(){
 *   Call init method on windows load    
 *********************************/
 $(document).ready(function() {     
-    annonces.init();
-
-
+    favoris.init();
 
 });
 

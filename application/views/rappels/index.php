@@ -66,6 +66,7 @@
                 </div><!--
                  --><div>
                     <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="FR">
+                    <label for="FR">FR</label>
                 </div><!--
                  --><div>
                     <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="nl" id="NL">

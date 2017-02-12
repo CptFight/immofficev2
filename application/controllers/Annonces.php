@@ -5,7 +5,7 @@ class Annonces extends CI_Controller {
 
 	public function index() {
 
-		$this->load->model(array('Annonces_m','Updates_m','Users_m'));
+		$this->load->model(array('Annonces_m','Users_m'));
 		$user = $this->Users_m->getCurrentUser();
 
 		if(isset($_GET['lang'])){
@@ -49,7 +49,7 @@ class Annonces extends CI_Controller {
 		}*/
 
 		/* Custom Scripts */
-		$this->data['customscript'] = "/assets/custom_scripts/Annonces.js";
+		$this->data['custom_scripts'] = array("/assets/custom_scripts/Annonces.js");
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
 		$this->data['pagename'] = "annonces";
 		//$this->data['actual_link'] = site_url('annonces/index');
@@ -165,21 +165,27 @@ class Annonces extends CI_Controller {
 	//	echo $this->db->last_query();
 		$data = array();
 
-		foreach($annonces as $key => $product){
+		foreach($annonces as $key => $annonce){
 			$data[] = array(
-				$product->title,
-				$product->zip_code,
-				$product->price.' €',
-				$product->web_site,
-				date('d/m/Y',$product->date_publication),
+				$annonce->title,
+				$annonce->zip_code,
+				$annonce->price.' €',
+				$annonce->web_site,
+				date('d/m/Y',$annonce->date_publication),
 				'',
-				'<ul class="list-tables-buttons">
-                                <li><a href=""><i class="fa fa-heart"></i><span>Ajouter aux favoris</span></a></li>
-                                <li><a target="_blank" href="'.$product->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
-                                <li><a href=""><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
+				'<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
+				 				<li><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
+                                <li><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
+                                <li><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                             </ul>',
-                $product->id,
-				$product->description
+                $annonce->id,
+                "<span class='historic_price'>".$annonce->price."</span>",
+                "<span class='historic_publications'>".date('d/m/Y',$annonce->date_publication)."</span>",
+                $annonce->adress,
+                $annonce->province,
+                $annonce->city,
+              	$annonce->description,
+				"<a href='".$annonce->url."'>".$annonce->url."</a>"
 			);
 		}
 

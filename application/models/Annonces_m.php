@@ -18,11 +18,11 @@ class Annonces_m extends CI_Model {
         $this->db->group_by('annonces.id');
         $this->db->join('prices','prices.id = annonces.last_price_id', 'left');
         $this->db->join('publications','publications.id = annonces.last_publication_id', 'left');
-        
+        $this->db->select('*, annonces.id as id');
         
         if(!is_array($params)){
             $id = $params;
-            $this->db->where('id',$id);
+            $this->db->where('annonces.id',$id);
             return $this->db->get($this->_db)->row();
         }else{
 
@@ -31,8 +31,7 @@ class Annonces_m extends CI_Model {
                $params['start'] = 0;
             } 
 
-            $this->db->select('*, annonces.id as id');
-        
+            
             if($params['search']){
                 $request_search = "( title LIKE '%".$params['search']."%'";
                 $request_search .= "OR web_site LIKE '%".$params['search']."%'";

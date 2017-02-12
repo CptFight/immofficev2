@@ -66,6 +66,7 @@
                 </div><!--
                  --><div>
                     <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="FR">
+                    <label for="FR">FR</label>
                 </div><!--
                  --><div>
                     <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="nl" id="NL">
@@ -89,7 +90,7 @@
     </div>
     </form>
     <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="sample_1">
+        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="annonces_table">
             <thead>
                 <tr>
                     <th ><?php echo $this->lang->line('title'); ?></th>
@@ -100,7 +101,13 @@
                     <th ><?php echo $this->lang->line('visited'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                     <th class="none">ID : </th>
+                    <th class="none"><?php echo $this->lang->line('price'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('publications'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('adress'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('province'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('city'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('description'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('link'); ?> : </th>
                 </tr>
             </thead>
 

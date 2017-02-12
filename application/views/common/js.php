@@ -25,11 +25,14 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/daterangepicker/daterangepicker.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/chosen/chosen.jquery.js"></script>
 
-
-
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/translate.js'> </script>
 
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/global.js'> </script>
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/header.js'> </script>
-<script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/annonces.js'> </script>
+<?php 
+if(isset($custom_scripts) && is_array($custom_scripts)  ) {
+	foreach($custom_scripts as $key => $script_url){  
+?>
+<script type='text/javascript' src = '<?php echo base_url().$script_url; ?>'> </script>
+<?php } } ?>
 
