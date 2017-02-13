@@ -2,6 +2,8 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['url'] = 'Url';
+	$lang['edit'] = "Edition";
 	$lang["event_error_title"] = "Perturbation ! ";
 	$lang["event_error_body"] = "Immoffice fait des grosses mises à jours. Le service peut être perturbé. ";
 	$lang["load_more_favoris"] = "Charger plus de favoris";

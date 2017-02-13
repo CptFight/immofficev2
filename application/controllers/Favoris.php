@@ -9,36 +9,28 @@ class Favoris extends CI_Controller {
 
 		$this->data['user_id'] = $user->id;
 		$this->lang->load('global', $user->lang);
-
-		//TODO SET USER INFORMATIONS.
-		$this->data['date_min'] = '';
-		$this->data['date_max'] = '';
-		$this->data['daterange'] = '';
-
-		$this->data['price_min'] = $user->search_price_min;
-		$this->data['price_max'] = $user->search_price_max;
-		$this->data['zipcode'] = $user->search_zipcodes;
-		$provinces = json_decode($user->search_provinces);
-		if(!$provinces) $provinces = array();
-		$this->data['province'] = $provinces;
-		$this->data['lang'] = $user->search_lang;
-		$this->data['vente'] = $user->search_sell;
 		
 		/* Custom Scripts */
 		$this->data['custom_scripts'] = array("/assets/custom_scripts/favoris.js");
-		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
 		$this->data['pagename'] = "favoris";
 	
 		$this->load->view('template', $this->data);
-
-
 	}
 
 	public function edit(){
-		$this->load->model(array('Favoris_m','Users_m'));
-		$user = $this->Users_m->getCurrentUser();
-		
-		$this->load->view('template', $this->data);
+		if(!isset($_GET['id']) || $_GET['id'] == ''){
+			redirect('favoris/index');
+		}else{		
+			$this->load->model(array('Favoris_m','Updates_m','Users_m'));
+			$user = $this->Users_m->getCurrentUser();
+
+			$this->data['user_id'] = $user->id;
+			$this->lang->load('global', $user->lang);
+
+			$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
+
+			$this->load->view('template', $this->data);
+		}
 	}
 
 	public function getAllAnnoncesDataTable(){

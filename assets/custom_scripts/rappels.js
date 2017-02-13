@@ -1,6 +1,6 @@
 
 
-var favoris = favoris || {
+var rappels = rappels || {
     tableObject : false
 };
 
@@ -10,12 +10,12 @@ var favoris = favoris || {
 *   params : /
 *   bind  instance  
 *********************************/
-favoris.bind = function(){
+rappels.bind = function(){
 }
 
-favoris.bindElementTable = function(){
+rappels.bindElementTable = function(){
     
-    $('#annonces .add_favoris').click(function(e){
+    $('#annonces .add_rappels').click(function(e){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
@@ -40,7 +40,7 @@ favoris.bindElementTable = function(){
         
     });
 
-    $('#favoris_table td').click(function(e){
+    $('#rappels_table td').click(function(e){
         //Set historic price and publication
       //  console.log('passe',$(this).closest('tr').next().find('span.historic_price').html() );
       //  $(this).closest('tr').find('span.historic_price').html('test');
@@ -52,11 +52,11 @@ favoris.bindElementTable = function(){
 
 /* ----- Tables ----- */
 /* ------------------- */
-favoris.initTableDatatablesResponsive = function () {
-    var table = $('#favoris_table');
+rappels.initTableDatatablesResponsive = function () {
+    var table = $('#rappels_table');
     
-    if(!favoris.tableObject){
-        favoris.tableObject = table.dataTable({
+    if(!rappels.tableObject){
+        rappels.tableObject = table.dataTable({
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
@@ -98,7 +98,7 @@ favoris.initTableDatatablesResponsive = function () {
             responsive: true,
             parseTime: false,
             fnDrawCallback : function(){
-                favoris.bindElementTable();
+                rappels.bindElementTable();
             },
 
             "order": [
@@ -129,9 +129,9 @@ favoris.initTableDatatablesResponsive = function () {
 *   params : /
 *   init  instance  
 *********************************/
-favoris.init = function(){
-    favoris.initTableDatatablesResponsive();
-    favoris.bind();
+rappels.init = function(){
+    rappels.initTableDatatablesResponsive();
+    rappels.bind();
 }
 
 /*********************************
@@ -140,7 +140,7 @@ favoris.init = function(){
 *   Call init method on windows load    
 *********************************/
 $(document).ready(function() {     
-    favoris.init();
+    rappels.init();
 
 });
 

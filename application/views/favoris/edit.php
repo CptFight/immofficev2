@@ -1,9 +1,9 @@
 <div class="title-container">
-    <h2>Formulaire</h2>
+    <h2><?php echo $this->lang->line('favoris'); ?></h2>
     <ul>
         <li>
-            <a href="">Accueil</a>
-            <a href="" class="active">Formulaire</a>
+            <a href=""><?php echo $this->lang->line('home'); ?></a>
+            <a href="" class="active"><?php echo $this->lang->line('edit'); ?> <?php echo $this->lang->line('favoris'); ?></a>
         </li>
     </ul>
 </div>
@@ -12,47 +12,80 @@
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
         <fieldset class="inputstyle">
-            <label>Name</label>
-            <input type="text" required>
+            <label><?php echo $this->lang->line('title'); ?></label>
+            <input type="text" value='<?php echo $favoris->title; ?>' required>
         </fieldset>
         <fieldset class="inputstyle">
-            <label>Email</label>
-            <input type="email" required>
+            <label><?php echo $this->lang->line('date'); ?></label>
+            <input type="text" value='<?php echo date('d/m/Y',$favoris->date_publication); ?>' required>
         </fieldset>
         <fieldset class="inputstyle">
-            <label>Place your message</label>
-            <textarea required></textarea>
+            <label><?php echo $this->lang->line('price'); ?></label>
+            <input type="text" value='<?php echo $favoris->price; ?>' required>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('url'); ?></label>
+            <input type="text" value='<?php echo $favoris->url; ?>' required>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('web_site'); ?></label>
+            <input type="text" value='<?php echo $favoris->web_site; ?>' required>
+        </fieldset>
+         <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('adress'); ?></label>
+            <input type="text" value='<?php echo $favoris->adress; ?>'>
+        </fieldset>
+         <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('city'); ?></label>
+            <input type="text" value='<?php echo $favoris->city; ?>' required>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('zip_code'); ?></label>
+            <input type="text" value='<?php echo $favoris->zip_code; ?>' required>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('province'); ?></label>
+            <input type="text" value='<?php echo $favoris->province; ?>' required>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('living_space'); ?></label>
+            <input type="text" value='<?php echo $favoris->living_space; ?>'>
+        </fieldset>
+         <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('owner_name'); ?></label>
+            <input type="text" value='<?php echo $favoris->owner_name; ?>'>
+        </fieldset>
+         <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('tel'); ?></label>
+            <input type="text" value='<?php echo $favoris->tel; ?>'>
         </fieldset>
         <fieldset class="radio-inline-cont ">
             <div>
-                <input name="lang" type="radio" value="FR/NL" id="FR/NL">
-                <label for="FR/NL">FR/NL</label>
+                <input name="sale" type="radio" value="1" id="sell" <?php if($favoris->sale == 1) echo "checked"; ?>>
+                <label for="sell"><?php echo $this->lang->line('sell'); ?></label>
             </div><!--
              --><div>
-                <input name="lang" type="radio" value="FR" id="FR">
-                <label for="FR">FR</label>
-            </div><!--
-             --><div>
-                <input name="lang" type="radio" value="NL" id="NL">
-                <label for="NL">NL</label>
+                <input name="sale" type="radio" value="0" id="location" <?php if($favoris->sale == 0) echo "checked"; ?>>
+                <label for="location"><?php echo $this->lang->line('location'); ?></label>
             </div>
         </fieldset>
-        <fieldset class="checkbox-inline-cont ">
+        <fieldset class="radio-inline-cont ">
             <div>
-                <input name="langues" type="checkbox" value="FR/NLb" checked id="FR/NLb">
-                <label for="FR/NLb">FR/NL</label>
+                <input name="lang" type="radio" value="fr" id="fr" <?php if($favoris->lang == 'fr') echo "checked"; ?>>
+                <label for="fr"><?php echo $this->lang->line('french'); ?></label>
             </div><!--
              --><div>
-                <input name="langues" type="checkbox" value="FRb" id="FRb" >
-                <label for="FRb">FR</label>
-            </div><!--
-             --><div>
-                <input name="langues" type="checkbox" value="NLb" id="NLb">
-                <label for="NLb">NL</label>
+                <input name="lang" type="radio" value="nl" id="nl" <?php if($favoris->lang == 'nl') echo "checked"; ?>>
+                <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
             </div>
+        </fieldset>
+         <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('description'); ?></label>
+            <textarea required><?php echo $favoris->description; ?></textarea>
         </fieldset>
         <fieldset>
-            <button name="submit" class="btn" type="submit">Submit</button>
+            <button name="submit" class="btn" type="submit"><?php echo $this->lang->line('submit'); ?></button>
+            <button name="submit" class="btn" type="submit"><?php echo $this->lang->line('delete'); ?></button>
         </fieldset>
     </div>
     <!--<a href="" class="btn">Charger plus d'annonces</a>-->
