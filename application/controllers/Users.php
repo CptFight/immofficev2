@@ -27,7 +27,80 @@ class Users extends CI_Controller {
 		$this->load->view('template_landing');
 	}
 
+	public function news(){
+		$this->load->model(array('Users_m'));
+		$user = $this->Users_m->getCurrentUser();
+		$this->data['user'] = $user;
+		$this->data['user_id'] = $user->id;
+		$this->lang->load('global', $user->lang);
 
+		if($this->input->post('save') ){
+			$user = array();
+
+			$user['login'] = $this->input->post('email');
+			$user['password'] = md5($this->input->post('password'));
+			$user['lang'] = $this->input->post('lang');
+			$user['search_price_min'] = '';
+			$user['search_price_max'] = '';
+			$user['search_provinces'] = '';
+			$user['search_zipcodes'] = '';
+			$user['search_lang'] = '';
+			$user['search_sell'] = '';
+			$user['search_date'] = '';
+			$user['name'] = $this->input->post('name');
+			$user['firstname'] = $this->input->post('firstname');
+			$user['agence'] = $this->input->post('agence');
+			$user['adress'] = $this->input->post('adress');
+			$user['tel'] = $this->input->post('tel');
+			$user['owner_email'] = $this->input->post('owner_email');
+			$user['owner_commercial'] = $this->input->post('owner_commercial');
+			$user['owner_name'] = $this->input->post('owner_name');
+			$user['price_htva'] = $this->input->post('price_htva');
+			$user['price_tvac'] = $this->input->post('price_tvac');
+			
+			$this->Users_m->createUser($user);
+		}
+
+		$this->load->view('template', $this->data);
+	}
+
+	public function edit(){
+		if(!isset($_GET['id']) || $_GET['id'] == ''){
+			redirect('users/new');
+		}else{		
+			$this->load->model(array('Users_m'));
+			$user = $this->Users_m->getCurrentUser();
+
+			$this->data['user_id'] = $user->id;
+			$this->lang->load('global', $user->lang);
+
+			if($this->input->post('save') ){
+				$favoris = array();
+				$favoris['id'] = $this->input->post('id');
+				$favoris['tags'] = $this->input->post('tags');
+				$favoris['title'] = $this->input->post('title');
+				$date_publication = str_replace('/', '-', $this->input->post('date_publication') );
+				$favoris['date_publication'] = strtotime( $date_publication );
+				$favoris['price'] = $this->input->post('price');
+				$favoris['url'] = $this->input->post('url');
+				$favoris['web_site'] = $this->input->post('web_site');
+				$favoris['adress'] = $this->input->post('adress');
+				$favoris['city'] = $this->input->post('city');
+				$favoris['zip_code'] = $this->input->post('zip_code');
+				$favoris['province'] = $this->input->post('province');
+				$favoris['living_space'] = $this->input->post('living_space');
+				$favoris['owner_name'] = $this->input->post('owner_name');
+				$favoris['tel'] = $this->input->post('tel');
+				$favoris['sale'] = $this->input->post('sale');
+				$favoris['lang'] = $this->input->post('lang');
+				//$this->Favoris_m->saveFavoris($favoris);
+			}
+
+			$this->data['favoris'] = $this->Users_m->get($_GET['id']);
+
+			$this->load->view('template', $this->data);
+		}
+	}
 	public function lock() {
 		if($login = $this->input->post('login')) {
 			$this->session->set_userdata('logged', true);
@@ -61,8 +134,14 @@ class Users extends CI_Controller {
 		$this->load->model(array('Favoris_m','Annonces_m') );
 		$user_id = $this->input->post('user_id');
 		$annonce_id = $this->input->post('annonce_id');
-		$annonce = $this->Annonces_m->get($annonce_id);
-		$this->Favoris_m->addFavoris($user_id,$annonce);
+		$add = $this->input->post('add');
+		if($add == 'true'){
+			$annonce = $this->Annonces_m->get($annonce_id);
+			$this->Favoris_m->addAnnonceInFavoris($user_id,$annonce);
+		}else{
+			$this->Favoris_m->removeAnnonceFromFavoris($user_id,$annonce_id);
+		}
+		
 	}
 	
 	public function saveLastSearch(){
@@ -77,5 +156,18 @@ class Users extends CI_Controller {
         $datas['vente'] = $this->input->post('vente');
         $datas['daterange'] = $this->input->post('daterange');
 		$this->Users_m->saveLastSearch($user_id,$datas);
+	}
+
+	public function getListIdFavorisRappel(){
+		$this->load->model(array('Users_m','Favoris_m'));
+		$user_id = $this->input->post('user_id');
+
+		$favoris = $this->Favoris_m->getFavorisIds($user_id);
+		$rappels = array();
+		$result = array(
+			'favoris' => $favoris,
+			'rappel' => $rappels
+		);
+		echo json_encode($result);
 	}
 }

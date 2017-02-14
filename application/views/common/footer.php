@@ -20,7 +20,7 @@
             <div class="m-map-marker"><i class="fa fa-map-marker"></i></div>
             <div class="dropdown-container dropdown-profile">
                 <a href="javascript:;" class="btn-dropdown profile-btn" data-id="profile">
-                    <span>Marie</span>
+                    <span><?php echo $user->firstname; ?></span>
                     <?php echo $this->lang->line('my_account'); ?>
                 </a>
                 <ul class="dropdown hidden" id="profile">
@@ -36,6 +36,7 @@
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->
                 <li><a href="#"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
                 <li><a href="#"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
+                <li><a href="<?php echo site_url('users/news'); ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('new_user'); ?></span></a></li>
             </ul>
         </aside>
     </div>

@@ -41,45 +41,17 @@ class Users_m extends CI_Model {
         $this->db->update('users', $data);       
     }
 
+    public function createUser($user){
+       
+        $this->db->insert($this->_db, $user); 
+    }
+
     public function updateLang($user_id,$lang){
         $data = array(
            'lang' => $lang
         );
         $this->db->where('id', $user_id);
-        $this->db->update('users', $data); 
-    }
-
-    public function addFavoris($user_id,$annonce){
-        $this->db->where('id', $id);
-        return $this->db->get()->row();
-        $data = array(
-           'user_id' => $user_id,
-           'annonce_id' => $annonce->id,
-           'created' => $annonce->created,
-           'url' => $annonce->url,
-           'web_site' => $annonce->web_site,
-           'created' => $annonce->created,
-           'zip_code' => $annonce->zip_code,
-           'province' => $annonce->province,
-           'living_space' => $annonce->living_space,
-           'sale' => $annonce->sale,
-           'lang' => $annonce->lang,
-           'title' => $annonce->title,
-           'description' => $annonce->description,
-           'adress' => $annonce->adress,
-           'city' => $annonce->city,
-           'tel' => ''
-        );
-        $this->db->insert('users_favoris', $data); 
-    }
-
-    public function removeFavoris($user_id,$favoris_id){
-
-        $data = array(
-           'lang' => $lang
-        );
-        $this->db->where('id', $user_id);
-        $this->db->update('users', $data); 
+        $this->db->update($this->_db, $data); 
     }
 
     public function login($login, $password){

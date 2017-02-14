@@ -2,6 +2,13 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['new_user'] = 'Nouvel utilisateur';
+	$lang['user'] = 'Utilisateur';
+	$lang['price_tvac'] = 'Prix TVAC';
+	$lang['price_htva'] = 'Prix HTVA';
+	$lang['verify_password'] = 'Confirmer le mot de passe';
+	$lang['owner_commercial'] = 'Email du commercial responsable';
+	$lang['tags'] = 'Tags';
 	$lang['url'] = 'Url';
 	$lang['edit'] = "Edition";
 	$lang["event_error_title"] = "Perturbation ! ";

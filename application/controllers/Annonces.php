@@ -12,8 +12,8 @@ class Annonces extends CI_Controller {
 			$user->lang = $_GET['lang'];
 			$this->Users_m->updateLang($user->id,$user->lang);
 		}
-
 		$this->data['user_id'] = $user->id;
+		$this->data['user'] = $user;
 		$this->lang->load('global', $user->lang);
 
 		//TODO SET USER INFORMATIONS.
@@ -49,7 +49,7 @@ class Annonces extends CI_Controller {
 		}*/
 
 		/* Custom Scripts */
-		$this->data['custom_scripts'] = array("/assets/custom_scripts/Annonces.js");
+		$this->data['custom_scripts'] = array("/assets/custom_scripts/annonces.js");
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
 		$this->data['pagename'] = "annonces";
 		//$this->data['actual_link'] = site_url('annonces/index');
@@ -174,10 +174,10 @@ class Annonces extends CI_Controller {
 				date('d/m/Y',$annonce->date_publication),
 				'',
 				'<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
-				 				<li><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
-                                <li><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
-                                <li><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
-                            </ul>',
+	 				<li><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
+                    <li><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
+                    <li><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
+                </ul>',
                 $annonce->id,
                 "<span class='historic_price'>".$annonce->price."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$annonce->date_publication)."</span>",

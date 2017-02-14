@@ -68,19 +68,22 @@ annonces.bindElementTable = function(){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
+        var add = true;
         if(!$(this).hasClass('active')){
             $(this).addClass('active');
         }else{
             $(this).removeClass('active');
+            add = false;
         }
-        
+
         $.ajax({
             type: "POST",
             url: base_url()+"index.php/users/updateFavoris",
             dataType: 'json',
             data: {
                 user_id : $('#user_id').val(),
-                annonce_id : annonce_id
+                annonce_id : annonce_id,
+                add : add 
             },
             success: function(response){
                console.log('response',response);
@@ -97,6 +100,26 @@ annonces.bindElementTable = function(){
    });
 }
 
+
+annonces.activeFavorisRappel = function(){
+     $.ajax({
+        type: "POST",
+        url: base_url()+"index.php/users/getListIdFavorisRappel",
+        dataType: 'json',
+        data: {
+            user_id : $('#user_id').val()
+        },
+        success: function(favoris_rappels_list){
+            $('#annonces ul.list-tables-buttons').each(function(e){
+                var annonce_id = $(this).data('annonce_id');
+                var index = favoris_rappels_list.favoris.indexOf(annonce_id.toString());
+                if(index != -1){
+                    $(this).find('.add_favoris').addClass('active');
+                }
+            });
+        }
+    });
+}
 
 
 /* ----- Tables ----- */
@@ -159,6 +182,7 @@ annonces.initTableDatatablesResponsive = function () {
             responsive: true,
             parseTime: false,
             fnDrawCallback : function(){
+                annonces.activeFavorisRappel();
                 annonces.bindElementTable();
             },
 
