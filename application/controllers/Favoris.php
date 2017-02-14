@@ -8,6 +8,7 @@ class Favoris extends CI_Controller {
 		$user = $this->Users_m->getCurrentUser();
 
 		$this->data['user_id'] = $user->id;
+		$this->data['user'] = $user;
 		$this->lang->load('global', $user->lang);
 		
 		/* Custom Scripts */
@@ -21,11 +22,33 @@ class Favoris extends CI_Controller {
 		if(!isset($_GET['id']) || $_GET['id'] == ''){
 			redirect('favoris/index');
 		}else{		
-			$this->load->model(array('Favoris_m','Updates_m','Users_m'));
+			$this->load->model(array('Favoris_m','Users_m'));
 			$user = $this->Users_m->getCurrentUser();
-
+			$this->data['user'] = $user;
 			$this->data['user_id'] = $user->id;
 			$this->lang->load('global', $user->lang);
+
+			if($this->input->post('save') ){
+				$favoris = array();
+				$favoris['id'] = $this->input->post('id');
+				$favoris['tags'] = $this->input->post('tags');
+				$favoris['title'] = $this->input->post('title');
+				$date_publication = str_replace('/', '-', $this->input->post('date_publication') );
+				$favoris['date_publication'] = strtotime( $date_publication );
+				$favoris['price'] = $this->input->post('price');
+				$favoris['url'] = $this->input->post('url');
+				$favoris['web_site'] = $this->input->post('web_site');
+				$favoris['adress'] = $this->input->post('adress');
+				$favoris['city'] = $this->input->post('city');
+				$favoris['zip_code'] = $this->input->post('zip_code');
+				$favoris['province'] = $this->input->post('province');
+				$favoris['living_space'] = $this->input->post('living_space');
+				$favoris['owner_name'] = $this->input->post('owner_name');
+				$favoris['tel'] = $this->input->post('tel');
+				$favoris['sale'] = $this->input->post('sale');
+				$favoris['lang'] = $this->input->post('lang');
+				$this->Favoris_m->saveFavoris($favoris);
+			}
 
 			$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
 
@@ -34,8 +57,6 @@ class Favoris extends CI_Controller {
 	}
 
 	public function getAllAnnoncesDataTable(){
-
-
 		$this->load->model(array('Favoris_m'));
 		
 		$return = $this->input->get();

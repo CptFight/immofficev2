@@ -26,6 +26,14 @@ class Favoris_m extends CI_Model {
 
             if($params['search']){
                 $request_search = "( title LIKE '%".$params['search']."%'";
+                $request_search .= "OR tags LIKE '%".$params['search']."%'";
+                $request_search .= "OR owner_name LIKE '%".$params['search']."%'";
+                $request_search .= "OR price LIKE '%".$params['search']."%'";
+                $request_search .= "OR date_publication LIKE '%".$params['search']."%'";
+                $request_search .= "OR tel LIKE '%".$params['search']."%'";
+                $request_search .= "OR adress LIKE '%".$params['search']."%'";
+                $request_search .= "OR zip_code LIKE '%".$params['search']."%'";
+                $request_search .= "OR province LIKE '%".$params['search']."%'";
                 $request_search .= "OR web_site LIKE '%".$params['search']."%'";
                 $request_search .= "OR description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
@@ -49,7 +57,7 @@ class Favoris_m extends CI_Model {
         return $this->db->get($this->_db)->row()->count;
     }
 
-    public function addFavoris($user_id,$annonce){
+    public function addAnnonceInFavoris($user_id,$annonce){
         $data = array(
            'user_id' => $user_id,
            'annonce_id' => $annonce->id,
@@ -72,9 +80,31 @@ class Favoris_m extends CI_Model {
         return $this->db->insert($this->_db, $data); 
     }
 
+    public function getFavorisIds($user_id){
+      $this->db->where('user_id',$user_id);
+      $result = $this->db->get($this->_db)->result();
+      $list_ids = array();
+      foreach($result as $key => $favoris){
+        $list_ids[] = $favoris->annonce_id;
+      }
+      return $list_ids;
+    }
+
     public function removeFavoris($id){
         $this->db->where('id', $id);
         $this->db->delete($this->_db); 
+    }
+
+    public function removeAnnonceFromFavoris($user_id,$annonce_id){
+        $this->db->where('user_id', $user_id);
+        $this->db->where('annonce_id', $annonce_id);
+        $this->db->delete($this->_db); 
+    }
+
+    public function saveFavoris($favoris){
+      $this->db->where('id', $favoris['id']);
+      unset($favoris['id']);
+      $this->db->update($this->_db, $favoris); 
     }
 
    

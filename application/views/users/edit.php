@@ -89,7 +89,7 @@
             <textarea><?php echo $favoris->description; ?></textarea>
         </fieldset>
         <fieldset>
-            <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
+            <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('submit'); ?></button>
             <button name="delete" class="btn" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
         </fieldset>
     </div>
