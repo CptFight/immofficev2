@@ -1353,7 +1353,7 @@ a.profile-btn {
   
   a.active:hover 
   {
-    background: #676a6c;
+    opacity:0.8;
   }
 
 .desktop {
