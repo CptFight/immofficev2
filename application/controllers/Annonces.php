@@ -174,7 +174,7 @@ class Annonces extends CI_Controller {
 				date('d/m/Y',$annonce->date_publication),
 				'',
 				'<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
-	 				<li><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
+	 				<li><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
                     <li><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',

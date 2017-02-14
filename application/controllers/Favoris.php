@@ -129,8 +129,8 @@ class Favoris extends CI_Controller {
 				$favoris->web_site,
 				date('d/m/Y',$favoris->date_publication),
 				'',
-				'<ul class="list-tables-buttons" data-favoris_id="'.$favoris->id.'">
-	 				<li><a target="_blank" href="'.$favoris->url.'"><i class="fa fa-link"></i><span>Voir le site</span></a></li>
+				'<ul class="list-tables-buttons list-favoris" data-favoris_id="'.$favoris->id.'">
+	 				<li><a target="_blank" href="'.$favoris->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li><a href="'.site_url('favoris/edit/?id='.$favoris->id).'">Editer le favoris</a></li>
                     <li><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',

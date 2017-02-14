@@ -838,6 +838,13 @@ fieldset.active label {
   outline: 0;
   border-color: #1ab394 !important; }
 
+.form-buttons .btn, .form-buttons .btn-grey {
+  display: inline-block; }
+.form-buttons .delete {
+  background: #ec4758; }
+.form-buttons .delete:hover {
+  background: #bf2a3a; }
+
 /* ==|====================
    Base/Typos // Import, Tailles, couleurs, fonts
    ======================= */
@@ -1340,21 +1347,42 @@ a.profile-btn {
   display: inline-block; }
 .list-tables-buttons a {
   display: block;
-  padding: 10px 16px;
-  background: #676a6c;
-  color: white;
+  padding: 10px 13px;
+  background: white;
+  border-radius: 50px;
   font-size: 12px;
-  border-radius: 5px; }
+  border: 1px solid #ec4758;
+  color: #ec4758; }
+.list-tables-buttons li:first-child a {
+  border: 1px solid #1c84c6;
+  color: #1c84c6;
+  font-size: 11px;
+  padding: 11px 14px; }
+.list-tables-buttons li:last-child a {
+  border: 1px solid #f7a54a;
+  color: #f7a54a; }
 @media screen and (min-width: 992px) {
   .list-tables-buttons a {
-    padding: 5px 8px; } }
+    padding: 4px 7px; }
+  .list-tables-buttons li:first-child a {
+    padding: 5px 7px; } }
 .list-tables-buttons a:hover, .list-tables-buttons a.active {
-  background: #1ab394; }
-  
-  a.active:hover 
-  {
-    opacity:0.8;
-  }
+  color: white;
+  background: #ec4758; }
+.list-tables-buttons.list-favoris a {
+  border: 1px solid #676a6c;
+  color: #676a6c; }
+.list-tables-buttons.list-favoris a:hover, .list-tables-buttons.list-favoris a.active {
+  color: white;
+  background: #676a6c; }
+.list-tables-buttons li:first-child a:hover, .list-tables-buttons li:first-child a.active {
+  color: white;
+  background: #1c84c6; }
+.list-tables-buttons li:last-child a:hover, .list-tables-buttons li:last-child a.active {
+  color: white;
+  background: #f7a54a; }
+.list-tables-buttons a.active:hover {
+  opacity: 0.8; }
 
 .desktop {
   min-width: 60px !important; }
