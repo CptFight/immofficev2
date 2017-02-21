@@ -229,3 +229,19 @@ fieldset.active label {
     outline:0;
     border-color: #1ab394 !important;
 }
+
+.form-buttons
+{
+    .btn 
+    {
+        display:inline-block;
+    }
+    .delete 
+    {
+        background:$red;
+    }
+    .delete:hover 
+    {
+        background:#bf2a3a;
+    }
+}
