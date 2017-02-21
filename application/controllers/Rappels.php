@@ -8,6 +8,7 @@ class Rappels extends CI_Controller {
 		$user = $this->Users_m->getCurrentUser();
 
 		$this->data['user_id'] = $user->id;
+		$this->data['user'] = $user;
 		$this->lang->load('global', $user->lang);
 		
 		/* Custom Scripts */
