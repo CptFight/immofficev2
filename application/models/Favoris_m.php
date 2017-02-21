@@ -90,7 +90,7 @@ class Favoris_m extends CI_Model {
       return $list_ids;
     }
 
-    public function removeFavoris($id){
+    public function deleteFavoris($id){
         $this->db->where('id', $id);
         $this->db->delete($this->_db); 
     }

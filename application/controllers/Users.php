@@ -33,6 +33,7 @@ class Users extends CI_Controller {
 		$this->data['user'] = $user;
 		$this->data['user_id'] = $user->id;
 		$this->lang->load('global', $user->lang);
+		$this->data['pagename'] = "users";
 
 		if($this->input->post('save') ){
 			$user = array();

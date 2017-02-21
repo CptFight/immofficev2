@@ -28,6 +28,15 @@ class Favoris extends CI_Controller {
 			$this->data['user_id'] = $user->id;
 			$this->lang->load('global', $user->lang);
 
+			$this->data['pagename'] = "favoris";
+
+			
+			if($this->input->post('delete') ){
+				$id = $this->input->post('id');
+				$this->Favoris_m->deleteFavoris($id);
+				redirect('favoris/index');
+			}
+
 			if($this->input->post('save') ){
 				$favoris = array();
 				$favoris['id'] = $this->input->post('id');

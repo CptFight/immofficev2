@@ -14,7 +14,7 @@
     <div class="l-annonces-form l-form">
          <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('tags'); ?></label>
-            <input type="text" name="tags" value='<?php echo $favoris->tags; ?>' required>
+            <input type="text" name="tags" value='<?php echo $favoris->tags; ?>'>
         </fieldset>
         <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('title'); ?></label>
