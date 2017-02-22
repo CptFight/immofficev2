@@ -20,9 +20,10 @@ class Annonces extends CI_Controller {
 		$this->data['date_min'] = '';
 		$this->data['date_max'] = '';
 		$this->data['daterange'] = '';
-
-		$this->data['price_min'] = $user->search_price_min;
-		$this->data['price_max'] = $user->search_price_max;
+		if(!$user->search_price_min) $this->data['price_min'] = '';
+		else $this->data['price_min'] = $user->search_price_min;
+		if(!$user->search_price_max) $this->data['price_max'] = '';
+		else $this->data['price_max'] = $user->search_price_max;
 		$this->data['zipcode'] = $user->search_zipcodes;
 		$provinces = json_decode($user->search_provinces);
 		if(!$provinces) $provinces = array();
