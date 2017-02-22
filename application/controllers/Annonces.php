@@ -176,7 +176,7 @@ class Annonces extends CI_Controller {
 				'<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
 	 				<li><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
-                    <li><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
+                    <li><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $annonce->id,
                 "<span class='historic_price'>".$annonce->price."</span>",

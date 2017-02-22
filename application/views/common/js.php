@@ -20,9 +20,15 @@
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
 
 
+
 <!-- RANGEPICKER -->
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/scripts/moment.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/daterangepicker/daterangepicker.js"></script>
+
+<!-- FULL CALENDAR -->
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/fullcalendar/dist/fullcalendar.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/fullcalendar/dist/locale-all.js"></script>
+
 <script type="text/javascript" src="<?php echo base_url(); ?>/assets/global/plugins/chosen/chosen.jquery.js"></script>
 
 <script type='text/javascript' src = '<?php echo base_url(); ?>/assets/custom_scripts/translate.js'> </script>

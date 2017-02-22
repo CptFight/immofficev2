@@ -17,3 +17,8 @@
 
 <!-- chosen -->
 <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>assets/global/css/screen.css">
+
+<!-- FULL CALENDAR -->
+<link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>/assets/global/plugins/fullcalendar/dist/fullcalendar.css">
+<link rel="stylesheet" media="print" href="<?php echo base_url(); ?>/assets/global/plugins/fullcalendar/dist/fullcalendar.print.min.css">
+

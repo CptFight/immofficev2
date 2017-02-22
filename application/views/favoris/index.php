@@ -25,7 +25,6 @@
                     <th ><?php echo $this->lang->line('price'); ?></th>
                     <th ><?php echo $this->lang->line('web_site'); ?></th>
                     <th ><?php echo $this->lang->line('date'); ?></th>
-                    <th ><?php echo $this->lang->line('visited'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                     <th class="none">ID : </th>
                     <th class="none"><?php echo $this->lang->line('price'); ?> : </th>

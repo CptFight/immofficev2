@@ -9,8 +9,10 @@
     </ul>
 </div>
 <section class="l-annonces-search l-annonces-section apparitionright">
+    
     <div class="clearfix l-top-annonces-export">
-       
+        <a href="<?php echo site_url('rappels/calendar'); ?>"><?php echo $this->lang->line('calendar'); ?></a> | 
+       <a href="<?php echo site_url('rappels/index'); ?>"><?php echo $this->lang->line('liste'); ?></a>
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">
@@ -24,8 +26,7 @@
                     <th ><?php echo $this->lang->line('zip_code'); ?></th>
                     <th ><?php echo $this->lang->line('price'); ?></th>
                     <th ><?php echo $this->lang->line('web_site'); ?></th>
-                    <th ><?php echo $this->lang->line('date'); ?></th>
-                    <th ><?php echo $this->lang->line('visited'); ?></th>
+                    <th ><?php echo $this->lang->line('date_rappel'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                     <th class="none">ID : </th>
                     <th class="none"><?php echo $this->lang->line('price'); ?> : </th>

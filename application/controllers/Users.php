@@ -144,6 +144,32 @@ class Users extends CI_Controller {
 		}
 		
 	}
+
+	public function updateRappels(){
+		$this->load->model(array('Rappels_m','Favoris_m','Annonces_m') );
+		$user_id = $this->input->post('user_id');
+		$annonce_id = $this->input->post('annonce_id');
+		$favoris_id = $this->input->post('favoris_id');
+
+		if(!$favoris_id){
+			$favoris = $this->Favoris_m->getByUserAnnonceId($user_id,$annonce_id);
+			if(!$favoris){
+				$annonce = $this->Annonces_m->get($annonce_id);
+				$this->Favoris_m->addAnnonceInFavoris($user_id,$annonce);
+			}
+			$favoris = $this->Favoris_m->getByUserAnnonceId($user_id,$annonce_id);
+			$favoris_id = $favoris->id;
+		}
+
+		$date_rappel = strtotime('tomorrow');
+		$add = $this->input->post('add');
+		if($add == 'true'){
+			$this->Rappels_m->addRappel($user_id,$favoris_id,$date_rappel);
+		}else{
+			$this->Rappels_m->removeRappel($user_id,$favoris_id);
+		}
+		
+	}
 	
 	public function saveLastSearch(){
 		$this->load->model(array('Users_m'));
@@ -160,14 +186,14 @@ class Users extends CI_Controller {
 	}
 
 	public function getListIdFavorisRappel(){
-		$this->load->model(array('Users_m','Favoris_m'));
+		$this->load->model(array('Rappels_m','Users_m','Favoris_m'));
 		$user_id = $this->input->post('user_id');
 
-		$favoris = $this->Favoris_m->getFavorisIds($user_id);
-		$rappels = array();
+		$favoris = $this->Favoris_m->getFavorisAnnoncesIds($user_id);
+		$rappels = $this->Rappels_m->getRappelsAnnoncesIds($user_id);
 		$result = array(
 			'favoris' => $favoris,
-			'rappel' => $rappels
+			'rappels' => $rappels
 		);
 		echo json_encode($result);
 	}

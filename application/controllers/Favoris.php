@@ -57,6 +57,7 @@ class Favoris extends CI_Controller {
 				$favoris['sale'] = $this->input->post('sale');
 				$favoris['lang'] = $this->input->post('lang');
 				$this->Favoris_m->saveFavoris($favoris);
+				redirect('favoris/index');
 			}
 
 			$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
@@ -65,6 +66,7 @@ class Favoris extends CI_Controller {
 		}
 	}
 
+	//AJAX
 	public function getAllAnnoncesDataTable(){
 		$this->load->model(array('Favoris_m'));
 		
@@ -77,6 +79,7 @@ class Favoris extends CI_Controller {
 
 		$start = 0;
 		$length = 0;
+		$user_id = 0;
 
 		if($this->input->get('start')){
 			$start = $this->input->get('start');
@@ -84,6 +87,10 @@ class Favoris extends CI_Controller {
 
 		if($this->input->get('length')){
 			$length = $this->input->get('length');
+		}
+
+		if($this->input->get('user_id')){
+			$user_id = $this->input->get('user_id');
 		}
 
 		$order = false;
@@ -123,7 +130,8 @@ class Favoris extends CI_Controller {
 			"search" => $search,
 			"start" => $start,
 			"length" => $length,
-			"order" => $order
+			"order" => $order,
+			"user_id" => $user_id
 		);
 
 		
@@ -137,7 +145,6 @@ class Favoris extends CI_Controller {
 				$favoris->price.' €',
 				$favoris->web_site,
 				date('d/m/Y',$favoris->date_publication),
-				'',
 				'<ul class="list-tables-buttons list-favoris" data-favoris_id="'.$favoris->id.'">
 	 				<li><a target="_blank" href="'.$favoris->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li><a href="'.site_url('favoris/edit/?id='.$favoris->id).'">Editer le favoris</a></li>

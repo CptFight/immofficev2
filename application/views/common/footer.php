@@ -1,4 +1,7 @@
- <footer class="footer-annonces">
+    
+<input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id; ?>" />
+
+     <footer class="footer-annonces">
                 <p><span>Copyright</span> Immoffice © 2016-2017</p>
             </footer>
         </div>
@@ -36,7 +39,9 @@
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->
                 <li><a href="#"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
                 <li><a href="#"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
+                <?php if($user->role == 'admin'){ ?>
                 <li><a href="<?php echo site_url('users/news'); ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('new_user'); ?></span></a></li>
+                <?php } ?>
             </ul>
         </aside>
     </div>

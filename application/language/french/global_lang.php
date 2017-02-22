@@ -2,6 +2,9 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['liste'] = 'Liste';
+	$lang['rappel'] = 'Rappel';
+	$lang['date_rappel'] = 'Date du rappel';
 	$lang['new_user'] = 'Nouvel utilisateur';
 	$lang['user'] = 'Utilisateur';
 	$lang['price_tvac'] = 'Prix TVAC';

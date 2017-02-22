@@ -77,7 +77,10 @@ rappels.initTableDatatablesResponsive = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
-                url : base_url()+"index.php/favoris/getAllannoncesDataTable",
+                data : {
+                    user_id : $('#user_id').val()
+                },
+                url : base_url()+"index.php/rappels/getAllRappelsDataTable",
             },
             
             /* end param server side */
