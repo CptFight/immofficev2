@@ -5,7 +5,7 @@ class Annonces_m extends CI_Model {
     public $_db = 'annonces';
     public $_name = 'annonces_m';
 
-    public $_limit = 10;
+    public $_limit = 50;
 
     private $last_search_results;
 

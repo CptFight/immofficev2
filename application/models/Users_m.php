@@ -15,6 +15,11 @@ class Users_m extends CI_Model {
         return $this->db->get($this->_db)->row();
     }
 
+    public function getUsersSuscribe(){
+        $this->db->where('id', $user_id);
+        $this->db->update($this->_db, $data); 
+    }
+
     public function saveLastSearch($user_id,$datas){
         $user = $this->get($user_id);
 
