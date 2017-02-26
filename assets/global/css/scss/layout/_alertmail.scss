@@ -1,0 +1,10 @@
+.l-alertmail-section
+{
+	@extend .l-annonces-section;
+	.btn.submit 
+	{
+		display: inline-block;
+    	float: right;
+    	width: inherit;
+	}
+}

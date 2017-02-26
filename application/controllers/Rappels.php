@@ -145,8 +145,8 @@ class Rappels extends CI_Controller {
 				$rappel->web_site,
 				date('d/m/Y',$rappel->date_rappel),
 				'<ul class="list-tables-buttons list-rappel" data-rappel_id="'.$rappel->id.'">
-	 				<li><a target="_blank" href="'.$rappel->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
-                    <li><a href="'.site_url('rappels/edit/?id='.$rappel->id).'">Editer le rappel</a></li>
+	 				<li class="table-btn-link"><a target="_blank" href="'.$rappel->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
+                    <li class="table-btn-edit"><a href="'.site_url('rappels/edit/?id='.$rappel->id).'"><i class="fa fa-pencil"></i><span>Editer le favoris</span></a></li>
                 </ul>',
                 $rappel->id,
                 "<span class='historic_price'>".$rappel->price."</span>",

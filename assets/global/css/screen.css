@@ -1017,6 +1017,17 @@ h1 {
     .l-nav-aside .btn-grey:hover {
       background: #293846;
       border-bottom: 1px solid #293846; }
+  .l-nav-aside .alert-tag {
+    background: #1ab394;
+    border-radius: 4px;
+    margin-left: 5px;
+    padding: 3px 7px;
+    position: relative;
+    margin-top: -5px;
+    color: white;
+    font-weight: light;
+    margin-bottom: -5px;
+    display: inline-block; }
 
 .l-nav-big a {
   min-width: 200px; }
@@ -1243,7 +1254,7 @@ a.profile-btn {
     display: none; }
   .l-nav-aside .m-map-marker {
     display: block; } }
-.l-annonces-section {
+.l-annonces-section, .l-suggestions-section, .l-alertmail-section {
   background: white;
   margin: 20px;
   position: relative;
@@ -1353,12 +1364,19 @@ a.profile-btn {
   font-size: 12px;
   border: 1px solid #ec4758;
   color: #ec4758; }
-.list-tables-buttons li:first-child a {
+.list-tables-buttons .table-btn-link a {
   border: 1px solid #1c84c6;
   color: #1c84c6;
   font-size: 11px;
   padding: 11px 14px; }
-.list-tables-buttons li:last-child a {
+.list-tables-buttons .table-btn-edit a {
+  border: 1px solid #676a6c;
+  color: #676a6c; }
+.list-tables-buttons .table-btn-love a {
+  font-size: 12px;
+  border: 1px solid #ec4758;
+  color: #ec4758; }
+.list-tables-buttons .table-btn-rappel a {
   border: 1px solid #f7a54a;
   color: #f7a54a; }
 @media screen and (min-width: 992px) {
@@ -1366,21 +1384,18 @@ a.profile-btn {
     padding: 4px 7px; }
   .list-tables-buttons li:first-child a {
     padding: 5px 7px; } }
-.list-tables-buttons a:hover, .list-tables-buttons a.active {
+.list-tables-buttons a:hover, .list-tables-buttons a.active, .list-tables-buttons .table-btn-love a:hover, .list-tables-buttons .table-btn-love a.active {
   color: white;
   background: #ec4758; }
-.list-tables-buttons.list-favoris a {
-  border: 1px solid #676a6c;
-  color: #676a6c; }
-.list-tables-buttons.list-favoris a:hover, .list-tables-buttons.list-favoris a.active {
-  color: white;
-  background: #676a6c; }
-.list-tables-buttons li:first-child a:hover, .list-tables-buttons li:first-child a.active {
+.list-tables-buttons .table-btn-link a:hover, .list-tables-buttons .table-btn-link a.active {
   color: white;
   background: #1c84c6; }
-.list-tables-buttons li:last-child a:hover, .list-tables-buttons li:last-child a.active {
+.list-tables-buttons .table-btn-rappel a:hover, .list-tables-buttons .table-btn-rappel a.active {
   color: white;
   background: #f7a54a; }
+.list-tables-buttons .table-btn-edit a:hover, .list-tables-buttons .table-btn-edit a.active {
+  color: white;
+  background: #676a6c; }
 .list-tables-buttons a.active:hover {
   opacity: 0.8; }
 
@@ -1400,6 +1415,17 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 
 .dataTables_wrapper .dataTables_processing {
   top: 70%; }
+
+@media screen and (min-width: 992px) {
+  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p {
+    width: 49%; }
+  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child {
+    float: right; } }
+
+.l-alertmail-section .btn.submit, .l-alertmail-section .submit.btn-grey {
+  display: inline-block;
+  float: right;
+  width: inherit; }
 
 /* Modules */
 /* ==|====================
@@ -1546,8 +1572,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 
 .dataTables_wrapper {
   margin-top: 0;
-  padding-top: 15px;
-  border-top: 1px solid #e7eaec; }
+  padding-top: 15px; }
   .dataTables_wrapper > .row:first-child {
     position: absolute;
     top: 40px;
