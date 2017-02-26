@@ -1,7 +1,6 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Annonces extends CI_Controller {
+class News extends CI_Controller {
 
 	public function index() {
 
@@ -52,7 +51,7 @@ class Annonces extends CI_Controller {
 		/* Custom Scripts */
 		$this->data['custom_scripts'] = array("/assets/custom_scripts/annonces.js");
 		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
-		$this->data['pagename'] = "annonces";
+		$this->data['pagename'] = "news";
 		//$this->data['actual_link'] = site_url('annonces/index');
 	
 		$this->load->view('template', $this->data);

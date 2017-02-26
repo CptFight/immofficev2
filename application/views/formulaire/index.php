@@ -55,5 +55,6 @@
             <button name="submit" class="btn" type="submit">Submit</button>
         </fieldset>
     </div>
+</form>
     <!--<a href="" class="btn">Charger plus d'annonces</a>-->
 </section>
