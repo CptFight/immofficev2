@@ -1,34 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Rappels extends CI_Controller {
+class Rappels extends MY_Controller {
 
 	public function index() {
-		$this->load->model(array('Users_m'));
-		$user = $this->Users_m->getCurrentUser();
-
-		$this->data['user_id'] = $user->id;
-		$this->data['user'] = $user;
-		$this->lang->load('global', $user->lang);
-		
-		/* Custom Scripts */
-		$this->data['custom_scripts'] = array("/assets/custom_scripts/rappels.js");
-		$this->data['pagename'] = "rappels";
-	
 		$this->load->view('template', $this->data);
 	}
 
 	public function calendar() {
-		$this->load->model(array('Users_m'));
-		$user = $this->Users_m->getCurrentUser();
-
-		$this->data['user_id'] = $user->id;
-		$this->data['user'] = $user;
-		$this->lang->load('global', $user->lang);
 		
-		/* Custom Scripts */
-		$this->data['custom_scripts'] = array("/assets/custom_scripts/calendar.js");
-		$this->data['pagename'] = "rappels";
 		$this->load->view('template', $this->data);
 	}
 
@@ -36,14 +16,7 @@ class Rappels extends CI_Controller {
 		if(!isset($_GET['id']) || $_GET['id'] == ''){
 			redirect('rappels/index');
 		}else{		
-			$this->load->model(array('Rappels_m','Users_m'));
-			$user = $this->Users_m->getCurrentUser();
-			$this->data['user'] = $user;
-			$this->data['user_id'] = $user->id;
-			$this->lang->load('global', $user->lang);
-
-			$this->data['pagename'] = "rappels";
-
+			$this->load->model(array('Rappels_m'));
 			
 			if($this->input->post('delete') ){
 				$id = $this->input->post('id');

@@ -1,5 +1,5 @@
     
-<input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id; ?>" />
+<input type="hidden" name="user_id" id="user_id" value="<?php echo $user->id; ?>" />
 
      <footer class="footer-annonces">
                 <p><span>Copyright</span> Immoffice © 2016-2017</p>
@@ -33,7 +33,7 @@
             </div>
             <ul class="l-nav-big">
                 <li><a href="<?php echo site_url('annonces/index'); ?>" class='<?php if($pagename == "annonces") echo "active"; ?>'><i class="fa fa-search"></i><span><?php echo $this->lang->line('annonces'); ?></span></a></li>
-                <li><a href="<?php echo site_url('alertmail/index'); ?>" class="<?php if($pagename == "alertmail") echo "active"; ?>"><i class="fa fa-reddit"></i> <span><?php echo $this->lang->line('alert_mail'); ?></span></a></li>
+                <li><a href="<?php echo site_url('subscribers/index'); ?>" class="<?php if($pagename == "alertmail") echo "active"; ?>"><i class="fa fa-reddit"></i> <span><?php echo $this->lang->line('alert_mail'); ?></span></a></li>
                 <li><a href="<?php echo site_url('favoris/index'); ?>" class='<?php if($pagename == "favoris") echo "active"; ?>'><i class="fa fa-heart"></i> <span><?php echo $this->lang->line('favoris'); ?><strong class="alert-tag">8</strong></span></a></li>
                 <li><a href="<?php echo site_url('rappels/index'); ?>" class='<?php if($pagename == "rappels") echo "active"; ?>'><i class="fa fa-phone"></i> <span ><?php echo $this->lang->line('my_remembers'); ?></span></a></li>
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->

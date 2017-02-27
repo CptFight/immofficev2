@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Formulaire extends CI_Controller {
+class Formulaire extends MY_Controller {
 
 	public function index() {
 		$this->load->model(array('Annonces_m','Updates_m','Users_m'));
@@ -9,8 +9,7 @@ class Formulaire extends CI_Controller {
 
 		$this->data['user_id'] = $user->id;
 		$this->lang->load('global', $user->lang);
-
-	
+		
 		$this->load->view('template', $this->data);
 	}
 }

@@ -43,7 +43,7 @@ class Users_m extends CI_Model {
         );
 
         $this->db->where('id', $user->id);
-        $this->db->update('users', $data);       
+        $this->db->update($this->_db, $data);       
     }
 
     public function createUser($user){
@@ -55,8 +55,10 @@ class Users_m extends CI_Model {
         $data = array(
            'lang' => $lang
         );
+
         $this->db->where('id', $user_id);
         $this->db->update($this->_db, $data); 
+        echo "passe";
     }
 
     public function login($login, $password){

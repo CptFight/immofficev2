@@ -1,60 +1,24 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Alertmail extends CI_Controller {
+class Subscribers extends MY_Controller {
 
 
 	public function index() {
 
-		$this->load->model(array('Annonces_m','Users_m'));
-		$user = $this->Users_m->getCurrentUser();
-
-		if(isset($_GET['lang'])){
-			$user->lang = $_GET['lang'];
-			$this->Users_m->updateLang($user->id,$user->lang);
-		}
-		$this->data['user_id'] = $user->id;
-		$this->data['user'] = $user;
-		$this->lang->load('global', $user->lang);
-
-		//TODO SET USER INFORMATIONS.
 		$this->data['date_min'] = '';
 		$this->data['date_max'] = '';
 		$this->data['daterange'] = '';
-		if(!$user->search_price_min) $this->data['price_min'] = '';
+		if(!$this->current_user->search_price_min) $this->data['price_min'] = '';
 		else $this->data['price_min'] = $user->search_price_min;
-		if(!$user->search_price_max) $this->data['price_max'] = '';
+		if(!$this->current_user->search_price_max) $this->data['price_max'] = '';
 		else $this->data['price_max'] = $user->search_price_max;
-		$this->data['zipcode'] = $user->search_zipcodes;
-		$provinces = json_decode($user->search_provinces);
+		$this->data['zipcode'] = $this->current_user->search_zipcodes;
+		$provinces = json_decode($this->current_user->search_provinces);
 		if(!$provinces) $provinces = array();
 		$this->data['province'] = $provinces;
-		$this->data['lang'] = $user->search_lang;
-		$this->data['vente'] = $user->search_sell;
-		
-		/*if($this->input->post('search') ){
-			$this->data['daterange'] = $this->input->post('daterange');
-			$this->data['date_min'] = $this->input->post('date-min');
-			$this->data['date_max'] = $this->input->post('date-max');
-			$this->data['price_min'] = $this->input->post('price-min');
-			$this->data['price_max'] = $this->input->post('price-max');
-			$this->data['zipcode'] = $this->input->post('zipcode');
-			if(is_array($this->input->post('province'))){
-				$this->data['province'] = $this->input->post('province');
-			}else{
-				$this->data['province'] = array();
-			}
-			$this->data['lang'] = $this->input->post('lang');
-			$this->data['vente'] = $this->input->post('vente');
-			
-			$this->Users_m->saveLastSearch($user->id,$this->data);
-		}*/
+		$this->data['lang'] = $this->current_user->search_lang;
+		$this->data['vente'] = $this->current_user->search_sell;
 
-		/* Custom Scripts */
-		$this->data['custom_scripts'] = array("/assets/custom_scripts/annonces.js");
-		$this->data['annonces'] = array();// $this->Annonces_m->get(false,1000);
-		$this->data['pagename'] = "alertmail";
-		//$this->data['actual_link'] = site_url('annonces/index');
-	
 		$this->load->view('template', $this->data);
 
 	}

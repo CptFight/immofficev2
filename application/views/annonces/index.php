@@ -14,7 +14,6 @@
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">
-    <input type="hidden" name="user_id" id="user_id" value="<?php echo $user_id; ?>" />
     <div class="l-annonces-form">
         <div class="clearfix">
             <div class="float-middle input-separation">

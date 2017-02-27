@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Crons extends CI_Controller {
+class Crons extends MY_Controller {
 
 	public function index(){
 		$this->load->model(array('Users_m'));

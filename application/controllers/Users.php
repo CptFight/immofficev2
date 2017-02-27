@@ -1,23 +1,16 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+class Users extends MY_Controller {
 
-	
 	public function login() {
-		//$this->session->session_destroy();
-		//session_destroy();
 		$this->session->unset_tempdata('user');
 		$this->load->model(array('Users_m'));
-
 		if($this->input->post('send-login')) {
-
 			$login = $this->input->post('login');
 			$password = $this->input->post('password');
 			$user = $this->Users_m->login($login,$password);
 			if($user){
 				$this->session->set_userdata('user', $user);
-				/*$this->input->set_cookie('logged', true, 60 * 60 * 24* 365);
-				$this->input->set_cookie('user', 1, 60 * 60 * 24* 365);*/
 				redirect('/annonces/index');
 				die();
 			}else{
@@ -28,13 +21,6 @@ class Users extends CI_Controller {
 	}
 
 	public function news(){
-		$this->load->model(array('Users_m'));
-		$user = $this->Users_m->getCurrentUser();
-		$this->data['user'] = $user;
-		$this->data['user_id'] = $user->id;
-		$this->lang->load('global', $user->lang);
-		$this->data['pagename'] = "users";
-
 		if($this->input->post('save') ){
 			$user = array();
 
@@ -66,48 +52,10 @@ class Users extends CI_Controller {
 	}
 
 	public function edit(){
-		if(!isset($_GET['id']) || $_GET['id'] == ''){
-			redirect('users/new');
-		}else{		
-			$this->load->model(array('Users_m'));
-			$user = $this->Users_m->getCurrentUser();
-
-			$this->data['user_id'] = $user->id;
-			$this->lang->load('global', $user->lang);
-
-			if($this->input->post('save') ){
-				$favoris = array();
-				$favoris['id'] = $this->input->post('id');
-				$favoris['tags'] = $this->input->post('tags');
-				$favoris['title'] = $this->input->post('title');
-				$date_publication = str_replace('/', '-', $this->input->post('date_publication') );
-				$favoris['date_publication'] = strtotime( $date_publication );
-				$favoris['price'] = $this->input->post('price');
-				$favoris['url'] = $this->input->post('url');
-				$favoris['web_site'] = $this->input->post('web_site');
-				$favoris['adress'] = $this->input->post('adress');
-				$favoris['city'] = $this->input->post('city');
-				$favoris['zip_code'] = $this->input->post('zip_code');
-				$favoris['province'] = $this->input->post('province');
-				$favoris['living_space'] = $this->input->post('living_space');
-				$favoris['owner_name'] = $this->input->post('owner_name');
-				$favoris['tel'] = $this->input->post('tel');
-				$favoris['sale'] = $this->input->post('sale');
-				$favoris['lang'] = $this->input->post('lang');
-				//$this->Favoris_m->saveFavoris($favoris);
-			}
-
-			$this->data['favoris'] = $this->Users_m->get($_GET['id']);
-
-			$this->load->view('template', $this->data);
-		}
+		
 	}
+	
 	public function lock() {
-		if($login = $this->input->post('login')) {
-			$this->session->set_userdata('logged', true);
-			redirect('/');
-			exit;
-		}
 		$this->load->view('user');
 	}
 
@@ -120,17 +68,6 @@ class Users extends CI_Controller {
 	}
 
 	//AJAX
-
-	/*public function changeLang(){
-		$this->load->model(array('Users_m'));
-		$user_id = $this->input->post('user_id');
-
-		/*$user = $this->session->get_userdata('user');
-		$user->lang = $this->input->post('lang');
-		$this->session->set_userdata('user', $user);
-		echo json_encode($user);
-	}*/
-
 	public function updateFavoris(){
 		$this->load->model(array('Favoris_m','Annonces_m') );
 		$user_id = $this->input->post('user_id');

@@ -325,13 +325,6 @@ annonces.initSearchValues = function(){
 
     $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
     $('#annonces #date-max').val(moment.unix(date_max).hours(22).minutes(59).seconds(59).format("X"));
-/*
-    $('#annonces #province').val(province);
-    $('#annonces #price-min').val(price_min);
-    $('#annonces #price-max').val(price_max);
-    //$('#annonces #input-search').val(input_search);
-    $('#annonces #input-zipcode').val(zipcodes);*/
-
 
 }
 
@@ -353,9 +346,6 @@ annonces.init = function(){
 *********************************/
 $(document).ready(function() {     
     annonces.init();
-
-
-
 });
 
 

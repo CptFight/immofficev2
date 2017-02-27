@@ -1,20 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Favoris extends CI_Controller {
+class Favoris extends MY_Controller {
 
 	public function index() {
-		$this->load->model(array('Favoris_m','Users_m'));
-		$user = $this->Users_m->getCurrentUser();
-
-		$this->data['user_id'] = $user->id;
-		$this->data['user'] = $user;
-		$this->lang->load('global', $user->lang);
-		
 		/* Custom Scripts */
-		$this->data['custom_scripts'] = array("/assets/custom_scripts/favoris.js");
-		$this->data['pagename'] = "favoris";
-	
 		$this->load->view('template', $this->data);
 	}
 
@@ -22,14 +12,8 @@ class Favoris extends CI_Controller {
 		if(!isset($_GET['id']) || $_GET['id'] == ''){
 			redirect('favoris/index');
 		}else{		
-			$this->load->model(array('Favoris_m','Users_m'));
-			$user = $this->Users_m->getCurrentUser();
-			$this->data['user'] = $user;
-			$this->data['user_id'] = $user->id;
-			$this->lang->load('global', $user->lang);
-
-			$this->data['pagename'] = "favoris";
-
+			$this->load->model(array('Favoris_m'));
+			
 			
 			if($this->input->post('delete') ){
 				$id = $this->input->post('id');
