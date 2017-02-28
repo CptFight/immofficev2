@@ -121,3 +121,31 @@
 {
     top: 85px;
 }
+.btns-calendar
+{
+    margin-left: -10px;
+    a 
+    {
+        display: inline-block;
+        color: #676a6c;
+        border-radius: 0px;
+        border: 1px solid #e7eaec;
+        padding: 7px 10px;
+        margin-left:-5px;
+        margin-top: 7px;
+    }
+    a.active 
+    {
+        border: 1px solid $green;
+        background:$green;
+        color:white;
+    }
+    a:hover 
+    {
+        background:#eeeeee;
+    }
+    a.active:hover 
+    {
+        background:#149278;
+    }
+}
