@@ -2,7 +2,7 @@
 
 	$lang['base_url'] = base_url();
 	
-	$lang['mail_subscribers_message'] = 'Vous avez <strong>%1$s</strong> nouvelles annonces correspondant à votre recherche';
+	$lang['mail_subscribers_message'] = 'Vous avez <strong>%1$s</strong> nouvelles annonces sur Immoffice';
 	$lang['mail_subscribers_title'] = "De nouvelles annonces sur Immoffice";
 	$lang['mail_subscribers_subject'] = "De nouvelles annonces correspondent à vos recherches";
 	$lang['liste'] = 'Liste';

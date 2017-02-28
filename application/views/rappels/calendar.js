@@ -47,7 +47,7 @@ calendar.initFullCalendar = function () {
 			eventDrop: function(event, delta, revertFunc, jsEvent, ui, view ){
 				$.ajax({
 			        type: "POST",
-			        url: base_url()+"index.php/rappels/updateRappel",
+			        url: base_url()+"index.php/rappels/update",
 			        dataType: 'json',
 			        data: {
 			            rappel_id : event.id,

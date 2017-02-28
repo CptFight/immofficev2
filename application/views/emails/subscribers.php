@@ -2,7 +2,6 @@
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title><?php echo $this->lang->line('mail_subscribers_title'); ?> </title>
-    <link href="{{host}}/emails/styles.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -15,7 +14,7 @@
                 <table class="main" width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="alert alert-good">
-                            <?php echo $this->lang->line('mail_subscribers_title'); ?> 
+                            <?php echo sprintf($this->lang->line('mail_subscribers_message'),count($annonces) ); ?> 
                         </td>
                     </tr>
                     <tr>
@@ -23,18 +22,13 @@
                             <table width="100%" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td class="content-block">
-                                        <?php echo sprintf($this->lang->line('mail_subscribers_message'),count($annonces)); ?> 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="content-block">
                                         <ul>
-                                            <li><?php echo $this->lang->line('province'); ?>  : <?php echo $subscriber->search_provinces; ?></li>
-                                            <li><?php echo $this->lang->line('min_price'); ?>  : <?php echo $subscriber->search_price_min; ?></li>
-                                            <li><?php echo $this->lang->line('max_price'); ?>  : <?php echo $subscriber->search_price_max; ?></li>
-                                            <li><?php echo $this->lang->line('zip_codes'); ?>  : <?php echo $subscriber->search_zipcodes; ?></li>
-                                            <li><?php echo $this->lang->line('lang_word'); ?> : <?php echo $subscriber->search_lang; ?></li>
-                                            <li><?php echo $this->lang->line('sell'); ?> : <?php echo $subscriber->search_sell; ?></li>
+                                            <li><?php echo $this->lang->line('province') ; ?>  : <?php echo $subscriber->search_provinces; ?></li>
+                                            <li><?php echo $this->lang->line('min_price') ; ?>  : <?php echo $subscriber->search_price_min; ?></li>
+                                            <li><?php echo $this->lang->line('max_price') ; ?>  : <?php echo $subscriber->search_price_max; ?></li>
+                                            <li><?php echo $this->lang->line('zip_codes') ; ?>  : <?php echo $subscriber->search_zipcodes; ?></li>
+                                            <li><?php echo $this->lang->line('lang_word') ; ?> : <?php echo $subscriber->search_lang; ?></li>
+                                            <li><?php echo $this->lang->line('sell') ; ?> : <?php echo $subscriber->search_sell; ?></li>
                                         </ul>
                                     </td>
                                 </tr>

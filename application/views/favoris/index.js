@@ -40,12 +40,6 @@ favoris.bindElementTable = function(){
         
     });
 
-    $('#favoris_table td').click(function(e){
-        //Set historic price and publication
-      //  console.log('passe',$(this).closest('tr').next().find('span.historic_price').html() );
-      //  $(this).closest('tr').find('span.historic_price').html('test');
-        
-   });
 }
 
 

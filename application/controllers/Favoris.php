@@ -17,7 +17,7 @@ class Favoris extends MY_Controller {
 			
 			if($this->input->post('delete') ){
 				$id = $this->input->post('id');
-				$this->Favoris_m->deleteFavoris($id);
+				$this->Favoris_m->delete($id);
 				redirect('favoris/index');
 			}
 
@@ -40,7 +40,7 @@ class Favoris extends MY_Controller {
 				$favoris['tel'] = $this->input->post('tel');
 				$favoris['sale'] = $this->input->post('sale');
 				$favoris['lang'] = $this->input->post('lang');
-				$this->Favoris_m->saveFavoris($favoris);
+				$this->Favoris_m->update($favoris);
 				redirect('favoris/index');
 			}
 
