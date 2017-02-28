@@ -1,15 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users_m extends CI_Model {
+class Users_m extends MY_Model {
 
     public $_db = 'users';
     public $_name = 'users_m';
-
-    public function __construct(){
-        parent::__construct();
-        $this->load->database();
-    }
-    
+  
     public function get($id) {
         $this->db->where('id', $id);
         return $this->db->get($this->_db)->row();
@@ -58,28 +53,18 @@ class Users_m extends CI_Model {
 
         $this->db->where('id', $user_id);
         $this->db->update($this->_db, $data); 
-        echo "passe";
     }
 
     public function login($login, $password){
+        $this->db->group_by('users.id');
+        $this->db->select('*, 
+            (SELECT COUNT(*) FROM favoris WHERE user_id = '.$this->_db.'.id) as count_favoris,
+            (SELECT COUNT(*) FROM rappels WHERE user_id = '.$this->_db.'.id) as count_rappels
+        ');
         $this->db->where('login',$login);
         $this->db->where('password',md5($password));
+
         return $this->db->get($this->_db)->row();
-    }
-
-
-    public function getCurrentUser(){
-        $user = $this->session->get_userdata('user');
-      
-        if(!$user || !isset($user['user']) || !isset($user['user']->id)){
-            redirect('/users/login');
-        }else{
-            $user = $user['user'];
-        }
-        return $user;
-    }
-
-
-   
+     }
    
 }

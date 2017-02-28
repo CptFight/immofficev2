@@ -59,9 +59,6 @@ class Users extends MY_Controller {
 		$this->load->view('user');
 	}
 
-
-	
-
 	public function logout() {
 		$this->session->session_destroy();
 		redirect('users/login');
@@ -78,9 +75,10 @@ class Users extends MY_Controller {
 			$this->Favoris_m->addAnnonceInFavoris($user_id,$annonce);
 		}else{
 			$this->Favoris_m->removeAnnonceFromFavoris($user_id,$annonce_id);
-		}
-		
+		}	
 	}
+
+	
 
 	public function updateRappels(){
 		$this->load->model(array('Rappels_m','Favoris_m','Annonces_m') );

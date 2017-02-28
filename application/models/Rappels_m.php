@@ -1,15 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Rappels_m extends CI_Model {
+class Rappels_m extends MY_Model {
 
     public $_db = 'rappels';
     public $_name = 'rappels_m';
 
-    public function __construct(){
-        parent::__construct();
-        $this->load->database();
-    }
-    
     public function get($params) {
         $this->db->group_by('rappels.id');
         $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
@@ -99,6 +94,7 @@ class Rappels_m extends CI_Model {
     public function deleteRappels($id){
         $this->db->where('id', $id);
         $this->db->delete($this->_db); 
+        $this->updateRappelFavorisCountInSession();
     }
 
     public function addRappel($user_id,$favoris_id,$date_rappel){
@@ -107,13 +103,16 @@ class Rappels_m extends CI_Model {
            'favoris_id' => $favoris_id,
            'date_rappel' => $date_rappel
         );
-        return $this->db->insert($this->_db, $data); 
+        $return = $this->db->insert($this->_db, $data); 
+        $this->updateRappelFavorisCountInSession();
+        return $return;
     }
 
     public function removeRappel($user_id,$favoris_id){
         $this->db->where('user_id', $user_id);
         $this->db->where('favoris_id', $favoris_id);
         $this->db->delete($this->_db); 
+        $this->updateRappelFavorisCountInSession();
     }
 
     public function saveRappels($rappels){

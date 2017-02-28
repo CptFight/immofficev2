@@ -1,15 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Favoris_m extends CI_Model {
+class Favoris_m extends MY_Model {
 
     public $_db = 'favoris';
     public $_name = 'favoris_m';
-
-    public function __construct(){
-        parent::__construct();
-        $this->load->database();
-    }
-    
+ 
     public function get($params) {
         $this->db->group_by('favoris.id');
         
@@ -62,6 +57,7 @@ class Favoris_m extends CI_Model {
         return $this->db->get($this->_db)->row()->count;
     }
 
+
     public function addAnnonceInFavoris($user_id,$annonce){
         $data = array(
            'user_id' => $user_id,
@@ -83,7 +79,10 @@ class Favoris_m extends CI_Model {
            'city' => $annonce->city,
            'tel' => ''
         );
-        return $this->db->insert($this->_db, $data); 
+
+        $return = $this->db->insert($this->_db, $data); 
+        $this->updateRappelFavorisCountInSession();
+        return $return;
     }
 
     public function getFavorisAnnoncesIds($user_id){
@@ -99,10 +98,10 @@ class Favoris_m extends CI_Model {
     public function deleteFavoris($id){
       $this->db->where('favoris_id', $id);
       $this->db->delete('rappels'); 
-
-
+    
       $this->db->where('id', $id);
       $this->db->delete($this->_db); 
+      $this->updateRappelFavorisCountInSession();
     }
 
     public function getByUserAnnonceId($user_id,$annonce_id){
@@ -116,16 +115,18 @@ class Favoris_m extends CI_Model {
         $this->db->where('user_id', $user_id);
         $this->db->where('favoris_id', $favoris->id);
         $this->db->delete('rappels'); 
-
+        
         $this->db->where('user_id', $user_id);
         $this->db->where('annonce_id', $annonce_id);
         $this->db->delete($this->_db); 
+       
+        $this->updateRappelFavorisCountInSession();       
     }
 
     public function saveFavoris($favoris){
-      $this->db->where('id', $favoris['id']);
-      unset($favoris['id']);
-      $this->db->update($this->_db, $favoris); 
+        $this->db->where('id', $favoris['id']);
+        unset($favoris['id']);
+        $this->db->update($this->_db, $favoris); 
     }
 
    

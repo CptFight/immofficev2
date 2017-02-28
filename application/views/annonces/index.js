@@ -21,15 +21,10 @@ var annonces = annonces || {
 *   bind  instance  
 *********************************/
 annonces.bind = function(){
-   //console.log(annonces.tableObject);
-
    
    $('#button-search').click(function(e){
     e.preventDefault();
 
-    //$('#form_search .clearfix').fadeOut();
-
-   // $('#price-min').val(1000);
     annonces.criterias.price_min = $('#price-min').val(); 
     annonces.criterias.price_max = $('#price-max').val(); 
     annonces.criterias.date_min = $('#date-min').val(); 
@@ -68,14 +63,26 @@ annonces.bindElementTable = function(){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
+        var count_favoris = $('.alert-tag.favoris').html();
+        var count_rappels = $('.alert-tag.rappels').html();
+
         var add = true;
         if(!$(this).hasClass('active')){
             $(this).addClass('active');
+            count_favoris++;
         }else{
             $(this).removeClass('active');
-            $(this).closest('ul').find('.add_rappel').removeClass('active');
+            if($(this).closest('ul').find('.add_rappel').hasClass('active')){
+                count_rappels--;
+                $(this).closest('ul').find('.add_rappel').removeClass('active');
+            }
+            
             add = false;
+            count_favoris--;
+           
         }
+        $('.alert-tag.favoris').html(count_favoris);
+        $('.alert-tag.rappels').html(count_rappels);
 
         $.ajax({
             type: "POST",
@@ -97,14 +104,26 @@ annonces.bindElementTable = function(){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
+        var count_favoris = $('.alert-tag.favoris').html();
+        var count_rappels = $('.alert-tag.rappels').html();
+
         var add = true;
         if(!$(this).hasClass('active')){
-            $(this).closest('ul').find('.add_favoris').addClass('active');
+            if(!$(this).closest('ul').find('.add_favoris').hasClass('active')){
+                count_favoris++;
+                $(this).closest('ul').find('.add_favoris').addClass('active');
+            }
+            
             $(this).addClass('active');
+            count_rappels++;
         }else{
             $(this).removeClass('active');
             add = false;
+            count_rappels--;
         }
+
+        $('.alert-tag.favoris').html(count_favoris);
+        $('.alert-tag.rappels').html(count_rappels);
 
         $.ajax({
             type: "POST",
@@ -122,12 +141,6 @@ annonces.bindElementTable = function(){
         
     });
 
-    $('#annonces_table td').click(function(e){
-        //Set historic price and publication
-      //  console.log('passe',$(this).closest('tr').next().find('span.historic_price').html() );
-      //  $(this).closest('tr').find('span.historic_price').html('test');
-        
-   });
 }
 
 

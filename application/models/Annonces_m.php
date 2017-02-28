@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Annonces_m extends CI_Model {
+class Annonces_m extends MY_Model {
 
     public $_db = 'annonces';
     public $_name = 'annonces_m';
@@ -9,11 +9,6 @@ class Annonces_m extends CI_Model {
 
     private $last_search_results;
 
-    public function __construct(){
-        parent::__construct();
-        $this->load->database();
-    }
-    
     public function get($params) {
         $this->db->group_by('annonces.id');
         $this->db->join('prices','prices.id = annonces.last_price_id', 'left');

@@ -39,7 +39,6 @@ class Rappels extends MY_Controller {
 	}
 
 	//AJAX 
-
 	public function getAllRappelsDataTable(){
 		$this->load->model(array('Rappels_m'));
 		

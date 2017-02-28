@@ -7,9 +7,12 @@ class MY_Controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
+		if($this->uri->segment(1) == 'users' && $this->uri->segment(2) == 'login'){
+			return;
+		}
 
-		$this->load->model(array('Users_m'));
-		$user = $this->Users_m->getCurrentUser();
+		$user = $this->getCurrentUser();
+
 		if(isset($_GET['lang_user'])){
 			$user->lang = $_GET['lang_user'];
 			$this->Users_m->updateLang($user->id,$user->lang);
@@ -45,6 +48,18 @@ class MY_Controller extends CI_Controller {
 
 
 	}
+	
+    public function getCurrentUser(){
+        $user = $this->session->get_userdata('user');
+      
+        if(!$user || !isset($user['user']) || !isset($user['user']->id)){
+            redirect('/users/login');
+        }else{
+            $user = $user['user'];
+        }
+        return $user;
+  	}
+
 
 
 }
