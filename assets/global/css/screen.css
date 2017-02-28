@@ -96,25 +96,28 @@
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.clearfix:before, .content:before, .l-header:before, .l-nav-big a:before, .range_inputs:before,
+.clearfix:before, .content:before, .l-header:before, .l-nav-big a:before, .range_inputs:before, .m-news-list:before, .m-news-list article:before, .m-news-list li:before,
 .clearfix:after,
 .content:after,
 .l-header:after,
 .l-nav-big a:after,
-.range_inputs:after {
+.range_inputs:after,
+.m-news-list:after,
+.m-news-list article:after,
+.m-news-list li:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.clearfix:after, .content:after, .l-header:after, .l-nav-big a:after, .range_inputs:after {
+.clearfix:after, .content:after, .l-header:after, .l-nav-big a:after, .range_inputs:after, .m-news-list:after, .m-news-list article:after, .m-news-list li:after {
   clear: both; }
 
 /*
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.clearfix, .content, .l-header, .l-nav-big a, .range_inputs {
+.clearfix, .content, .l-header, .l-nav-big a, .range_inputs, .m-news-list, .m-news-list article, .m-news-list li {
   *zoom: 1; }
 
 /* =Layout
@@ -165,7 +168,7 @@
    Tools/Grille
    =========================== */
 @media screen and (min-width: 992px) {
-  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p {
+  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p {
     width: 50%;
     float: left;
     margin: 0;
@@ -1222,18 +1225,18 @@ a.profile-btn {
   background: url("img/word_map.png") center top no-repeat;
   margin-top: 30px;
   text-align: center; }
-  .l-landing-contact .clearfix, .l-landing-contact .content, .l-landing-contact .l-header, .l-landing-contact .l-nav-big a, .l-nav-big .l-landing-contact a, .l-landing-contact .range_inputs {
+  .l-landing-contact .clearfix, .l-landing-contact .content, .l-landing-contact .l-header, .l-landing-contact .l-nav-big a, .l-nav-big .l-landing-contact a, .l-landing-contact .range_inputs, .l-landing-contact .m-news-list, .l-landing-contact .m-news-list article, .m-news-list .l-landing-contact article, .l-landing-contact .m-news-list li, .m-news-list .l-landing-contact li {
     max-width: 550px;
     margin: 10px auto 50px;
     display: block; }
-  .l-landing-contact .clearfix p:first-child, .l-landing-contact .content p:first-child, .l-landing-contact .l-header p:first-child, .l-landing-contact .l-nav-big a p:first-child, .l-nav-big .l-landing-contact a p:first-child, .l-landing-contact .range_inputs p:first-child {
+  .l-landing-contact .clearfix p:first-child, .l-landing-contact .content p:first-child, .l-landing-contact .l-header p:first-child, .l-landing-contact .l-nav-big a p:first-child, .l-nav-big .l-landing-contact a p:first-child, .l-landing-contact .range_inputs p:first-child, .l-landing-contact .m-news-list p:first-child, .m-news-list .l-landing-contact article p:first-child, .m-news-list .l-landing-contact li p:first-child {
     font-size: 13px;
     color: #1ab394;
     font-weight: bolder; }
-  .l-landing-contact .clearfix p:last-child, .l-landing-contact .content p:last-child, .l-landing-contact .l-header p:last-child, .l-landing-contact .l-nav-big a p:last-child, .l-nav-big .l-landing-contact a p:last-child, .l-landing-contact .range_inputs p:last-child {
+  .l-landing-contact .clearfix p:last-child, .l-landing-contact .content p:last-child, .l-landing-contact .l-header p:last-child, .l-landing-contact .l-nav-big a p:last-child, .l-nav-big .l-landing-contact a p:last-child, .l-landing-contact .range_inputs p:last-child, .l-landing-contact .m-news-list p:last-child, .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact li p:last-child {
     font-size: 16px; }
   @media screen and (min-width: 992px) {
-    .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p {
+    .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p {
       text-align: left; } }
 
 /* ==|======================
@@ -1290,7 +1293,7 @@ a.profile-btn {
     display: none; }
   .l-nav-aside .m-map-marker {
     display: block; } }
-.l-annonces-section, .l-suggestions-section, .l-alertmail-section {
+.l-annonces-section, .l-suggestions-section, .l-alertmail-section, .l-news-section {
   background: white;
   margin: 20px;
   position: relative;
@@ -1453,15 +1456,116 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   top: 70%; }
 
 @media screen and (min-width: 992px) {
-  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p {
+  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p, .l-suggestions-section .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-suggestions-section p {
     width: 49%; }
-  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child {
+  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-suggestions-section p:last-child {
     float: right; } }
 
 .l-alertmail-section .btn.submit, .l-alertmail-section .submit.btn-grey {
   display: inline-block;
   float: right;
   width: inherit; }
+
+.l-news-section {
+  background: transparent;
+  position: relative; }
+  .l-news-section:after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 4px;
+    top: 30px;
+    left: 50%;
+    bottom: 30px;
+    margin-left: -2px;
+    background: #e7eaec; }
+
+.m-news-list {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 10; }
+  .m-news-list li {
+    padding: 10px;
+    background: white;
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px; }
+  .m-news-list div {
+    padding: 10px 20px; }
+  .m-news-list h3 {
+    font-size: 18px;
+    margin-top: 10px; }
+  .m-news-list i {
+    background: #1c84c6;
+    width: 25px;
+    color: white;
+    height: 25px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 13px;
+    text-align: center;
+    padding: 6px;
+    margin: 20px 5px 0 20px; }
+  .m-news-list i.fa-briefcase {
+    background: #1ab394; }
+  .m-news-list .btn, .m-news-list .btn-grey {
+    display: inline-block;
+    padding: 5px 9px;
+    float: right;
+    background: #23c6c8;
+    margin-bottom: 10px; }
+  .m-news-list p {
+    font-size: 13px; }
+  @media screen and (min-width: 992px) {
+    .m-news-list li {
+      background: transparent;
+      padding: 0; }
+    .m-news-list i {
+      width: 50px;
+      height: 50px;
+      font-size: 21px;
+      padding: 16px;
+      position: absolute;
+      left: 50%;
+      margin: 0 0 0 -25px; }
+    .m-news-list div {
+      width: 40%;
+      background: white;
+      position: relative; }
+      .m-news-list div:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        display: block;
+        background: white; }
+    .m-news-list li:nth-child(odd) time {
+      position: absolute;
+      left: 55%; }
+    .m-news-list li:nth-child(odd) div {
+      float: left;
+      margin-left: 5%; }
+      .m-news-list li:nth-child(odd) div:after {
+        content: "";
+        top: 10px;
+        right: -5px; }
+    .m-news-list li:nth-child(odd) .btn, .m-news-list li:nth-child(odd) .btn-grey {
+      float: left; }
+    .m-news-list li:nth-child(even) time {
+      position: absolute;
+      right: 55%; }
+    .m-news-list li:nth-child(even) div {
+      float: right;
+      margin-right: 5%; }
+      .m-news-list li:nth-child(even) div:after {
+        content: "";
+        top: 10px;
+        left: -5px; } }
 
 .favoris-edit-fiche {
   margin-top: 20px;
