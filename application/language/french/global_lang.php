@@ -2,6 +2,9 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['mail_subscribers_message'] = 'Vous avez <strong>%1$s</strong> nouvelles annonces correspondant à votre recherche';
+	$lang['mail_subscribers_title'] = "De nouvelles annonces sur Immoffice";
+	$lang['mail_subscribers_subject'] = "De nouvelles annonces correspondent à vos recherches";
 	$lang['liste'] = 'Liste';
 	$lang['rappel'] = 'Rappel';
 	$lang['date_rappel'] = 'Date du rappel';
@@ -21,6 +24,7 @@
 	$lang["enter_new_favoris"] = "Entrez les informations de votre annonce";
 	$lang["zipcode"] = "Code postal";
 	$lang["lang"] = "Français";
+	$lang["lang_word"] = "Langue";
 	$lang["not_found"] = "Ne paniquez pas";
 	$lang["need_help"] = "Besoin d'aide";
 	$lang["need_help_url"] = "/tutorials/tutorial.pdf";
@@ -173,6 +177,7 @@
 	$lang["month_12"] = "Décembre";
 	$lang["title"] = "Titre";
 	$lang["zip_code"] = "Code postal";
+	$lang["zip_codes"] = "Code postaux";
 	$lang["price"] = "Prix";
 	$lang["web_site"] = "Site web";
 	$lang["date"] = "Date";
