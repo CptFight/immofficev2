@@ -3,7 +3,7 @@
 class Users extends MY_Controller {
 
 	public function login() {
-		$this->session->unset_tempdata('user');
+		$this->session->unset_userdata('user');
 		$this->load->model(array('Users_m'));
 		if($this->input->post('send-login')) {
 			$login = $this->input->post('login');
@@ -45,7 +45,7 @@ class Users extends MY_Controller {
 			$user['price_htva'] = $this->input->post('price_htva');
 			$user['price_tvac'] = $this->input->post('price_tvac');
 			
-			$this->Users_m->createUser($user);
+			$this->Users_m->insert($user);
 		}
 
 		$this->load->view('template', $this->data);
@@ -60,7 +60,7 @@ class Users extends MY_Controller {
 	}
 
 	public function logout() {
-		$this->session->session_destroy();
+		$this->session->unset_userdata('user');
 		redirect('users/login');
 	}
 
@@ -97,9 +97,9 @@ class Users extends MY_Controller {
 		$date_rappel = strtotime('+1 Weekday');
 		$add = $this->input->post('add');
 		if($add == 'true'){
-			$this->Rappels_m->addRappel($user_id,$favoris_id,$date_rappel);
+			$this->Rappels_m->add($user_id,$favoris_id,$date_rappel);
 		}else{
-			$this->Rappels_m->removeRappel($user_id,$favoris_id);
+			$this->Rappels_m->deleteByUserFavorisIds($user_id,$favoris_id);
 		}	
 	}
 	

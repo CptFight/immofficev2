@@ -20,7 +20,7 @@ class Rappels extends MY_Controller {
 			
 			if($this->input->post('delete') ){
 				$id = $this->input->post('id');
-				$this->Rappels_m->deleteRappels($id);
+				$this->Rappels_m->delete($id);
 				redirect('rappels/index');
 			}
 
@@ -30,7 +30,7 @@ class Rappels extends MY_Controller {
 				$rappel['tags'] = $this->input->post('tags');
 				$date_rappel = str_replace('/', '-', $this->input->post('date_rappel') );
 				$rappel['date_rappel'] = strtotime( $date_rappel );
-				$this->Rappels_m->updateRappel($rappel);
+				$this->Rappels_m->update($rappel);
 				redirect('rappels/index');
 			}
 			$this->data['rappel'] = $this->Rappels_m->get($_GET['id']);
@@ -139,7 +139,7 @@ class Rappels extends MY_Controller {
 		echo json_encode($return);
 	}
 
-	public function updateRappel(){
+	public function update(){
 		$rappel_id = false;
 		$new_date = false;
 		if($this->input->post('new_date')){
@@ -155,7 +155,7 @@ class Rappels extends MY_Controller {
 			'id' => $rappel_id,
 			'date_rappel' => $new_date
 		);
-		$this->Rappels_m->updateRappel($rappel);
+		$this->Rappels_m->update($rappel);
 	}
 
 	public function getEventsJson() {

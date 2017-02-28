@@ -95,7 +95,7 @@ class Favoris_m extends MY_Model {
       return $list_ids;
     }
 
-    public function deleteFavoris($id){
+    public function delete($id){
       $this->db->where('favoris_id', $id);
       $this->db->delete('rappels'); 
     
@@ -123,7 +123,7 @@ class Favoris_m extends MY_Model {
         $this->updateRappelFavorisCountInSession();       
     }
 
-    public function saveFavoris($favoris){
+    public function update($favoris){
         $this->db->where('id', $favoris['id']);
         unset($favoris['id']);
         $this->db->update($this->_db, $favoris); 

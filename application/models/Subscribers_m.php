@@ -5,22 +5,25 @@ class Subscribers_m extends MY_Model {
     var $_db = 'Subscribers';
     var $_name = 'subscribers_m';
  
-    public function get($params) {
-        $frequency = 'day';
-        $active = 1;
+    public function get($params = array()) {
+        $frequency_set = false;
+        $active_set = false;
 
         if(isset($params['frequency'])){
             $frequency = $params['frequency'];
+            $frequency_set = true;
         }
 
         if(isset($params['active'])){
             $active = $params['active'];
+            $active_set = true;
         }
 
     	$this->db->select(
     		$this->_db.".id,
     		users.login,
     		users.lang,
+            ".$this->_db.".active,
     		".$this->_db.".frequency,
     		".$this->_db.".search_price_min,
     		".$this->_db.".search_price_max,
@@ -32,9 +35,15 @@ class Subscribers_m extends MY_Model {
     		".$this->_db.".search_words
     	");
     	$this->db->join('users','users.id = '.$this->_db.'.user_id');
-        $this->db->where('frequency',$frequency);
-        $this->db->where('active',$active);
+        if($frequency_set){
+            $this->db->where('frequency',$frequency);
+        }
+        if($active_set){
+            $this->db->where('active',$active);
+        }
         return $this->db->get($this->_db)->result();
     }
+
+
 
 }

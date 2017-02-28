@@ -10,11 +10,6 @@ class Users_m extends MY_Model {
         return $this->db->get($this->_db)->row();
     }
 
-    public function getUsersSuscribe(){
-        $this->db->where('id', $user_id);
-        $this->db->update($this->_db, $data); 
-    }
-
     public function saveLastSearch($user_id,$datas){
         $user = $this->get($user_id);
 
@@ -41,16 +36,20 @@ class Users_m extends MY_Model {
         $this->db->update($this->_db, $data);       
     }
 
-    public function createUser($user){
-       
+    public function insert($user){
         $this->db->insert($this->_db, $user); 
+    }
+
+    public function update($user){
+        $this->db->where('id', $user['id']);
+        unset($user['id']);
+        $this->db->update($this->_db, $user); 
     }
 
     public function updateLang($user_id,$lang){
         $data = array(
            'lang' => $lang
         );
-
         $this->db->where('id', $user_id);
         $this->db->update($this->_db, $data); 
     }
