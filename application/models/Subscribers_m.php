@@ -23,6 +23,7 @@ class Subscribers_m extends MY_Model {
     		$this->_db.".id,
     		users.login,
     		users.lang,
+            ".$this->_db.".active,
     		".$this->_db.".frequency,
     		".$this->_db.".search_price_min,
     		".$this->_db.".search_price_max,
@@ -42,5 +43,7 @@ class Subscribers_m extends MY_Model {
         }
         return $this->db->get($this->_db)->result();
     }
+
+
 
 }

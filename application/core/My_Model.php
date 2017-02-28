@@ -18,6 +18,23 @@ class MY_Model extends CI_Model {
         return $user;
     }
 
+    public function update($object){
+        $this->db->where('id', $object['id']);
+        unset($object['id']);
+        $this->db->update($this->_db, $object); 
+    }
+
+    public function insert($data){
+        if(isset($data['id'])){
+            unset($data['id']);
+        }
+        return $this->db->insert($this->_db, $data); 
+    }
+
+    public function delete($id){
+        $this->db->where('id', $id);
+        $this->db->delete($this->_db); 
+    }
 
     public function updateRappelFavorisCountInSession(){
         $user = $this->getCurrentUser();

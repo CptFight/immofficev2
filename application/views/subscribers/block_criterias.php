@@ -1,6 +1,7 @@
 
 <section class="apparitionright l-alertmail-section">
     <form action="" method="POST">
+        <input type="hidden" name="id" value="<?php echo $id; ?>" >
         <div class="l-annonces-form">
             <div class="clearfix">
                 <div class="float-middle input-separation">
@@ -38,11 +39,11 @@
                 </div>
                 <div class="float-middle input-separation" >
                     <fieldset class="inputstyle select">
-                        <select name="select">
-                            <option value="valeur3" selected>Fréquence</option>
-                            <option value="valeur3">1x par jour</option>
-                            <option value="valeur1">1x par semaine</option> 
-                            <option value="valeur2">1x par mois</option>
+                        <select name="frequency">
+                            <option value="directly" <?php if($frequency == 'directly'){ echo 'selected';} ?>>Directement</option>
+                            <option value="day" <?php if($frequency == 'day'){ echo 'selected';} ?>>1x par jour</option>
+                            <option value="week" <?php if($frequency == 'week'){ echo 'selected';} ?>>1x par semaine</option> 
+                            <option value="month" <?php if($frequency == 'month'){ echo 'selected';} ?>>1x par mois</option>
                         </select> 
                     </fieldset>
                 </div>
@@ -51,34 +52,37 @@
                 <div class="float-middle input-separation">
                     <fieldset class="radio-inline-cont pull-left">
                         <div>
-                           <input name="lang" type="radio" <?php if($lang == 'FR/NL') echo "checked"; ?> value="FR/NL" id="FR/NL">
-                            <label for="FR/NL">FR/NL</label>
+                           <input name="lang" type="radio" <?php if($lang == 'FR/NL') echo "checked"; ?> value="FR/NL" id="<?php echo $id; ?>-FR/NL">
+                            <label for="<?php echo $id; ?>-FR/NL">FR/NL</label>
                         </div><!--
                          --><div>
-                            <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="FR">
-                            <label for="FR">FR</label>
+                            <input name="lang" type="radio" <?php if($lang == 'FR') echo "checked"; ?> value="FR" id="<?php echo $id; ?>-FR">
+                            <label for="<?php echo $id; ?>-FR">FR</label>
                         </div><!--
                          --><div>
-                            <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="nl" id="NL">
-                            <label for="NL">NL</label>
+                            <input name="lang" type="radio"<?php if($lang == 'NL') echo "checked"; ?> value="NL" id="<?php echo $id; ?>-NL">
+                            <label for="<?php echo $id; ?>-NL">NL</label>
                         </div>
                     </fieldset>
                     <fieldset class="radio-inline-cont pull-right">
                         <div>
-                            <input name="vente" type="radio" <?php if($vente == '1') echo "checked"; ?> value="1" id="Vente">
-                            <label for="Vente"><?php echo $this->lang->line('sell'); ?></label>
+                            <input name="vente" type="radio" <?php if($vente == '1') echo "checked"; ?> value="1" id="<?php echo $id; ?>-Vente">
+                            <label for="<?php echo $id; ?>-Vente"><?php echo $this->lang->line('sell'); ?></label>
                         </div><!--
                          --><div>
-                             <input name="vente" type="radio" <?php if($vente == '0') echo "checked"; ?> value="0" id="Location">
-                            <label for="Location"><?php echo $this->lang->line('location'); ?></label>
+                            <input name="vente" type="radio" <?php if($vente == '0') echo "checked"; ?> value="0" id="<?php echo $id; ?>-Location">
+                            <label for="<?php echo $id; ?>-Location"><?php echo $this->lang->line('location'); ?></label>
                         </div>
                     </fieldset>
                 </div>
                  <div class="float-middle input-separation">
+                   
+                    
+                 <label for="<?php echo $id; ?>-active"><?php echo $this->lang->line('send_me_mail_label'); ?> <input name="active" type="checkbox" <?php if($active == '1') echo "checked"; ?>  id="<?php echo $id; ?>-active"></label>
                  </div>
             </div>
             <div class="clearfix">
-                <input type="submit" id="button-search" name="search" value="Sauvegarder la recherche" class="btn submit">
+                <input type="submit" name="save" value="Sauvegarder la recherche" class="btn submit">
             </div>
         </div>
     </form>
