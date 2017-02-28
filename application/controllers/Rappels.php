@@ -30,7 +30,7 @@ class Rappels extends MY_Controller {
 				$rappel['tags'] = $this->input->post('tags');
 				$date_rappel = str_replace('/', '-', $this->input->post('date_rappel') );
 				$rappel['date_rappel'] = strtotime( $date_rappel );
-				$this->Rappels_m->saveRappels($rappel);
+				$this->Rappels_m->updateRappel($rappel);
 				redirect('rappels/index');
 			}
 			$this->data['rappel'] = $this->Rappels_m->get($_GET['id']);
@@ -139,6 +139,25 @@ class Rappels extends MY_Controller {
 		echo json_encode($return);
 	}
 
+	public function updateRappel(){
+		$rappel_id = false;
+		$new_date = false;
+		if($this->input->post('new_date')){
+			$new_date = $this->input->post('new_date');
+		}
+		if($this->input->post('rappel_id')){
+			$rappel_id = $this->input->post('rappel_id');
+		}
+		if(!$new_date || !$rappel_id) return;
+
+		$this->load->model(array('Rappels_m'));
+		$rappel = array(
+			'id' => $rappel_id,
+			'date_rappel' => $new_date
+		);
+		$this->Rappels_m->updateRappel($rappel);
+	}
+
 	public function getEventsJson() {
 		$this->load->model(array('Rappels_m'));
 
@@ -164,7 +183,7 @@ class Rappels extends MY_Controller {
                 'id' => $rappel->id,
                 'title' => $rappel->title,
                 'url' => $rappel->url,
-                'start' => date("Y/m/d/",$rappel->date_rappel)
+                'start' => date("Y-m-d",$rappel->date_rappel)
             );
         }
         echo json_encode($eventsJson);

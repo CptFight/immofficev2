@@ -65,7 +65,7 @@ class Users extends MY_Controller {
 	}
 
 	//AJAX
-	public function updateFavoris(){
+	public function addOrRemoveFavoris(){
 		$this->load->model(array('Favoris_m','Annonces_m') );
 		$user_id = $this->input->post('user_id');
 		$annonce_id = $this->input->post('annonce_id');
@@ -78,9 +78,7 @@ class Users extends MY_Controller {
 		}	
 	}
 
-	
-
-	public function updateRappels(){
+	public function addOrRemoveRappels(){
 		$this->load->model(array('Rappels_m','Favoris_m','Annonces_m') );
 		$user_id = $this->input->post('user_id');
 		$annonce_id = $this->input->post('annonce_id');
@@ -96,14 +94,13 @@ class Users extends MY_Controller {
 			$favoris_id = $favoris->id;
 		}
 
-		$date_rappel = strtotime('tomorrow');
+		$date_rappel = strtotime('+1 Weekday');
 		$add = $this->input->post('add');
 		if($add == 'true'){
 			$this->Rappels_m->addRappel($user_id,$favoris_id,$date_rappel);
 		}else{
 			$this->Rappels_m->removeRappel($user_id,$favoris_id);
-		}
-		
+		}	
 	}
 	
 	public function saveLastSearch(){

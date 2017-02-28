@@ -31,16 +31,6 @@ calendar.initFullCalendar = function () {
     
     if(!calendar.calendarObject){
     	
-
-    	var events = [
-			{
-				id: 999,
-				title: 'Repeating Event',
-				start: '2017-02-16',
-				url : 'http://www.google.be'
-			}
-		];
-
         calendar.calendarObject = $('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -49,11 +39,32 @@ calendar.initFullCalendar = function () {
 			},
 			defaultDate: '2017-02-12',
 			navLinks: true, // can click day/week names to navigate views
-			editable: false,
+			editable: true,
 			locale : 'fr',
 			eventLimit: true, // allow "more" link when too many events
 			//events: events
-			events: base_url()+"index.php/rappels/getEventsJson?user_id="+$('#user_id').val()
+			events: base_url()+"index.php/rappels/getEventsJson?user_id="+$('#user_id').val(),
+			eventDrop: function(event, delta, revertFunc, jsEvent, ui, view ){
+				$.ajax({
+			        type: "POST",
+			        url: base_url()+"index.php/rappels/updateRappel",
+			        dataType: 'json',
+			        data: {
+			            rappel_id : event.id,
+			            new_date : event.start.format('X')
+			        },
+			        success: function(response){
+			          //  console.log('response',response);
+			        }
+			    });
+            },
+            eventClick: function(event) {
+            	//console.log('click');
+            },
+            droppable: true, 
+        	drop: function(date, jsEvent, ui, resourceId) {
+        		//console.log('drop');
+        	}
 		});
     }
 

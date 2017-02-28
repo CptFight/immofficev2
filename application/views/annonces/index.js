@@ -86,7 +86,7 @@ annonces.bindElementTable = function(){
 
         $.ajax({
             type: "POST",
-            url: base_url()+"index.php/users/updateFavoris",
+            url: base_url()+"index.php/users/addOrRemoveFavoris",
             dataType: 'json',
             data: {
                 user_id : $('#user_id').val(),
@@ -127,7 +127,7 @@ annonces.bindElementTable = function(){
 
         $.ajax({
             type: "POST",
-            url: base_url()+"index.php/users/updateRappels",
+            url: base_url()+"index.php/users/addOrRemoveRappels",
             dataType: 'json',
             data: {
                 user_id : $('#user_id').val(),
@@ -145,7 +145,7 @@ annonces.bindElementTable = function(){
 
 
 annonces.activeFavorisRappel = function(){
-     $.ajax({
+    $.ajax({
         type: "POST",
         url: base_url()+"index.php/users/getListIdFavorisRappel",
         dataType: 'json',

@@ -115,10 +115,10 @@ class Rappels_m extends MY_Model {
         $this->updateRappelFavorisCountInSession();
     }
 
-    public function saveRappels($rappels){
-      $this->db->where('id', $rappels['id']);
-      unset($rappels['id']);
-      $this->db->update($this->_db, $rappels); 
+    public function updateRappel($rappel){
+      $this->db->where('id', $rappel['id']);
+      unset($rappel['id']);
+      $this->db->update($this->_db, $rappel); 
     }
 
    
