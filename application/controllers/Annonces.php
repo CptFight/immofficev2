@@ -14,7 +14,7 @@ class Annonces extends MY_Controller {
 		if(!$this->current_user->search_price_min) $this->data['price_min'] = '';
 		else $this->data['price_min'] = $user->search_price_min;
 		if(!$this->current_user->search_price_max) $this->data['price_max'] = '';
-		else $this->data['price_max'] = $user->search_price_max;
+		else $this->data['price_max'] = $this->current_user->search_price_max;
 		$this->data['zipcode'] = $this->current_user->search_zipcodes;
 		$provinces = json_decode($this->current_user->search_provinces);
 		if(!$provinces) $provinces = array();

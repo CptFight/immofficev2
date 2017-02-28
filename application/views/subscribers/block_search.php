@@ -36,6 +36,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="float-middle input-separation" >
+                    <fieldset class="inputstyle select">
+                        <select name="select">
+                            <option value="valeur3" selected>Fréquence</option>
+                            <option value="valeur3">1x par jour</option>
+                            <option value="valeur1">1x par semaine</option> 
+                            <option value="valeur2">1x par mois</option>
+                        </select> 
+                    </fieldset>
+                </div>
+            </div>
+            <div class='clearfix'>
                 <div class="float-middle input-separation">
                     <fieldset class="radio-inline-cont pull-left">
                         <div>
@@ -62,6 +74,8 @@
                         </div>
                     </fieldset>
                 </div>
+                 <div class="float-middle input-separation">
+                 </div>
             </div>
             <div class="clearfix">
                 <input type="submit" id="button-search" name="search" value="Sauvegarder la recherche" class="btn submit">

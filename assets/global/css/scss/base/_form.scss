@@ -7,7 +7,7 @@ input[type="number"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
-input[type="search"],
+input[type="search"],  
 textarea, .input, .chosen-container-multi .chosen-choices{
     background-color: #FFFFFF;
     background-image: none;
@@ -243,5 +243,51 @@ fieldset.active label {
     .delete:hover 
     {
         background:#bf2a3a;
+    }
+}
+
+.inputstyle.select select
+{
+    width: 100%;
+    display: block;
+    -webkit-appearance: none;
+    padding: 5px;
+
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    color: inherit;
+    line-height:1;
+    display: block;
+    padding: 8px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    font-size: 14px;
+        -webkit-appearance: none;
+
+    &:hover {
+        border-color: #1ab394 !important;
+    }
+
+    &:focus {
+        outline:0;
+        border-color: #1ab394 !important;
+    }
+}
+.inputstyle.select
+{
+    position:relative;
+    &:after 
+    {
+        content: "\f107";
+        position:absolute;
+        right:10px;
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        top:10px;
     }
 }
