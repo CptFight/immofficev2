@@ -18,6 +18,7 @@ class MY_Controller extends CI_Controller {
 			$this->Users_m->updateLang($user->id,$user->lang);
 		}
 		
+
 		$this->current_user = $user;
 		$this->data['user'] = $this->current_user;
 		$this->lang->load('global', $this->current_user->lang);
