@@ -78,7 +78,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'root',
+	'password' => 'h=Bw6IN9rs',
 	'database' => 'immofficeimport',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
