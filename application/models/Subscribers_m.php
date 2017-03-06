@@ -2,7 +2,7 @@
 
 class Subscribers_m extends MY_Model {
 
-    var $_db = 'Subscribers';
+    var $_db = 'subscribers';
     var $_name = 'subscribers_m';
  
     public function get($params = array()) {
