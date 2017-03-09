@@ -352,3 +352,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
 {
 	top: 70%;
 }
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover
+{
+	background:#1ab394 !important;
+	border-color:#1ab394 !important;
+}

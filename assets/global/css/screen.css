@@ -168,7 +168,7 @@
    Tools/Grille
    =========================== */
 @media screen and (min-width: 992px) {
-  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p {
+  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p, .map-database > div {
     width: 50%;
     float: left;
     margin: 0;
@@ -1293,7 +1293,7 @@ a.profile-btn {
     display: none; }
   .l-nav-aside .m-map-marker {
     display: block; } }
-.l-annonces-section, .l-suggestions-section, .l-alertmail-section, .l-news-section {
+.l-annonces-section, .l-suggestions-section, .l-alertmail-section, .l-news-section, .l-map-section {
   background: white;
   margin: 20px;
   position: relative;
@@ -1455,10 +1455,14 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 .dataTables_wrapper .dataTables_processing {
   top: 70%; }
 
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  background: #1ab394 !important;
+  border-color: #1ab394 !important; }
+
 @media screen and (min-width: 992px) {
-  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p, .l-suggestions-section .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-suggestions-section p {
+  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p, .l-suggestions-section .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-suggestions-section p, .l-suggestions-section .map-database > div {
     width: 49%; }
-  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-suggestions-section p:last-child {
+  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-suggestions-section p:last-child, .l-suggestions-section .map-database > div:last-child {
     float: right; } }
 
 .l-alertmail-section .btn.submit, .l-alertmail-section .submit.btn-grey {
@@ -1609,6 +1613,93 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   border: 1px solid #eee;
   min-height: 100px; }
 
+.l-map-section {
+  padding: 0;
+  border-top: 3px solid #e7eaec; }
+  .l-map-section h2 {
+    font-size: 14px;
+    padding: 15px 20px 15px 20px;
+    margin: 0;
+    font-weight: bolder;
+    border-bottom: 1px solid #e7eaec; }
+
+.l-map-section-container {
+  padding: 30px 20px 20px 20px; }
+
+.map-btns-container {
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e7eaec; }
+
+.postalcode {
+  float: left; }
+
+.map-database {
+  padding-top: 10px; }
+  @media screen and (min-width: 992px) {
+    .map-database > div {
+      width: 49%; } }
+  @media screen and (min-width: 992px) {
+    .map-database > div:last-child {
+      float: right; } }
+
+.zonedaction {
+  float: left;
+  margin-left: 10px;
+  position: relative; }
+  .zonedaction p {
+    position: absolute;
+    top: -15px;
+    color: #acacac;
+    font-weight: lighter;
+    font-size: 0.8em; }
+  .zonedaction .btn-zonedaction {
+    text-align: center;
+    border: 1px solid #e5e6e7;
+    padding: 6px 9px;
+    display: inline-block; }
+  .zonedaction .btn-zonedaction:first-child {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px; }
+  .zonedaction .btn-zonedaction:last-child {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-left: -1px; }
+  .zonedaction .btn-zonedaction:hover {
+    color: #676a6c;
+    background: #f4f4f4; }
+
+.btn-map-rechercher {
+  float: left;
+  display: inline-block;
+  padding: 7px 13px !important;
+  margin-left: 10px; }
+
+.btn-codepostaux {
+  display: inline-block;
+  float: right;
+  margin-top: 10px; }
+
+@media screen and (max-width: 992px) {
+  .postalcode {
+    width: 100%; }
+    .postalcode input {
+      width: 100%; }
+
+  .zonedaction {
+    width: 100%;
+    margin: 25px 0 10px; }
+    .zonedaction .btn-zonedaction {
+      width: 50%; }
+
+  .btn-map-rechercher {
+    display: block;
+    width: 100%;
+    margin: 10px 0 15px; } }
+.map-container {
+  display: block;
+  width: 100%; }
+
 /* Modules */
 /* ==|====================
    Module/Button
@@ -1724,6 +1815,23 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     background: #eeeeee; }
   .btns-calendar a.active:hover {
     background: #149278; }
+
+.btn-delete {
+  display: inline-block;
+  padding: 4px 7px;
+  background: white;
+  border-radius: 50px;
+  font-size: 12px;
+  border: 1px solid #ec4758;
+  color: #ec4758;
+  font-size: 12px;
+  border: 1px solid #ec4758;
+  color: #ec4758; }
+  .btn-delete span {
+    display: none; }
+  .btn-delete:hover {
+    color: white;
+    background: #ec4758; }
 
 /* ==|================
    Module/Keyframes

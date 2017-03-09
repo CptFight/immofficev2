@@ -12,8 +12,8 @@
     <div class="clearfix l-top-annonces-export">
        
     </div>
-    <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
-    <form action="" method="POST">
+    <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS 
+    <form action="" method="POST">-->
     
     <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="favoris_table">
