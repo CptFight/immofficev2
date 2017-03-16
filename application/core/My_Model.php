@@ -7,15 +7,10 @@ class MY_Model extends CI_Model {
         $this->load->database();
     }
 
-    public function getCurrentUser(){
-        $user = $this->session->get_userdata('user');
-      
-        if(!$user || !isset($user['user']) || !isset($user['user']->id)){
-            redirect('/users/login');
-        }else{
-            $user = $user['user'];
-        }
-        return $user;
+    public function get($id) {
+      $id = $params;
+      $this->db->where('id',$id);
+      return $this->db->get($this->_db)->row();
     }
 
     public function update($object){
@@ -28,7 +23,11 @@ class MY_Model extends CI_Model {
         if(isset($data['id'])){
             unset($data['id']);
         }
-        return $this->db->insert($this->_db, $data); 
+        if($this->db->insert($this->_db, $data)){
+            return $this->db->insert_id();
+        }else{
+            return false;
+        }
     }
 
     public function delete($id){
@@ -36,18 +35,32 @@ class MY_Model extends CI_Model {
         $this->db->delete($this->_db); 
     }
 
+
+    public function getCurrentUser(){
+        $user = $this->session->get_userdata('user');
+      
+        if(!$user || !isset($user['user']) || !isset($user['user']->id)){
+            redirect('/users/login');
+        }else{
+            $user = $user['user'];
+        }
+        return $user;
+    }
+
     public function updateRappelFavorisCountInSession(){
         $user = $this->getCurrentUser();
+        $today = strtotime('today');
        
         $this->db->select('count(*) as count');
         $this->db->where('user_id',$user->id);
+        $this->db->where('date_rappel >=',$today);
         $user->count_rappels = $this->db->get('rappels')->row()->count;
 
         $this->db->select('count(*) as count');
         $this->db->where('user_id',$user->id);
+        $this->db->where('date_publication >=',$today);
         $user->count_favoris = $this->db->get('favoris')->row()->count;
 
-        print_r($user);
         $this->session->set_userdata('user', $user);
     }
 

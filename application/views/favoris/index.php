@@ -9,8 +9,8 @@
     </ul>
 </div>
 <section class="l-annonces-search l-annonces-section apparitionright">
-    <div class="clearfix l-top-annonces-export">
-       
+    <div class="btns-calendar">
+        <a href="<?php echo site_url('favoris/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS 
     <form action="" method="POST">-->
@@ -33,6 +33,7 @@
                     <th class="none"><?php echo $this->lang->line('city'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('description'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('link'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('upload_link'); ?> : </th>
                 </tr>
             </thead>
 

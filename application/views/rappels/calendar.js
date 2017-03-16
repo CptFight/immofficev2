@@ -30,14 +30,14 @@ calendar.init = function(){
 calendar.initFullCalendar = function () {
     
     if(!calendar.calendarObject){
-    	
-        calendar.calendarObject = $('#calendar').fullCalendar({
+    	var date = new Date();
+    	calendar.calendarObject = $('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
 				right: 'month,basicWeek,basicDay'
 			},
-			defaultDate: '2017-02-12',
+			defaultDate: date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate(),
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			locale : 'fr',

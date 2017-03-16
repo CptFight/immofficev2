@@ -105,7 +105,7 @@ rappels.initTableDatatablesResponsive = function () {
             },
 
             "order": [
-                [0, 'asc']
+                [4, 'desc']
             ],
             
             "lengthMenu": [

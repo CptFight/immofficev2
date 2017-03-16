@@ -54,7 +54,7 @@
             </div>
             <div class="float-middle input-separation m-input-postalcode">
                 <input type="text" id="zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="Code Postaux"/>
-                <a href="<?php echo site_url('map/index'); ?>" class="btn-inverse"><i class="fa fa-map-marker"></i> <?php echo $this->lang->line('map'); ?></a>
+                <a href="<?php echo site_url('map/index'); ?>?back=annonces/index" class="btn-inverse"><i class="fa fa-map-marker"></i> <?php echo $this->lang->line('map'); ?></a>
             </div>
         </div>
         <div class="clearfix">
@@ -104,7 +104,6 @@
                     <th class="none"><?php echo $this->lang->line('publications'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('adress'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('province'); ?> : </th>
-                    <th class="none"><?php echo $this->lang->line('city'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('description'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('link'); ?> : </th>
                 </tr>

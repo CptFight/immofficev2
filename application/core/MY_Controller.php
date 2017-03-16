@@ -12,19 +12,55 @@ class MY_Controller extends CI_Controller {
 		}
 
 		$user = $this->getCurrentUser();
-
 		if(isset($_GET['lang_user'])){
+			$this->load->model(array('Users_m'));
 			$user->lang = $_GET['lang_user'];
 			$this->Users_m->updateLang($user->id,$user->lang);
 		}
-		
 
 		$this->current_user = $user;
-		$this->data['user'] = $this->current_user;
+		$this->data['current_user'] = $this->current_user;
 		$this->lang->load('global', $this->current_user->lang);
+
+		
 		$this->data['pagename'] = $this->uri->segment(1);
+		$this->data['errors'] = array();
 		$this->loadScripts();
 
+	}
+
+	protected function uploadFile($file_name){
+		$this->config->load('upload');
+		$uploadPath = $this->config->item('upload_path');
+		$config['allowed_types']        = $this->config->item('allowed_types');
+		$config['max_size']             = $this->config->item('max_size');
+		$config['max_width']            = $this->config->item('max_width');
+		$config['max_height']           = $this->config->item('max_height');
+
+		$uploadPath .= $this->current_user->id."/";
+		$config['upload_path'] = $uploadPath;
+
+		if(!file_exists($uploadPath)){
+			mkdir($uploadPath, 0700);
+		}
+
+		$this->load->library('upload',$config);
+
+		if (!$this->upload->do_upload($file_name)){
+            $return = array('error' => $this->upload->display_errors());
+          
+        }else{
+            $return = array('upload_data' => $this->upload->data());
+            $this->load->model(array('Uploads_m'));
+            $data = $return['upload_data'];
+            $data['user_id'] = $this->current_user->id;
+            $upload_repository = $this->config->item('upload_repository');
+
+            $data['web_path'] = base_url().$upload_repository.$this->current_user->id."/".$data['file_name'];
+            $return['id'] = $this->Uploads_m->insert($data);
+            
+        }
+		return $return;		
 	}
 
 	protected function loadScripts(){

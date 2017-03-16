@@ -182,7 +182,7 @@ class Rappels extends MY_Controller {
             $eventsJson[] = array(
                 'id' => $rappel->id,
                 'title' => $rappel->title,
-                'url' => $rappel->url,
+                'url' => site_url('rappels/edit/?id='.$rappel->id),
                 'start' => date("Y-m-d",$rappel->date_rappel)
             );
         }

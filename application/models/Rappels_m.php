@@ -91,6 +91,17 @@ class Rappels_m extends MY_Model {
       return $list_ids;
     }
 
+    public function getRappelsFavorisIds($user_id){
+      $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
+      $this->db->where('rappels.user_id',$user_id);
+      $result = $this->db->get($this->_db)->result();
+      $list_ids = array();
+      foreach($result as $key => $rappels){
+        $list_ids[] = $rappels->favoris_id;
+      }
+      return $list_ids;
+    }
+
     public function delete($id){
         $this->db->where('id', $id);
         $this->db->delete($this->_db); 

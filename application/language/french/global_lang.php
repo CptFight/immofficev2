@@ -2,6 +2,9 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['upload_link'] = 'Lien du fichier';
+	$lang['last_connection'] = 'Dernière connexion';
+	$lang['listcustomers'] = 'List utilisateurs';
 	$lang['mail_subscribers_message'] = 'Vous avez <strong>%1$s</strong> nouvelles annonces sur Immoffice';
 	$lang['mail_subscribers_title'] = "De nouvelles annonces sur Immoffice";
 	$lang['mail_subscribers_subject'] = "De nouvelles annonces correspondent à vos recherches";

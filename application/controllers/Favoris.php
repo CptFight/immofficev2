@@ -40,6 +40,12 @@ class Favoris extends MY_Controller {
 				$favoris['tel'] = $this->input->post('tel');
 				$favoris['sale'] = $this->input->post('sale');
 				$favoris['lang'] = $this->input->post('lang');
+				if(isset($_FILES['picture']) ){
+					$return = $this->uploadFile('picture');
+					if(isset($return['id'])){
+						$favoris['upload_id'] = $return['id'];
+					}
+				}
 				$this->Favoris_m->update($favoris);
 				redirect('favoris/index');
 			}
@@ -49,6 +55,43 @@ class Favoris extends MY_Controller {
 			$this->load->view('template', $this->data);
 		}
 	}
+
+	public function news(){
+		$this->load->model(array('Favoris_m'));
+
+		if($this->input->post('save') ){
+			$favoris = array();
+			$favoris['user_id'] = $this->current_user->id;
+			//$favoris['annonce_id'] = 0;
+			$favoris['tags'] = $this->input->post('tags');
+			$favoris['title'] = $this->input->post('title');
+			$date_publication = str_replace('/', '-', $this->input->post('date_publication') );
+			$favoris['date_publication'] = strtotime( $date_publication );
+			$favoris['price'] = $this->input->post('price');
+			$favoris['url'] = $this->input->post('url');
+			$favoris['web_site'] = $this->input->post('web_site');
+			$favoris['adress'] = $this->input->post('adress');
+			$favoris['city'] = $this->input->post('city');
+			$favoris['zip_code'] = $this->input->post('zip_code');
+			$favoris['province'] = $this->input->post('province');
+			$favoris['living_space'] = $this->input->post('living_space');
+			$favoris['owner_name'] = $this->input->post('owner_name');
+			$favoris['tel'] = $this->input->post('tel');
+			$favoris['sale'] = $this->input->post('sale');
+			$favoris['lang'] = $this->input->post('lang');
+			if(isset($_FILES['picture']) ){
+				$return = $this->uploadFile('picture');
+				if(isset($return['id'])){
+					$favoris['upload_id'] = $return['id'];
+				}
+			}
+			$this->Favoris_m->insert($favoris);
+			redirect('favoris/index');
+		}
+
+		$this->load->view('template', $this->data);
+	}
+
 
 	//AJAX
 	public function getAllAnnoncesDataTable(){
@@ -126,22 +169,23 @@ class Favoris extends MY_Controller {
 			$data[] = array(
 				$favoris->title,
 				$favoris->zip_code,
-				$favoris->price.' €',
+				number_format($favoris->price, 2, ',', ' ').' €',
 				$favoris->web_site,
 				date('d/m/Y',$favoris->date_publication),
 				'<ul class="list-tables-buttons list-favoris" data-favoris_id="'.$favoris->id.'">
 	 				<li class="table-btn-link"><a target="_blank" href="'.$favoris->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li class="table-btn-edit"><a href="'.site_url('favoris/edit/?id='.$favoris->id).'"><i class="fa fa-pencil"></i><span>Editer le favoris</span></a></li>
-                    <li class="table-btn-rappel"><a href="#" class="add_remember"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
+                    <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $favoris->id,
-                "<span class='historic_price'>".$favoris->price."</span>",
+                "<span class='historic_price'>".number_format($favoris->price, 2, ',', ' ')."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$favoris->date_publication)."</span>",
                 $favoris->adress,
                 $favoris->province,
                 $favoris->city,
               	$favoris->description,
-				"<a href='".$favoris->url."'>".$favoris->url."</a>"
+				"<a target='_blank' href='".$favoris->url."'>".$favoris->url."</a>",
+				"<a target='_blank' href='".$favoris->web_path."'>".$favoris->file_name."</a>"
 			);
 		}
 

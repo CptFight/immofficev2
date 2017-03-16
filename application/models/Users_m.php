@@ -5,9 +5,38 @@ class Users_m extends MY_Model {
     public $_db = 'users';
     public $_name = 'users_m';
   
-    public function get($id) {
-        $this->db->where('id', $id);
-        return $this->db->get($this->_db)->row();
+     public function get($params) {
+        $this->db->where('deleted !=',1);
+        if(!is_array($params)){
+            $id = $params;
+            $this->db->where('id',$id);
+            return $this->db->get($this->_db)->row();
+        }else{
+
+            if($params['length'] == 0){
+               $params['length'] = $this->_limit; 
+               $params['start'] = 0;
+            } 
+
+            
+            if($params['search']){
+                $request_search = "( name LIKE '%".$params['search']."%'";
+                $request_search .= "OR agence LIKE '%".$params['search']."%'";
+                $request_search .= "OR login LIKE '%".$params['search']."%' )";
+                $request_search .= "OR tel LIKE '%".$params['search']."%' )";
+                $request_search .= "OR role LIKE '%".$params['search']."%' )";
+                $request_search .= "OR firstname LIKE '%".$params['search']."%' )";
+                $request_search .= "OR adress LIKE '%".$params['search']."%' )";
+                $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' )";
+                $this->db->where($request_search);
+            }
+
+            if(isset($params['order'])){
+                $this->db->order_by($params['order']['column'],$params['order']['dir']);
+            }
+
+            return $this->db->get($this->_db,$params['length'],$params['start'])->result();
+        }
     }
 
     public function saveLastSearch($user_id,$datas){
@@ -55,15 +84,24 @@ class Users_m extends MY_Model {
     }
 
     public function login($login, $password){
+        $this->db->where('deleted !=',1);
+        $today = strtotime('today');
         $this->db->group_by('users.id');
         $this->db->select('*, 
-            (SELECT COUNT(*) FROM favoris WHERE user_id = '.$this->_db.'.id) as count_favoris,
-            (SELECT COUNT(*) FROM rappels WHERE user_id = '.$this->_db.'.id) as count_rappels
+            (SELECT COUNT(*) FROM favoris WHERE user_id = '.$this->_db.'.id AND date_publication >= '.$today.') as count_favoris,
+            (SELECT COUNT(*) FROM rappels WHERE user_id = '.$this->_db.'.id AND date_rappel >= '.$today.') as count_rappels
         ');
         $this->db->where('login',$login);
         $this->db->where('password',md5($password));
-
-        return $this->db->get($this->_db)->row();
+        $user = $this->db->get($this->_db)->row();
+        if($user){
+            $data = array(
+                'id' => $user->id,
+                'last_connection' => strtotime('now')
+            );
+            $this->update($data);
+        }
+        return $user;
      }
    
 }

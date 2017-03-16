@@ -20,21 +20,7 @@
     <form action="" method="POST">
     <input type="hidden" name="id" value='<?php echo $rappel->id; ?>'>
     <div class="l-annonces-form l-form">
-        <h3><?php echo $this->lang->line('rappel'); ?></h3>
-        <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('tags'); ?></label>
-            <input type="text" name="tags" value='<?php echo $rappel->tags; ?>'>
-        </fieldset>
-        <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('date'); ?></label>
-            <input type="text" name="date_rappel" value='<?php echo date('d/m/Y',$rappel->date_rappel); ?>' required>
-        </fieldset>
         
-        <fieldset class="form-buttons">
-            <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
-            <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
-        </fieldset>
-
         <div class="favoris-edit-fiche">
 
             <h3><?php echo $this->lang->line('favoris'); ?> : <?php echo $rappel->title; ?></h3>
@@ -92,6 +78,24 @@
                 </div>
             </div>
         </div>
+
+    <hr/>
+
+        <h3><?php echo $this->lang->line('rappel'); ?></h3>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('tags'); ?></label>
+            <input type="text" name="tags" value='<?php echo $rappel->tags; ?>'>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('date'); ?></label>
+            <input type="text" name="date_rappel" value='<?php echo date('d/m/Y',$rappel->date_rappel); ?>' required>
+        </fieldset>
+        
+        <fieldset class="form-buttons">
+            <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
+            <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
+            
+        </fieldset>
     </div>
     </form>
 

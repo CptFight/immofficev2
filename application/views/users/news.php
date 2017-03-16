@@ -8,6 +8,12 @@
     </ul>
 </div>
 <section class="l-annonces-search l-annonces-section apparitionright">
+    <div class="clearfix l-top-annonces-export">
+       <div class="btns-calendar">
+            <a class="active" href="<?php echo site_url('users/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 
+            <a href="<?php echo site_url('users/liste'); ?>"><?php echo $this->lang->line('liste'); ?></a>
+        </div>
+    </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
@@ -63,11 +69,11 @@
         </fieldset>
         <fieldset class="radio-inline-cont ">
             <div>
-                <input name="lang" type="radio" value="french" id="fr">
+                <input name="lang" type="radio" value="french" id="fr" required>
                 <label for="fr"><?php echo $this->lang->line('french'); ?></label>
             </div><!--
              --><div>
-                <input name="lang" type="radio" value="dutch" id="nl">
+                <input name="lang" type="radio" value="dutch" id="nl" required>
                 <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
             </div>
         </fieldset>

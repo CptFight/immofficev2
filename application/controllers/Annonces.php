@@ -125,32 +125,30 @@ class Annonces extends MY_Controller {
 			"criterias" => $criterias
 		);
 
-		
 		$annonces = $this->Annonces_m->get($params);
-	//	echo $this->db->last_query();
+		//echo $this->db->last_query();
 		$data = array();
 
 		foreach($annonces as $key => $annonce){
 			$data[] = array(
 				$annonce->title,
 				$annonce->zip_code,
-				$annonce->price.' €',
+				number_format($annonce->price, 2, ',', ' ').' €',
 				$annonce->web_site,
 				date('d/m/Y',$annonce->date_publication),
-				'',
+				'<input type="checkbox" class="visited" />',
 				'<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
 	 				<li class="table-btn-link"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $annonce->id,
-                "<span class='historic_price'>".$annonce->price."</span>",
+                "<span class='historic_price'>".number_format($annonce->price, 2, ',', ' ')."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$annonce->date_publication)."</span>",
                 $annonce->adress,
                 $annonce->province,
-                $annonce->city,
               	$annonce->description,
-				"<a href='".$annonce->url."'>".$annonce->url."</a>"
+				"<a target='_blank' href='".$annonce->url."'>".$annonce->url."</a>"
 			);
 		}
 

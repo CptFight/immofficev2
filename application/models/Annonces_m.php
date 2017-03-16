@@ -60,7 +60,7 @@ class Annonces_m extends MY_Model {
                 $this->db->where('lang',$params['criterias']['lang']);
             }
 
-            if($params['criterias']['vente']){
+            if(isset($params['criterias']['vente'])){
                 $this->db->where('sale',$params['criterias']['vente']);
             }
 
@@ -127,10 +127,10 @@ class Annonces_m extends MY_Model {
             $this->db->where('lang',$params['criterias']['lang']);
         }
 
-        if($params['criterias']['vente']){
+        if(isset($params['criterias']['vente'])){
             $this->db->where('sale',$params['criterias']['vente']);
         }
-
+       
         if($params['criterias']['date_min']){
             $this->db->where('date_publication >= ',$params['criterias']['date_min']);
         }

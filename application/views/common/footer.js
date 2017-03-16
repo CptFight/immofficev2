@@ -10,6 +10,50 @@ function base_url(){
 }
 
 
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
+/***************
+* WEBSERVICE    *
+***************/
+
+function printJsonList(zipcode, radius){
+    getRemoteContent("http://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+",belgium&sensor=false", function(response){
+        var obj = JSON.parse(response);
+        if(typeof obj.results[0].geometry != 'undefined'){
+            var location = obj.results[0].geometry.location;
+            zipcodes.searchCitiesInTheRadius(location.lat,location.lng,radius);
+            var json = JSON.stringify(zipcodes.list_city_in_area);
+
+        }else{
+            return false;
+        }
+    });
+}
+
+
+function getRemoteContent(file, callback) {
+    var rawFile = new XMLHttpRequest();
+   // rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function() {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
+
+function JsonToArray(json){
+    var result = [];
+    for(var i in json)
+        result.push([i, json [i]]);
+    return result;
+}
+
+
 /* ==|====================
    Main/JS
    ======================= */

@@ -21,7 +21,7 @@
                 </div>
                 <div class="float-middle input-separation m-input-postalcode">
                     <input type="text" id="zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="Code Postaux"/>
-                    <a href="" class="btn-inverse"><i class="fa fa-map-marker"></i> <?php echo $this->lang->line('map'); ?></a>
+                    <a href="<?php echo site_url('map/index'); ?>?back=subscribers/index&id=<?php echo $id; ?>" class="btn-inverse"><i class="fa fa-map-marker"></i> <?php echo $this->lang->line('map'); ?></a>
                 </div>
             </div>
             <div class="clearfix">
@@ -40,7 +40,7 @@
                 <div class="float-middle input-separation" >
                     <fieldset class="inputstyle select">
                         <select name="frequency">
-                            <option value="directly" <?php if($frequency == 'directly'){ echo 'selected';} ?>>Directement</option>
+                            <option value="hour" <?php if($frequency == 'hour'){ echo 'selected';} ?>>1x par heure</option>
                             <option value="day" <?php if($frequency == 'day'){ echo 'selected';} ?>>1x par jour</option>
                             <option value="week" <?php if($frequency == 'week'){ echo 'selected';} ?>>1x par semaine</option> 
                             <option value="month" <?php if($frequency == 'month'){ echo 'selected';} ?>>1x par mois</option>

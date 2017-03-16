@@ -15,23 +15,32 @@ favoris.bind = function(){
 
 favoris.bindElementTable = function(){
     
-    $('#annonces .add_favoris').click(function(e){
+    $('#annonces .add_rappel').click(function(e){
         e.preventDefault();
-        var annonce_id = $(this).closest('ul').data('annonce_id');
+        var favoris_id = $(this).closest('ul').data('favoris_id');
 
+        var count_rappels = $('.alert-tag.rappels').html();
+
+        var add = true;
         if(!$(this).hasClass('active')){
             $(this).addClass('active');
+            count_rappels++;
         }else{
             $(this).removeClass('active');
+            add = false;
+            count_rappels--;
         }
-        
+
+        $('.alert-tag.rappels').html(count_rappels);
+
         $.ajax({
             type: "POST",
-            url: base_url()+"index.php/users/updateFavoris",
+            url: base_url()+"index.php/users/addOrRemoveRappels",
             dataType: 'json',
             data: {
                 user_id : $('#user_id').val(),
-                annonce_id : annonce_id
+                favoris_id : favoris_id,
+                add : add 
             },
             success: function(response){
                console.log('response',response);
@@ -40,6 +49,29 @@ favoris.bindElementTable = function(){
         
     });
 
+}
+
+
+
+favoris.activeFavorisRappel = function(){
+
+ $.ajax({
+        type: "POST",
+        url: base_url()+"index.php/users/getListIdFavorisRappelVisits",
+        dataType: 'json',
+        data: {
+            user_id : $('#user_id').val()
+        },
+        success: function(favoris_rappels_list){
+            $('#annonces ul.list-tables-buttons').each(function(e){
+                var favoris_id = $(this).data('favoris_id');
+                var index = favoris_rappels_list.rappels_favoris_ids.indexOf(favoris_id.toString());
+                if(index != -1){
+                    $(this).find('.add_rappel').addClass('active');
+                }
+            });
+        }
+    });
 }
 
 
@@ -95,11 +127,11 @@ favoris.initTableDatatablesResponsive = function () {
             responsive: true,
             parseTime: false,
             fnDrawCallback : function(){
+                favoris.activeFavorisRappel();
                 favoris.bindElementTable();
             },
-
             "order": [
-                [0, 'asc']
+                [4, 'desc']
             ],
             
             "lengthMenu": [

@@ -7,6 +7,8 @@ class Favoris_m extends MY_Model {
  
     public function get($params) {
         $this->db->group_by('favoris.id');
+        $this->db->select('*, favoris.id as id, favoris.user_id as user_id');
+        $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
         
         if(!is_array($params)){
             $id = $params;
@@ -36,7 +38,7 @@ class Favoris_m extends MY_Model {
             }
 
             if($params['user_id']){
-                $this->db->where('user_id',$params['user_id']);
+                $this->db->where('favoris.user_id',$params['user_id']);
             }
 
             if(isset($params['order'])){

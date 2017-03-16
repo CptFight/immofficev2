@@ -32,22 +32,23 @@ class Crons extends MY_Controller {
 				//already the good value;
 				break;
 		}
-		
 
 		$params_subscribers = array(
 			"frequency" => $frequency,
 			"active" => 1
 		);
 		$subscribers = $this->Subscribers_m->get($params_subscribers);
+	
 		if($subscribers){
 			foreach($subscribers as $key => $subscriber){
+				$provinces = json_decode($subscriber->search_provinces);
 				$criterias = array(
 					'date_min' => $date_min,
 					'date_max' => '',
 					'price_min' => $subscriber->search_price_min,
 					'price_max' => $subscriber->search_price_max,
 					'zipcode' => $subscriber->search_zipcodes,
-					'province' => $subscriber->search_provinces,
+					'province' => $provinces,
 					'lang' => $subscriber->search_lang,
 					'vente' => $subscriber->search_sell
 				);
@@ -66,6 +67,7 @@ class Crons extends MY_Controller {
 				);
 
 				$annonces = $this->Annonces_m->get($params);
+				
 				if($annonces){
 					$this->load->library('email');
 					$this->lang->load('global', $subscriber->lang);
