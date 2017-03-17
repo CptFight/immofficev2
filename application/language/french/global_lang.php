@@ -2,6 +2,7 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['note'] = 'Note';
 	$lang['upload_link'] = 'Lien du fichier';
 	$lang['last_connection'] = 'Dernière connexion';
 	$lang['listcustomers'] = 'List utilisateurs';

@@ -43,6 +43,11 @@ class Subscribers extends MY_Controller {
 		foreach($subscribers as $key => $subscriber){
 			$provinces = json_decode($subscriber->search_provinces);
 			if(!$provinces) $provinces = array();
+			
+			if(!$subscriber->search_price_min) $subscriber->search_price_min = '';
+			else $subscriber->search_price_min = $subscriber->search_price_min;
+			if(!$subscriber->search_price_max) $subscriber->search_price_max = '';
+			else $subscriber->search_price_max = $subscriber->search_price_max;
 
 			$this->data['subscribers'][] = array(
 				'id' => $subscriber->id,

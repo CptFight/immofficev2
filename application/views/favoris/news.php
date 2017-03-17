@@ -83,9 +83,13 @@
                 <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
             </div>
         </fieldset>
-         <fieldset class="inputstyle">
+        <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('description'); ?></label>
-            <textarea></textarea>
+            <textarea name="description"><?php echo $favoris->description; ?></textarea>
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label><?php echo $this->lang->line('note'); ?></label>
+            <textarea name="note"><?php echo $favoris->note; ?></textarea>
         </fieldset>
          <fieldset class="inputstyle">
             <input type="file" name="picture" id="picture">

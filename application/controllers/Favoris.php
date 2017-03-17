@@ -22,6 +22,7 @@ class Favoris extends MY_Controller {
 			}
 
 			if($this->input->post('save') ){
+
 				$favoris = array();
 				$favoris['id'] = $this->input->post('id');
 				$favoris['tags'] = $this->input->post('tags');
@@ -37,6 +38,8 @@ class Favoris extends MY_Controller {
 				$favoris['province'] = $this->input->post('province');
 				$favoris['living_space'] = $this->input->post('living_space');
 				$favoris['owner_name'] = $this->input->post('owner_name');
+				$favoris['description'] = $this->input->post('description');
+				$favoris['note'] = $this->input->post('note');
 				$favoris['tel'] = $this->input->post('tel');
 				$favoris['sale'] = $this->input->post('sale');
 				$favoris['lang'] = $this->input->post('lang');
@@ -60,6 +63,7 @@ class Favoris extends MY_Controller {
 		$this->load->model(array('Favoris_m'));
 
 		if($this->input->post('save') ){
+
 			$favoris = array();
 			$favoris['user_id'] = $this->current_user->id;
 			//$favoris['annonce_id'] = 0;
@@ -76,6 +80,8 @@ class Favoris extends MY_Controller {
 			$favoris['province'] = $this->input->post('province');
 			$favoris['living_space'] = $this->input->post('living_space');
 			$favoris['owner_name'] = $this->input->post('owner_name');
+			$favoris['description'] = $this->input->post('description');
+			$favoris['note'] = $this->input->post('note');
 			$favoris['tel'] = $this->input->post('tel');
 			$favoris['sale'] = $this->input->post('sale');
 			$favoris['lang'] = $this->input->post('lang');
@@ -169,7 +175,7 @@ class Favoris extends MY_Controller {
 			$data[] = array(
 				$favoris->title,
 				$favoris->zip_code,
-				number_format($favoris->price, 2, ',', ' ').' €',
+				number_format($favoris->price, 0, ',', ' ').' €',
 				$favoris->web_site,
 				date('d/m/Y',$favoris->date_publication),
 				'<ul class="list-tables-buttons list-favoris" data-favoris_id="'.$favoris->id.'">
@@ -178,7 +184,7 @@ class Favoris extends MY_Controller {
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $favoris->id,
-                "<span class='historic_price'>".number_format($favoris->price, 2, ',', ' ')."</span>",
+                "<span class='historic_price'>".number_format($favoris->price, 0, ',', ' ')."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$favoris->date_publication)."</span>",
                 $favoris->adress,
                 $favoris->province,

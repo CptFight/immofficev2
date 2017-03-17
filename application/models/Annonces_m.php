@@ -9,6 +9,10 @@ class Annonces_m extends MY_Model {
 
     private $last_search_results;
 
+    public function getHistoricPublications($id){
+        $this->db->where('id',$id);
+    }
+
     public function get($params) {
         $this->db->group_by('annonces.id');
         $this->db->join('prices','prices.id = annonces.last_price_id', 'left');

@@ -130,6 +130,7 @@ class Rappels_m extends MY_Model {
       $this->db->where('id', $rappel['id']);
       unset($rappel['id']);
       $this->db->update($this->_db, $rappel); 
+      $this->updateRappelFavorisCountInSession();
     }
 
    

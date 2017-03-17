@@ -1,18 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Crons extends MY_Controller {
+class Crons extends CI_Controller {
 
-	public function index(){
-		$this->load->model(array('Users_m'));
-	}
+	public function mails($frequency){
 
-	public function mails(){
-		if(!$this->input->get('frequency')){
-			return;
-		}else{
-			$frequency = $this->input->get('frequency');
-		}
-
+		if(!$this->input->is_cli_request()){
+	      	echo "This script can only be accessed via the command line" . PHP_EOL;
+	      	return;
+	  	}
+		
+		echo "Traitement.. \n";
 		$this->config->load('email');
 		$this->load->model(array('Subscribers_m','Annonces_m'));
 
@@ -38,7 +35,12 @@ class Crons extends MY_Controller {
 			"active" => 1
 		);
 		$subscribers = $this->Subscribers_m->get($params_subscribers);
-	
+		if($subscribers && is_array($subscribers)){
+			echo count($subscribers)." subscribers \n";
+		}else{
+			echo "No subscribers \n";
+		}
+		
 		if($subscribers){
 			foreach($subscribers as $key => $subscriber){
 				$provinces = json_decode($subscriber->search_provinces);
@@ -67,8 +69,10 @@ class Crons extends MY_Controller {
 				);
 
 				$annonces = $this->Annonces_m->get($params);
-				
+				echo "--------------------------\n";
+				echo "Email : ".$subscriber->login." \n";
 				if($annonces){
+					echo "Annonces : ".count($annonces)." \n";
 					$this->load->library('email');
 					$this->lang->load('global', $subscriber->lang);
 
@@ -90,13 +94,16 @@ class Crons extends MY_Controller {
 		   			$this->email->message($body);   
 					
 					if($this->email->send()){
-						echo "mail send ! ";
+						echo "Mail envoyé \n";
+					}else{
+						echo "ERROR Mails \n";
 					}
 				}
 				
 				
 			}
 		}
+		
 		
 	}
 

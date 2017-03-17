@@ -198,7 +198,8 @@ class Users extends MY_Controller {
 			$favoris_id = $favoris->id;
 		}
 
-		$date_rappel = strtotime('+1 Weekday');
+		//$date_rappel = strtotime('+1 Weekday');
+		$date_rappel = strtotime('now');
 		$add = $this->input->post('add');
 		if($add == 'true'){
 			$this->Rappels_m->add($user_id,$favoris_id,$date_rappel);

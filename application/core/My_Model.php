@@ -50,10 +50,12 @@ class MY_Model extends CI_Model {
     public function updateRappelFavorisCountInSession(){
         $user = $this->getCurrentUser();
         $today = strtotime('today');
+        $tomorrow = strtotime('tomorrow');
        
         $this->db->select('count(*) as count');
         $this->db->where('user_id',$user->id);
         $this->db->where('date_rappel >=',$today);
+        $this->db->where('date_rappel <',$tomorrow);
         $user->count_rappels = $this->db->get('rappels')->row()->count;
 
         $this->db->select('count(*) as count');

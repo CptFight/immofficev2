@@ -130,10 +130,13 @@ class Annonces extends MY_Controller {
 		$data = array();
 
 		foreach($annonces as $key => $annonce){
+			$historic_publications = $this->getHistoricPublications($annonce->id);
+			$historic_price = $this->getHistoricPrices($annonce->id);
+
 			$data[] = array(
 				$annonce->title,
 				$annonce->zip_code,
-				number_format($annonce->price, 2, ',', ' ').' €',
+				number_format($annonce->price, 0, ',', ' ').' €',
 				$annonce->web_site,
 				date('d/m/Y',$annonce->date_publication),
 				'<input type="checkbox" class="visited" />',
@@ -143,8 +146,8 @@ class Annonces extends MY_Controller {
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $annonce->id,
-                "<span class='historic_price'>".number_format($annonce->price, 2, ',', ' ')."</span>",
-                "<span class='historic_publications'>".date('d/m/Y',$annonce->date_publication)."</span>",
+                "<span class='historic_price'>".$historic_price."</span>",
+                "<span class='historic_publications'>".$historic_publications."</span>",
                 $annonce->adress,
                 $annonce->province,
               	$annonce->description,
@@ -159,6 +162,28 @@ class Annonces extends MY_Controller {
 
 		echo json_encode($return);
 		 
+	}
+
+	private function getHistoricPublications($annonce_id){
+		$this->load->model(array('Publications_m'));
+		$historic_publications_in_string = '';
+		$historic_publications = $this->Publications_m->get($annonce_id);
+		foreach($historic_publications as $key => $publication){
+			$historic_publications_in_string .= date('d/m/Y',$publication->date_publication)." ";
+		}
+		$historic_publications_in_string = trim($historic_publications_in_string,' ');
+		return $historic_publications_in_string;
+	}
+
+	private function getHistoricPrices($annonce_id){
+		$this->load->model(array('Prices_m'));
+		$historic_prices_in_string = '';
+		$historic_prices = $this->Prices_m->get($annonce_id);
+		foreach($historic_prices as $key => $price){
+			$historic_prices_in_string .= number_format($price->price, 0, ',', ' ')." ";
+		}
+		$historic_prices_in_string = trim($historic_prices_in_string,' ');
+		return $historic_prices_in_string." €";
 	}
 
 	

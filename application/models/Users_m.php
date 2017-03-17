@@ -86,10 +86,11 @@ class Users_m extends MY_Model {
     public function login($login, $password){
         $this->db->where('deleted !=',1);
         $today = strtotime('today');
+        $tomorrow = strtotime('tomorrow');
         $this->db->group_by('users.id');
         $this->db->select('*, 
             (SELECT COUNT(*) FROM favoris WHERE user_id = '.$this->_db.'.id AND date_publication >= '.$today.') as count_favoris,
-            (SELECT COUNT(*) FROM rappels WHERE user_id = '.$this->_db.'.id AND date_rappel >= '.$today.') as count_rappels
+            (SELECT COUNT(*) FROM rappels WHERE user_id = '.$this->_db.'.id AND date_rappel >= '.$today.' AND date_rappel < '.$tomorrow.') as count_rappels
         ');
         $this->db->where('login',$login);
         $this->db->where('password',md5($password));
