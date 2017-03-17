@@ -2,7 +2,11 @@
 
 	$lang['base_url'] = base_url();
 	
-
+	//error upload
+	$lang['allowed_types'] = 'Extentions authorisées';
+	$lang['max_size'] = 'Taille maximum';
+	$lang['max_width'] = 'Largeur maximum';
+	$lang['max_height'] = 'Hauteur maximum';
 
 	//breadcrumb
 	$lang['breadcrumb_favoris'] = 'Favoris';
@@ -17,7 +21,7 @@
 	$lang['breadcrumb_news'] = 'Nouveau';
 	$lang['breadcrumb_calendar'] = 'Calendrier';
 
-
+	$lang['message'] = 'Message';
 	$lang['update_done'] = 'Modification effectuée';
 	$lang['insert_done'] = 'Ajout effectué';
 	$lang['error_password'] = 'Les mots de passes ne correspondent pas';

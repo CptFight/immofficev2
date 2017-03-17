@@ -41,11 +41,8 @@ class MY_Controller extends CI_Controller {
 			'active' => true
 		);
 		$this->data['header'] = $header; 
-
-
-
 		$this->data['pagename'] = $controller;
-		
+
 		$this->data['errors'] = array();
 		$this->data['messages'] = array();
 		$this->loadScripts();
@@ -80,7 +77,10 @@ class MY_Controller extends CI_Controller {
 
 		if (!$this->upload->do_upload($file_name)){
             $return = array('error' => $this->upload->display_errors());
-          
+          	$this->addError($this->lang->line('allowed_types').' : '.$config['allowed_types']);
+          	$this->addError($this->lang->line('max_size').' : '.$config['max_size']);
+          	$this->addError($this->lang->line('max_width').' : '.$config['max_width']);
+          	$this->addError($this->lang->line('max_height').' : '.$config['max_height']);
         }else{
             $return = array('upload_data' => $this->upload->data());
             $this->load->model(array('Uploads_m'));

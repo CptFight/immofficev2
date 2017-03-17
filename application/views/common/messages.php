@@ -1,4 +1,4 @@
-<?php if(count($messages) > 0) { ?>
+<?php if(count($messages) > 0 && count($errors) == 0) { ?>
 <div style="border:1px; color:green;">
 <ul>
 <?php foreach($messages as $key => $message){ ?>
