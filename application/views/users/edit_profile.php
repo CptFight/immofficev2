@@ -1,12 +1,4 @@
-<div class="title-container">
-    <h2><?php echo $this->lang->line('user'); ?></h2>
-    <ul>
-        <li>
-            <a href=""><?php echo $this->lang->line('home'); ?></a>
-            <a href="" class="active"><?php echo $this->lang->line('edit'); ?></a>
-        </li>
-    </ul>
-</div>
+
 <section class="l-annonces-search l-annonces-section apparitionright">
     <form action="" method="POST">
     <div class="l-annonces-form l-form">

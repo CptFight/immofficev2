@@ -1,12 +1,4 @@
-<div class="title-container">
-    <h2><?php echo $this->lang->line('favoris'); ?></h2>
-    <ul>
-        <li>
-            <a href=""><?php echo $this->lang->line('home'); ?></a>
-            <a href="" class="active"><?php echo $this->lang->line('new'); ?> <?php echo $this->lang->line('favoris'); ?></a>
-        </li>
-    </ul>
-</div>
+
 <section class="l-annonces-search l-annonces-section apparitionright">
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST" enctype="multipart/form-data">
@@ -85,11 +77,11 @@
         </fieldset>
         <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('description'); ?></label>
-            <textarea name="description"><?php echo $favoris->description; ?></textarea>
+            <textarea name="description"></textarea>
         </fieldset>
         <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('note'); ?></label>
-            <textarea name="note"><?php echo $favoris->note; ?></textarea>
+            <textarea name="note"></textarea>
         </fieldset>
          <fieldset class="inputstyle">
             <input type="file" name="picture" id="picture">

@@ -2,6 +2,28 @@
 
 	$lang['base_url'] = base_url();
 	
+
+
+	//breadcrumb
+	$lang['breadcrumb_favoris'] = 'Favoris';
+	$lang['breadcrumb_subscribers'] = 'Abonnements';
+	$lang['breadcrumb_annonces'] = 'Annonces';
+	$lang['breadcrumb_users'] = 'Utilisateurs';
+	$lang['breadcrumb_rappels'] = 'Rappels';
+	$lang['breadcrumb_suggestions'] = 'Suggestions';
+	
+	$lang['breadcrumb_index'] = 'Liste';
+	$lang['breadcrumb_edit'] = 'Edition';
+	$lang['breadcrumb_news'] = 'Nouveau';
+	$lang['breadcrumb_calendar'] = 'Calendrier';
+
+
+	$lang['update_done'] = 'Modification effectuée';
+	$lang['insert_done'] = 'Ajout effectué';
+	$lang['error_password'] = 'Les mots de passes ne correspondent pas';
+	$lang['mail_send'] = 'Le message a bien été envoyé.';
+	$lang['mail_not_send'] = "Le message n'a pas été envoyé !" ;
+
 	$lang['note'] = 'Note';
 	$lang['upload_link'] = 'Lien du fichier';
 	$lang['last_connection'] = 'Dernière connexion';
@@ -87,7 +109,7 @@
 	$lang["suggestions"] = "Suggestions";
 	$lang["new_account"] = "Nouveau compte";
 	$lang["accounts_management"] = "Gestion des comptes";
-	$lang["subscribers"] = "Suscribers";
+	$lang["subscribers"] = "Abonnements";
 	$lang["dashboard"] = "Tableau de bord";
 	$lang["cron"] = "Crons";
 	$lang["home"] = "Accueil";

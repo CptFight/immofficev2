@@ -43,14 +43,23 @@ class Favoris extends MY_Controller {
 				$favoris['tel'] = $this->input->post('tel');
 				$favoris['sale'] = $this->input->post('sale');
 				$favoris['lang'] = $this->input->post('lang');
+
+				$error_upload = false;
 				if(isset($_FILES['picture']) ){
 					$return = $this->uploadFile('picture');
 					if(isset($return['id'])){
 						$favoris['upload_id'] = $return['id'];
+					}else if(isset($return['error'])){
+						$error_upload = true;
+						$this->addError($return['error']);
 					}
 				}
-				$this->Favoris_m->update($favoris);
-				redirect('favoris/index');
+
+				if(!$error_upload){
+					$this->Favoris_m->update($favoris);
+					redirect('favoris/index');
+				}
+				
 			}
 
 			$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);

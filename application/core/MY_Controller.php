@@ -7,7 +7,9 @@ class MY_Controller extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 
-		if($this->uri->segment(1) == 'users' && $this->uri->segment(2) == 'login'){
+		$controller = $this->uri->segment(1);
+		$method = $this->uri->segment(2);
+		if($controller == 'users' && $method == 'login'){
 			return;
 		}
 
@@ -18,15 +20,45 @@ class MY_Controller extends CI_Controller {
 			$this->Users_m->updateLang($user->id,$user->lang);
 		}
 
+
 		$this->current_user = $user;
 		$this->data['current_user'] = $this->current_user;
 		$this->lang->load('global', $this->current_user->lang);
 
+
+
+		$header = array();
+		$header['page_title'] =  $this->lang->line('breadcrumb_'.$controller); 
+		$header['breadcrumb'] =  array();
+		$header['breadcrumb'][] = array(
+			'url' => site_url('annonces/index'),
+			'title' => $this->lang->line('home'),
+			'active' => false
+		);
+		$header['breadcrumb'][] = array(
+			'url' => '',
+			'title' => $this->lang->line('breadcrumb_'.$method),
+			'active' => true
+		);
+		$this->data['header'] = $header; 
+
+
+
+		$this->data['pagename'] = $controller;
 		
-		$this->data['pagename'] = $this->uri->segment(1);
 		$this->data['errors'] = array();
+		$this->data['messages'] = array();
 		$this->loadScripts();
 
+	}
+
+	
+	protected function addMessage($message){
+		$this->data['messages'][] = $message;
+	}
+
+	protected function addError($message){
+		$this->data['errors'][] = $message;
 	}
 
 	protected function uploadFile($file_name){

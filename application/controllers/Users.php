@@ -2,6 +2,11 @@
 
 class Users extends MY_Controller {
 
+	public function index(){
+
+		$this->load->view('template', $this->data);
+	}
+
 	public function login() {
 		$this->session->unset_userdata('user');
 		$this->load->model(array('Users_m'));
@@ -47,10 +52,12 @@ class Users extends MY_Controller {
 			$user['price_tvac'] = $this->input->post('price_tvac');
 			$user['created'] = strtotime('now');
 			
-			$this->Users_m->insert($user);
+			if($this->Users_m->insert($user)){
+				$this->addMessage($this->lang->line('insert_done'));
+			}
 
 			if(!$this->verifyPassword($this->input->post('password'), $this->input->post('verify_password'))){	
-				$this->data['errors'][] = $this->lang->line('error_password');
+				$this->addError($this->lang->line('error_password'));
 			}
 		}
 
@@ -81,10 +88,12 @@ class Users extends MY_Controller {
 			$user['price_tvac'] = $this->input->post('price_tvac');
 			$user['created'] = strtotime('now');
 			
-			$this->Users_m->update($user);
+			if($this->Users_m->update($user)){
+				$this->addMessage($this->lang->line('update_done'));
+			}
 
 			if(!$this->verifyPassword($this->input->post('password'), $this->input->post('verify_password'))){	
-				$this->data['errors'][] = $this->lang->line('error_password');
+				$this->addError($this->lang->line('error_password'));
 			}
 		}
 
@@ -93,7 +102,7 @@ class Users extends MY_Controller {
 			$user['id'] = $this->input->get('id');
 			$user['deleted'] = 1;
 			$this->Users_m->update($user);
-			redirect('users/liste');
+			redirect('users/index');
 		}
 		$this->data['user'] = $this->Users_m->get($this->input->get('id'));
 
@@ -101,6 +110,8 @@ class Users extends MY_Controller {
 	}
 
 	private function verifyPassword($password1,$password2,$verify_empty = true){
+		if($password1 == '') return true;
+		
 		if($verify_empty){
 			if(  $password1 == '' || $password2 == '' ) {
 				return false;
@@ -111,11 +122,6 @@ class Users extends MY_Controller {
 			return false;
 		}
 		return true;
-	}
-
-	public function liste(){
-
-		$this->load->view('template', $this->data);
 	}
 
 	public function edit_profile(){

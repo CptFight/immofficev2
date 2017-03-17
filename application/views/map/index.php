@@ -1,15 +1,4 @@
 
-
-
-<div class="title-container">
-    <h2><?php echo $this->lang->line('map'); ?></h2>
-    <ul>
-        <li>
-            <a href=""><?php echo $this->lang->line('french'); ?></a>
-            <a href="" class="active"><?php echo $this->lang->line('map'); ?></a>
-        </li>
-    </ul>
-</div>
 <section class="apparitionright l-map-section">
     <h2>Remplissez les champs</h2>
     <div class="l-map-section-container">

@@ -1,13 +1,4 @@
 
-<div class="title-container">
-    <h2><?php echo $this->lang->line('favoris'); ?></h2>
-    <ul>
-        <li>
-            <a href=""><?php echo $this->lang->line('french'); ?></a>
-            <a href="" class="active"><?php echo $this->lang->line('favoris'); ?></a>
-        </li>
-    </ul>
-</div>
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="btns-calendar">
         <a href="<?php echo site_url('favoris/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 

@@ -1,13 +1,4 @@
 
-<div class="title-container">
-    <h2><?php echo $this->lang->line('remembers'); ?></h2>
-    <ul>
-        <li>
-            <a href=""><?php echo $this->lang->line('french'); ?></a>
-            <a href="" class="active"><?php echo $this->lang->line('remembers'); ?></a>
-        </li>
-    </ul>
-</div>
 <section class="l-annonces-search l-annonces-section apparitionright">
     
     <div class="clearfix l-top-annonces-export">

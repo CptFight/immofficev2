@@ -30,6 +30,8 @@ class Rappels extends MY_Controller {
 				$rappel['tags'] = $this->input->post('tags');
 				$date_rappel = str_replace('/', '-', $this->input->post('date_rappel') );
 				$rappel['date_rappel'] = strtotime( $date_rappel );
+
+				
 				$this->Rappels_m->update($rappel);
 				redirect('rappels/index');
 			}

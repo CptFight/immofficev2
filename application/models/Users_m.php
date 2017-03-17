@@ -62,17 +62,17 @@ class Users_m extends MY_Model {
         );
 
         $this->db->where('id', $user->id);
-        $this->db->update($this->_db, $data);       
+        return $this->db->update($this->_db, $data);       
     }
 
     public function insert($user){
-        $this->db->insert($this->_db, $user); 
+        return $this->db->insert($this->_db, $user); 
     }
 
     public function update($user){
         $this->db->where('id', $user['id']);
         unset($user['id']);
-        $this->db->update($this->_db, $user); 
+        return $this->db->update($this->_db, $user); 
     }
 
     public function updateLang($user_id,$lang){
@@ -80,7 +80,7 @@ class Users_m extends MY_Model {
            'lang' => $lang
         );
         $this->db->where('id', $user_id);
-        $this->db->update($this->_db, $data); 
+        return $this->db->update($this->_db, $data); 
     }
 
     public function login($login, $password){

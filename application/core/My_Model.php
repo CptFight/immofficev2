@@ -16,7 +16,7 @@ class MY_Model extends CI_Model {
     public function update($object){
         $this->db->where('id', $object['id']);
         unset($object['id']);
-        $this->db->update($this->_db, $object); 
+        return $this->db->update($this->_db, $object); 
     }
 
     public function insert($data){
@@ -32,7 +32,7 @@ class MY_Model extends CI_Model {
 
     public function delete($id){
         $this->db->where('id', $id);
-        $this->db->delete($this->_db); 
+        return $this->db->delete($this->_db); 
     }
 
 

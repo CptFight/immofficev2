@@ -1,17 +1,9 @@
-<div class="title-container">
-    <h2><?php echo $this->lang->line('user'); ?></h2>
-    <ul>
-        <li>
-            <a href=""><?php echo $this->lang->line('home'); ?></a>
-            <a href="" class="active"><?php echo $this->lang->line('new'); ?></a>
-        </li>
-    </ul>
-</div>
+
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="clearfix l-top-annonces-export">
        <div class="btns-calendar">
             <a class="active" href="<?php echo site_url('users/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 
-            <a href="<?php echo site_url('users/liste'); ?>"><?php echo $this->lang->line('liste'); ?></a>
+            <a href="<?php echo site_url('users/index'); ?>"><?php echo $this->lang->line('liste'); ?></a>
         </div>
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->

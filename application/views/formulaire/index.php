@@ -1,12 +1,4 @@
-<div class="title-container">
-    <h2>Formulaire</h2>
-    <ul>
-        <li>
-            <a href="">Accueil</a>
-            <a href="" class="active">Formulaire</a>
-        </li>
-    </ul>
-</div>
+
 <section class="l-annonces-search l-annonces-section apparitionright">
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">
