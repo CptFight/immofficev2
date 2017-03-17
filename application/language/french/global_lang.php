@@ -18,7 +18,8 @@
 	
 	$lang['breadcrumb_index'] = 'Liste';
 	$lang['breadcrumb_edit'] = 'Edition';
-	$lang['breadcrumb_news'] = 'Nouveau';
+	$lang['breadcrumb_edit_full'] = 'Edition';
+	$lang['breadcrumb_news'] = 'News';
 	$lang['breadcrumb_calendar'] = 'Calendrier';
 
 	$lang['message'] = 'Message';

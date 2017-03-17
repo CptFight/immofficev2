@@ -7,8 +7,9 @@ class Favoris_m extends MY_Model {
  
     public function get($params) {
         $this->db->group_by('favoris.id');
-        $this->db->select('*, favoris.id as id, favoris.user_id as user_id');
+        $this->db->select('*, favoris.id as id, favoris.user_id as user_id, favoris.tags as tags, rappels.tags as rappel_tags, rappels.id as rappel_id');
         $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
+        $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
         
         if(!is_array($params)){
             $id = $params;
@@ -128,7 +129,7 @@ class Favoris_m extends MY_Model {
     public function update($favoris){
         $this->db->where('id', $favoris['id']);
         unset($favoris['id']);
-        $this->db->update($this->_db, $favoris); 
+        return $this->db->update($this->_db, $favoris); 
     }
 
    

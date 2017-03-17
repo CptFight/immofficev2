@@ -23,9 +23,22 @@
                                 <tr>
                                     <td class="content-block">
                                         <ul>
-                                            <li><?php echo $this->lang->line('province') ; ?>  : <?php echo $subscriber->search_provinces; ?></li>
-                                            <li><?php echo $this->lang->line('min_price') ; ?>  : <?php echo $subscriber->search_price_min; ?></li>
-                                            <li><?php echo $this->lang->line('max_price') ; ?>  : <?php echo $subscriber->search_price_max; ?></li>
+                                        <?php 
+                                        if(!$subscriber->search_price_min) $search_price_min = '';
+                                        else $search_price_min = $subscriber->search_price_min;
+                                        if(!$subscriber->search_price_max) $search_price_max = '';
+                                        else $search_price_max = $subscriber->search_price_max;
+                                        ?>
+                                            <li><?php echo $this->lang->line('province') ; ?>  : 
+                                            <?php 
+                                            $search_provinces = json_decode($subscriber->search_provinces);
+                                            foreach($search_provincesa as $key => $province){
+                                                echo $province." ,";
+                                            }
+                                            ?>
+                                            </li>
+                                           <li><?php echo $this->lang->line('min_price') ; ?>  : <?php echo $search_price_min; ?></li>
+                                            <li><?php echo $this->lang->line('max_price') ; ?>  : <?php echo $search_price_max; ?></li>
                                             <li><?php echo $this->lang->line('zip_codes') ; ?>  : <?php echo $subscriber->search_zipcodes; ?></li>
                                             <li><?php echo $this->lang->line('lang_word') ; ?> : <?php echo $subscriber->search_lang; ?></li>
                                             <li><?php echo $this->lang->line('sell') ; ?> : <?php echo $subscriber->search_sell; ?></li>

@@ -10,6 +10,7 @@ class Rappels_m extends MY_Model {
         $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
         $this->db->select("*,
             rappels.id as id,
+            favoris.id as favoris_id,
             rappels.tags as tags,
             favoris.tags as favoris_tags,
         ");
@@ -115,6 +116,12 @@ class Rappels_m extends MY_Model {
            'date_rappel' => $date_rappel
         );
         $return = $this->db->insert($this->_db, $data); 
+        $this->updateRappelFavorisCountInSession();
+        return $return;
+    }
+
+    public function insert($rappel){
+        $return = parent::insert($rappel);
         $this->updateRappelFavorisCountInSession();
         return $return;
     }

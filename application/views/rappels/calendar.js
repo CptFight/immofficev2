@@ -51,7 +51,7 @@ calendar.initFullCalendar = function () {
 			        dataType: 'json',
 			        data: {
 			            rappel_id : event.id,
-			            new_date : event.start.format('X')
+			            new_date : event.start.format('X') - 3600
 			        },
 			        success: function(response){
 			          //  console.log('response',response);

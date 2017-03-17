@@ -22,3 +22,5 @@
 <link rel="stylesheet" media="screen" href="<?php echo base_url(); ?>/assets/global/plugins/fullcalendar/dist/fullcalendar.css">
 <link rel="stylesheet" media="print" href="<?php echo base_url(); ?>/assets/global/plugins/fullcalendar/dist/fullcalendar.print.min.css">
 
+<!-- datetimepicker -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
