@@ -1027,6 +1027,9 @@ h1 {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
 
+.l-nav-small {
+  border-top: 1px solid #293846; }
+
 .l-nav-aside {
   position: absolute;
   top: 0;
@@ -1051,7 +1054,6 @@ h1 {
     color: white; }
   .l-nav-aside .btn-grey {
     background: #2f4050;
-    border-bottom: 1px solid #293846;
     text-align: left; }
     .l-nav-aside .btn-grey:hover {
       background: #293846;
@@ -1798,6 +1800,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   top: 85px; }
 
 .btns-calendar {
+  height: 60px;
   margin-left: -10px; }
   .btns-calendar a {
     display: inline-block;
@@ -1832,6 +1835,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   .btn-delete:hover {
     color: white;
     background: #ec4758; }
+
+.btn-new {
+  margin-top: 12px !important;
+  margin-left: 10px !important; }
 
 /* ==|================
    Module/Keyframes
@@ -2013,5 +2020,56 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   100% {
     opacity: 1;
     transform: translateX(0); } }
+.messages, .errors {
+  margin: 20px;
+  color: white;
+  padding: 10px; }
+
+.messages {
+  border: 1px solid #4ab9a3;
+  background: #38c8ab; }
+
+.errors {
+  border: 1px solid #ff828f;
+  background: #ff7b89; }
+
+.tabs {
+  border-bottom: 1px solid  #e7eaec;
+  margin-top: 20px; }
+  .tabs h3 {
+    margin-bottom: 30px; }
+
+.tabs li {
+  border-bottom: none;
+  display: inline-block; }
+
+.tabs div {
+  display: block;
+  cursor: pointer;
+  padding: 10px 20px;
+  color: #676a6c;
+  background: #f4f4f4;
+  border-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: 1px solid #e7eaec;
+  border-bottom: 0px; }
+
+.tabs div.active {
+  background: white;
+  position: relative; }
+  .tabs div.active:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    bottom: -3px;
+    left: 0px;
+    background: white; }
+
+@media screen and (max-width: 460px) {
+  .pull-right, .pull-left {
+    float: none !important;
+    width: 100%; } }
 
 /*# sourceMappingURL=screen.css.map */

@@ -20,7 +20,6 @@
 <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
 
 
-
 <!-- RANGEPICKER -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/scripts/moment.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/daterangepicker/daterangepicker.js"></script>
@@ -38,7 +37,6 @@
 
 <!-- datetimepicker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-
 
 
 <?php 

@@ -1,7 +1,7 @@
 
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="btns-calendar">
-        <a href="<?php echo site_url('favoris/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 
+        <a class="btn-new" href="<?php echo site_url('favoris/news'); ?>"><i class="fa fa-plus"></i> <?php echo $this->lang->line('new'); ?></a> 
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS 
     <form action="" method="POST">-->
@@ -12,7 +12,7 @@
                 <tr>
                     <th ><?php echo $this->lang->line('title'); ?></th>
                     <th ><?php echo $this->lang->line('zip_code'); ?></th>
-                    <th ><?php echo $this->lang->line('price'); ?></th>
+                    <th width="50px"><?php echo $this->lang->line('price'); ?></th>
                     <th ><?php echo $this->lang->line('web_site'); ?></th>
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>

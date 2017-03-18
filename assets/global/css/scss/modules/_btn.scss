@@ -123,6 +123,7 @@
 }
 .btns-calendar
 {
+    height: 60px;
     margin-left: -10px;
     a 
     {
@@ -170,4 +171,9 @@
         color:white;
         background: $red;
     }
+}
+.btn-new 
+{   
+    margin-top: 12px !important;
+    margin-left: 10px !important;
 }

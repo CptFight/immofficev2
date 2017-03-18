@@ -85,7 +85,7 @@
                 <tr>
                     <th ><?php echo $this->lang->line('title'); ?></th>
                     <th ><?php echo $this->lang->line('zip_code'); ?></th>
-                    <th ><?php echo $this->lang->line('price'); ?></th>
+                    <th width="50px"><?php echo $this->lang->line('price'); ?></th>
                     <th ><?php echo $this->lang->line('web_site'); ?></th>
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th ><?php echo $this->lang->line('visited'); ?></th>

@@ -69,7 +69,7 @@
             <input type="text" name="price_tvac" value='<?php echo $user->price_tvac; ?>' >
         </fieldset>
 
-        <fieldset>
+        <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
          </fieldset>

@@ -66,6 +66,10 @@
 {
 	@include transition();
 }
+.l-nav-small 
+{
+	border-top:1px solid $bg-blue-dark;
+}
 .l-nav-aside 
 {
 	position:absolute;
@@ -92,7 +96,7 @@
 	.btn-grey
 	{
 		background:$bg-blue;
-		border-bottom:1px solid $bg-blue-dark;
+		
 		text-align:left;
 		&:hover 
 		{
