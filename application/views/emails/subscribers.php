@@ -32,7 +32,7 @@
                                             <li><?php echo $this->lang->line('province') ; ?>  : 
                                             <?php 
                                             $search_provinces = json_decode($subscriber->search_provinces);
-                                            foreach($search_provincesa as $key => $province){
+                                            foreach($search_provinces as $key => $province){
                                                 echo $province." ,";
                                             }
                                             ?>
