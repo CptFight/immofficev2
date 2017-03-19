@@ -10,11 +10,15 @@
         </ul>
         <div class="block">
             <div class='active tab tab1'>
-                <h3><?php echo $this->lang->line('favoris'); ?></h3>
-
+              
                 <fieldset class="inputstyle">
                     <label><?php echo $this->lang->line('title'); ?></label>
                     <input type="text" name="title" value='<?php echo $favoris->title; ?>' >
+                </fieldset>
+
+                 <fieldset class="inputstyle">
+                    <label><?php echo $this->lang->line('url'); ?></label>
+                    <input type="text" name="url" value='<?php echo $favoris->url; ?>' >
                 </fieldset>
 
                 <div class='clearfix'>
@@ -42,11 +46,6 @@
                     </div>
                 </div>
 
-
-                <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('url'); ?></label>
-                    <input type="text" name="url" value='<?php echo $favoris->url; ?>' >
-                </fieldset>
                 <fieldset class="inputstyle">
                     <label><?php echo $this->lang->line('web_site'); ?></label>
                     <input type="text" name="web_site" value='<?php echo $favoris->web_site; ?>' >
@@ -96,8 +95,13 @@
                     <textarea name="description"><?php echo $favoris->description; ?></textarea>
                 </fieldset>
 
+                <fieldset class="inputstyle">
+                    <label><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="note"><?php echo $favoris->note; ?></textarea>
+                </fieldset>
+
                 <div class='clearfix'>
-                    <div class="float-middle input-separation">
+                    <div class="input-separation">
                         <fieldset class="radio-inline-cont pull-left">
                             <div>
                                 <input name="sale" type="radio" value="1" id="sell" <?php if($favoris->sale == 1) echo "checked"; ?>>
@@ -119,26 +123,22 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div class="float-middle input-separation">
-                        <fieldset class="inputstyle pull-right">
-                            <input type="file" name="picture" id="picture">
-                        </fieldset>
-                    </div>
+                   
                 </div>
 
-                <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('note'); ?></label>
-                    <textarea name="note"><?php echo $favoris->note; ?></textarea>
-                </fieldset>
+               
 
                 <?php if(isset($favoris->web_path)) {  ?>
                 <fieldset class="inputstyle">
                     <a target="_blank" href="<?php echo $favoris->web_path; ?>"><?php echo $favoris->file_name; ?></a>
                 </fieldset>
                 <?php } ?>
+
+                <fieldset class="inputstyle">
+                    <input type="file" name="picture" id="picture">
+                </fieldset>
             </div>
             <div class="tab tab2">
-                <h3><?php echo $this->lang->line('rappel'); ?></h3>
                 <input type="hidden" name="rappel_id" value='<?php echo $favoris->rappel_id; ?>'>
                 <fieldset class="inputstyle">
                     <label><?php echo $this->lang->line('tags'); ?></label>
@@ -155,6 +155,11 @@
                             </span>
                         </span>
                     </div>
+                </fieldset>
+
+                 <fieldset class="inputstyle">
+                    <label><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
                 </fieldset>
             </div>
         </div>

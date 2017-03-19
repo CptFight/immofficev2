@@ -81,7 +81,7 @@ class Favoris extends MY_Controller {
 				$this->data['back_path'] = $_GET['back_path'];
 			}
 
-			$this->load->model(array('Favoris_m','Rappels_m'));
+			/*$this->load->model(array('Favoris_m','Rappels_m'));
 			
 			
 			if($this->input->post('delete') ){
@@ -137,6 +137,7 @@ class Favoris extends MY_Controller {
 					$rappel['user_id'] = $this->current_user->id;
 					$rappel['favoris_id'] = $this->input->post('id');
 					$rappel['tags'] = $this->input->post('rappel_tags');
+					$rappel['note'] = $this->input->post('rappel_note');
 
 					$date_rappel = str_replace('/', '-', $this->input->post('rappel_date_rappel') );
 					$rappel['date_rappel'] = strtotime( $date_rappel );
@@ -151,27 +152,39 @@ class Favoris extends MY_Controller {
 					if($this->input->post('rappel_id')){
 						$this->Rappels_m->delete($this->input->post('rappel_id'));
 					}
+				}*/
+				if($this->savePost()){
+					redirect($this->data['back_path'] );
 				}
-				
-				
-				
-				redirect($this->data['back_path'] );
-			}
 
+				
+			}
+			$this->load->model(array('Favoris_m'));
 			$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
 
 			$this->load->view('template', $this->data);
-		}
 	}
 
-	public function news(){
-		$this->load->model(array('Favoris_m'));
+	private function savePost(){
+		$this->load->model(array('Favoris_m','Rappels_m'));
+		
+		if($this->input->post('delete') ){
+			$id = $this->input->post('id');
+			$this->Favoris_m->delete($id);
+			
+			$this->Rappels_m->deleteByUserFavorisIds($this->current_user->id,$id);
+
+			redirect('favoris/index');
+		}
 
 		if($this->input->post('save') ){
-
+			
+			
 			$favoris = array();
 			$favoris['user_id'] = $this->current_user->id;
-			//$favoris['annonce_id'] = 0;
+			if($this->input->post('id')){
+				$favoris['id'] = $this->input->post('id');
+			}
 			$favoris['tags'] = $this->input->post('tags');
 			$favoris['title'] = $this->input->post('title');
 			$date_publication = str_replace('/', '-', $this->input->post('date_publication') );
@@ -190,6 +203,7 @@ class Favoris extends MY_Controller {
 			$favoris['tel'] = $this->input->post('tel');
 			$favoris['sale'] = $this->input->post('sale');
 			$favoris['lang'] = $this->input->post('lang');
+			
 			$error_upload = false;
 			if(isset($_FILES['picture']['name']) && ($_FILES['picture']['name'] != '')){
 				$return = $this->uploadFile('picture');
@@ -202,13 +216,61 @@ class Favoris extends MY_Controller {
 			}
 
 			if(!$error_upload){
-				if($this->Favoris_m->insert($favoris)){
+				if(isset($favoris['id']) && $favoris['id']) {
+					$return = $this->Favoris_m->update($favoris);
+				}else{
+					$return = $this->Favoris_m->insert($favoris);
+				}
+				if($return){
 					$this->addMessage($this->lang->line('update_done'));
 				}
-				redirect('favoris/index');
+				//redirect('favoris/index');
 			}
-		}
 
+			if($this->input->post('rappel_date_rappel') != ''){
+				$rappel = array();
+				if($this->input->post('rappel_id')){
+					$rappel['id'] = $this->input->post('rappel_id');
+				}else{
+					$rappel['id'] = false;
+				}
+				$rappel['user_id'] = $this->current_user->id;
+				if($this->input->post('id')){
+					$rappel['favoris_id'] = $this->input->post('id');
+				}else{
+					$rappel['favoris_id'] = $return;
+				}
+				
+				$rappel['tags'] = $this->input->post('rappel_tags');
+				$rappel['note'] = $this->input->post('rappel_note');
+
+				$date_rappel = str_replace('/', '-', $this->input->post('rappel_date_rappel') );
+				$rappel['date_rappel'] = strtotime( $date_rappel );
+
+				if(!$rappel['id']){
+					unset($rappel['id']);
+					$this->Rappels_m->insert($rappel);
+				}else{
+					$this->Rappels_m->update($rappel);
+				}
+			}else{
+				if($this->input->post('rappel_id')){
+					$this->Rappels_m->delete($this->input->post('rappel_id'));
+				}
+			}
+
+			if($error_upload) return false;
+			else 
+				return true;		
+		}
+		return false;
+	}
+
+	public function news(){
+		$this->load->model(array('Favoris_m'));
+		if($this->savePost()){
+			redirect('favoris/index');
+		}
 		$this->load->view('template', $this->data);
 	}
 
