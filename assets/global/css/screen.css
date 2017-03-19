@@ -914,6 +914,10 @@ fieldset.active label {
   font-size: 16px;
   color: #aeaeae; }
 
+.old {
+  color: #d33333;
+  text-decoration: line-through; }
+
 /* Layout */
 /* ==|====================
    Layout/Header

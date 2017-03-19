@@ -119,7 +119,11 @@ favoris.initTableDatatablesResponsive = function () {
             // setup buttons extentension: http://datatables.net/extensions/buttons/
             buttons: [
                 { extend: 'print', className: 'btn dark btn-outline' },
-                { extend: 'pdf', className: 'btn green btn-outline', orientation: 'landscape' },
+                { 
+                    extend: 'pdf', 
+                    className: 'btn green btn-outline', 
+                    orientation: 'landscape'
+                },
                 { extend: 'csv', className: 'btn purple btn-outline ' }
             ],
 
