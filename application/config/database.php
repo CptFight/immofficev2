@@ -98,6 +98,6 @@ $db['default'] = array(
 
 if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'ImmofficeV2'){
 	$db['default']['username'] = 'root';
-	$db['default']['password'] = 'mysql';
+	$db['default']['password'] = 'root';
 }
 
