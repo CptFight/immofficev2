@@ -40,22 +40,36 @@ class MY_Controller extends CI_Controller {
 			'title' => $this->lang->line('breadcrumb_'.$method),
 			'active' => true
 		);
+		
+
 		$this->data['header'] = $header; 
 		$this->data['pagename'] = $controller;
 
-		$this->data['errors'] = array();
-		$this->data['messages'] = array();
+/*		$this->data['errors'] = array();
+		$this->data['errors'] = array();*/
 		$this->loadScripts();
 
 	}
 
 	
 	protected function addMessage($message){
-		$this->data['messages'][] = $message;
+		$messages = $this->session->flashdata('messages');
+		if($messages && is_array($messages)){
+			$messages[] = $message;
+		}else{
+			$messages = array($message);
+		}
+		$this->session->set_flashdata('messages',$messages);
 	}
 
 	protected function addError($message){
-		$this->data['errors'][] = $message;
+		$errors = $this->session->flashdata('errors');
+		if($errors && is_array($errors)){
+			$errors[] = $message;
+		}else{
+			$errors = array($message);
+		}
+		$this->session->set_flashdata('errors',$errors);
 	}
 
 	protected function uploadFile($file_name){

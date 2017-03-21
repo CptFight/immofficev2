@@ -2,6 +2,8 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['error_login'] = 'Login/mot de passe inconnu.';
+	
 	//error upload
 	$lang['allowed_types'] = 'Extentions authorisées';
 	$lang['max_size'] = 'Taille maximum';
