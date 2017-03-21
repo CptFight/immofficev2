@@ -25,6 +25,8 @@
 	{
 		background: #f3f3f4;
 	}
+
+
 }
 
 .title-container
@@ -101,6 +103,7 @@
 	margin:20px;
 	position:relative;
 	padding: 30px 20px 20px 20px;
+
 }
 .l-annonces-search
 {
@@ -119,6 +122,7 @@
         background:$green;
         width:calc(100% - 40px);
     }
+
 }
 
 /* */
@@ -132,10 +136,29 @@
 	padding: 5px 15px;
 	display:block;
 	margin-bottom:15px;
-	height:60px;
+	height: 100px;
 	.btn-inverse 
 	{
 		float:right;
+	}
+
+	.btns-calendar h5
+    {
+    	margin-top: 62px;
+    	font-size:0.9em;
+    	font-weight:100;
+    	span 
+    	{
+    		font-size:1.1em; 
+    		font-weight:500;
+    	}
+    }
+    @media screen and (min-width: $small) {
+		height:60px;
+	    .btns-calendar h5
+	    {
+	    	margin-top: 20px;
+	    }
 	}
 }
 .number-annonces

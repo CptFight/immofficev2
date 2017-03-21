@@ -1326,9 +1326,21 @@ a.profile-btn {
   padding: 5px 15px;
   display: block;
   margin-bottom: 15px;
-  height: 60px; }
+  height: 100px; }
   .l-top-annonces-export .btn-inverse, .l-top-annonces-export .dataTables_wrapper .dt-button, .dataTables_wrapper .l-top-annonces-export .dt-button {
     float: right; }
+  .l-top-annonces-export .btns-calendar h5 {
+    margin-top: 62px;
+    font-size: 0.9em;
+    font-weight: 100; }
+    .l-top-annonces-export .btns-calendar h5 span {
+      font-size: 1.1em;
+      font-weight: 500; }
+  @media screen and (min-width: 769px) {
+    .l-top-annonces-export {
+      height: 60px; }
+      .l-top-annonces-export .btns-calendar h5 {
+        margin-top: 20px; } }
 
 .number-annonces {
   font-size: 0.8em;
