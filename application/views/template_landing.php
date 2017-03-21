@@ -30,8 +30,9 @@
 </script> -->
     </head>
      <?php $this->load->view('common/set_js_var') ?>
+    
 	 <?php $this->load->view($this->router->class.'/'.$this->router->method) ?>
-		
+
    
     <?php $this->load->view('common/js') ?>
 </html>

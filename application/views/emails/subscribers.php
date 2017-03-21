@@ -33,7 +33,7 @@
                                             <?php 
                                             $search_provinces = json_decode($subscriber->search_provinces);
                                             foreach($search_provinces as $key => $province){
-                                                echo $province." ,";
+                                                echo utf8_decode($province)." ,";
                                             }
                                             ?>
                                             </li>

@@ -3,13 +3,19 @@
 class Users extends MY_Controller {
 
 	public function index(){
-
 		$this->load->view('template', $this->data);
 	}
 
 	public function login() {
+		$lang = 'french';
+		if(isset($_GET['lang_user'])){
+			$lang = $_GET['lang_user'];
+		}
+		$this->lang->load('global', $lang);
+
 		$this->session->unset_userdata('user');
 		$this->load->model(array('Users_m'));
+
 		if($this->input->post('send-login')) {
 			$login = $this->input->post('login');
 			$password = $this->input->post('password');
@@ -20,6 +26,8 @@ class Users extends MY_Controller {
 				die();
 			}else{
 				
+			
+				$this->addError($this->lang->line('error_login'));
 			}
 		}		
 		$this->load->view('template_landing');
