@@ -118,15 +118,30 @@ favoris.initTableDatatablesResponsive = function () {
 
             // setup buttons extentension: http://datatables.net/extensions/buttons/
             buttons: [
-                { extend: 'print', className: 'btn dark btn-outline' },
                 { 
+                    extend: 'print', 
+                    className: 'btn dark btn-outline',
+                    orientation: 'landscape', 
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                    } 
+                },{ 
                     extend: 'pdf', 
                     className: 'btn green btn-outline', 
-                    orientation: 'landscape'
-                },
-                { extend: 'csv', className: 'btn purple btn-outline ' }
+                    orientation: 'landscape', 
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                    } 
+                },{ 
+                    extend: 'csv', 
+                    className: 'btn purple btn-outline ',
+                    orientation: 'landscape',
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                    } 
+                }
             ],
-
+           
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: true,
             parseTime: false,

@@ -1,7 +1,12 @@
 
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="clearfix l-top-annonces-export">
-       <h5><?php echo $this->lang->line('annonces_find'); ?> : <span id="num_result">0</span></h5>
+       
+        <div class="btns-calendar">
+            <h5><?php echo $this->lang->line('annonces_find'); ?> : <span id="num_result">0</span></h5>
+        </div>
+
+
     </div>
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">

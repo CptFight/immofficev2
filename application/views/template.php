@@ -14,7 +14,7 @@
 
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="assets/global/img/favicon.ico" />
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/global/img/favicon.ico" />
         <script src="<?php echo base_url(); ?>/assets/global/libs/modernizr.js"></script>
         <!--<meta name="google-signin-client_id" content="381487630406-vhvcp9hcod69rtf4sdj8eih3gmfrp74q.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js?signed_in=false" async defer></script>

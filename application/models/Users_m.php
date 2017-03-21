@@ -80,6 +80,7 @@ class Users_m extends MY_Model {
         return $this->db->update($this->_db, $user); 
     }
 
+
     public function updateLang($user_id,$lang){
         $data = array(
            'lang' => $lang
