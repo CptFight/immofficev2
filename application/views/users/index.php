@@ -3,7 +3,7 @@
     <div class="clearfix l-top-annonces-export">
        <div class="btns-calendar">
             <a href="<?php echo site_url('users/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 
-            <a class="active" href="<?php echo site_url('users/liste'); ?>"><?php echo $this->lang->line('liste'); ?></a>
+            <a class="active" href="<?php echo site_url('users/index'); ?>"><?php echo $this->lang->line('liste'); ?></a>
         </div>
     </div>
     <div class="table-responsive">
