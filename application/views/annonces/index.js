@@ -221,6 +221,9 @@ annonces.activeFavorisRappelVisits = function(){
     });
 }
 
+annonces.refreshResult = function(e){
+    $('#num_result').html(e._iRecordsDisplay);
+}
 
 /* ----- Tables ----- */
 /* ------------------- */
@@ -281,9 +284,10 @@ annonces.initTableDatatablesResponsive = function () {
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: true,
             parseTime: false,
-            fnDrawCallback : function(){
+            fnDrawCallback : function(e){
                 annonces.activeFavorisRappelVisits();
                 annonces.bindElementTable();
+                annonces.refreshResult(e);
             },
 
             "order": [

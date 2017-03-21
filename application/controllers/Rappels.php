@@ -120,7 +120,7 @@ class Rappels extends MY_Controller {
 				date('d/m/Y',$rappel->date_rappel),
 				'<ul class="list-tables-buttons list-rappel" data-rappel_id="'.$rappel->id.'">
 	 				<li class="table-btn-link"><a target="_blank" href="'.$rappel->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
-                    <li class="table-btn-edit"><a href="'.site_url('favoris/edit_full/?id='.$rappel->favoris_id.'&back_path=rappels/index').'"><i class="fa fa-pencil"></i><span>Editer le favoris</span></a></li>
+                    <li class="table-btn-edit"><a href="'.site_url('favoris/edit/?id='.$rappel->favoris_id.'&back_path=rappels/index').'"><i class="fa fa-pencil"></i><span>Editer le favoris</span></a></li>
                 </ul>',
                 $rappel->id,
                 "<span class='historic_price'>".$rappel->price."</span>",
@@ -184,7 +184,7 @@ class Rappels extends MY_Controller {
             $eventsJson[] = array(
                 'id' => $rappel->id,
                 'title' => $rappel->title,
-                'url' => site_url('favoris/edit_full/?id='.$rappel->favoris_id.'&back_path=rappels/calendar'),
+                'url' => site_url('favoris/edit/?id='.$rappel->favoris_id.'&back_path=rappels/calendar'),
                 'start' => date("Y-m-d H:i:s",$rappel->date_rappel),
                 'test' => $rappel->date_rappel
             );

@@ -8,6 +8,7 @@
 	$lang['max_width'] = 'Largeur maximum';
 	$lang['max_height'] = 'Hauteur maximum';
 
+	$lang['mandatory'] = 'Mandataire';
 	//breadcrumb
 	$lang['breadcrumb_favoris'] = 'Favoris';
 	$lang['breadcrumb_subscribers'] = 'Abonnements';
@@ -155,7 +156,7 @@
 	$lang["contact_us"] = "Nous contacter";
 	$lang["ask_us_customized_offer"] = "Demandez un devis personnalisé";
 	$lang["send_email"] = "Envoyer un mail";
-	$lang["annonces_find"] = "annonces trouvées";
+	$lang["annonces_find"] = "Annonces trouvées";
 	$lang["choose_province"] = "Choisissez une province";
 	$lang["anvers"] = "Anvers";
 	$lang["limbourg"] = "Limbourg";

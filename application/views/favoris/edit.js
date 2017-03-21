@@ -1,6 +1,6 @@
 
 
-var edit_full = edit_full || {
+var favoris_edit = favoris_edit || {
    
 };
 
@@ -10,7 +10,7 @@ var edit_full = edit_full || {
 *   params : /
 *   init  instance  
 *********************************/
-edit_full.init = function(){
+favoris_edit.init = function(){
 	var date = new Date();
 	$('#datetimepicker_rappel').datetimepicker({
 		format: 'DD/MM/YYYY HH:mm',
@@ -55,7 +55,7 @@ edit_full.init = function(){
 *   Call init method on windows load    
 *********************************/
 $(document).ready(function() {     
-    edit_full.init();
+    favoris_edit.init();
 
 });
 

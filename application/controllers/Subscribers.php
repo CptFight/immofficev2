@@ -36,8 +36,8 @@ class Subscribers extends MY_Controller {
 		}
 
 		
-		$subscribers = $this->Subscribers_m->get();
-
+		$subscribers = $this->Subscribers_m->get(array('user_id' => $this->current_user->id));
+		
 		$this->data['subscribers'] = array();
 		$cpt = 0;
 		foreach($subscribers as $key => $subscriber){

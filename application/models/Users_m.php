@@ -39,6 +39,11 @@ class Users_m extends MY_Model {
         }
     }
 
+    public function getMandatairesList($agence){
+        $this->db->where('agence',$agence);
+        return $this->db->get($this->_db)->result();
+    }
+
     public function saveLastSearch($user_id,$datas){
         $user = $this->get($user_id);
 

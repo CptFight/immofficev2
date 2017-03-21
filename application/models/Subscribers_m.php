@@ -20,7 +20,7 @@ class Subscribers_m extends MY_Model {
         }
 
     	$this->db->select(
-    		$this->_db.".id,
+    		$this->_db.".id as id,
     		users.login,
     		users.lang,
             ".$this->_db.".active,
@@ -41,6 +41,11 @@ class Subscribers_m extends MY_Model {
         if($active_set){
             $this->db->where('active',$active);
         }
+
+        if(isset($params['user_id'])){
+             $this->db->where('user_id',$params['user_id']);
+        }
+
         return $this->db->get($this->_db)->result();
     }
 

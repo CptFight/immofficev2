@@ -7,7 +7,16 @@ class Favoris_m extends MY_Model {
  
     public function get($params) {
         $this->db->group_by('favoris.id');
-        $this->db->select('*, favoris.id as id, favoris.user_id as user_id, favoris.tags as tags, rappels.tags as rappel_tags, rappels.id as rappel_id, favoris.note as note, rappels.note as rappel_note');
+        $this->db->select('*, 
+          favoris.id as id, 
+          favoris.user_id as user_id, 
+          favoris.tags as tags, 
+          rappels.tags as rappel_tags, 
+          rappels.id as rappel_id, 
+          favoris.note as note, 
+          rappels.note as rappel_note,
+        ');
+        
         $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
         $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
         
@@ -25,16 +34,16 @@ class Favoris_m extends MY_Model {
 
             if($params['search']){
                 $request_search = "( title LIKE '%".$params['search']."%'";
-                $request_search .= "OR tags LIKE '%".$params['search']."%'";
-                $request_search .= "OR owner_name LIKE '%".$params['search']."%'";
-                $request_search .= "OR price LIKE '%".$params['search']."%'";
-                $request_search .= "OR date_publication LIKE '%".$params['search']."%'";
-                $request_search .= "OR tel LIKE '%".$params['search']."%'";
-                $request_search .= "OR adress LIKE '%".$params['search']."%'";
-                $request_search .= "OR zip_code LIKE '%".$params['search']."%'";
-                $request_search .= "OR province LIKE '%".$params['search']."%'";
-                $request_search .= "OR web_site LIKE '%".$params['search']."%'";
-                $request_search .= "OR description LIKE '%".$params['search']."%' )";
+                $request_search .= "OR favoris.tags LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.owner_name LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.price LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.date_publication LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.tel LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.adress LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.zip_code LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.province LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.web_site LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
             }
 

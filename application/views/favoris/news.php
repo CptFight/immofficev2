@@ -9,6 +9,14 @@
         </ul>
         <div class="block">
             <div class='active tab tab1'>
+                <fieldset class="inputstyle">
+                    <select name="mandataire_user_id" id="mandataire" class="form-control">
+                        <?php foreach($mandataires as $key => $mandataire){ ?> 
+                            <option value="<?php echo $mandataire->id; ?>" ><?php echo $mandataire->login." : ".$mandataire->name." ".$mandataire->firstname; ?></option>
+                        <?php } ?>
+                    </select>
+                </fieldset>
+
               
                 <fieldset class="inputstyle">
                     <label><?php echo $this->lang->line('title'); ?></label>
@@ -96,14 +104,13 @@
                     <textarea name="note"></textarea>
                 </fieldset>
 
-                <div class='clearfix'>
+               <!-- <div class='clearfix'>
                     <div class="input-separation">
                         <fieldset class="radio-inline-cont pull-left">
                             <div>
                                 <input name="sale" type="radio" value="1" id="sell" checked>
                                 <label for="sell"><?php echo $this->lang->line('sell'); ?></label>
-                            </div><!--
-                             --><div>
+                            </div><div>
                                 <input name="sale" type="radio" value="0" id="location" >
                                 <label for="location"><?php echo $this->lang->line('location'); ?></label>
                             </div>
@@ -112,15 +119,14 @@
                             <div>
                                 <input name="lang" type="radio" value="fr" id="fr" checked>
                                 <label for="fr"><?php echo $this->lang->line('french'); ?></label>
-                            </div><!--
-                             --><div>
+                            </div><div>
                                 <input name="lang" type="radio" value="nl" id="nl" >
                                 <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
                             </div>
                         </fieldset>
                     </div>
                    
-                </div>
+                </div>-->
 
                 <fieldset class="inputstyle">
                     <input type="file" name="picture" id="picture">
