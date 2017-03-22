@@ -1,6 +1,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
     <title><?php echo $this->lang->line('mail_subscribers_title'); ?> </title>
 </head>
 
@@ -33,7 +33,7 @@
                                             <?php 
                                             $search_provinces = json_decode($subscriber->search_provinces);
                                             foreach($search_provinces as $key => $province){
-                                                echo utf8_decode($province)." ,";
+                                                echo $province." ,";
                                             }
                                             ?>
                                             </li>

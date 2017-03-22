@@ -91,7 +91,7 @@ class Crons extends CI_Controller {
 						"annonces" => $annonces
 					);
 					$body = $this->load->view('emails/subscribers.php',$data,TRUE);
-		   			$this->email->message($body);   
+		   			$this->email->message(utf8_decode($body));   
 					
 					if($this->email->send()){
 						echo "Mail envoyé \n";
