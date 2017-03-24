@@ -6,9 +6,9 @@
     <head>
         <title>Immoffice</title>
         <meta charset="utf-8">
-           <meta name="author" content="">
-        <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, corrupti, fugit, vero ipsum nobis esse asperiores eligendi quam rerum nisi nulla nemo quod! Iusto, incidunt repudiandae sed enim est recusandae." />
-        <meta name="keywords" content="mot, mot, mot" />
+         <meta name="author" content="Gabygaël Pirson">
+        <meta name="description" content="Outil de récupération " />
+        <meta name="keywords" content="annonces, immoffice, immobilier, logements" />
         <meta name="google-site-verification" content="ohU9UZxMyldgxXdJeX3kRO9RZpwDAnAmko9c36AeN7s" />
         <?php $this->load->view('common/css') ?>
 
