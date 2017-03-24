@@ -1,6 +1,5 @@
 <head>
     <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" /> 
     <title><?php echo $this->lang->line('mail_subscribers_title'); ?> </title>
 </head>
 
@@ -41,7 +40,14 @@
                                             <li><?php echo $this->lang->line('max_price') ; ?>  : <?php echo $search_price_max; ?></li>
                                             <li><?php echo $this->lang->line('zip_codes') ; ?>  : <?php echo $subscriber->search_zipcodes; ?></li>
                                             <li><?php echo $this->lang->line('lang_word') ; ?> : <?php echo $subscriber->search_lang; ?></li>
-                                            <li><?php echo $this->lang->line('sell') ; ?> : <?php echo $subscriber->search_sell; ?></li>
+                                            <?php 
+                                            if($subscriber->search_sell){
+                                                $vente = $this->lang->line('sell');
+                                            }else{
+                                                $vente = $this->lang->line('location');
+                                            }
+                                            ?>
+                                            <li><?php echo $this->lang->line('sell') ; ?> : <?php echo $vente; ?></li>
                                         </ul>
                                     </td>
                                 </tr>

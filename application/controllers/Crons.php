@@ -73,6 +73,16 @@ class Crons extends CI_Controller {
 				echo "Email : ".$subscriber->login." \n";
 				if($annonces){
 					echo "Annonces : ".count($annonces)." \n";
+					$this->lang->load('global', $subscriber->lang);
+
+
+					$data = array(
+						"variable" => "test",
+						"host" => "http://www.google.be",
+						"subscriber" => $subscriber,
+						"annonces" => $annonces
+					);
+
 					$this->load->library('email');
 					$this->lang->load('global', $subscriber->lang);
 
@@ -81,7 +91,7 @@ class Crons extends CI_Controller {
 					//$this->email->cc('another@another-example.com');
 					//$this->email->bcc('them@their-example.com');
 
-					$this->email->subject(utf8_decode($this->lang->line('mail_subscribers_subject')));
+					$this->email->subject($this->lang->line('mail_subscribers_subject'));
 
 
 					$data = array(
@@ -91,7 +101,7 @@ class Crons extends CI_Controller {
 						"annonces" => $annonces
 					);
 					$body = $this->load->view('emails/subscribers.php',$data,TRUE);
-		   			$this->email->message(utf8_decode($body));   
+					$this->email->message($body);   
 					
 					if($this->email->send()){
 						echo "Mail envoyé \n";
