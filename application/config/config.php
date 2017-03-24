@@ -32,13 +32,7 @@ ini_set('memory_limit', '255M');
 date_default_timezone_set('Europe/Paris');
 
 
-$config['base_url'] = 'http://188.166.33.69/immofficev2/';
-//$config['base_url'] = 'http://localhost/ePreview.dev/';
-
-
-if($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'immofficev2'){
-	$config['base_url'] = 'http://localhost/Immofficev2/';
-}
+$config['base_url'] = 'http://localhost/immofficev2/';
 
 
 /*

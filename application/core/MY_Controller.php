@@ -51,6 +51,77 @@ class MY_Controller extends CI_Controller {
 
 	}
 
+	/* EXEMPLE
+	if($this->sendMail(array(
+		'to' => 'gabypirson@gmail.com',
+		'subject' => 'test',
+		'body' => 'test'
+	))){
+		//OK
+	}
+
+	OR 
+
+	if($this->sendMail(array(
+		'to' => 'gabypirson@gmail.com',
+		'subject' => 'test',
+		'body' => array(
+			'template' => 'emails/subscribers.php',
+			'data' => array(
+				'value1' => 'test'
+			)
+		)
+	))){
+		//OK
+	}
+	*/
+	protected function sendMail($params = array()){
+		$this->config->load('email');
+		$this->load->library('email');
+
+		if(isset($params['from'])){
+			$this->email->from($params['from']['adress'], $params['from']['name']);
+		}else{
+			$this->email->from('no-reply@immoffice.be', 'Immoffice');
+		}
+
+		if(isset($params['to'])){
+			$this->email->to($params['to']);
+		}
+
+		if(isset($params['cc'])){
+			$this->email->cc($params['cc']);
+		}
+
+		if(isset($params['bcc'])){
+			$this->email->bcc($params['bcc']);
+		}
+
+		if(isset($params['subject'])){
+			$this->email->subject($params['subject']);
+		}
+		
+		$body = '';
+		if(isset($params['body'])){
+
+			if(is_array($params['body']) || isset($params['body']['template']) ){
+				$body = $this->load->view($params['body']['template'],$params['body']['data'],TRUE);
+			}else{
+				$body = $params['body'];
+			}
+
+			
+		}
+
+		$this->email->message($body);   
+		
+		if($this->email->send()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	
 	protected function addMessage($message){
 		$messages = $this->session->flashdata('messages');

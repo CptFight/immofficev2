@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Annonces extends MY_Controller {
 
 	public function index() {
-
-
+		
 		$this->load->model(array('Annonces_m'));
 		
 		//TODO SET USER INFORMATIONS.
