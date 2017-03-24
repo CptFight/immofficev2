@@ -45,6 +45,14 @@
 
 .old 
 {
-    color: #d33333;
+    color: $red;
     text-decoration: line-through;
+}
+.green 
+{
+    color:$green;
+}
+.red 
+{
+    color:$red;
 }

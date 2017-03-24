@@ -915,8 +915,14 @@ fieldset.active label {
   color: #aeaeae; }
 
 .old {
-  color: #d33333;
+  color: #ec4758;
   text-decoration: line-through; }
+
+.green {
+  color: #1ab394; }
+
+.red {
+  color: #ec4758; }
 
 /* Layout */
 /* ==|====================
@@ -1717,6 +1723,30 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 .map-container {
   display: block;
   width: 100%; }
+
+.l-dashboard h5, .l-dashboard p, .l-dashboard i {
+  display: inline-block; }
+.l-dashboard h5 {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 300;
+  margin-right: 10px; }
+  .l-dashboard h5:after {
+    content: ":"; }
+.l-dashboard .tab {
+  padding: 20px 0; }
+.l-dashboard h4 {
+  font-size: 1.2em;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  padding: 10px 0px;
+  margin-top: 20px; }
+@media screen and (min-width: 992px) {
+  .l-dashboard .float-middle, .l-dashboard .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-dashboard p, .l-dashboard .l-landing-contact .content p, .l-landing-contact .content .l-dashboard p, .l-dashboard .l-landing-contact .l-header p, .l-landing-contact .l-header .l-dashboard p, .l-dashboard .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-dashboard p, .l-dashboard .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-dashboard p, .l-dashboard .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-dashboard p, .l-dashboard .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-dashboard p, .l-dashboard .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-dashboard p, .l-dashboard .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-dashboard p, .l-dashboard .map-database > div {
+    width: 48%; } }
+@media screen and (min-width: 992px) {
+  .l-dashboard .float-middle:last-child, .l-dashboard .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-dashboard p:last-child, .l-dashboard .l-landing-contact .content p:last-child, .l-landing-contact .content .l-dashboard p:last-child, .l-dashboard .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-dashboard p:last-child, .l-dashboard .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-dashboard p:last-child, .l-dashboard .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-dashboard p:last-child, .l-dashboard .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-dashboard p:last-child, .l-dashboard .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-dashboard p:last-child, .l-dashboard .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-dashboard p:last-child, .l-dashboard .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-dashboard p:last-child, .l-dashboard .map-database > div:last-child {
+    float: right; } }
 
 /* Modules */
 /* ==|====================
