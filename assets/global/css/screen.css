@@ -1483,6 +1483,24 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   background: #1ab394 !important;
   border-color: #1ab394 !important; }
 
+.listing-users {
+  margin-bottom: 15px; }
+  .listing-users li {
+    display: inline-block; }
+  .listing-users a {
+    display: block;
+    background: white;
+    padding: 5px 10px;
+    color: #676a6c;
+    border-radius: 3px;
+    border: 1px solid #e7eaec; }
+  .listing-users a:hover {
+    border-color: #1ab394; }
+  .listing-users a.active {
+    background: #1ab394;
+    border-color: #1ab394;
+    color: white; }
+
 @media screen and (min-width: 992px) {
   .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p, .l-suggestions-section .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-suggestions-section p, .l-suggestions-section .map-database > div {
     width: 49%; }

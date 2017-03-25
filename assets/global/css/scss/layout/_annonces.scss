@@ -380,3 +380,32 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
 	background:#1ab394 !important;
 	border-color:#1ab394 !important;
 }
+
+
+.listing-users
+{
+	margin-bottom:15px;
+	li 
+	{
+		display:inline-block;
+	}
+	a 
+	{
+		display:block;
+		background: white;
+	    padding: 5px 10px;
+	    color: #676a6c;
+	    border-radius: 3px;
+	    border: 1px solid #e7eaec;
+	}
+	a:hover 
+	{
+		border-color:$green;
+	}
+	a.active 
+	{
+		background:$green;
+		border-color:$green;
+		color:white;
+	}
+}

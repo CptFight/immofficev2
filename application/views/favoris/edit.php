@@ -7,6 +7,7 @@
         <ul class="tabs">
             <li><div id="tab1" class='active'><?php echo $this->lang->line('favoris'); ?></div></li>
             <li><div id="tab2"><?php echo $this->lang->line('rappel'); ?></div></li>
+            <li><div id="tab3">Infos supplémentaires</div></li>
         </ul>
         <div class="block">
             <div class='active tab tab1'>
@@ -28,14 +29,69 @@
                     <input type="text" name="url" value='<?php echo $favoris->url; ?>' >
                 </fieldset>
 
+                <fieldset  class="inputstyle">
+                    <label><?php echo $this->lang->line('tags'); ?></label>
+                    <input type="text" name="tags" value='<?php echo $favoris->tags; ?>'>
+                </fieldset>
+
                 <div class='clearfix'>
                     <div class="float-middle input-separation">
-                        <fieldset  class="inputstyle">
-                            <label><?php echo $this->lang->line('tags'); ?></label>
-                            <input type="text" name="tags" value='<?php echo $favoris->tags; ?>'>
+                       <fieldset class="inputstyle">
+                            <label><?php echo $this->lang->line('owner_name'); ?></label>
+                            <input type="text" name="owner_name" value='<?php echo $favoris->owner_name; ?>'>
                         </fieldset>
                     </div>
                     <div class="float-middle input-separation">
+                        <fieldset class="inputstyle">
+                            <label><?php echo $this->lang->line('tel'); ?></label>
+                            <input type="text" name="tel" value='<?php echo $favoris->tel; ?>'>
+                        </fieldset>
+                    </div>
+                </div>
+                 
+                <fieldset class="inputstyle">
+                    <label><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="note"><?php echo $favoris->note; ?></textarea>
+                </fieldset>
+
+
+            </div>
+            <div class="tab tab2">
+                <input type="hidden" name="rappel_id" value='<?php echo $favoris->rappel_id; ?>'>
+                <fieldset class="inputstyle">
+                    <label><?php echo $this->lang->line('tags'); ?></label>
+                    <input type="text" name="rappel_tags" value='<?php echo $favoris->rappel_tags; ?>'>
+                </fieldset>
+                <fieldset >
+                    <label><?php echo $this->lang->line('date'); ?></label>
+                    <?php if($favoris->date_rappel == '') { $date_rappel = ''; }else{ $date_rappel = date('d/m/Y H:i',$favoris->date_rappel); } ?>
+
+                    <div class='input-group date datetimepicker' id="datetimepicker_rappel">
+                        <input type="text" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date_rappel; ?>'>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
+                            </span>
+                        </span>
+                    </div>
+                </fieldset>
+
+                 <fieldset class="inputstyle">
+                    <label><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
+                </fieldset>
+            </div>
+            <div class="tab tab3">
+                 <div class='clearfix'>
+                    <div class="float-middle input-separation">  
+                        <fieldset class="inputstyle">
+                            <label><?php echo $this->lang->line('web_site'); ?></label>
+                            <input type="text" name="web_site" value='<?php echo $favoris->web_site; ?>' >
+                        </fieldset>
+
+                         <fieldset class="inputstyle">
+                            <label><?php echo $this->lang->line('price'); ?></label>
+                            <input type="text" name="price" value='<?php echo $favoris->price; ?>' >
+                        </fieldset>
                         <!--<fieldset class="inputstyle">
                             <label><?php echo $this->lang->line('date'); ?></label>
                             <input type="date" name="date_publication" value='<?php echo date('d/m/Y',$favoris->date_publication); ?>' >
@@ -50,31 +106,9 @@
                                 </span>
                             </div>
                         </fieldset>
-                    </div>
-                </div>
-
-                <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('web_site'); ?></label>
-                    <input type="text" name="web_site" value='<?php echo $favoris->web_site; ?>' >
-                </fieldset>
-
-                 <div class='clearfix'>
-                    <div class="float-middle input-separation">
-                        <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('price'); ?></label>
-                            <input type="text" name="price" value='<?php echo $favoris->price; ?>' >
-                        </fieldset>
                         <fieldset class="inputstyle">
                             <label><?php echo $this->lang->line('living_space'); ?></label>
                             <input type="text" name="living_space" value='<?php echo $favoris->living_space; ?>'>
-                        </fieldset>
-                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('tel'); ?></label>
-                            <input type="text" name="tel" value='<?php echo $favoris->tel; ?>'>
-                        </fieldset>
-                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('owner_name'); ?></label>
-                            <input type="text" name="owner_name" value='<?php echo $favoris->owner_name; ?>'>
                         </fieldset>
                     </div>
                     <div class="float-middle input-separation">
@@ -100,11 +134,6 @@
                 <fieldset class="inputstyle">
                     <label><?php echo $this->lang->line('description'); ?></label>
                     <textarea name="description"><?php echo $favoris->description; ?></textarea>
-                </fieldset>
-
-                <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('note'); ?></label>
-                    <textarea name="note"><?php echo $favoris->note; ?></textarea>
                 </fieldset>
 
                <!-- <div class='clearfix'>
@@ -141,30 +170,6 @@
 
                 <fieldset class="inputstyle">
                     <input type="file" name="picture" id="picture">
-                </fieldset>
-            </div>
-            <div class="tab tab2">
-                <input type="hidden" name="rappel_id" value='<?php echo $favoris->rappel_id; ?>'>
-                <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('tags'); ?></label>
-                    <input type="text" name="rappel_tags" value='<?php echo $favoris->rappel_tags; ?>'>
-                </fieldset>
-                <fieldset >
-                    <label><?php echo $this->lang->line('date'); ?></label>
-                    <?php if($favoris->date_rappel == '') { $date_rappel = ''; }else{ $date_rappel = date('d/m/Y H:i',$favoris->date_rappel); } ?>
-
-                    <div class='input-group date datetimepicker' id="datetimepicker_rappel">
-                        <input type="text" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date_rappel; ?>'>
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar">
-                            </span>
-                        </span>
-                    </div>
-                </fieldset>
-
-                 <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('note'); ?></label>
-                    <textarea name="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
                 </fieldset>
             </div>
         </div>
