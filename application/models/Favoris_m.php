@@ -74,6 +74,7 @@ class Favoris_m extends MY_Model {
         $data = array(
            'user_id' => $user_id,
            'annonce_id' => $annonce->id,
+           'mandataire_user_id' => $user_id,
            'price' => $annonce->price,
            'created' => $annonce->created,
            'date_publication' => $annonce->date_publication,
