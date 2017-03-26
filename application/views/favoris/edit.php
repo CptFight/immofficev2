@@ -3,7 +3,11 @@
     <form action="" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="back_path" value='<?php echo $back_path; ?>'>
     <input type="hidden" name="id" value='<?php echo $favoris->id; ?>'>
+       
     <div class="l-annonces-form l-form">
+
+     
+
         <ul class="tabs">
             <li><div id="tab1" class='active'><?php echo $this->lang->line('favoris'); ?></div></li>
             <li><div id="tab2"><?php echo $this->lang->line('rappel'); ?></div></li>

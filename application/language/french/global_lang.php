@@ -2,6 +2,7 @@
 
 	$lang['base_url'] = base_url();
 	
+	$lang['agences'] = 'Agences';
 	$lang['error_login'] = 'Login/mot de passe inconnu.';
 	
 	//error upload

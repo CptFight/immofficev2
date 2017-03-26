@@ -30,8 +30,10 @@
                 <li><a href="<?php echo site_url('suggestions/index'); ?>" class="<?php if($pagename == "suggestions") echo "active"; ?>"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
                 <?php if($current_user->role == 'admin'){ ?>
                 <li><a href="<?php echo site_url('users/index'); ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('users'); ?></span></a></li>
+                 <li><a href="<?php echo site_url('agences/index'); ?>" class="<?php if($pagename == "agences") echo "active"; ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('agences'); ?></span></a></li>
                 <?php } ?>
                 <li><a href="<?php echo site_url('admin/index'); ?>" class="<?php if($pagename == "admin") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span >Admin</span></a></li>
+
             </ul>
             <ul class="l-nav-small">
                 <!--<li><a href=""><?php echo $this->lang->line('need_help'); ?>?</a></li> -->

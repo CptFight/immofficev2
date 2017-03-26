@@ -6,6 +6,8 @@ class Users_m extends MY_Model {
     public $_name = 'users_m';
   
      public function get($params) {
+        $this->db->select('*,users.name as name, agences.name as agence_name');
+        $this->db->join('agences','agence_id = agences.id');
         $this->db->where('deleted !=',1);
         if(!is_array($params)){
             $id = $params;
@@ -20,7 +22,7 @@ class Users_m extends MY_Model {
 
             
             if($params['search']){
-                $request_search = "( name LIKE '%".$params['search']."%'";
+                $request_search = "( users.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR agence LIKE '%".$params['search']."%'";
                 $request_search .= "OR login LIKE '%".$params['search']."%' )";
                 $request_search .= "OR tel LIKE '%".$params['search']."%' )";

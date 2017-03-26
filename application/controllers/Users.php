@@ -14,13 +14,17 @@ class Users extends MY_Controller {
 		$this->lang->load('global', $lang);
 
 		$this->session->unset_userdata('user');
-		$this->load->model(array('Users_m'));
+		$this->load->model(array('Users_m','Connections_m'));
 
 		if($this->input->post('send-login')) {
 			$login = $this->input->post('login');
 			$password = $this->input->post('password');
 			$user = $this->Users_m->login($login,$password);
 			if($user){
+				$this->Connections_m->insert(array(
+					'user_id' => $user->id,
+					'timestamp' => strtotime('now')
+				));
 				$this->session->set_userdata('user', $user);
 				redirect('/annonces/index');
 				die();
@@ -284,10 +288,10 @@ class Users extends MY_Controller {
 			$order['dir'] = $this->input->get('order')[0]['dir'];
 			switch($this->input->get('order')[0]['column']){
 				case 0:
-					$order['column'] = 'name';
+					$order['column'] = 'users.name';
 					break;
 				case 1:
-					$order['column'] = 'agence';
+					$order['column'] = 'agences.name';
 					break;
 				case 2:
 					$order['column'] = 'login';
@@ -313,7 +317,7 @@ class Users extends MY_Controller {
 		foreach($users as $key => $user){
 			$data[] = array(
 				$user->name,
-				$user->agence,
+				$user->agence_name,
 				$user->login,
 				date('d/m/Y H:i:s',$user->created),
 				date('d/m/Y H:i:s',$user->last_connection),

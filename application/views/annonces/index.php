@@ -12,14 +12,6 @@
     <form action="" method="POST">
     <div class="l-annonces-form">
         <div class="clearfix">
-            <ul class="listing-users">
-                <li><a href="javascript:;" class="active">Nom d'user</a></li>
-                <li><a href="javascript:;">Nom d'user</a></li>
-                <li><a href="javascript:;">Nom d'user</a></li>
-                <li><a href="javascript:;">Nom d'user</a></li>
-            </ul>
-        </div>
-        <div class="clearfix">
             <div class="float-middle input-separation">
                 <div class="reportrange-container">
                     <input type="text" name="daterange" id="reportrange" value="<?php echo $daterange; ?>" /> 
