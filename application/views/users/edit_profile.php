@@ -24,10 +24,6 @@
             <input type="text" name="firstname" value='<?php echo $user->firstname; ?>' >
         </fieldset>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('agence'); ?></label>
-            <input type="text" name="agence" value='<?php echo $user->agence; ?>' >
-        </fieldset>
-        <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('tel'); ?></label>
             <input type="text" name="tel" value='<?php echo $user->tel; ?>' >
         </fieldset>

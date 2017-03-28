@@ -54,6 +54,22 @@ class Rappels_m extends MY_Model {
         }
     }
 
+    public function getSupervisionInfos($user_id){
+        $this->db->where('user_id',$user_id);
+        $this->db->order_by('created','desc');
+
+        $rappels = $this->db->get($this->_db)->result();
+        if(isset($rappels[0]))
+            $last_rappels = $rappels[0]->created;
+        else
+            $last_rappels = false;
+
+        return array(
+            'last_rappels' => $last_rappels,
+            'number_rappels' => count($rappels)
+        );
+    }
+
     public function getRappelsBetween($user_id, $start,$end){
         
         $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
@@ -113,7 +129,8 @@ class Rappels_m extends MY_Model {
         $data = array(
            'user_id' => $user_id,
            'favoris_id' => $favoris_id,
-           'date_rappel' => $date_rappel
+           'date_rappel' => $date_rappel,
+           'created' => strtotime('now')
         );
         $return = $this->db->insert($this->_db, $data); 
         $this->updateRappelFavorisCountInSession();

@@ -1,31 +1,14 @@
 
 
-var liste = liste || {
-    tableObject : false
+var admin = admin || {
+   
 };
 
+admin.initTableDatatablesResponsive = function () {
+    var table = $('#connexion_table');
 
-/*********************************
-*   @name : bind
-*   params : /
-*   bind  instance  
-*********************************/
-liste.bind = function(){
-}
-
-liste.bindElementTable = function(){
-    
-
-}
-
-
-/* ----- Tables ----- */
-/* ------------------- */
-liste.initTableDatatablesResponsive = function () {
-    var table = $('#liste_table');
-    
-    if(!liste.tableObject){
-        liste.tableObject = table.dataTable({
+    if(!admin.tableObject){
+        admin.tableObject = table.dataTable({
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
@@ -42,13 +25,6 @@ liste.initTableDatatablesResponsive = function () {
                 
             },
             searching:true,
-            /* for loadging server side. */
-            "processing": true,
-            "serverSide": true,
-            "ajax": {
-                url : base_url()+"index.php/agences/getAllDataTable"
-            },
-            
             /* end param server side */
 
             // Or you can use remote translation file
@@ -56,29 +32,53 @@ liste.initTableDatatablesResponsive = function () {
             //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
             //},
 
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                url : base_url()+"index.php/supervision/getAllConnectionDataTable",
+                data : {
+                    user_id : $('#current_user_id_view').val()
+                }
+            },
+            
+            "order": [
+                [1, 'desc']
+            ],
+
             // setup buttons extentension: http://datatables.net/extensions/buttons/
             buttons: [
-                { extend: 'print', className: 'btn dark btn-outline' },
-                { extend: 'pdf', className: 'btn green btn-outline' , orientation: 'landscape'},
-                { extend: 'csv', className: 'btn purple btn-outline ' }
+                { 
+                    extend: 'print', 
+                    className: 'btn dark btn-outline',
+                    orientation: 'landscape', 
+                    exportOptions: {
+                        columns: [ 0, 1, ]
+                    } 
+                },{ 
+                    extend: 'pdf', 
+                    className: 'btn green btn-outline', 
+                    orientation: 'landscape', 
+                    exportOptions: {
+                        columns: [ 0, 1, ]
+                    } 
+                },{ 
+                    extend: 'csv', 
+                    className: 'btn purple btn-outline ',
+                    orientation: 'landscape',
+                    exportOptions: {
+                        columns: [ 0, 1, ]
+                    } 
+                }
             ],
 
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: true,
-            parseTime: false,
-            fnDrawCallback : function(){
-                liste.bindElementTable();
-            },
-            "order": [
-                [0, 'asc']
-            ],
-            
             "lengthMenu": [
                 [5, 10, 15, 20, -1],
                 [5, 10, 15, 20, "All"] // change per page values here
             ],
             // set the initial value
-            "pageLength": 10,
+            "pageLength": 20,
 
             "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
 
@@ -97,10 +97,21 @@ liste.initTableDatatablesResponsive = function () {
 *   params : /
 *   init  instance  
 *********************************/
-liste.init = function(){
-    liste.initTableDatatablesResponsive();
-    liste.bind();
+admin.init = function(){
+    admin.initTableDatatablesResponsive();
+     
+    $('.tab').hide();
+ 	$('.active').show();
+  	$('.tabs div').on('click',function(){
+	    $('.tabs div').removeClass('active');
+	    $(this).addClass('active')
+	    $('.tab').hide();
+	    var activeTab = $(this).attr('id');
+	    $("."+activeTab).show();
+	    return false;
+	 });
 }
+
 
 /*********************************
 *   @name : (window).load
@@ -108,7 +119,11 @@ liste.init = function(){
 *   Call init method on windows load    
 *********************************/
 $(document).ready(function() {     
-    liste.init();
+    admin.init();
+
 });
+
+
+
 
 

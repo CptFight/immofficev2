@@ -1,10 +1,22 @@
 <?php
 
 	$lang['base_url'] = base_url();
-	
+
+	$lang['last_link_visited'] = 'Dernier lien visité';
+	$lang['supervision'] = "Supervision";
+	$lang['number_link_visited_since_1_week'] = 'Nombre de liens visités depuis une semaine';
+	$lang['see_him'] = 'Le visualiser';
+	$lang['number_link_visited'] = 'Nombre de liens visités';
+	$lang['number_mail_receive'] = 'Nombre de mails reçus';
+	$lang['number_remember'] = 'Nombre de rappels';
+	$lang['last_remember'] = 'Dernier rappel';
+	$lang['number_favoris'] = 'Nombre de favoris';
+	$lang['last_favoris'] = 'Dernier favoris';
+	$lang['connection_historic'] = 'Historique des connexions';
 	$lang['agences'] = 'Agences';
 	$lang['error_login'] = 'Login/mot de passe inconnu.';
-	
+	$lang['subscriber'] = 'Abonné';
+
 	//error upload
 	$lang['allowed_types'] = 'Extentions authorisées';
 	$lang['max_size'] = 'Taille maximum';
@@ -13,6 +25,7 @@
 
 	$lang['mandatory'] = 'Mandataire';
 	//breadcrumb
+	$lang['breadcrumb_supervision'] = 'Supervision';
 	$lang['breadcrumb_favoris'] = 'Favoris';
 	$lang['breadcrumb_subscribers'] = 'Abonnements';
 	$lang['breadcrumb_annonces'] = 'Annonces';
@@ -20,6 +33,7 @@
 	$lang['breadcrumb_rappels'] = 'Rappels';
 	$lang['breadcrumb_suggestions'] = 'Suggestions';
 	
+	$lang['breadcrumb_view'] = 'Detail';
 	$lang['breadcrumb_index'] = 'Liste';
 	$lang['breadcrumb_edit'] = 'Edition';
 	$lang['breadcrumb_edit_full'] = 'Edition';

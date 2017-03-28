@@ -7,6 +7,7 @@
         </div>
     </div>
     <form action="" method="POST">
+    <input type="hidden" name="id" value="<?php echo $user->id; ?>" />
     <div class="l-annonces-form l-form">
         <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('email'); ?></label>
@@ -29,9 +30,12 @@
             <label><?php echo $this->lang->line('firstname'); ?></label>
             <input type="text" name="firstname" value='<?php echo $user->firstname; ?>' >
         </fieldset>
-        <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('agence'); ?></label>
-            <input type="text" name="agence" value='<?php echo $user->agence; ?>' >
+        <fieldset class="inputstyle select">
+            <select name="agence">
+                <?php foreach( $agences as $key => $agence){ ?>
+                <option value="<?php echo $agence->id; ?>" <?php if($user->agence_id == $agence->id) echo "selected"; ?>><?php echo $agence->name; ?></option>
+                <?php } ?>
+            </select>
         </fieldset>
         <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('tel'); ?></label>

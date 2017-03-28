@@ -6,12 +6,12 @@ class Users_m extends MY_Model {
     public $_name = 'users_m';
   
      public function get($params) {
-        $this->db->select('*,users.name as name, agences.name as agence_name');
+        $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name');
         $this->db->join('agences','agence_id = agences.id');
         $this->db->where('deleted !=',1);
         if(!is_array($params)){
             $id = $params;
-            $this->db->where('id',$id);
+            $this->db->where('users.id',$id);
             return $this->db->get($this->_db)->row();
         }else{
 
@@ -41,8 +41,44 @@ class Users_m extends MY_Model {
         }
     }
 
-    public function getMandatairesList($agence){
-        $this->db->where('agence',$agence);
+    public function getForAgenceSuperviser($params){
+        $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name');
+        $this->db->join('agences','agence_id = agences.id');
+        $this->db->where('deleted !=',1);
+
+        if(isset($params['agence_id'] )){
+
+          $this->db->where('agence_id',$params['agence_id']);
+        } 
+
+
+        if($params['length'] == 0){
+           $params['length'] = $this->_limit; 
+           $params['start'] = 0;
+        } 
+
+        if($params['search']){
+            $request_search = "( users.name LIKE '%".$params['search']."%'";
+            $request_search .= "OR agence LIKE '%".$params['search']."%'";
+            $request_search .= "OR login LIKE '%".$params['search']."%' )";
+            $request_search .= "OR tel LIKE '%".$params['search']."%' )";
+            $request_search .= "OR role LIKE '%".$params['search']."%' )";
+            $request_search .= "OR firstname LIKE '%".$params['search']."%' )";
+            $request_search .= "OR adress LIKE '%".$params['search']."%' )";
+            $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' )";
+            $this->db->where($request_search);
+        }
+
+        if(isset($params['order'])){
+            $this->db->order_by($params['order']['column'],$params['order']['dir']);
+        }
+
+        return $this->db->get($this->_db,$params['length'],$params['start'])->result();
+    }
+
+    public function getMandatairesList($agence_id){
+        $this->db->where('agence_id',$agence_id);
+        $this->db->where('deleted !=',1);
         return $this->db->get($this->_db)->result();
     }
 

@@ -84,7 +84,7 @@ class Rappels extends MY_Controller {
 					$order['column'] = 'web_site';
 					break;
 				case 4:
-					$order['column'] = 'date_publication';
+					$order['column'] = 'date_rappel';
 					break;
 				case 5:
 					$order['column'] = 'title';

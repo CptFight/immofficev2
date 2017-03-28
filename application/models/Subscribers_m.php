@@ -50,5 +50,13 @@ class Subscribers_m extends MY_Model {
     }
 
 
+    public function getSupervisionInfos($user_id){
+        $this->db->where('user_id',$user_id);
+        $this->db->where('active',1);
+        return $this->db->get($this->_db)->result();
+  
+    }
+
+
 
 }

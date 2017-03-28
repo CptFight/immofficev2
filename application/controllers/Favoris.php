@@ -16,7 +16,7 @@ class Favoris extends MY_Controller {
 		}
 
 		$this->load->model(array('Users_m'));
-		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence);
+		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
 
 		$this->load->view('template', $this->data);
 	}
@@ -41,7 +41,8 @@ class Favoris extends MY_Controller {
 
 		$this->load->model(array('Favoris_m','Users_m'));
 		$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
-		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence);
+		
+		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
 
 		$this->load->view('template', $this->data);
 	}
@@ -60,7 +61,7 @@ class Favoris extends MY_Controller {
 
 		if($this->input->post('save') ){
 			
-			
+
 			$favoris = array();
 			$favoris['user_id'] = $this->current_user->id;
 			if($this->input->post('id')){
@@ -132,6 +133,7 @@ class Favoris extends MY_Controller {
 
 				if(!$rappel['id']){
 					unset($rappel['id']);
+					$rappel['created'] = strtotime('now');
 					$this->Rappels_m->insert($rappel);
 				}else{
 					$this->Rappels_m->update($rappel);

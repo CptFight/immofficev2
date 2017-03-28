@@ -39,6 +39,10 @@ class Users extends MY_Controller {
 
 	public function news(){
 		$this->load->model(array('Users_m'));
+		$this->load->model(array('Users_m','Agences_m'));
+		$this->data['agences'] = $this->Agences_m->getAll();
+		
+
 		if($this->input->post('save') ){
 			$user = array();
 			
@@ -54,7 +58,7 @@ class Users extends MY_Controller {
 			$user['search_date'] = '';
 			$user['name'] = $this->input->post('name');
 			$user['firstname'] = $this->input->post('firstname');
-			$user['agence'] = $this->input->post('agence');
+			$user['agence_id'] = $this->input->post('agence');
 			$user['adress'] = $this->input->post('adress');
 			$user['tel'] = $this->input->post('tel');
 			$user['owner_email'] = $this->input->post('owner_email');
@@ -80,17 +84,18 @@ class Users extends MY_Controller {
 		if($this->current_user->role != 'admin'){
 			redirect('annonces/index');
 		}
-		$this->load->model(array('Users_m'));
+		$this->load->model(array('Users_m','Agences_m'));
+		$this->data['agences'] = $this->Agences_m->getAll();
 		
 		if($this->input->post('save') ){
 			$user = array();
-			$user['id'] = $this->input->get('id');
+			$user['id'] = $this->input->post('id');
 			$user['login'] = $this->input->post('email');
 			$user['lang'] = $this->input->post('lang');
 			$user['password'] = md5($this->input->post('password'));
 			$user['name'] = $this->input->post('name');
 			$user['firstname'] = $this->input->post('firstname');
-			$user['agence'] = $this->input->post('agence');
+			$user['agence_id'] = $this->input->post('agence');
 			$user['adress'] = $this->input->post('adress');
 			$user['tel'] = $this->input->post('tel');
 			$user['owner_email'] = $this->input->post('owner_email');
@@ -102,6 +107,7 @@ class Users extends MY_Controller {
 			
 			if($this->Users_m->update($user)){
 				$this->addMessage($this->lang->line('update_done'));
+				redirect('users/index');
 			}
 
 			if(!$this->verifyPassword($this->input->post('password'), $this->input->post('verify_password'))){	
@@ -150,7 +156,6 @@ class Users extends MY_Controller {
 			$user['lang'] = $this->current_user->lang = $this->input->post('lang');
 			$user['name'] = $this->current_user->name = $this->input->post('name');
 			$user['firstname'] = $this->current_user->firstname = $this->input->post('firstname');
-			$user['agence'] = $this->current_user->agence = $this->input->post('agence');
 			$user['adress'] = $this->current_user->adress = $this->input->post('adress');
 			$user['tel'] = $this->current_user->tel = $this->input->post('tel');
 			if($this->Users_m->update($user)){
@@ -195,7 +200,8 @@ class Users extends MY_Controller {
 		if($add == 'true'){
 			$data = array(
 				'user_id' => $user_id,
-				'annonce_id' => $annonce_id
+				'annonce_id' => $annonce_id,
+				'created' => strtotime('now')
 			);
 			$this->Visits_m->insert($data);
 		}else{
@@ -296,7 +302,14 @@ class Users extends MY_Controller {
 				case 2:
 					$order['column'] = 'login';
 					break;
+				case 3:
+					$order['column'] = 'created';
+					break;
+				case 4:
+					$order['column'] = 'last_connection';
+					break;					
 				default:
+					$order['column'] = 'users.name';
 					break;
 			}
 		}
@@ -316,17 +329,16 @@ class Users extends MY_Controller {
 
 		foreach($users as $key => $user){
 			$data[] = array(
-				$user->name,
+				$user->name." ".$user->firstname,
 				$user->agence_name,
 				$user->login,
 				date('d/m/Y H:i:s',$user->created),
 				date('d/m/Y H:i:s',$user->last_connection),
-				'<ul class="list-tables-buttons" data-user_id="'.$user->id.'">
+				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('users/edit/?id='.$user->id).'"><i class="fa fa-pencil"></i><span>Editer le user</span></a></li>
                 </ul>'
 			);
 		}
-
 		$return["recordsTotal"] = count($users);
 		$return["recordsFiltered"] = count($users);
 		

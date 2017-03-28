@@ -30,9 +30,12 @@
             <label><?php echo $this->lang->line('firstname'); ?></label>
             <input type="text" name="firstname" value='' >
         </fieldset>
-        <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('agence'); ?></label>
-            <input type="text" name="agence" value='' >
+        <fieldset class="inputstyle select">
+            <select name="agence">
+                <?php foreach( $agences as $key => $agence){ ?>
+                <option value="<?php echo $agence->id; ?>"><?php echo $agence->name; ?></option>
+                <?php } ?>
+            </select>
         </fieldset>
         <fieldset class="inputstyle">
             <label><?php echo $this->lang->line('tel'); ?></label>

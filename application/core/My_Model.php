@@ -8,9 +8,13 @@ class MY_Model extends CI_Model {
     }
 
     public function get($id) {
-      $id = $params;
       $this->db->where('id',$id);
       return $this->db->get($this->_db)->row();
+    }
+
+    public function getAll() {
+        $this->db->order_by('id','desc');
+        return $this->db->get($this->_db)->result();
     }
 
     public function update($object){

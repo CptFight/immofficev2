@@ -14,11 +14,15 @@ class Favoris_m extends MY_Model {
           rappels.tags as rappel_tags, 
           rappels.id as rappel_id, 
           favoris.note as note, 
-          rappels.note as rappel_note,
+          favoris.owner_name as owner_name, 
+          favoris.tel as tel, 
+          rappels.note as rappel_note, 
+
         ');
         
         $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
         $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
+        $this->db->join('users','users.id = favoris.mandataire_user_id');
         
         if(!is_array($params)){
             $id = $params;
@@ -43,6 +47,9 @@ class Favoris_m extends MY_Model {
                 $request_search .= "OR favoris.zip_code LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.province LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.web_site LIKE '%".$params['search']."%'";
+                $request_search .= "OR users.name LIKE '%".$params['search']."%'";
+                $request_search .= "OR users.firstname LIKE '%".$params['search']."%'";
+                $request_search .= "OR users.login LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
             }
@@ -57,6 +64,21 @@ class Favoris_m extends MY_Model {
 
             return $this->db->get($this->_db,$params['length'],$params['start'])->result();
         }
+    }
+
+    public function getSupervisionInfos($user_id){
+      $this->db->where('user_id',$user_id);
+      $this->db->order_by('created','desc');
+      $favoris = $this->db->get($this->_db)->result();
+      if(isset($favoris[0]))
+        $last_favoris = $favoris[0];
+      else
+        $last_favoris = false;
+     
+      return array(
+        'last_favoris' => $last_favoris,
+        'number_favoris' => count($favoris)
+      );
     }
 
     public function countDataLastRequest($params){
