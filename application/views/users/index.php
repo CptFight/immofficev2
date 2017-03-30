@@ -15,6 +15,7 @@
                     <th ><?php echo $this->lang->line('email'); ?></th>
                     <th ><?php echo $this->lang->line('created_at'); ?></th>
                     <th ><?php echo $this->lang->line('last_connection'); ?></th>
+                    <th ><?php echo $this->lang->line('price'); ?> (htva)</th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                 </tr>
             </thead>

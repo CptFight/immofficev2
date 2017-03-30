@@ -307,6 +307,9 @@ class Users extends MY_Controller {
 					break;
 				case 4:
 					$order['column'] = 'last_connection';
+					break;	
+				case 5:
+					$order['column'] = 'price_htva';
 					break;					
 				default:
 					$order['column'] = 'users.name';
@@ -334,6 +337,7 @@ class Users extends MY_Controller {
 				$user->login,
 				date('d/m/Y H:i:s',$user->created),
 				date('d/m/Y H:i:s',$user->last_connection),
+				$user->price_htva." €",
 				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('users/edit/?id='.$user->id).'"><i class="fa fa-pencil"></i><span>Editer le user</span></a></li>
                 </ul>'
