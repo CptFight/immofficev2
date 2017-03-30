@@ -39,6 +39,18 @@ class Favoris extends MY_Controller {
 				
 		}
 
+		$this->data['tab'] = 1;
+		if(isset($_GET['view'])){
+			switch ($_GET['view']) {
+				case 'rappel':
+					$this->data['tab'] = 2;
+					break;
+				default:
+					$this->data['tab'] = 1;
+					break;
+			}
+		}
+
 		$this->load->model(array('Favoris_m','Users_m'));
 		$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
 		

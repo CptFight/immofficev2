@@ -13,7 +13,7 @@
                     <p>Zone d'action</p>
                     <a href="#" id="zoomIn" class="btn-zonedaction"><?php echo $this->lang->line('zoom_in'); ?></a><a href="#" id="zoomOut" class="btn-zonedaction"><?php echo $this->lang->line('zoom_out'); ?></a>
                 </div>
-                <a href="javascript:;" id="search_zipcode" class="btn btn-map-rechercher"><?php echo $this->lang->line('search'); ?></a>
+                <button type="submit" id="search_zipcode" class="btn btn-map-rechercher"><?php echo $this->lang->line('search'); ?></button>
             </div>
             <div class='clearfix map-database'>
                 <div >

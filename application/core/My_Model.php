@@ -68,6 +68,7 @@ class MY_Model extends CI_Model {
         $user->count_favoris = $this->db->get('favoris')->row()->count;
 
         $this->session->set_userdata('user', $user);
+        return true;
     }
 
 }

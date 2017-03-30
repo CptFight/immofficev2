@@ -6,15 +6,14 @@
        
     <div class="l-annonces-form l-form">
 
-     
-
+    
         <ul class="tabs">
-            <li><div id="tab1" class='active'><?php echo $this->lang->line('favoris'); ?></div></li>
-            <li><div id="tab2"><?php echo $this->lang->line('rappel'); ?></div></li>
-            <li><div id="tab3">Infos supplémentaires</div></li>
+            <li><div id="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
+            <li><div id="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
+            <li><div id="tab3" class="<?php if($tab == 3) echo 'active'; ?>">Infos supplémentaires</div></li>
         </ul>
         <div class="block">
-            <div class='active tab tab1'>
+            <div class='<?php if($tab == 1) echo 'active'; ?> tab tab1'>
                 <fieldset class="inputstyle">
                     <select name="mandataire_user_id" id="mandataire" class="form-control">
                         <?php foreach($mandataires as $key => $mandataire){ ?> 
@@ -60,7 +59,7 @@
 
 
             </div>
-            <div class="tab tab2">
+            <div class="tab tab2 <?php if($tab == 2) echo 'active'; ?>">
                 <input type="hidden" name="rappel_id" value='<?php echo $favoris->rappel_id; ?>'>
                 <fieldset class="inputstyle">
                     <label><?php echo $this->lang->line('tags'); ?></label>
@@ -84,7 +83,7 @@
                     <textarea name="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
                 </fieldset>
             </div>
-            <div class="tab tab3">
+            <div class="tab tab3 <?php if($tab == 3) echo 'active'; ?>">
                  <div class='clearfix'>
                     <div class="float-middle input-separation">  
                         <fieldset class="inputstyle">

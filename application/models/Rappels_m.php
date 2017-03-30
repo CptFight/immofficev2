@@ -122,7 +122,7 @@ class Rappels_m extends MY_Model {
     public function delete($id){
         $this->db->where('id', $id);
         $this->db->delete($this->_db); 
-        $this->updateRappelFavorisCountInSession();
+        return $this->updateRappelFavorisCountInSession();
     }
 
     public function add($user_id,$favoris_id,$date_rappel){
@@ -147,14 +147,14 @@ class Rappels_m extends MY_Model {
         $this->db->where('user_id', $user_id);
         $this->db->where('favoris_id', $favoris_id);
         $this->db->delete($this->_db); 
-        $this->updateRappelFavorisCountInSession();
+        return $this->updateRappelFavorisCountInSession();
     }
 
     public function update($rappel){
       $this->db->where('id', $rappel['id']);
       unset($rappel['id']);
       $this->db->update($this->_db, $rappel); 
-      $this->updateRappelFavorisCountInSession();
+      return $this->updateRappelFavorisCountInSession();
     }
 
    

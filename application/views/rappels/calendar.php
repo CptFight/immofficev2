@@ -8,7 +8,22 @@
         </div>
     </div>
 
-    <div id='calendar'></div>
+     <div class='clearfix'>
+      	<div class="float-middle input-separation">
+            <fieldset class="inputstyle">
+                <div id='calendar_week'></div>
+            </fieldset>
+        </div>
+
+        <div class="float-middle input-separation">
+           <fieldset class="inputstyle">
+                <div id='calendar_month'></div>
+            </fieldset>
+        </div>
+       
+    </div>
+    
+    
 
 
 </section>
