@@ -1766,6 +1766,34 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   .l-dashboard .float-middle:last-child, .l-dashboard .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-dashboard p:last-child, .l-dashboard .l-landing-contact .content p:last-child, .l-landing-contact .content .l-dashboard p:last-child, .l-dashboard .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-dashboard p:last-child, .l-dashboard .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-dashboard p:last-child, .l-dashboard .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-dashboard p:last-child, .l-dashboard .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-dashboard p:last-child, .l-dashboard .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-dashboard p:last-child, .l-dashboard .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-dashboard p:last-child, .l-dashboard .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-dashboard p:last-child, .l-dashboard .map-database > div:last-child {
     float: right; } }
 
+.l-calendar .input-separation {
+  margin-top: 40px; }
+@media screen and (min-width: 992px) {
+  .l-calendar .input-separation {
+    margin-top: 0;
+    padding-right: 10px; }
+  .l-calendar .input-separation:last-child {
+    padding-left: 10px; }
+    .l-calendar .input-separation:last-child .fc-view-container {
+      margin-top: -5px; }
+    .l-calendar .input-separation:last-child .fc th {
+      padding: 9px 0; } }
+
+.btn.btn-calendar, .btn-calendar.btn-grey {
+  display: none;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  padding: 6px 9px;
+  font-size: 12px;
+  background-color: #efefef;
+  border-color: #efefef;
+  color: #7b7b7b;
+  position: absolute; }
+  @media screen and (min-width: 992px) {
+    .btn.btn-calendar, .btn-calendar.btn-grey {
+      display: inline-block; } }
+
 /* Modules */
 /* ==|====================
    Module/Button
