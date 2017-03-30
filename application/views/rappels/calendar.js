@@ -90,5 +90,20 @@ calendar.initFullCalendar = function () {
 *********************************/
 $(document).ready(function() {     
     calendar.init();
+
+    $(".btn-calendar").on("click", function(){
+    	var thisid = $(this).attr("data-id");
+    	if($("#"+thisid).hasClass("float-middle"))
+    	{
+    		$(".input-separation").css("display", "none");
+    		$("#"+thisid).css("display","block");
+    		$(".input-separation").removeClass("float-middle");
+    	}else 
+    	{
+    		$(".input-separation").css("display", "block");
+    		$(".input-separation").addClass("float-middle");
+    	}
+    	
+    });
 });
 
