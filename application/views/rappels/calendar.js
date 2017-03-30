@@ -64,6 +64,7 @@ calendar.initFullCalendar = function () {
             	//console.log('click');
             },
             droppable: true, 
+            aspectRatio: 1.35,
         	drop: function(date, jsEvent, ui, resourceId) {
         		//console.log('drop');
         	}
@@ -75,6 +76,7 @@ calendar.initFullCalendar = function () {
     	calendar.calendarObject_week = $('#calendar_week').fullCalendar({
 			defaultView : 'listDay',
 			locale : 'fr',
+            aspectRatio: 1.35,
 			eventLimit: true, // allow "more" link when too many events
 			events: base_url()+"index.php/rappels/getEventsJson?user_id="+$('#user_id').val(),
 		});
@@ -92,18 +94,33 @@ $(document).ready(function() {
     calendar.init();
 
     $(".btn-calendar").on("click", function(){
-    	var thisid = $(this).attr("data-id");
-    	if($("#"+thisid).hasClass("float-middle"))
-    	{
-    		$(".input-separation").css("display", "none");
-    		$("#"+thisid).css("display","block");
-    		$(".input-separation").removeClass("float-middle");
-    	}else 
-    	{
-    		$(".input-separation").css("display", "block");
-    		$(".input-separation").addClass("float-middle");
-    	}
-    	
+        var thisid = $(this).attr("data-id");
+        if($("#"+thisid).hasClass("float-middle"))
+        {
+            $(".input-separation").css("display", "none");
+            $("#"+thisid).css("display","block");
+            $(".input-separation").removeClass("float-middle");
+            var calendarsize = $("#calendar_month_container").width();
+            $('#calendar_month').fullCalendar('option', 'height', calendarsize*0.75);
+        }else 
+        {
+            $(".input-separation").css("display", "block");
+            $(".input-separation").addClass("float-middle");
+            var backcalendarsize = $("#calendar_week").height();
+            $('#calendar_month').fullCalendar('option', 'height', backcalendarsize);
+        }
+        
     });
+    $( window ).resize(function() {
+        
+        setTimeout(
+        function() 
+        {
+            var backcalendarsize = $("#calendar_week").height();
+            $('#calendar_month').fullCalendar('option', 'height', backcalendarsize);
+        }, 300);
+        
+    });
+
 });
 
