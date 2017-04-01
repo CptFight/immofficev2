@@ -30,7 +30,7 @@ class Annonces_m extends MY_Model {
                $params['start'] = 0;
             } 
 
-            
+
             if($params['search']){
                 $request_search = "( title LIKE '%".$params['search']."%'";
                 $request_search .= "OR web_site LIKE '%".$params['search']."%'";
@@ -75,6 +75,11 @@ class Annonces_m extends MY_Model {
             if($params['criterias']['date_max']){
                 $this->db->where('date_publication <= ',$params['criterias']['date_max']);
             }
+
+            if(isset($params['criterias']['created']) ){
+                $this->db->where('annonces.created >= ',$params['criterias']['created']);
+            }
+  
             
             if($params['criterias']['price_min']){
                 $this->db->where('price >= ',$params['criterias']['price_min']);

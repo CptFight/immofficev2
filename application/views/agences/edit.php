@@ -14,8 +14,10 @@
             <label><?php echo $this->lang->line('name'); ?></label>
             <input type="text" name="name" value='<?php echo $agence->name; ?>' required>
         </fieldset>
-        <fieldset>
+
+        <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
+            <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
          </fieldset>
     </div>
     </form>

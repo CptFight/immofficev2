@@ -39,6 +39,14 @@ class Agences extends MY_Controller {
 			redirect('agences/index');
 		}
 
+
+		if($this->input->post('delete') ){
+			if(!$this->Agences_m->delete($this->input->post('id'))){
+				$this->addError($this->lang->line('agences_with_users'));
+			}
+			redirect('agences/index');
+		}
+
 		$this->data['agence'] = $this->Agences_m->get($this->input->get('id'));
 		$this->load->view('template', $this->data);
 	}

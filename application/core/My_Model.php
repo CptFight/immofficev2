@@ -35,8 +35,13 @@ class MY_Model extends CI_Model {
     }
 
     public function delete($id){
-        $this->db->where('id', $id);
-        return $this->db->delete($this->_db); 
+        try{
+            $this->db->where('id', $id);
+            return $this->db->delete($this->_db); 
+        }catch(exception $e){
+            return false;
+        }
+        
     }
 
 

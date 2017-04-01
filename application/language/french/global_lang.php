@@ -2,6 +2,8 @@
 
 	$lang['base_url'] = base_url();
 
+
+	$lang['agences_with_users'] = "L'agence a des utilisateurs associés";
 	$lang['last_link_visited'] = 'Dernier lien visité';
 	$lang['supervision'] = "Supervision";
 	$lang['number_link_visited_since_1_week'] = 'Nombre de liens visités depuis une semaine';

@@ -1,7 +1,8 @@
 
 
 var favoris = favoris || {
-    tableObject : false
+    tableObject : false,
+    nb_elems : 0
 };
 
 
@@ -11,6 +12,24 @@ var favoris = favoris || {
 *   bind  instance  
 *********************************/
 favoris.bind = function(){
+}
+
+
+favoris.insertExport = function(type){
+    $.ajax({
+        type: "POST",
+        url: base_url()+"index.php/exports/insertExport",
+        dataType: 'json',
+        data: {
+            user_id : $('#user_id').val(),
+            nb_annonces : favoris.nb_elems,
+            type : type,
+            page : 'favoris'
+        },
+        success: function(response){
+           
+        }
+    });
 }
 
 favoris.bindElementTable = function(){
@@ -124,30 +143,44 @@ favoris.initTableDatatablesResponsive = function () {
                     orientation: 'landscape', 
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                    },
+                    action  : function(e, dt, button, config) {
+                        favoris.insertExport('print');
+                        $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
                     } 
+
                 },{ 
                     extend: 'pdf', 
                     className: 'btn green btn-outline', 
                     orientation: 'landscape', 
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
-                    } 
+                    },
+                    action  : function(e, dt, button, config) {
+                        favoris.insertExport('pdf');
+                        $.fn.dataTable.ext.buttons.pdfHtml5.action(e, dt, button, config);
+                    }
                 },{ 
                     extend: 'csv', 
                     className: 'btn purple btn-outline ',
                     orientation: 'landscape',
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
-                    } 
+                    },
+                    action  : function(e, dt, button, config) {
+                        favoris.insertExport('csv');
+                        $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
+                    }
                 }
             ],
            
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: true,
             parseTime: false,
-            fnDrawCallback : function(){
+            fnDrawCallback : function(e){
                 favoris.activeFavorisRappel();
                 favoris.bindElementTable();
+                favoris.nb_elems = e._iRecordsDisplay;
             },
             "order": [
                 [4, 'desc']

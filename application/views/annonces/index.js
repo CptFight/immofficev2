@@ -11,7 +11,8 @@ var annonces = annonces || {
         province : $('#province').val(),
         lang : $("input[name='lang']:checked").val(),
         vente : $("input[name='vente']:checked").val()
-    }
+    }, 
+    current_number_annonces : 0
 };
 
 
@@ -221,8 +222,25 @@ annonces.activeFavorisRappelVisits = function(){
     });
 }
 
-annonces.refreshResult = function(e){
-    $('#num_result').html(e._iRecordsDisplay);
+annonces.refreshResult = function(){
+    $('#num_result').html(annonces.current_number_annonces);
+}
+
+annonces.insertExport = function(type){
+    $.ajax({
+        type: "POST",
+        url: base_url()+"index.php/exports/insertExport",
+        dataType: 'json',
+        data: {
+            user_id : $('#user_id').val(),
+            nb_annonces : annonces.current_number_annonces,
+            type : type,
+            page : 'annonces'
+        },
+        success: function(response){
+           
+        }
+    });
 }
 
 /* ----- Tables ----- */
@@ -282,21 +300,34 @@ annonces.initTableDatatablesResponsive = function () {
                     orientation: 'landscape', 
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                    },
+                    action  : function(e, dt, button, config) {
+                        annonces.insertExport('print');
+                        $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
                     } 
+
                 },{ 
                     extend: 'pdf', 
                     className: 'btn green btn-outline', 
                     orientation: 'landscape', 
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
-                    } 
+                    },
+                    action  : function(e, dt, button, config) {
+                        annonces.insertExport('pdf');
+                        $.fn.dataTable.ext.buttons.pdfHtml5.action(e, dt, button, config);
+                    }
                 },{ 
                     extend: 'csv', 
                     className: 'btn purple btn-outline ',
                     orientation: 'landscape',
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
-                    } 
+                    },
+                    action  : function(e, dt, button, config) {
+                        annonces.insertExport('csv');
+                        $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
+                    }
                 }
             ],
 
@@ -306,7 +337,8 @@ annonces.initTableDatatablesResponsive = function () {
             fnDrawCallback : function(e){
                 annonces.activeFavorisRappelVisits();
                 annonces.bindElementTable();
-                annonces.refreshResult(e);
+                annonces.current_number_annonces = e._iRecordsDisplay;
+                annonces.refreshResult();
             },
 
             "order": [

@@ -52,7 +52,8 @@ class Crons extends CI_Controller {
 					'zipcode' => $subscriber->search_zipcodes,
 					'province' => $provinces,
 					'lang' => $subscriber->search_lang,
-					'vente' => $subscriber->search_sell
+					'vente' => $subscriber->search_sell,
+					'created' => $date_min
 				);
 
 				$order = array(
@@ -104,6 +105,18 @@ class Crons extends CI_Controller {
 					$this->email->message($body);   
 					
 					if($this->email->send()){
+
+						$this->load->model(array('Exports_m'));
+
+						$datas = array();
+						$datas['user_id'] = $subscriber->id;
+				        $datas['nb_annonces'] = count($annonces);
+				        $datas['type'] = 'email';
+				        $datas['page'] = 'crons';
+				        $datas['created'] = strtotime('now');
+			
+						$this->Exports_m->insert($datas);
+
 						echo "Mail envoyé \n";
 					}else{
 						echo "ERROR Mails \n";
