@@ -98,6 +98,7 @@ $('.inputstyle input, .inputstyle textarea').each(function() {
     }
   });
 
+
   if ($(this).val() != '') $(this).parent('fieldset').addClass('active');
 
 });

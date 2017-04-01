@@ -23,38 +23,38 @@
                 </fieldset>
 
                 <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('title'); ?></label>
-                    <input type="text" name="title" value='<?php echo $favoris->title; ?>' >
+                    <label for="title"><?php echo $this->lang->line('title'); ?></label>
+                    <input type="text" id="title" name="title" value='<?php echo $favoris->title; ?>' >
                 </fieldset>
 
                  <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('url'); ?></label>
-                    <input type="text" name="url" value='<?php echo $favoris->url; ?>' >
+                    <label for="url"><?php echo $this->lang->line('url'); ?></label>
+                    <input type="text" id="url" name="url" value='<?php echo $favoris->url; ?>' >
                 </fieldset>
 
                 <fieldset  class="inputstyle">
-                    <label><?php echo $this->lang->line('tags'); ?></label>
-                    <input type="text" name="tags" value='<?php echo $favoris->tags; ?>'>
+                    <label for="tags"><?php echo $this->lang->line('tags'); ?></label>
+                    <input type="text" id="tags" name="tags" value='<?php echo $favoris->tags; ?>'>
                 </fieldset>
 
                 <div class='clearfix'>
                     <div class="float-middle input-separation">
                        <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('owner_name'); ?></label>
-                            <input type="text" name="owner_name" value='<?php echo $favoris->owner_name; ?>'>
+                            <label for="owner_name"><?php echo $this->lang->line('owner_name'); ?></label>
+                            <input type="text" name="owner_name" id="owner_name" value='<?php echo $favoris->owner_name; ?>'>
                         </fieldset>
                     </div>
                     <div class="float-middle input-separation">
                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('tel'); ?></label>
-                            <input type="text" name="tel" value='<?php echo $favoris->tel; ?>'>
+                            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
+                            <input type="text" name="tel" id="tel" value='<?php echo $favoris->tel; ?>'>
                         </fieldset>
                     </div>
                 </div>
                  
                 <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('note'); ?></label>
-                    <textarea name="note"><?php echo $favoris->note; ?></textarea>
+                    <label for="note"><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="note" id="note"><?php echo $favoris->note; ?></textarea>
                 </fieldset>
 
 
@@ -62,8 +62,8 @@
             <div class="tab tab2 <?php if($tab == 2) echo 'active'; ?>">
                 <input type="hidden" name="rappel_id" value='<?php echo $favoris->rappel_id; ?>'>
                 <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('tags'); ?></label>
-                    <input type="text" name="rappel_tags" value='<?php echo $favoris->rappel_tags; ?>'>
+                    <label for="rappel_tags"><?php echo $this->lang->line('tags'); ?></label>
+                    <input type="text" name="rappel_tags" id="rappel_tags" value='<?php echo $favoris->rappel_tags; ?>'>
                 </fieldset>
                 <fieldset >
                     <label><?php echo $this->lang->line('date'); ?></label>
@@ -79,21 +79,21 @@
                 </fieldset>
 
                  <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('note'); ?></label>
-                    <textarea name="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
+                    <label for="rappel_note"><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="rappel_note" id="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
                 </fieldset>
             </div>
             <div class="tab tab3 <?php if($tab == 3) echo 'active'; ?>">
                  <div class='clearfix'>
                     <div class="float-middle input-separation">  
                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('web_site'); ?></label>
-                            <input type="text" name="web_site" value='<?php echo $favoris->web_site; ?>' >
+                            <label for="web_site"><?php echo $this->lang->line('web_site'); ?></label>
+                            <input type="text" id="web_site" name="web_site" value='<?php echo $favoris->web_site; ?>' >
                         </fieldset>
 
                          <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('price'); ?></label>
-                            <input type="text" name="price" value='<?php echo $favoris->price; ?>' >
+                            <label for="price"><?php echo $this->lang->line('price'); ?></label>
+                            <input type="text" id="price" name="price" value='<?php echo $favoris->price; ?>' >
                         </fieldset>
                         <!--<fieldset class="inputstyle">
                             <label><?php echo $this->lang->line('date'); ?></label>
@@ -110,33 +110,33 @@
                             </div>
                         </fieldset>
                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('living_space'); ?></label>
-                            <input type="text" name="living_space" value='<?php echo $favoris->living_space; ?>'>
+                            <label for="living_space"><?php echo $this->lang->line('living_space'); ?></label>
+                            <input type="text" id="living_space" name="living_space" value='<?php echo $favoris->living_space; ?>'>
                         </fieldset>
                     </div>
                     <div class="float-middle input-separation">
                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('adress'); ?></label>
-                            <input type="text" name="adress" value='<?php echo $favoris->adress; ?>'>
+                            <label for="adress"><?php echo $this->lang->line('adress'); ?></label>
+                            <input type="text" id="adress" name="adress" value='<?php echo $favoris->adress; ?>'>
                         </fieldset>
                          <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('city'); ?></label>
-                            <input type="text" name="city" value='<?php echo $favoris->city; ?>' >
+                            <label for="city"><?php echo $this->lang->line('city'); ?></label>
+                            <input type="text" id="city" name="city" value='<?php echo $favoris->city; ?>' >
                         </fieldset>
                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('zip_code'); ?></label>
-                            <input type="text" name="zip_code" value='<?php echo $favoris->zip_code; ?>' >
+                            <label for="zip_code"><?php echo $this->lang->line('zip_code'); ?></label>
+                            <input type="text" id="zip_code" name="zip_code" value='<?php echo $favoris->zip_code; ?>' >
                         </fieldset>
                         <fieldset class="inputstyle">
-                            <label><?php echo $this->lang->line('province'); ?></label>
-                            <input type="text" name="province" value='<?php echo $favoris->province; ?>' >
+                            <label for="province"><?php echo $this->lang->line('province'); ?></label>
+                            <input type="text" id="province" name="province" value='<?php echo $favoris->province; ?>' >
                         </fieldset>
                     </div>
                 </div>
                
                 <fieldset class="inputstyle">
-                    <label><?php echo $this->lang->line('description'); ?></label>
-                    <textarea name="description"><?php echo $favoris->description; ?></textarea>
+                    <label for="description"><?php echo $this->lang->line('description'); ?></label>
+                    <textarea name="description" id="description"><?php echo $favoris->description; ?></textarea>
                 </fieldset>
 
                <!-- <div class='clearfix'>

@@ -152,11 +152,13 @@ fieldset
     transition: .1s all linear;
     cursor: text;
 }
-fieldset.active label {
+.inputstyle.active label {
     top: -15px;
     left: 0;
     font-size: 0.8em;
 }
+
+
 
 
 .radio-inline-cont, .checkbox-inline-cont

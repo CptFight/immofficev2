@@ -147,7 +147,7 @@ class Annonces extends MY_Controller {
                 </ul>',
                 $annonce->id,
                 "<span class='historic_price'>".$historic_price."</span>",
-                "<span class='historic_publications'>".$historic_publications."</span>",
+                "<span class='historic_publications old'>".$historic_publications."</span>",
                 $annonce->adress,
                 $annonce->province,
               	$annonce->description,
