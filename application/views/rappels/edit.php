@@ -75,12 +75,12 @@
 
         <h3><?php echo $this->lang->line('rappel'); ?></h3>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('tags'); ?></label>
-            <input type="text" name="tags" value='<?php echo $rappel->tags; ?>'>
+            <label for="tags"><?php echo $this->lang->line('tags'); ?></label>
+            <input type="text" id="tags" name="tags" value='<?php echo $rappel->tags; ?>'>
         </fieldset>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('date'); ?></label>
-            <input type="text" name="date_rappel" value='<?php echo date('d/m/Y',$rappel->date_rappel); ?>' required>
+            <label for="date_rappel"><?php echo $this->lang->line('date'); ?></label>
+            <input type="text" id="date_rappel" name="date_rappel" value='<?php echo date('d/m/Y',$rappel->date_rappel); ?>' required>
         </fieldset>
         
         <fieldset class="form-buttons">

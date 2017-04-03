@@ -4,16 +4,16 @@
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
         <fieldset class="inputstyle">
-            <label>Name</label>
-            <input type="text" required>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
         </fieldset>
         <fieldset class="inputstyle">
-            <label>Email</label>
-            <input type="email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
         </fieldset>
         <fieldset class="inputstyle">
-            <label>Place your message</label>
-            <textarea required></textarea>
+            <label for="message">Place your message</label>
+            <textarea required id="message" name="message"></textarea>
         </fieldset>
         <fieldset class="radio-inline-cont ">
             <div>

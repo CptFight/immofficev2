@@ -5,7 +5,7 @@
         <form action="" method="post">
             <div class="clearfix map-btns-container">
                 <fieldset class="inputstyle postalcode">
-                    <label for="codepostal"><?php echo $this->lang->line('adress'); ?></label>
+                    <label for="zip_code"><?php echo $this->lang->line('adress'); ?></label>
                     <input type="text" id="zip_code" name="codepostal" value='4000'>
                     <input type="hidden" name="radius" id="radius" value="5000"/>
                 </fieldset>
