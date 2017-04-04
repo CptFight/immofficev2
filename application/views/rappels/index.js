@@ -1,8 +1,7 @@
 
 
 var rappels = rappels || {
-    tableObject : false,
-    nb_elems : 0
+   
 };
 
 
@@ -185,6 +184,9 @@ rappels.initTableDatatablesResponsive = function () {
 *   init  instance  
 *********************************/
 rappels.init = function(){
+
+    rappels.tableObject = false;
+    rappels.nb_elems = 0;
     rappels.initTableDatatablesResponsive();
     rappels.bind();
 }

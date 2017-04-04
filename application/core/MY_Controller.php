@@ -9,7 +9,7 @@ class MY_Controller extends CI_Controller {
 
 		$controller = $this->uri->segment(1);
 		$method = $this->uri->segment(2);
-		if($controller == 'users' && $method == 'login'){
+		if($controller == 'users' && ($method == 'login' || $method == 'lost_password') ){
 			return;
 		}
 

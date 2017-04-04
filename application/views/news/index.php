@@ -1,6 +1,16 @@
 
 <section class="apparitionright l-news-section">
     <ul class="m-news-list">
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2016-07-05">05/07/2016</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_17_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_17_body'); ?></p>
+                </div>
+            </article>
+        </li>
     	<li>
     		<article>
     			<i class="fa fa-heart"></i>

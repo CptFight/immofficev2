@@ -1,8 +1,6 @@
 
 
 var admin = admin || {
-   connexion_table_object : false,
-   table_admin_object : false
 };
 
 admin.initTableDatatablesResponsive = function () {
@@ -174,6 +172,11 @@ admin.initTableDatatablesResponsive = function () {
 *   init  instance  
 *********************************/
 admin.init = function(){
+
+    admin.connexion_table_object = false;
+    admin.table_admin_object = false;
+
+
     admin.initTableDatatablesResponsive();
      
     $('.tab').hide();

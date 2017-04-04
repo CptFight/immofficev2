@@ -211,6 +211,9 @@ favoris.initTableDatatablesResponsive = function () {
 *   init  instance  
 *********************************/
 favoris.init = function(){
+    favoris.tableObject = false;
+    favoris.nb_elems = false;
+ 
     favoris.initTableDatatablesResponsive();
     favoris.bind();
 }

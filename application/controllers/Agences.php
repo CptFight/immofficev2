@@ -3,10 +3,16 @@
 class Agences extends MY_Controller {
 
 	public function index() {
+		if($this->current_user->role_id != 4){
+			redirect('annonces/index');
+		}
 		$this->load->view('template', $this->data);
 	}
 
 	public function news(){
+		if($this->current_user->role_id != 4){
+			redirect('annonces/index');
+		}
 
 		if($this->input->post('save') ){
 			$this->load->model(array('Agences_m'));
@@ -22,7 +28,7 @@ class Agences extends MY_Controller {
 	}
 
 	public function edit(){
-		if($this->current_user->role != 'admin'){
+		if($this->current_user->role_id != 4){
 			redirect('annonces/index');
 		}
 

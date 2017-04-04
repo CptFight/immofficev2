@@ -5,24 +5,26 @@
 ***************/
 
 var zipcodes = zipcodes || {
-    google_map : "#google-map",
-    search_button : "#search_zipcode",
-    input_zip_code : "#zip_code",
-    input_radius : "#radius",
-    table : ".footable tbody",
-    zoom_in : "#zoomIn",
-    zoom_out : "#zoomOut",
-    list_city_in_area : false,
-    list_coord_belgium : false, 
-    criterias : {
-        zipcode : 4000,
-        radius : 5000
-    }
-
 };
 
 
 zipcodes.init = function(){
+    zipcodes.google_map = "#google-map";
+    zipcodes.search_button = "#search_zipcode";
+    zipcodes.input_zip_code = "#zip_code";
+    zipcodes.input_radius = "#radius";
+    zipcodes.table = ".footable tbody";
+    zipcodes.zoom_in = "#zoomIn";
+
+    zipcodes.zoom_out = "#zoomOut";
+    list_city_in_area = false;
+    zipcodes.list_coord_belgium = false; 
+    zipcodes.criterias = {
+        zipcode : 4000,
+        radius : 5000
+    };
+
+
     zipcodes.init_list_coord_belgium();
     zipcodes.initTableDatatablesResponsive();
     zipcodes.setGoogleMap(4000,5000);

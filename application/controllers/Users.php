@@ -6,6 +6,44 @@ class Users extends MY_Controller {
 		$this->load->view('template', $this->data);
 	}
 
+	public function lost_password(){
+		$lang = 'french';
+		if(isset($_GET['lang_user'])){
+			$lang = $_GET['lang_user'];
+		}
+		$this->lang->load('global', $lang);
+		$this->load->model(array('Users_m'));
+		if($this->input->post('send-login')) {
+			$email = $this->input->post('login');
+			$user = $this->Users_m->emailExist($email);
+			
+			if($user){
+				$password = uniqid();
+				$params = array(
+					'to' => $email,
+					'subject' => $this->lang->line('new_password_subject'),
+					'body' => array(
+						'template' => 'emails/new_password.php',
+						'data' => array(
+							'password' => $password
+						)
+					)
+				);
+				if($this->sendMail($params)){
+					$new_param['id'] = $user->id;
+					$new_param['password'] = md5($password);
+					$this->Users_m->update($new_param);
+					$this->addMessage($this->lang->line('new_password_send').$email);
+					redirect('users/login');
+				}
+				
+			}else{
+				$this->addError($this->lang->line('email_not_exist'));
+			}
+		}
+		$this->load->view('template_landing');
+	}
+
 	public function login() {
 		$lang = 'french';
 		if(isset($_GET['lang_user'])){
@@ -38,10 +76,13 @@ class Users extends MY_Controller {
 	}
 
 	public function news(){
+		if($this->current_user->role_id != 4){
+			redirect('annonces/index');
+		}
 		$this->load->model(array('Users_m'));
-		$this->load->model(array('Users_m','Agences_m'));
+		$this->load->model(array('Users_m','Agences_m','Roles_m'));
 		$this->data['agences'] = $this->Agences_m->getAll();
-		
+		$this->data['roles'] = $this->Roles_m->getAll();
 
 		if($this->input->post('save') ){
 			$user = array();
@@ -66,7 +107,7 @@ class Users extends MY_Controller {
 			$user['owner_name'] = $this->input->post('owner_name');
 			$user['price_htva'] = $this->input->post('price_htva');
 			$user['price_tvac'] = $this->input->post('price_tvac');
-			$user['role'] = $this->input->post('role');
+			$user['role_id'] = $this->input->post('role');
 
 			$user['created'] = strtotime('now');
 			
@@ -83,11 +124,12 @@ class Users extends MY_Controller {
 	}
 
 	public function edit(){
-		if($this->current_user->role != 'admin'){
+		if($this->current_user->role_id != 4){
 			redirect('annonces/index');
 		}
-		$this->load->model(array('Users_m','Agences_m'));
+		$this->load->model(array('Users_m','Agences_m','Roles_m'));
 		$this->data['agences'] = $this->Agences_m->getAll();
+		$this->data['roles'] = $this->Roles_m->getAll();
 		
 		if($this->input->post('save') ){
 			$user = array();
@@ -108,7 +150,7 @@ class Users extends MY_Controller {
 			$user['owner_name'] = $this->input->post('owner_name');
 			$user['price_htva'] = $this->input->post('price_htva');
 			$user['price_tvac'] = $this->input->post('price_tvac');
-			$user['role'] = $this->input->post('role');
+			$user['role_id'] = $this->input->post('role');
 			$user['created'] = strtotime('now');
 			
 			if($this->Users_m->update($user)){

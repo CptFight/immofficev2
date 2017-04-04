@@ -41,6 +41,11 @@ class Users_m extends MY_Model {
         }
     }
 
+    public function emailExist($email){
+        $this->db->where('login',$email);
+        return $this->db->get($this->_db)->row();
+    }
+
     public function getForAgenceSuperviser($params){
         $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name');
         $this->db->join('agences','agence_id = agences.id');

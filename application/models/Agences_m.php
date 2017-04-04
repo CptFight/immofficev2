@@ -38,5 +38,15 @@ class Agences_m extends MY_Model {
         }
     }
 
+    public function delete($id){
+        $this->db->where('agence_id', $id);
+        $result = $this->db->get('users')->row();
+        if($result) return false;
+        else{
+            $this->db->where('id', $id);
+            return $this->db->delete($this->_db); 
+        } 
+    }
+
    
 }

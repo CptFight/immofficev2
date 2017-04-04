@@ -75,9 +75,9 @@
 
         <fieldset class="inputstyle select">
             <select name="role">
-                <option value="prospecter" <?php if($user->role == 'prospecter') echo "selected"; ?>><?php echo $this->lang->line('prospecter'); ?></option>
-                <option value="superviser" <?php if($user->role == 'superviser') echo "selected"; ?>><?php echo $this->lang->line('superviser'); ?></option>
-               <!-- <option value="admin"><?php echo $this->lang->line('admin'); ?></option> -->
+                <?php foreach( $roles as $key => $role){ ?>
+                <option value="<?php echo $role->id; ?>" <?php if($user->role_id == $role->id) echo "selected"; ?>><?php echo $role->name; ?></option>
+                <?php } ?>
             </select>
         </fieldset>
 

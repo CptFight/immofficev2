@@ -20,20 +20,26 @@
                 </ul>
             </div>
             <ul class="l-nav-big">
+                <?php if($current_user->role_id != 1){ ?>
                 <li><a href="<?php echo site_url('annonces/index'); ?>" class='<?php if($pagename == "annonces") echo "active"; ?>'><i class="fa fa-search"></i><span><?php echo $this->lang->line('annonces'); ?></span></a></li>
+                <?php } ?>
                 <li><a href="<?php echo site_url('subscribers/index'); ?>" class="<?php if($pagename == "subscribers") echo "active"; ?>"><i class="fa fa-reddit"></i> <span><?php echo $this->lang->line('subscribers'); ?></span></a></li>
+                <?php if($current_user->role_id != 1){ ?>
                 <li><a href="<?php echo site_url('favoris/index'); ?>" class='<?php if($pagename == "favoris") echo "active"; ?>'><i class="fa fa-heart"></i> <span><?php echo $this->lang->line('favoris'); ?>
                 <?php if(isset($current_user->count_favoris)) { ?><strong class="alert-tag favoris"><?php echo $current_user->count_favoris; ?></strong><?php } ?></span></a></li>
                 <li><a href="<?php echo site_url('rappels/calendar'); ?>" class='<?php if($pagename == "rappels") echo "active"; ?>'><i class="fa fa-phone"></i> <?php if(isset($current_user->count_rappels)) { ?><strong class="alert-tag rappels"><?php echo $current_user->count_rappels; ?></strong><?php } ?><span ><?php echo $this->lang->line('my_remembers'); ?></span></a></li>
+                <?php } ?>
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->
+                
+
                 <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
                 <li><a href="<?php echo site_url('suggestions/index'); ?>" class="<?php if($pagename == "suggestions") echo "active"; ?>"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
-                <?php if($current_user->role == 'admin'){ ?>
+                <?php if($current_user->role_id == 4){ ?>
                 <li><a href="<?php echo site_url('users/index'); ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('users'); ?></span></a></li>
                  <li><a href="<?php echo site_url('agences/index'); ?>" class="<?php if($pagename == "agences") echo "active"; ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('agences'); ?></span></a></li>
                 <?php } ?>
 
-                <?php if($current_user->role == 'superviser' || $current_user->role == 'admin'){ ?>
+                <?php if($current_user->role_id == 3 || $current_user->role_id == 4){ ?>
                 <li><a href="<?php echo site_url('supervision/index'); ?>" class="<?php if($pagename == "supervision") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span ><?php echo $this->lang->line('supervision'); ?></span></a></li>
                 <?php } ?>
 

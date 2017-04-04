@@ -1,7 +1,7 @@
 
 
 var liste = liste || {
-    tableObject : false
+    
 };
 
 
@@ -98,6 +98,8 @@ liste.initTableDatatablesResponsive = function () {
 *   init  instance  
 *********************************/
 liste.init = function(){
+    liste.tableObject = false;
+
     liste.initTableDatatablesResponsive();
     liste.bind();
 }

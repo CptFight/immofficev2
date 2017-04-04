@@ -74,9 +74,9 @@
         </fieldset>
         <fieldset class="inputstyle select">
             <select name="role">
-                <option value="prospecter"><?php echo $this->lang->line('prospecter'); ?></option>
-                <option value="superviser"><?php echo $this->lang->line('superviser'); ?></option>
-               <!-- <option value="admin"><?php echo $this->lang->line('admin'); ?></option> -->
+                 <?php foreach( $roles as $key => $role){ ?>
+                <option value="<?php echo $role->id; ?>" <?php if($role->id == 2) echo "selected"; ?>><?php echo $role->name; ?></option>
+                <?php } ?>
             </select>
         </fieldset>
         <fieldset>

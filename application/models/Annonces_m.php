@@ -13,6 +13,25 @@ class Annonces_m extends MY_Model {
         $this->db->where('id',$id);
     }
 
+    public function delete($id){
+        $this->db->where('annonce_id', $id);
+        $result = $this->db->get('favoris')->row();
+        if($result) return false;
+        else{
+            $this->db->query("SET FOREIGN_KEY_CHECKS = 0;");
+            $this->db->where('annonce_id', $id);
+            $this->db->delete('prices'); 
+
+            $this->db->where('annonce_id', $id);
+            $this->db->delete('publications'); 
+       
+            $this->db->where('id', $id);
+            $return = $this->db->delete($this->_db); 
+            $this->db->query("SET FOREIGN_KEY_CHECKS = 1;");
+            return $return;
+        } 
+    }
+
     public function get($params) {
         $this->db->group_by('annonces.id');
         $this->db->join('prices','prices.id = annonces.last_price_id', 'left');

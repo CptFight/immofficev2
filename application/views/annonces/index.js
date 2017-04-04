@@ -1,18 +1,7 @@
 
 
 var annonces = annonces || {
-    tableObject : false,
-    criterias : {
-        date_min : $('#date-min').val(),
-        date_max : $('#date-max').val(),
-        price_min : $('#price-min').val(),
-        price_max : $('#price-max').val(),
-        zipcode : $('#zipcode').val(),
-        province : $('#province').val(),
-        lang : $("input[name='lang']:checked").val(),
-        vente : $("input[name='vente']:checked").val()
-    }, 
-    current_number_annonces : 0
+    
 };
 
 
@@ -25,7 +14,6 @@ annonces.bind = function(){
    
    $('#button-search').click(function(e){
     e.preventDefault();
-
     annonces.criterias.price_min = $('#price-min').val(); 
     annonces.criterias.price_max = $('#price-max').val(); 
     annonces.criterias.date_min = $('#date-min').val(); 
@@ -33,7 +21,7 @@ annonces.bind = function(){
     annonces.criterias.province = $('#province').val();
     annonces.criterias.zipcode = $('#zipcode').val(); 
     annonces.criterias.lang = $("input[name='lang']:checked").val();
-    annonces.criterias.vente = $("input[name='vente']:checked").val();    
+    annonces.criterias.vente = $("input[name='vente']:checked").val();  
     annonces.tableObject.api().ajax.reload(); 
 
     $.ajax({
@@ -441,7 +429,9 @@ annonces.initSearchValues = function(){
 
     annonces.criterias.date_min = $('#annonces #date-min').val();
     annonces.criterias.date_max = $('#annonces #date-max').val();
+    
 }
+
 
 /*********************************
 *   @name : init
@@ -449,6 +439,21 @@ annonces.initSearchValues = function(){
 *   init  instance  
 *********************************/
 annonces.init = function(){
+
+    annonces.tableObject = false;
+    annonces.criterias = {
+        date_min : $('#date-min').val(),
+        date_max : $('#date-max').val(),
+        price_min : $('#price-min').val(),
+        price_max : $('#price-max').val(),
+        zipcode : $('#zipcode').val(),
+        province : $('#province').val(),
+        lang : $("input[name='lang']:checked").val(),
+        vente : $("input[name='vente']:checked").val()
+    };
+    annonces.current_number_annonces = 0;
+
+
     annonces.initSearchValues();
     annonces.initTableDatatablesResponsive();
     annonces.bind();

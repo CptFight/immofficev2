@@ -34,7 +34,7 @@
                                 <input type="password" id="login-password" name="password" class="form-control" placeholder="Mot de passe" required="">
                                 <input type="submit" class="btn" name="send-login" value="<?php echo $this->lang->line('login'); ?>" />
                             </form>
-                            <a href="" class="link-password"><?php echo $this->lang->line('forgot_password'); ?></a>
+                            <a href="<?php echo site_url('users/lost_password'); ?>" class="link-password"><?php echo $this->lang->line('forgot_password'); ?></a>
                             <?php $this->load->view('common/messages') ?>
                             <?php $this->load->view('common/errors') ?>
                         </div>

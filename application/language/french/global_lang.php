@@ -3,11 +3,17 @@
 	$lang['base_url'] = base_url();
 
 
+	$lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";
 	$lang['prospecter'] = 'Prospecteur';
 	$lang['superviser'] = 'Superviseur';
 	$lang['admin'] = 'Administrateur';
 
-
+	$lang['send_new_password'] = 'Envoyer un nouveau mot de passe';
+	$lang['new_password_subject'] = 'Nouveau mot de passe';
+	$lang['mail_password_title'] = 'Nouveau mot de passe';
+	$lang['new_password_content_mail'] = 'Immoffice vous a généré un nouveau mot de passe';
+	$lang['new_password_send'] = "Un nouveau mot de passe a été envoyé à l'adresse : ";
+	$lang['email_not_exist'] = "Cet email n'existe pas.";
 	$lang['since_all_time'] = 'Depuis toujours';
 	$lang['number_export_csv'] = "Nombre d'excel exportés";
 	$lang['number_export_print'] = "Nombre d'impression exportées";
@@ -56,6 +62,7 @@
 	$lang['breadcrumb_edit_full'] = 'Edition';
 	$lang['breadcrumb_news'] = 'News';
 	$lang['breadcrumb_calendar'] = 'Calendrier';
+	$lang['breadcrumb_edit_profile'] = 'Edition de profil';
 
 	$lang['message'] = 'Message';
 	$lang['update_done'] = 'Modification effectuée';
@@ -80,7 +87,7 @@
 	$lang['price_htva'] = 'Prix HTVA';
 	$lang['verify_password'] = 'Confirmer le mot de passe';
 	$lang['owner_commercial'] = 'Email du commercial responsable';
-	$lang['tags'] = 'Tags';
+	$lang['tags'] = 'Mots clés ( mandataire, importance, .. )';
 	$lang['url'] = 'Url';
 	$lang['edit'] = "Edition";
 	$lang["event_error_title"] = "Perturbation ! ";
@@ -360,6 +367,10 @@
 	$lang["event_15_button_label"] = "Tester";
 	$lang["event_16_title"] = "Vos favoris";
 	$lang["event_16_body"] = "Vous pouvez dès à présent ajouter vos propres favoris. ";
+	$lang["event_17_title"] = "Immoffice V2";
+	$lang["event_17_body"] = "Nous avons pris en compte toutes vos suggestions et avons le plaisir de vous présenter la nouvelle version d'Immoffice. N'hesitez pas à nous contacter pour une présentation en détail de toutes les nouveautés ! ";
+
+
 
 	$lang["suggestion_label"] = "Si vous avez des suggestions pour l'amélioration d'Immoffice; n'hésitez pas à nous les faire parvenir depuis ce formulaire. ";
 	$lang["put_your_message_here"] = "Inscrivez votre message ici";

@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Annonces extends MY_Controller {
 
 	public function index() {
-		
+		if($this->current_user->role_id == 1){
+			redirect('subscribers/index');
+		}
 		$this->load->model(array('Annonces_m'));
 		
 		//TODO SET USER INFORMATIONS.
@@ -25,6 +27,48 @@ class Annonces extends MY_Controller {
 
 		$this->load->view('template', $this->data);
 
+	}
+
+	public function edit(){
+		if($this->current_user->role_id != 4){
+			redirect('annonces/index');
+		}
+
+		$this->load->model(array('Annonces_m'));
+
+		if($this->input->post('delete') ){
+			$id = $this->input->post('id');
+			if($this->Annonces_m->delete($id)){
+				redirect('annonces/index');
+			}else{
+				$this->addError($this->lang->line('annonce_already_linked'));
+			}
+			
+		}
+
+
+		if($this->input->post('save') ){
+		
+			$annonce = array();
+			$annonce['id'] = $this->input->post('id');
+			$annonce['title'] = $this->input->post('title');
+			$annonce['url'] = $this->input->post('url');
+			$annonce['web_site'] = $this->input->post('web_site');
+			$annonce['adress'] = $this->input->post('adress');
+			$annonce['city'] = $this->input->post('city');
+			$annonce['zip_code'] = $this->input->post('zip_code');
+			$annonce['province'] = $this->input->post('province');
+			$annonce['living_space'] = $this->input->post('living_space');
+			$annonce['description'] = $this->input->post('description');
+			$annonce['lang'] = $this->input->post('lang');
+			$annonce['sale'] = $this->input->post('sale');
+			$this->Annonces_m->update($annonce);
+			redirect('annonces/index');
+		}
+
+		$this->data['annonce'] = $this->Annonces_m->get($this->input->get('id'));
+
+		$this->load->view('template', $this->data);
 	}
 
 	public function getDatas(){
@@ -133,6 +177,15 @@ class Annonces extends MY_Controller {
 			$historic_publications = $this->getHistoricPublications($annonce->id);
 			$historic_price = $this->getHistoricPrices($annonce->id);
 
+			$actions = '<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
+	 				<li class="table-btn-link"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
+                    <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
+                    <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>';
+            if($this->current_user->role_id == 4){
+            	$actions .= ' <li class="table-btn-edit"><a href="'.site_url('annonces/edit/?id='.$annonce->id).'"><i class="fa fa-pencil"></i><span>Editer annonce</span></a></li>';
+            }
+            $actions .= '</ul>';
+
 			$data[] = array(
 				$annonce->title,
 				$annonce->zip_code,
@@ -140,11 +193,7 @@ class Annonces extends MY_Controller {
 				$annonce->web_site,
 				date('d/m/Y',$annonce->date_publication),
 				'<input type="checkbox" class="visited" />',
-				'<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
-	 				<li class="table-btn-link"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
-                    <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
-                    <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
-                </ul>',
+				$actions,
                 $annonce->id,
                 "<span class='historic_price old'>".$historic_price."</span> ".number_format($annonce->price, 0, ',', ' ').' €',
                 "<span class='historic_publications old'>".$historic_publications."</span> ".date('d/m/Y',$annonce->date_publication),

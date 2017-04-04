@@ -1,9 +1,7 @@
 
 
 var calendar = calendar || {
-    calendarObject_month : false,
-    calendarObject_week : false,
-    events : []
+    
 };
 
 /*********************************
@@ -21,6 +19,10 @@ calendar.bind = function(){
 *   init  instance  
 *********************************/
 calendar.init = function(){
+    calendar.calendarObject_month = false;
+    calendar.calendarObject_week = false;
+    calendar.events = [];
+
     calendar.bind();
     calendar.initFullCalendar();
 }

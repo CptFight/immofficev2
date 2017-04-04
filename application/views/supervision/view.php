@@ -1,10 +1,13 @@
 <section class="l-annonces-search l-annonces-section apparitionright l-dashboard">
     <div class="l-annonces-form l-form">
         <h3><?php echo $user->name." ".$user->firstname; ?></h3>
+        
         <ul class="tabs">
             <li><div id="tab1" class='active'><?php echo $this->lang->line('dashboard'); ?></div></li>
             <li><div id="tab2"><?php echo $this->lang->line('connection_historic'); ?></div></li>
         </ul>
+
+
         <input type="hidden" id="current_user_id_view" value="<?php echo $user->id;?>" >
         <div class="block">
             <div class='active tab tab1'>
