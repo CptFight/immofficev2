@@ -66,6 +66,8 @@ class Users extends MY_Controller {
 			$user['owner_name'] = $this->input->post('owner_name');
 			$user['price_htva'] = $this->input->post('price_htva');
 			$user['price_tvac'] = $this->input->post('price_tvac');
+			$user['role'] = $this->input->post('role');
+
 			$user['created'] = strtotime('now');
 			
 			if($this->Users_m->insert($user)){
@@ -92,7 +94,10 @@ class Users extends MY_Controller {
 			$user['id'] = $this->input->post('id');
 			$user['login'] = $this->input->post('email');
 			$user['lang'] = $this->input->post('lang');
-			$user['password'] = md5($this->input->post('password'));
+			if($this->input->post('password') != ''){
+				$user['password'] = md5($this->input->post('password'));
+			}
+			
 			$user['name'] = $this->input->post('name');
 			$user['firstname'] = $this->input->post('firstname');
 			$user['agence_id'] = $this->input->post('agence');
@@ -103,6 +108,7 @@ class Users extends MY_Controller {
 			$user['owner_name'] = $this->input->post('owner_name');
 			$user['price_htva'] = $this->input->post('price_htva');
 			$user['price_tvac'] = $this->input->post('price_tvac');
+			$user['role'] = $this->input->post('role');
 			$user['created'] = strtotime('now');
 			
 			if($this->Users_m->update($user)){

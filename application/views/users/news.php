@@ -64,13 +64,20 @@
         </fieldset>
         <fieldset class="radio-inline-cont ">
             <div>
-                <input name="lang" type="radio" value="french" id="fr" required>
+                <input name="lang" type="radio" value="french" id="fr" required checked>
                 <label for="fr"><?php echo $this->lang->line('french'); ?></label>
             </div><!--
              --><div>
                 <input name="lang" type="radio" value="dutch" id="nl" required>
                 <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
             </div>
+        </fieldset>
+        <fieldset class="inputstyle select">
+            <select name="role">
+                <option value="prospecter"><?php echo $this->lang->line('prospecter'); ?></option>
+                <option value="superviser"><?php echo $this->lang->line('superviser'); ?></option>
+               <!-- <option value="admin"><?php echo $this->lang->line('admin'); ?></option> -->
+            </select>
         </fieldset>
         <fieldset>
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>

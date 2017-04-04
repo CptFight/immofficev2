@@ -32,7 +32,10 @@
                 <li><a href="<?php echo site_url('users/index'); ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('users'); ?></span></a></li>
                  <li><a href="<?php echo site_url('agences/index'); ?>" class="<?php if($pagename == "agences") echo "active"; ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('agences'); ?></span></a></li>
                 <?php } ?>
+
+                <?php if($current_user->role == 'superviser' || $current_user->role == 'admin'){ ?>
                 <li><a href="<?php echo site_url('supervision/index'); ?>" class="<?php if($pagename == "supervision") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span ><?php echo $this->lang->line('supervision'); ?></span></a></li>
+                <?php } ?>
 
             </ul>
             <ul class="l-nav-small">

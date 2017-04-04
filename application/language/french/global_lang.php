@@ -2,6 +2,12 @@
 
 	$lang['base_url'] = base_url();
 
+
+	$lang['prospecter'] = 'Prospecteur';
+	$lang['superviser'] = 'Superviseur';
+	$lang['admin'] = 'Administrateur';
+
+
 	$lang['since_all_time'] = 'Depuis toujours';
 	$lang['number_export_csv'] = "Nombre d'excel exporté";
 	$lang['number_export_print'] = "Nombre d'impression exportée";

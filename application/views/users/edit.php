@@ -73,6 +73,14 @@
             <input type="text" id="price_tvac" name="price_tvac" value='<?php echo $user->price_tvac; ?>' >
         </fieldset>
 
+        <fieldset class="inputstyle select">
+            <select name="role">
+                <option value="prospecter" <?php if($user->role == 'prospecter') echo "selected"; ?>><?php echo $this->lang->line('prospecter'); ?></option>
+                <option value="superviser" <?php if($user->role == 'superviser') echo "selected"; ?>><?php echo $this->lang->line('superviser'); ?></option>
+               <!-- <option value="admin"><?php echo $this->lang->line('admin'); ?></option> -->
+            </select>
+        </fieldset>
+
         <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>

@@ -3,10 +3,18 @@
 class Supervision extends MY_Controller {
 
 	public function index() {
+		if($this->current_user->role != 'superviser' || $this->current_user->role != 'admin'){
+			redirect('annonces/index');
+		}
+
 		$this->load->view('template', $this->data);
 	}
 
 	public function view(){
+		if($this->current_user->role != 'superviser' || $this->current_user->role != 'admin'){
+			redirect('annonces/index');
+		}
+
 		$this->load->model(array('Users_m','Favoris_m','Rappels_m','Subscribers_m','Visits_m'));
 
 		$user_id = $this->input->get('id');
