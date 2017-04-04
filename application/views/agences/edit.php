@@ -11,8 +11,8 @@
     <div class="l-annonces-form l-form">
         <input type="hidden" name="id" value="<?php echo $agence->id; ?>" />
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('name'); ?></label>
-            <input type="text" name="name" value='<?php echo $agence->name; ?>' required>
+            <label for="name"><?php echo $this->lang->line('name'); ?></label>
+            <input type="text" id="name" name="name" value='<?php echo $agence->name; ?>' required>
         </fieldset>
 
         <fieldset class="form-buttons">

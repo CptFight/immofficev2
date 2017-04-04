@@ -3,33 +3,33 @@
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('email'); ?></label>
-            <input type="text" name="email" value='<?php echo $user->login; ?>' required>
+            <label for="email"><?php echo $this->lang->line('email'); ?></label>
+            <input type="text" id="email" name="email" value='<?php echo $user->login; ?>' required>
         </fieldset>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('password'); ?></label>
-            <input type="password" name="password" value=''>
+            <label for="password"><?php echo $this->lang->line('password'); ?></label>
+            <input type="password" id="password" name="password" value=''>
         </fieldset>
          <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('verify_password'); ?></label>
-            <input type="password" name="verify_password" value=''>
+            <label for="verify_password"><?php echo $this->lang->line('verify_password'); ?></label>
+            <input type="password" id="verify_password" name="verify_password" value=''>
         </fieldset>
         <hr/>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('name'); ?></label>
-            <input type="text" name="name" value='<?php echo $user->name; ?>' >
+            <label for="name"><?php echo $this->lang->line('name'); ?></label>
+            <input type="text" id="name" name="name" value='<?php echo $user->name; ?>' >
         </fieldset>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('firstname'); ?></label>
-            <input type="text" name="firstname" value='<?php echo $user->firstname; ?>' >
+            <label for="firstname"><?php echo $this->lang->line('firstname'); ?></label>
+            <input type="text" id="firstname" name="firstname" value='<?php echo $user->firstname; ?>' >
         </fieldset>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('tel'); ?></label>
-            <input type="text" name="tel" value='<?php echo $user->tel; ?>' >
+            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
+            <input type="text" id="tel" name="tel" value='<?php echo $user->tel; ?>' >
         </fieldset>
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('adress'); ?></label>
-            <input type="text" name="adress" value='<?php echo $user->adress; ?>' >
+            <label for="adress"><?php echo $this->lang->line('adress'); ?></label>
+            <input type="text" id="adress" name="adress" value='<?php echo $user->adress; ?>' >
         </fieldset>
         <fieldset class="radio-inline-cont ">
             <div>

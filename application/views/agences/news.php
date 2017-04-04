@@ -10,8 +10,8 @@
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
         <fieldset class="inputstyle">
-            <label><?php echo $this->lang->line('name'); ?></label>
-            <input type="text" name="name" value='' required>
+            <label for"name"><?php echo $this->lang->line('name'); ?></label>
+            <input type="text" id="name" name="name" value='' required>
         </fieldset>
         <fieldset>
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
