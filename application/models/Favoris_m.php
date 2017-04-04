@@ -74,10 +74,14 @@ class Favoris_m extends MY_Model {
         $last_favoris = $favoris[0];
       else
         $last_favoris = false;
+
+      $this->db->where('user_id',$user_id);
+      $this->db->where('created >',strtotime('-1 week'));
+      $number_favoris_since_1_week = count($this->db->get($this->_db)->result());
      
       return array(
         'last_favoris' => $last_favoris,
-        'number_favoris_since_1_week' => 0,
+        'number_favoris_since_1_week' => $number_favoris_since_1_week,
         'number_favoris' => count($favoris)
       );
     }

@@ -9,15 +9,15 @@
 
 
 	$lang['since_all_time'] = 'Depuis toujours';
-	$lang['number_export_csv'] = "Nombre d'excel exporté";
-	$lang['number_export_print'] = "Nombre d'impression exportée";
-	$lang['number_export_pdf'] = "Nombre de pdf exporté";
-	$lang['number_export_mail'] = "Nombre de mails exporté";
+	$lang['number_export_csv'] = "Nombre d'excel exportés";
+	$lang['number_export_print'] = "Nombre d'impression exportées";
+	$lang['number_export_pdf'] = "Nombre de pdf exportés";
+	$lang['number_export_mail'] = "Nombre de mails exportés";
 
 	$lang['since_1_week'] = 'Depuis 1 semaine';
 	$lang['last_export'] = 'Dernier export envoyé';
-	$lang['number_export'] = "Nombre d'export";
-	$lang['number_visits'] = 'Nombre de visite';
+	$lang['number_export'] = "Nombre d'exports";
+	$lang['number_visits'] = 'Nombre de visites';
 	$lang['agences_with_users'] = "L'agence a des utilisateurs associés";
 	$lang['last_link_visited'] = 'Dernier lien visité';
 	$lang['supervision'] = "Supervision";

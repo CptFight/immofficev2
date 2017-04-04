@@ -3,7 +3,7 @@
 class Supervision extends MY_Controller {
 
 	public function index() {
-		if($this->current_user->role != 'superviser' || $this->current_user->role != 'admin'){
+		if($this->current_user->role != 'superviser' && $this->current_user->role != 'admin'){
 			redirect('annonces/index');
 		}
 
@@ -11,7 +11,7 @@ class Supervision extends MY_Controller {
 	}
 
 	public function view(){
-		if($this->current_user->role != 'superviser' || $this->current_user->role != 'admin'){
+		if($this->current_user->role != 'superviser' && $this->current_user->role != 'admin'){
 			redirect('annonces/index');
 		}
 

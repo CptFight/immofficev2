@@ -39,14 +39,14 @@ class Exports_m extends MY_Model {
 	        	'pdf' => count( $this->get($user_id , 'pdf')),
 	        	'csv' => count( $this->get($user_id , 'csv')),
 	        	'print' => count( $this->get($user_id , 'print')),
-	        	'mail' => count( $this->get($user_id , 'mail')),
+	        	'mail' => count( $this->get($user_id , 'email')),
 	        ),
 	        'number_exports_since_1_week' => array(
 	        	'all' => count( $this->get($user_id , false, 'week')),
 	        	'pdf' => count( $this->get($user_id , 'pdf', 'week')),
 	        	'csv' => count( $this->get($user_id , 'csv', 'week')),
 	        	'print' => count( $this->get($user_id , 'print', 'week')),
-	        	'mail' => count( $this->get($user_id , 'mail', 'week')),
+	        	'mail' => count( $this->get($user_id , 'email', 'week')),
 	        )
 	    );
     }
