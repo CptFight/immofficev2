@@ -64,11 +64,18 @@ class Rappels_m extends MY_Model {
         else
             $last_rappels = false;
 
+        //since 1 week
+        $this->db->where('user_id',$user_id);
+        $this->db->where('created >',strtotime('-1 week'));
+        $number_rappels_since_1_week = count($this->db->get($this->_db)->result());
+
         return array(
             'last_rappels' => $last_rappels,
+            'number_rappels_since_1_week' => $number_rappels_since_1_week,
             'number_rappels' => count($rappels)
         );
     }
+
 
     public function getRappelsBetween($user_id, $start,$end){
         

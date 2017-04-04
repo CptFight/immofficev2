@@ -11,19 +11,47 @@
                         <thead>
                             <tr>
                                 <th><?php echo $this->lang->line('user'); ?></th>
+                                <th class="none"><?php echo $this->lang->line('subscriber'); ?> :</th>
+
+                                 <!-- depuis 1 semaine  -->
+                                <th class="none"><u><?php echo $this->lang->line('since_1_week'); ?></u></th>
+                               
+                                <th class="none"><?php echo $this->lang->line('number_link_visited'); ?> : </th>
+
+                                <th class="none"><?php echo $this->lang->line('number_favoris'); ?> : </th>
+                                <th class="none"><?php echo $this->lang->line('number_remember'); ?> : </th>
+                                
+                                <th class="none"><?php echo $this->lang->line('number_export'); ?> :</th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_mail'); ?> : </th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_csv'); ?> : </th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_print'); ?> : </th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_pdf'); ?> : </th>
+
+
+                                <!-- depuis toujours -->
+                                <th class="none"><u><?php echo $this->lang->line('since_all_time'); ?></u></th>
                                 <th><?php echo $this->lang->line('last_connection'); ?></th>
 
+                                <th class="none"><?php echo $this->lang->line('number_link_visited'); ?> : </th>
+                                
                                 <th class="desktop"><?php echo $this->lang->line('last_favoris'); ?></th>
                                 <th class="none"><?php echo $this->lang->line('number_favoris'); ?> : </th>
 
                                 <th class="desktop"><?php echo $this->lang->line('last_remember'); ?></th>
                                 <th class="none"><?php echo $this->lang->line('number_remember'); ?> : </th>
 
-                                <th><?php echo $this->lang->line('subscriber'); ?></th>
-                              <!--  <th class="none"><?php echo $this->lang->line('number_mail_receive'); ?> : </th> -->
+                                <th><?php echo $this->lang->line('last_export'); ?> :</th>
+                                <th class="none"><?php echo $this->lang->line('number_export'); ?> :</th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_mail'); ?> : </th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_csv'); ?> : </th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_print'); ?> : </th>
+                                <th class="none"> -> <?php echo $this->lang->line('number_export_pdf'); ?> : </th>
 
-                                <th class="none"><?php echo $this->lang->line('number_link_visited'); ?> : </th>
-                                 <th class="none"><?php echo $this->lang->line('number_link_visited_since_1_week'); ?> : </th>
+                               
+                                
+                               
+                                
+
                                 <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                             </tr>
                         </thead>

@@ -77,6 +77,7 @@ class Favoris_m extends MY_Model {
      
       return array(
         'last_favoris' => $last_favoris,
+        'number_favoris_since_1_week' => 0,
         'number_favoris' => count($favoris)
       );
     }

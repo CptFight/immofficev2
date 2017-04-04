@@ -146,8 +146,8 @@ class Annonces extends MY_Controller {
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $annonce->id,
-                "<span class='historic_price'>".$historic_price."</span>",
-                "<span class='historic_publications old'>".$historic_publications."</span>",
+                "<span class='historic_price old'>".$historic_price."</span> ".number_format($annonce->price, 0, ',', ' ').' €',
+                "<span class='historic_publications old'>".$historic_publications."</span> ".date('d/m/Y',$annonce->date_publication),
                 $annonce->adress,
                 $annonce->province,
               	$annonce->description,
@@ -168,22 +168,34 @@ class Annonces extends MY_Controller {
 		$this->load->model(array('Publications_m'));
 		$historic_publications_in_string = '';
 		$historic_publications = $this->Publications_m->get($annonce_id);
-		foreach($historic_publications as $key => $publication){
-			$historic_publications_in_string .= date('d/m/Y',$publication->date_publication)." ";
+		if(count($historic_publications) <= 1){
+			return '';
+			
+		}else{
+			unset($historic_publications[count($historic_publications)-1]);
+			foreach($historic_publications as $key => $publication){
+				$historic_publications_in_string .= date('d/m/Y',$publication->date_publication)." ";
+			}
+			$historic_publications_in_string = trim($historic_publications_in_string,' ');
+			return $historic_publications_in_string;
 		}
-		$historic_publications_in_string = trim($historic_publications_in_string,' ');
-		return $historic_publications_in_string;
 	}
 
 	private function getHistoricPrices($annonce_id){
 		$this->load->model(array('Prices_m'));
 		$historic_prices_in_string = '';
 		$historic_prices = $this->Prices_m->get($annonce_id);
-		foreach($historic_prices as $key => $price){
-			$historic_prices_in_string .= number_format($price->price, 0, ',', ' ')." ";
+		if(count($historic_prices) <= 1){
+			return '';
+		}else{
+			unset($historic_prices[count($historic_prices)-1]);
+
+			foreach($historic_prices as $key => $price){
+				$historic_prices_in_string .= number_format($price->price, 0, ',', ' ')." ";
+			}
+			$historic_prices_in_string = trim($historic_prices_in_string,' ');
+			return $historic_prices_in_string." €";
 		}
-		$historic_prices_in_string = trim($historic_prices_in_string,' ');
-		return $historic_prices_in_string." €";
 	}
 
 	

@@ -377,13 +377,7 @@ annonces.initSearchValues = function(){
 
     var date_min = $('#date-min').val();
     var date_max = $('#date-max').val();
-    /*var province = $('#province').val();
-    var price_min = $('#date-').val();
-    var price_max = '';
-    var zipcodes = '';
-    var lang = 'fr';
-    var sale = 'sale';*/
- 
+
     if(!date_min){
         date_min = moment().subtract(1, 'days').format("X");
     }
@@ -445,6 +439,8 @@ annonces.initSearchValues = function(){
     $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
     $('#annonces #date-max').val(moment.unix(date_max).hours(22).minutes(59).seconds(59).format("X"));
 
+    annonces.criterias.date_min = $('#annonces #date-min').val();
+    annonces.criterias.date_max = $('#annonces #date-max').val();
 }
 
 /*********************************
@@ -453,8 +449,8 @@ annonces.initSearchValues = function(){
 *   init  instance  
 *********************************/
 annonces.init = function(){
-    annonces.initTableDatatablesResponsive();
     annonces.initSearchValues();
+    annonces.initTableDatatablesResponsive();
     annonces.bind();
 }
 

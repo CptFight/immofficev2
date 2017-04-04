@@ -101,7 +101,7 @@ class Supervision extends MY_Controller {
 	}
 
 	public function getAllDataTable(){
-		$this->load->model(array('Users_m','Favoris_m','Rappels_m','Subscribers_m','Visits_m'));
+		$this->load->model(array('Users_m','Favoris_m','Rappels_m','Subscribers_m','Visits_m','Exports_m'));
 		
 		$return = $this->input->get();
 		if(isset($this->input->get('search')['value'])){
@@ -154,6 +154,7 @@ class Supervision extends MY_Controller {
 			$rappels_infos = $this->Rappels_m->getSupervisionInfos($user->id);
 			$subscribes = $this->Subscribers_m->getSupervisionInfos($user->id);
 			$visits_infos = $this->Visits_m->getSupervisionInfos($user->id);
+			$export_infos = $this->Exports_m->getSupervisionInfos($user->id);
 
 			if(count($subscribes) >0) $subscribers_infos = '<i class="fa fa-check green"></i>';
 			else $subscribers_infos = '<i class="fa fa-remove red"></i>';
@@ -164,16 +165,41 @@ class Supervision extends MY_Controller {
 				$last_favoris_date = '';
 			}
 
+			if($export_infos['last_export']){
+				$last_export_date = date('d/m/Y H:i:s',$export_infos['last_export']->created);
+			}else{
+				$last_export_date = ''; 
+			}
+			
 			$data[] = array(
 				$user->name." ".$user->firstname,
+				$subscribers_infos,
+				'',
+				$visits_infos['numbers_visits_since_1_week'],
+				$favoris_infos['number_favoris_since_1_week'],
+				$rappels_infos['number_rappels_since_1_week'],
+
+				$export_infos['number_exports_since_1_week']['all'],
+				$export_infos['number_exports_since_1_week']['mail'],
+				$export_infos['number_exports_since_1_week']['csv'],	
+				$export_infos['number_exports_since_1_week']['print'],
+				$export_infos['number_exports_since_1_week']['pdf'],
+
+				'',
 				date('d/m/Y H:i:s',$user->last_connection),
+				$visits_infos['numbers_visits'],
 				$last_favoris_date,
 				$favoris_infos['number_favoris'],
 				date('d/m/Y H:i:s',$rappels_infos['last_rappels']),
 				$rappels_infos['number_rappels'],
-				$subscribers_infos,
-				$visits_infos['numbers_visits'],
-				$visits_infos['numbers_visits_since_1_week'],
+				$last_export_date,
+				$export_infos['number_exports']['all'],
+				$export_infos['number_exports']['mail'],
+				$export_infos['number_exports']['csv'],	
+				$export_infos['number_exports']['print'],
+				$export_infos['number_exports']['pdf'],
+
+
 				'<ul class="list-tables-buttons" data-annonce_id="24">
                     <li class="table-btn-rappel"><a href="'.site_url('supervision/view').'/?id='.$user->id.'" ><i class="fa fa-binoculars"></i><span>See More</span></a></li>
                 </ul>'
