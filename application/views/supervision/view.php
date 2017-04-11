@@ -2,8 +2,11 @@
     <div class="l-annonces-form l-form">
         <h3><?php echo $user->name." ".$user->firstname; ?></h3>
         
-        <ul class="tabs">
-            <li><div id="tab1" class='active'><?php echo $this->lang->line('dashboard'); ?></div></li>
+       
+        <ul class="tabs"><!--#METTRE UN DROPDOWN ICI-->
+            <li><div id="tab1" class='active'>Depuis une semaine</div></li>
+            <li><div id="tab3" >Depuis une mois</div></li>
+            <li><div id="tab4" >Depuis toujours</div></li>
             <li><div id="tab2"><?php echo $this->lang->line('connection_historic'); ?></div></li>
         </ul>
 
@@ -20,23 +23,9 @@
                         <h5><?php echo $this->lang->line('subscriber'); ?></h5><?php echo $subscribers_infos; ?>
                     </div>
                 </div>
+               
                 <div class="clearfix">
-                    <div class="float-middle">
-                         <h5><?php echo $this->lang->line('last_link_visited'); ?></h5>
-                        <?php if($visits_infos['last_link_visited']) { ?>
-
-                        <a target="_blank" href="<?php echo $visits_infos['last_link_visited']->url; ?>"><?php echo $visits_infos['last_link_visited']->title; ?></a>
-
-                        <?php } ?>
-                        
-                    </div>
-                    <div class="float-middle">
-                        
-                    <!-- <h5>Nombre mails reçus</h5><p>?</p> -->
-                    </div>
-                </div>
-                <div class="clearfix">
-                    <div class="float-middle">
+                    <div class="float-tiers">
                         <h4><?php echo $this->lang->line('remembers'); ?></h4>
                         <ul>
                             <li>
@@ -46,7 +35,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="float-middle">
+                    <div class="float-tiers">
                         <h4><?php echo $this->lang->line('favoris'); ?></h4>
                         <ul>
                             <li>
@@ -60,9 +49,66 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="float-tiers">
+                        <h4>Liens</h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_link_visited'); ?></h5>
+                                <?php if($visits_infos['last_link_visited']) { ?>
+                                <a target="_blank" href="<?php echo $visits_infos['last_link_visited']->url; ?>"><?php echo $visits_infos['last_link_visited']->title; ?></a>
+
+                                <?php } ?>
+                            </li>
+                            <li>
+                                <h5>Nombre de liens visités</h5><p>0</p>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
-                    
+                <div class="width98">
+                    <h4>Exports</h4>
+                    <div class="clearfix">
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Dernier export</h5>
+                                    <a target="_blank" href=""></a>
+
+                                </li>
+                                <li>
+                                    <h5>Nombre d'exports</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Mails exportés</h5>
+                                     <p>5</p>
+
+                                </li>
+                                <li>
+                                    <h5>Excels exportés</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Impressions exportées</h5>
+                                    <p>5</p>
+                                </li>
+                                <li>
+                                    <h5>Pdf exportés</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div> 
             </div>
+
             <div class="tab tab2">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="connexion_table">
@@ -77,6 +123,198 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+
+            <div class="tab tab3">
+                <div class="clearfix">
+                    <div class="float-middle">
+                        <h5><?php echo $this->lang->line('last_connection'); ?></h5><p><?php echo date('d/m/Y h:i:s',$user->last_connection); ?></p>
+                    </div>
+                    <div class="float-middle">
+                       
+                        <h5><?php echo $this->lang->line('subscriber'); ?></h5><?php echo $subscribers_infos; ?>
+                    </div>
+                </div>
+               
+                <div class="clearfix">
+                    <div class="float-tiers">
+                        <h4><?php echo $this->lang->line('remembers'); ?></h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_remember'); ?></h5> : <p><?php echo date('d/m/Y H:i:s',$rappels_infos['last_rappels']); ?></p>
+                            <li>
+                                <h5><?php echo $this->lang->line('number_remember'); ?></h5><p><?php echo $rappels_infos['number_rappels']; ?></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="float-tiers">
+                        <h4><?php echo $this->lang->line('favoris'); ?></h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_favoris'); ?></h5>
+                                <?php if($favoris_infos['last_favoris']) { ?>
+                                <a target="_blank" href="<?php echo $favoris_infos['last_favoris']->url; ?>"><?php echo $favoris_infos['last_favoris']->title; ?></a>
+                                <?php }  ?>
+                            </li>
+                            <li>
+                                <h5><?php echo $this->lang->line('number_favoris'); ?></h5><p><?php echo $favoris_infos['number_favoris']; ?></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="float-tiers">
+                        <h4>Liens</h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_link_visited'); ?></h5>
+                                <?php if($visits_infos['last_link_visited']) { ?>
+                                <a target="_blank" href="<?php echo $visits_infos['last_link_visited']->url; ?>"><?php echo $visits_infos['last_link_visited']->title; ?></a>
+
+                                <?php } ?>
+                            </li>
+                            <li>
+                                <h5>Nombre de liens visités</h5><p>0</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="width98">
+                    <h4>Exports</h4>
+                    <div class="clearfix">
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Dernier export</h5>
+                                    <a target="_blank" href=""></a>
+
+                                </li>
+                                <li>
+                                    <h5>Nombre d'exports</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Mails exportés</h5>
+                                     <p>5</p>
+
+                                </li>
+                                <li>
+                                    <h5>Excels exportés</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Impressions exportées</h5>
+                                    <p>5</p>
+                                </li>
+                                <li>
+                                    <h5>Pdf exportés</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div> 
+            </div>
+            <div class="tab tab4">
+                <div class="clearfix">
+                    <div class="float-middle">
+                        <h5><?php echo $this->lang->line('last_connection'); ?></h5><p><?php echo date('d/m/Y h:i:s',$user->last_connection); ?></p>
+                    </div>
+                    <div class="float-middle">
+                       
+                        <h5><?php echo $this->lang->line('subscriber'); ?></h5><?php echo $subscribers_infos; ?>
+                    </div>
+                </div>
+               
+                <div class="clearfix">
+                    <div class="float-tiers">
+                        <h4><?php echo $this->lang->line('remembers'); ?></h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_remember'); ?></h5> : <p><?php echo date('d/m/Y H:i:s',$rappels_infos['last_rappels']); ?></p>
+                            <li>
+                                <h5><?php echo $this->lang->line('number_remember'); ?></h5><p><?php echo $rappels_infos['number_rappels']; ?></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="float-tiers">
+                        <h4><?php echo $this->lang->line('favoris'); ?></h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_favoris'); ?></h5>
+                                <?php if($favoris_infos['last_favoris']) { ?>
+                                <a target="_blank" href="<?php echo $favoris_infos['last_favoris']->url; ?>"><?php echo $favoris_infos['last_favoris']->title; ?></a>
+                                <?php }  ?>
+                            </li>
+                            <li>
+                                <h5><?php echo $this->lang->line('number_favoris'); ?></h5><p><?php echo $favoris_infos['number_favoris']; ?></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="float-tiers">
+                        <h4>Liens</h4>
+                        <ul>
+                            <li>
+                                <h5><?php echo $this->lang->line('last_link_visited'); ?></h5>
+                                <?php if($visits_infos['last_link_visited']) { ?>
+                                <a target="_blank" href="<?php echo $visits_infos['last_link_visited']->url; ?>"><?php echo $visits_infos['last_link_visited']->title; ?></a>
+
+                                <?php } ?>
+                            </li>
+                            <li>
+                                <h5>Nombre de liens visités</h5><p>0</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="width98">
+                    <h4>Exports</h4>
+                    <div class="clearfix">
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Dernier export</h5>
+                                    <a target="_blank" href=""></a>
+
+                                </li>
+                                <li>
+                                    <h5>Nombre d'exports</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Mails exportés</h5>
+                                     <p>5</p>
+
+                                </li>
+                                <li>
+                                    <h5>Excels exportés</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="float-tiers">
+                            <ul>
+                                <li>
+                                    <h5>Impressions exportées</h5>
+                                    <p>5</p>
+                                </li>
+                                <li>
+                                    <h5>Pdf exportés</h5><p>0</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
