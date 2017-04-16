@@ -10,5 +10,9 @@ class Prices_m extends MY_Model {
         return $this->db->get($this->_db)->result();
     }
 
+    public function updatePrice($annonce_id){
+    	
+    }
+
    
 }

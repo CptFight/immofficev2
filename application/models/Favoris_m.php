@@ -77,12 +77,33 @@ class Favoris_m extends MY_Model {
 
       $this->db->where('user_id',$user_id);
       $this->db->where('created >',strtotime('-1 week'));
-      $number_favoris_since_1_week = count($this->db->get($this->_db)->result());
+      $favoris_since_1_week = $this->db->get($this->_db)->result();
+      if(isset($favoris_since_1_week[0]))
+        $last_favoris_since_1_week = $favoris_since_1_week[0];
+      else
+        $last_favoris_since_1_week = false;
+
+      $this->db->where('user_id',$user_id);
+      $this->db->where('created >',strtotime('-1 month'));
+      $favoris_since_1_month = $this->db->get($this->_db)->result();
+      if(isset($favoris_since_1_month[0]))
+        $last_favoris_since_1_month = $favoris_since_1_month[0];
+      else
+        $last_favoris_since_1_month = false;
      
       return array(
-        'last_favoris' => $last_favoris,
-        'number_favoris_since_1_week' => $number_favoris_since_1_week,
-        'number_favoris' => count($favoris)
+        'since_always' => array(
+            'last_favoris' => $last_favoris,
+            'number_favoris' => count($favoris)
+        ),
+        'since_1_week' => array(
+          'last_favoris' => $last_favoris_since_1_week,
+          'number_favoris' => count($favoris_since_1_week)
+        ),
+        'since_1_month' => array(
+          'last_favoris' => $last_favoris_since_1_month,
+          'number_favoris' => count($favoris_since_1_month)
+        )
       );
     }
 

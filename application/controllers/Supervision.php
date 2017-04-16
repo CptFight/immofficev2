@@ -15,7 +15,7 @@ class Supervision extends MY_Controller {
 			redirect('annonces/index');
 		}
 
-		$this->load->model(array('Users_m','Favoris_m','Rappels_m','Subscribers_m','Visits_m'));
+		$this->load->model(array('Users_m','Favoris_m','Rappels_m','Subscribers_m','Visits_m','Exports_m'));
 
 		$user_id = $this->input->get('id');
 		
@@ -24,6 +24,7 @@ class Supervision extends MY_Controller {
 		$this->data['rappels_infos'] = $this->Rappels_m->getSupervisionInfos($user_id);
 		$this->data['subscribes'] = $this->Subscribers_m->getSupervisionInfos($user_id);
 		$this->data['visits_infos'] = $this->Visits_m->getSupervisionInfos($user_id);
+		$this->data['export_infos'] = $this->Exports_m->getSupervisionInfos($user_id);
 
 		if(count($this->data['subscribes']) >0) $this->data['subscribers_infos'] = '<i class="fa fa-check green"></i>';
 		else $this->data['subscribers_infos'] = '<i class="fa fa-remove red"></i>';
@@ -167,14 +168,14 @@ class Supervision extends MY_Controller {
 			if(count($subscribes) >0) $subscribers_infos = '<i class="fa fa-check green"></i>';
 			else $subscribers_infos = '<i class="fa fa-remove red"></i>';
 
-			if($favoris_infos['last_favoris']){
-				$last_favoris_date = date('d/m/Y H:i:s',$favoris_infos['last_favoris']->created );
+			if($favoris_infos['since_always']['last_favoris']){
+				$last_favoris_date = date('d/m/Y H:i:s',$favoris_infos['since_always']['last_favoris']->created );
 			}else{
 				$last_favoris_date = '';
 			}
 
-			if($export_infos['last_export']){
-				$last_export_date = date('d/m/Y H:i:s',$export_infos['last_export']->created);
+			if($export_infos['since_always']['last_export']){
+				$last_export_date = date('d/m/Y H:i:s',$export_infos['since_always']['last_export']->created);
 			}else{
 				$last_export_date = ''; 
 			}
@@ -183,29 +184,29 @@ class Supervision extends MY_Controller {
 				$user->name." ".$user->firstname,
 				$subscribers_infos,
 				'',
-				$visits_infos['numbers_visits_since_1_week'],
-				$favoris_infos['number_favoris_since_1_week'],
-				$rappels_infos['number_rappels_since_1_week'],
+				$visits_infos['since_1_week']['numbers_visits'],
+				$favoris_infos['since_1_week']['number_favoris'],
+				$rappels_infos['since_1_week']['number_rappels'],
 
-				$export_infos['number_exports_since_1_week']['all'],
-				$export_infos['number_exports_since_1_week']['mail'],
-				$export_infos['number_exports_since_1_week']['csv'],	
-				$export_infos['number_exports_since_1_week']['print'],
-				$export_infos['number_exports_since_1_week']['pdf'],
+				$export_infos['since_1_week']['number_exports']['all'],
+				$export_infos['since_1_week']['number_exports']['mail'],
+				$export_infos['since_1_week']['number_exports']['csv'],	
+				$export_infos['since_1_week']['number_exports']['print'],
+				$export_infos['since_1_week']['number_exports']['pdf'],
 
 				'',
 				date('d/m/Y H:i:s',$user->last_connection),
-				$visits_infos['numbers_visits'],
+				$visits_infos['since_always']['numbers_visits'],
 				$last_favoris_date,
-				$favoris_infos['number_favoris'],
-				date('d/m/Y H:i:s',$rappels_infos['last_rappels']),
-				$rappels_infos['number_rappels'],
+				$favoris_infos['since_always']['number_favoris'],
+				date('d/m/Y H:i:s',$rappels_infos['since_always']['last_rappels']),
+				$rappels_infos['since_always']['number_rappels'],
 				$last_export_date,
-				$export_infos['number_exports']['all'],
-				$export_infos['number_exports']['mail'],
-				$export_infos['number_exports']['csv'],	
-				$export_infos['number_exports']['print'],
-				$export_infos['number_exports']['pdf'],
+				$export_infos['since_always']['number_exports']['all'],
+				$export_infos['since_always']['number_exports']['mail'],
+				$export_infos['since_always']['number_exports']['csv'],	
+				$export_infos['since_always']['number_exports']['print'],
+				$export_infos['since_always']['number_exports']['pdf'],
 
 
 				'<ul class="list-tables-buttons" data-annonce_id="24">

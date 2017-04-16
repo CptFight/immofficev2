@@ -11,6 +11,12 @@
         </fieldset>
 
         <fieldset class="inputstyle">
+            <label for="price"><?php echo $this->lang->line('price'); ?></label>
+            <input type="number" name="price" id="price" value='<?php echo $annonce->price; ?>' >
+            <input type="hidden" name="last_price_id" id="last_price_id" value='<?php echo $annonce->last_price_id; ?>' >
+        </fieldset>
+
+        <fieldset class="inputstyle">
             <label for="description"><?php echo $this->lang->line('description'); ?></label>
             <textarea name="description" id="description"><?php echo $annonce->description; ?></textarea>
         </fieldset>
@@ -41,8 +47,20 @@
         </fieldset>
 
         <fieldset class="inputstyle">
-            <label for="province"><?php echo $this->lang->line('province'); ?></label>
-            <input type="text" name="province" id="province" value='<?php echo $annonce->province; ?>' >
+            <!-- <input type="text" name="province" id="province" value='<?php echo $annonce->province; ?>' > -->
+            <select name="province" id="province" class="chosen-select form-control" tabindex="4">
+                <option <?php if($annonce->province == 'Anvers') echo 'selected'; ?> value="Anvers"><?php echo $this->lang->line('anvers'); ?></option>
+                <option <?php if($annonce->province == 'Limbourg') echo 'selected'; ?> value="Limbourg"><?php echo $this->lang->line('limbourg'); ?></option>
+                <option <?php if($annonce->province == 'Bruxelles') echo 'selected'; ?> value="Bruxelles"><?php echo $this->lang->line('bruxelles'); ?></option>
+                <option <?php if($annonce->province == 'Flandre orientale') echo 'selected'; ?> value="Flandre orientale"><?php echo $this->lang->line('flandre_orientale'); ?></option>
+                <option <?php if($annonce->province == 'Brabant flamand') echo 'selected'; ?> value="Brabant flamand"><?php echo $this->lang->line('brabant_flamand'); ?></option>
+                <option <?php if($annonce->province == 'Flandre occidentale') echo 'selected'; ?> value="Flandre occidentale"><?php echo $this->lang->line('flandre_occidentale'); ?></option>
+                <option <?php if($annonce->province == 'Brabant wallon') echo 'selected'; ?> value="Brabant wallon"><?php echo $this->lang->line('brabant_wallon'); ?></option>
+                <option <?php if($annonce->province == 'Hainaut') echo 'selected'; ?> value="Hainaut"><?php echo $this->lang->line('hainaut'); ?></option>
+                <option <?php if($annonce->province == 'Liège') echo 'selected'; ?> value="Liège"><?php echo $this->lang->line('liege'); ?></option>
+                <option <?php if($annonce->province == 'Luxembourg') echo 'selected'; ?> value="Luxembourg"><?php echo $this->lang->line('luxembourg'); ?></option>
+                <option <?php if($annonce->province == 'Namur') echo 'selected'; ?> value="Namur"><?php echo $this->lang->line('namur'); ?></option>
+            </select>
         </fieldset>
 
         <fieldset class="inputstyle">
@@ -75,6 +93,9 @@
         <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
+
+            <a class="btn pull-right" href="http://188.166.14.107/loadOne.php?load=1&vente=<?php echo $annonce->sale; ?>&website=<?php echo $annonce->web_site; ?>&path=<?php echo $annonce->url; ?>" target="_blank"><?php echo $this->lang->line('load_scan'); ?></a>
+            
         </fieldset>
 
     </div>

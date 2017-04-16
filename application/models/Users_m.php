@@ -7,7 +7,8 @@ class Users_m extends MY_Model {
   
      public function get($params) {
         $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name');
-        $this->db->join('agences','agence_id = agences.id');
+        $this->db->join('agences','users.agence_id = agences.id');
+        $this->db->join('roles','users.role_id = roles.id');
         $this->db->where('deleted !=',1);
         if(!is_array($params)){
             $id = $params;
@@ -22,14 +23,16 @@ class Users_m extends MY_Model {
 
             
             if($params['search']){
-                $request_search = "( users.name LIKE '%".$params['search']."%'";
-                $request_search .= "OR agence LIKE '%".$params['search']."%'";
-                $request_search .= "OR login LIKE '%".$params['search']."%' )";
-                $request_search .= "OR tel LIKE '%".$params['search']."%' )";
-                $request_search .= "OR role LIKE '%".$params['search']."%' )";
-                $request_search .= "OR firstname LIKE '%".$params['search']."%' )";
-                $request_search .= "OR adress LIKE '%".$params['search']."%' )";
-                $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' )";
+                $request_search = "(";
+                $request_search .= "users.name LIKE '%".$params['search']."%'";
+                $request_search .= "OR agences.name LIKE '%".$params['search']."%'";
+                $request_search .= "OR login LIKE '%".$params['search']."%' ";
+                $request_search .= "OR tel LIKE '%".$params['search']."%' ";
+                $request_search .= "OR roles.name LIKE '%".$params['search']."%' ";
+                $request_search .= "OR firstname LIKE '%".$params['search']."%' ";
+                $request_search .= "OR adress LIKE '%".$params['search']."%' ";
+                $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' ";
+                $request_search .= ")";
                 $this->db->where($request_search);
             }
 

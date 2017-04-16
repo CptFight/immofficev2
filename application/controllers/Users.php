@@ -345,7 +345,7 @@ class Users extends MY_Controller {
 					$order['column'] = 'users.name';
 					break;
 				case 1:
-					$order['column'] = 'agences.name';
+					$order['column'] = 'agence_name';
 					break;
 				case 2:
 					$order['column'] = 'login';
@@ -360,7 +360,7 @@ class Users extends MY_Controller {
 					$order['column'] = 'price_htva';
 					break;					
 				default:
-					$order['column'] = 'users.name';
+					$order['column'] = 'name';
 					break;
 			}
 		}

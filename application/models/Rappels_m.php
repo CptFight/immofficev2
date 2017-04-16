@@ -67,12 +67,33 @@ class Rappels_m extends MY_Model {
         //since 1 week
         $this->db->where('user_id',$user_id);
         $this->db->where('created >',strtotime('-1 week'));
-        $number_rappels_since_1_week = count($this->db->get($this->_db)->result());
+        $rappels_since_1_week = $this->db->get($this->_db)->result();
+        if(isset($rappels_since_1_week[0]))
+            $last_rappels_since_1_week = $rappels_since_1_week[0]->created;
+        else
+            $last_rappels_since_1_week = false;
+
+        $this->db->where('user_id',$user_id);
+        $this->db->where('created >',strtotime('-1 month'));
+        $rappels_since_1_month = $this->db->get($this->_db)->result();
+        if(isset($rappels_since_1_month[0]))
+            $last_rappels_since_1_month = $rappels_since_1_month[0]->created;
+        else
+            $last_rappels_since_1_month = false;
 
         return array(
-            'last_rappels' => $last_rappels,
-            'number_rappels_since_1_week' => $number_rappels_since_1_week,
-            'number_rappels' => count($rappels)
+            'since_always' => array(
+                'last_rappels' => $last_rappels,
+                'number_rappels' => count($rappels)
+            ),
+            'since_1_week' => array(
+                'last_rappels' => $last_rappels_since_1_week,
+                'number_rappels' => count($rappels_since_1_week)
+            ),
+            'since_1_month' => array(
+                'last_rappels' => $last_rappels_since_1_month,
+                'number_rappels' => count($rappels_since_1_month)
+            )
         );
     }
 

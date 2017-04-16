@@ -34,7 +34,7 @@ class Annonces extends MY_Controller {
 			redirect('annonces/index');
 		}
 
-		$this->load->model(array('Annonces_m'));
+		$this->load->model(array('Annonces_m','Prices_m'));
 
 		if($this->input->post('delete') ){
 			$id = $this->input->post('id');
@@ -63,6 +63,11 @@ class Annonces extends MY_Controller {
 			$annonce['lang'] = $this->input->post('lang');
 			$annonce['sale'] = $this->input->post('sale');
 			$this->Annonces_m->update($annonce);
+
+			$price = array();
+			$price['id'] = $this->input->post('last_price_id');
+			$price['price'] = $this->input->post('price');
+			$this->Prices_m->update($price);
 			redirect('annonces/index');
 		}
 

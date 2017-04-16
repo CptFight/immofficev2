@@ -8,6 +8,7 @@
 	$lang['superviser'] = 'Superviseur';
 	$lang['admin'] = 'Administrateur';
 
+	$lang['load_scan'] = 'Lancer un nouveau scan';
 	$lang['send_new_password'] = 'Envoyer un nouveau mot de passe';
 	$lang['new_password_subject'] = 'Nouveau mot de passe';
 	$lang['mail_password_title'] = 'Nouveau mot de passe';
@@ -20,6 +21,7 @@
 	$lang['number_export_pdf'] = "Nombre de pdf exportés";
 	$lang['number_export_mail'] = "Nombre de mails exportés";
 
+	$lang['since_1_month'] = 'Depuis 1 mois';
 	$lang['since_1_week'] = 'Depuis 1 semaine';
 	$lang['last_export'] = 'Dernier export envoyé';
 	$lang['number_export'] = "Nombre d'exports";
