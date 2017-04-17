@@ -55,7 +55,7 @@
                             <li>
                                 <h5><?php echo $this->lang->line('last_link_visited'); ?></h5>
                                 <?php if($visits_infos['since_1_week']['last_link_visited']) { ?>
-                                <a target="_blank" href="<?php echo $visits_infos['since_1_week']['last_link_visited']->url; ?>"><?php echo $visits_infos['last_link_visited']->title; ?></a>
+                                <a target="_blank" href="<?php echo $visits_infos['since_1_week']['last_link_visited']->url; ?>"><?php echo $visits_infos['since_1_week']['last_link_visited']->title; ?></a>
 
                                 <?php } ?>
                             </li>
