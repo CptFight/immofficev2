@@ -1409,7 +1409,7 @@ a.profile-btn {
     font-weight: bold; }
 
 /* BTN */
-.l-annonces-form input, .l-annonces-form .radio-inline, .l-annonces-form .chosen-container {
+.l-annonces-form input, .l-annonces-form .radio-inline, .l-annonces-form .chosen-container, .l-annonces-form .inputstyle.select {
   margin-bottom: 15px; }
 .l-annonces-form .inputstyle input {
   margin-bottom: 0px; }
@@ -2221,6 +2221,15 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     left: 0px;
     background: white; }
 
+.tabs {
+  display: none; }
+
+@media screen and (min-width: 992px) {
+  #tabsselect {
+    display: none; }
+
+  .tabs {
+    display: block; } }
 @media screen and (max-width: 460px) {
   .pull-right, .pull-left {
     float: none !important;
