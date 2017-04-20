@@ -202,6 +202,16 @@
 	{
 		margin-top:10px;
 	}
+	@media screen and (max-width: $medium) {
+		.chosen-select
+		{
+			margin-bottom:15px;
+		}
+		.radio-inline-cont.pull-left
+		{
+			margin-bottom:5px;
+		}
+	}
 }
 .dropdown-dates
 {

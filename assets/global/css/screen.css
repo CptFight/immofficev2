@@ -646,10 +646,11 @@ input[type="search"],
 textarea, .input, .chosen-container-multi .chosen-choices {
   background-color: #FFFFFF;
   background-image: none;
+  box-shadow: none;
   border: 1px solid #e5e6e7;
   border-radius: 1px;
+  height: 33px;
   color: inherit;
-  line-height: 1;
   display: block;
   padding: 6px 12px;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
@@ -696,6 +697,7 @@ textarea, .input, .chosen-container-multi .chosen-choices {
   input[type="search"]:focus,
   textarea:focus, .input:focus, .chosen-container-multi .chosen-choices:focus {
     outline: 0;
+    box-shadow: none;
     border-color: #1ab394 !important; }
 
 textarea {
@@ -848,11 +850,36 @@ fieldset {
 .form-buttons .delete:hover {
   background: #bf2a3a; }
 
+select.input-sm {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #e5e6e7;
+  padding: 5px;
+  color: inherit;
+  font-size: 14px;
+  border-radius: 1px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  line-height: 1;
+  height: 33px;
+  box-shadow: none;
+  position: relative;
+  border-radius: 1px;
+  background: #FFF url("img/sort.png") no-repeat right center; }
+  select.input-sm:hover {
+    border-color: #1ab394 !important; }
+  select.input-sm:focus {
+    outline: 0;
+    box-shadow: none;
+    border-color: #1ab394 !important; }
+
 .inputstyle.select select {
   width: 100%;
+  line-height: 1;
   display: block;
   -webkit-appearance: none;
-  padding: 5px;
+  -moz-appearance: none;
+  padding: 5px 8px;
+  height: 33px;
   background-color: #FFFFFF;
   background-image: none;
   border: 1px solid #e5e6e7;
@@ -860,7 +887,6 @@ fieldset {
   color: inherit;
   line-height: 1;
   display: block;
-  padding: 8px 12px;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   width: 100%;
   font-size: 14px;
@@ -943,6 +969,9 @@ fieldset {
     left: 0; }
   .l-header .max-width {
     padding: 0 15px; }
+
+.l-landing .l-header {
+  height: 66px; }
 
 .l-header.scroll {
   background: white;
@@ -1042,6 +1071,7 @@ h1 {
 .l-landing #btn-toggle-nav {
   position: fixed;
   left: initial;
+  z-index: 10000;
   right: 20px;
   top: 20px; }
 
@@ -1390,6 +1420,11 @@ a.profile-btn {
     padding-left: 15px; } }
 .l-annonces-form .btn.submit, .l-annonces-form .submit.btn-grey {
   margin-top: 10px; }
+@media screen and (max-width: 992px) {
+  .l-annonces-form .chosen-select {
+    margin-bottom: 15px; }
+  .l-annonces-form .radio-inline-cont.pull-left {
+    margin-bottom: 5px; } }
 
 .dropdown-dates {
   z-index: 10;

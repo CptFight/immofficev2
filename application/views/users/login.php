@@ -1,8 +1,8 @@
 
     <body class="l-landing">
-        <div class="wrapper" id="top">
-            <button id="btn-toggle-nav" class="btn"><i class="fa fa-navicon"></i></button>
-            <div class="content" data-equalizer-max="menu">            
+        <div class="wrapper" id="top"> 
+            <button id="btn-toggle-nav" class="btn"><i class="fa fa-plus"></i></button>
+            <div class="content">            
                 <header class="l-header">
                     <div class="max-width clearfix">
                         <h1><a class="btn logo-header">Immoffice</a></h1>
@@ -54,7 +54,7 @@
                     </footer>
                 </section>
             </div>
-            <aside class="l-nav-aside hide" data-equalizer-max="menu">      
+            <aside class="l-nav-aside hide-menu">      
                 <ul class="l-nav-small">
                     <li><a href="#top" class="active"><?php echo $this->lang->line('connection'); ?></a></li>
                     <li><a href="#contact" ><span><?php echo $this->lang->line('contact'); ?></span></a></li>
@@ -67,6 +67,7 @@
                     </li>
                 </ul>
             </aside>
+
         </div>
     </body>
    
