@@ -4,9 +4,17 @@
     <input type="hidden" name="back_path" value='<?php echo $back_path; ?>'>
     <div class="l-annonces-form l-form">
         <ul class="tabs">
-            <li><div id="tab1" class='active'><?php echo $this->lang->line('favoris'); ?></div></li>
-            <li><div id="tab2"><?php echo $this->lang->line('rappel'); ?></div></li>
+            <li><div id="tab1" data-select="tab1" class='active'><?php echo $this->lang->line('favoris'); ?></div></li>
+            <li><div id="tab2" data-select="tab2" ><?php echo $this->lang->line('rappel'); ?></div></li>
         </ul>
+        <fieldset class="inputstyle select tabsselectcont">
+            <select id="tabsselect" >
+                <option value="tab1" selected><?php echo $this->lang->line('favoris'); ?></option>
+                <option value="tab2"><?php echo $this->lang->line('rappel'); ?></option>
+            </select>
+         </fieldset>
+
+
         <div class="block">
             <div class='active tab tab1'>
                 <fieldset class="inputstyle">

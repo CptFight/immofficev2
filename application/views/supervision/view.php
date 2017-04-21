@@ -3,13 +3,13 @@
         <h3><?php echo $user->name." ".$user->firstname; ?></h3>
         
        
-        <ul class="tabs"><!--#METTRE UN DROPDOWN ICI-->
+        <ul class="tabs">
             <li><div id="tab1" data-select="tab1" class='active'><?php echo $this->lang->line('since_1_week'); ?></div></li>
             <li><div id="tab3" data-select="tab3"><?php echo $this->lang->line('since_1_month'); ?></div></li>
             <li><div id="tab4" data-select="tab4"><?php echo $this->lang->line('since_all_time'); ?></div></li>
             <li><div id="tab2" data-select="tab2"><?php echo $this->lang->line('connection_historic'); ?></div></li>
         </ul>
-        <fieldset class="inputstyle select">
+        <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
                 <option value="tab1" selected><?php echo $this->lang->line('since_1_week'); ?></option>
                 <option value="tab3"><?php echo $this->lang->line('since_1_month'); ?></option>

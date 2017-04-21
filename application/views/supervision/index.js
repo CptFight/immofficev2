@@ -179,16 +179,33 @@ admin.init = function(){
 
     admin.initTableDatatablesResponsive();
      
+       
     $('.tab').hide();
- 	$('.active').show();
-  	$('.tabs div').on('click',function(){
-	    $('.tabs div').removeClass('active');
-	    $(this).addClass('active')
-	    $('.tab').hide();
-	    var activeTab = $(this).attr('id');
-	    $("."+activeTab).show();
-	    return false;
-	 });
+    $('.active').show();
+    $('.tabs div').on('click',function(){
+        $('.tabs div').removeClass('active');
+        $(this).addClass('active');
+        var thisselect = $(this).attr("data-select");
+
+        $('#tabsselect').removeAttr('selected');
+        $('#tabsselect').find('option[value="'+thisselect+'"]').attr("selected",true);
+
+        $('.tab').hide();
+        var activeTab = $(this).attr('id');
+        $("."+activeTab).show();
+        return false;
+    });
+    $("#tabsselect").on("change", function(){
+        $('.tabs div').removeClass('active');
+        $('#tabsselect').removeAttr('selected');
+        var thisvalue = $(this).val();
+
+        $("#"+thisvalue).addClass('active');
+        
+        $('.tab').hide();
+        $("."+thisvalue).show();
+        return false;
+    });
 }
 
 

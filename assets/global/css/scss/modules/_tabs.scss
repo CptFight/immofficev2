@@ -42,7 +42,7 @@
     display:none;
 }
 @media screen and (min-width: $medium) {
-    #tabsselect
+    .tabsselectcont
     {
         display:none;
     }
@@ -51,3 +51,8 @@
         display:block;
     }
 }
+.l-form .index-select
+{
+    margin-top: 66px;
+
+}   

@@ -1,9 +1,16 @@
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="l-annonces-form l-form">
         <ul class="tabs">
-            <li><div id="tab1" class='active'><?php echo $this->lang->line('dashboard'); ?></div></li>
-            <li><div id="tab2"><?php echo $this->lang->line('connection_historic'); ?></div></li>
+            <li><div id="tab1" data-select="tab1" class='active'><?php echo $this->lang->line('dashboard'); ?></div></li>
+            <li><div id="tab2"data-select="tab2" ><?php echo $this->lang->line('connection_historic'); ?></div></li>
         </ul>
+         <fieldset class="inputstyle select index-select tabsselectcont">
+            <select id="tabsselect" >
+                <option value="tab1" selected><?php echo $this->lang->line('dashboard'); ?></option>
+                <option value="tab2"><?php echo $this->lang->line('connection_historic'); ?></option>
+            </select>
+         </fieldset>
+
         <div class="block">
             <div class='active tab tab1'>
                 <div class="table-responsive">
