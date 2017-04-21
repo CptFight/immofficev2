@@ -14,6 +14,7 @@ class Favoris_m extends MY_Model {
           rappels.tags as rappel_tags, 
           rappels.id as rappel_id, 
           favoris.note as note, 
+          favoris.adress as adress,
           favoris.owner_name as owner_name, 
           favoris.tel as tel, 
           rappels.note as rappel_note, 
@@ -31,7 +32,7 @@ class Favoris_m extends MY_Model {
         }else{
 
 
-            if($params['length'] == 0){
+            if($params['length'] <= 0){
                $params['length'] = $this->_limit; 
                $params['start'] = 0;
             } 

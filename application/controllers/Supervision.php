@@ -179,35 +179,27 @@ class Supervision extends MY_Controller {
 			}else{
 				$last_export_date = ''; 
 			}
+
+			if($rappels_infos['since_always']['last_rappels']){
+				$last_rappel_date = date('d/m/Y H:i:s',$rappels_infos['since_always']['last_rappels']);
+			}else{
+				$last_rappel_date = ''; 
+			}
+
+			if($user->last_connection){
+				$last_connection = date('d/m/Y H:i:s',$user->last_connection);
+			}else{
+				$last_connection = '';
+			}
 			
 			$data[] = array(
 				$user->name." ".$user->firstname,
-				$subscribers_infos,
-				'',
-				$visits_infos['since_1_week']['numbers_visits'],
-				$favoris_infos['since_1_week']['number_favoris'],
-				$rappels_infos['since_1_week']['number_rappels'],
-
-				$export_infos['since_1_week']['number_exports']['all'],
-				$export_infos['since_1_week']['number_exports']['mail'],
-				$export_infos['since_1_week']['number_exports']['csv'],	
-				$export_infos['since_1_week']['number_exports']['print'],
-				$export_infos['since_1_week']['number_exports']['pdf'],
-
-				'',
-				date('d/m/Y H:i:s',$user->last_connection),
-				$visits_infos['since_always']['numbers_visits'],
+				
+				$last_connection,
 				$last_favoris_date,
-				$favoris_infos['since_always']['number_favoris'],
-				date('d/m/Y H:i:s',$rappels_infos['since_always']['last_rappels']),
-				$rappels_infos['since_always']['number_rappels'],
+				$last_rappel_date,
 				$last_export_date,
-				$export_infos['since_always']['number_exports']['all'],
-				$export_infos['since_always']['number_exports']['mail'],
-				$export_infos['since_always']['number_exports']['csv'],	
-				$export_infos['since_always']['number_exports']['print'],
-				$export_infos['since_always']['number_exports']['pdf'],
-
+				
 
 				'<ul class="list-tables-buttons" data-annonce_id="24">
                     <li class="table-btn-rappel"><a href="'.site_url('supervision/view').'/?id='.$user->id.'" ><i class="fa fa-binoculars"></i><span>See More</span></a></li>

@@ -5,8 +5,6 @@ class Annonces_m extends MY_Model {
     public $_db = 'annonces';
     public $_name = 'annonces_m';
 
-    public $_limit = 50;
-
     private $last_search_results;
 
     public function getHistoricPublications($id){
@@ -44,7 +42,7 @@ class Annonces_m extends MY_Model {
             return $this->db->get($this->_db)->row();
         }else{
 
-            if($params['length'] == 0){
+            if($params['length'] <= 0){
                $params['length'] = $this->_limit; 
                $params['start'] = 0;
             } 

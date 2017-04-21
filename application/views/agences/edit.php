@@ -14,6 +14,19 @@
             <label for="name"><?php echo $this->lang->line('name'); ?></label>
             <input type="text" id="name" name="name" value='<?php echo $agence->name; ?>' required>
         </fieldset>
+        <fieldset class="inputstyle">
+            <label for="adress"><?php echo $this->lang->line('adress'); ?></label>
+            <input type="text" id="adress" name="adress" value='<?php echo $agence->adress; ?>' >
+        </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="price_htva"><?php echo $this->lang->line('price_htva'); ?></label>
+            <input type="text" id="price_htva" name="price_htva" value='<?php echo $agence->price_htva; ?>' >
+        </fieldset>
+        <fieldset class="inputstyle">
+            <label for="price_tvac"><?php echo $this->lang->line('price_tvac'); ?></label>
+            <input type="text" id="price_tvac" name="price_tvac" value='<?php echo $agence->price_tvac; ?>' >
+        </fieldset>
 
         <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>

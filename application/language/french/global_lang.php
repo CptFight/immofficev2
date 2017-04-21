@@ -8,6 +8,8 @@
 	$lang['superviser'] = 'Superviseur';
 	$lang['admin'] = 'Administrateur';
 
+
+	$lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";
 	$lang['load_scan'] = 'Lancer un nouveau scan';
 	$lang['send_new_password'] = 'Envoyer un nouveau mot de passe';
 	$lang['new_password_subject'] = 'Nouveau mot de passe';
@@ -42,6 +44,8 @@
 	$lang['error_login'] = 'Login/mot de passe inconnu.';
 	$lang['subscriber'] = 'Abonné';
 
+	$lang['active'] = 'Actif';
+	$lang['no_active'] = 'Désactivé';
 	//error upload
 	$lang['allowed_types'] = 'Extentions authorisées';
 	$lang['max_size'] = 'Taille maximum';
@@ -56,8 +60,10 @@
 	$lang['breadcrumb_annonces'] = 'Annonces';
 	$lang['breadcrumb_users'] = 'Utilisateurs';
 	$lang['breadcrumb_rappels'] = 'Rappels';
+	$lang['breadcrumb_agences'] = 'Agences';
 	$lang['breadcrumb_suggestions'] = 'Suggestions';
-	
+	$lang['breadcrumb_dashboard'] = 'Tableau de bord';
+
 	$lang['breadcrumb_view'] = 'Detail';
 	$lang['breadcrumb_index'] = 'Liste';
 	$lang['breadcrumb_edit'] = 'Edition';

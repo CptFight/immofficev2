@@ -21,7 +21,7 @@ class Rappels_m extends MY_Model {
             return $this->db->get($this->_db)->row();
         }else{
 
-            if($params['length'] == 0){
+            if($params['length'] <= 0){
                $params['length'] = $this->_limit; 
                $params['start'] = 0;
             } 

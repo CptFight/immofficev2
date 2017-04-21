@@ -8,7 +8,6 @@ class Favoris extends MY_Controller {
 		$this->load->view('template', $this->data);
 	}
 
-
 	public function news(){
 		$this->load->model(array('Favoris_m'));
 		if($this->savePost()){
@@ -16,8 +15,9 @@ class Favoris extends MY_Controller {
 		}
 
 		$this->load->model(array('Users_m'));
-		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
-
+		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);	
+		$this->data['tab'] = 1;
+		
 		$this->load->view('template', $this->data);
 	}
 
@@ -34,9 +34,7 @@ class Favoris extends MY_Controller {
 
 			if($this->savePost()){
 				redirect($this->data['back_path'] );
-			}
-
-				
+			}		
 		}
 
 		$this->data['tab'] = 1;
@@ -67,8 +65,8 @@ class Favoris extends MY_Controller {
 			$this->Favoris_m->delete($id);
 			
 			$this->Rappels_m->deleteByUserFavorisIds($this->current_user->id,$id);
-
-			redirect('favoris/index');
+			return true;
+			//redirect('favoris/index');
 		}
 
 		if($this->input->post('save') ){
