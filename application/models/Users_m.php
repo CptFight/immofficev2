@@ -5,18 +5,32 @@ class Users_m extends MY_Model {
     public $_db = 'users';
     public $_name = 'users_m';
   
+    public function delete($id){
+        $this->db->where('user_id', $id);
+        $result = $this->db->get('connections')->row();
+        if($result) return false;
+        else{
+            $this->db->where('id', $id);
+            return $this->db->delete($this->_db); 
+        } 
+    }
+
      public function get($params) {
         $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name');
         $this->db->join('agences','users.agence_id = agences.id');
         $this->db->join('roles','users.role_id = roles.id');
-        $this->db->where('deleted !=',1);
+    
         if(!is_array($params)){
             $id = $params;
             $this->db->where('users.id',$id);
             return $this->db->get($this->_db)->row();
         }else{
 
-            if($params['length'] == 0){
+            if(!isset($params['deleted'])){
+                $this->db->where('deleted !=',1);
+            }
+
+            if($params['length'] <= 0){
                $params['length'] = $this->_limit; 
                $params['start'] = 0;
             } 
@@ -60,7 +74,7 @@ class Users_m extends MY_Model {
         } 
 
 
-        if($params['length'] == 0){
+        if($params['length'] <= 0){
            $params['length'] = $this->_limit; 
            $params['start'] = 0;
         } 

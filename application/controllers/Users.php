@@ -102,11 +102,7 @@ class Users extends MY_Controller {
 			$user['agence_id'] = $this->input->post('agence');
 			$user['adress'] = $this->input->post('adress');
 			$user['tel'] = $this->input->post('tel');
-			$user['owner_email'] = $this->input->post('owner_email');
 			$user['owner_commercial'] = $this->input->post('owner_commercial');
-			$user['owner_name'] = $this->input->post('owner_name');
-			$user['price_htva'] = $this->input->post('price_htva');
-			$user['price_tvac'] = $this->input->post('price_tvac');
 			$user['role_id'] = $this->input->post('role');
 
 			$user['created'] = strtotime('now');
@@ -145,13 +141,10 @@ class Users extends MY_Controller {
 			$user['agence_id'] = $this->input->post('agence');
 			$user['adress'] = $this->input->post('adress');
 			$user['tel'] = $this->input->post('tel');
-			$user['owner_email'] = $this->input->post('owner_email');
 			$user['owner_commercial'] = $this->input->post('owner_commercial');
-			$user['owner_name'] = $this->input->post('owner_name');
-			$user['price_htva'] = $this->input->post('price_htva');
-			$user['price_tvac'] = $this->input->post('price_tvac');
 			$user['role_id'] = $this->input->post('role');
-			$user['created'] = strtotime('now');
+			$user['deleted'] = $this->input->post('deleted');
+			//$user['created'] = strtotime('now');
 			
 			if($this->Users_m->update($user)){
 				$this->addMessage($this->lang->line('update_done'));
@@ -166,12 +159,17 @@ class Users extends MY_Controller {
 		if($this->input->post('delete') ){
 			$user = array();
 			$user['id'] = $this->input->get('id');
-			$user['deleted'] = 1;
-			$this->Users_m->update($user);
+			//$user['deleted'] = 1;
+			if(!$this->Users_m->delete($this->input->get('id'))){
+				$this->addError($this->lang->line('users_with_favoris'));
+			}
 			redirect('users/index');
 		}
 		$this->data['user'] = $this->Users_m->get($this->input->get('id'));
-
+		if(!$this->data['user']){
+			//redirect('users/index');
+		}
+		
 		$this->load->view('template', $this->data);
 	}
 
@@ -317,7 +315,6 @@ class Users extends MY_Controller {
 
 	public function getAllUsersDataTable(){
 		$this->load->model(array('Users_m'));
-		
 		$return = $this->input->get();
 		if(isset($this->input->get('search')['value'])){
 			$search = $this->input->get('search')['value'];
@@ -371,6 +368,7 @@ class Users extends MY_Controller {
 			"start" => $start,
 			"length" => $length,
 			"order" => $order,
+			"deleted" => true
 		);
 
 		
@@ -379,15 +377,21 @@ class Users extends MY_Controller {
 		$data = array();
 
 		foreach($users as $key => $user){
+			if($user->deleted != 1)
+				$deleted = '<i class="fa fa-check green"></i>';
+			else $deleted = '<i class="fa fa-remove red"></i>';
+
+			
 			$data[] = array(
 				$user->name." ".$user->firstname,
 				$user->agence_name,
 				$user->login,
 				date('d/m/Y H:i:s',$user->created),
 				date('d/m/Y H:i:s',$user->last_connection),
-				$user->price_htva." €",
+				$deleted,
 				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('users/edit/?id='.$user->id).'"><i class="fa fa-pencil"></i><span>Editer le user</span></a></li>
+                    <li class="table-btn-rappel"><a href="'.site_url('supervision/view').'/?id='.$user->id.'" ><i class="fa fa-binoculars"></i><span>See More</span></a></li>
                 </ul>'
 			);
 		}

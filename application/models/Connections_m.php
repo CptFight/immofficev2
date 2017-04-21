@@ -19,7 +19,7 @@ class Connections_m extends MY_Model {
             $this->db->where('user_id',$params['user_id']);
         } 
 
-        if($params['length'] == 0){
+        if($params['length'] <= 0){
            $params['length'] = $this->_limit; 
            $params['start'] = 0;
         } 

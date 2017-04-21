@@ -1,6 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Model extends CI_Model {
+    
+    public $_limit = 0;
 
     public function __construct(){
         parent::__construct();
@@ -15,6 +17,10 @@ class MY_Model extends CI_Model {
     public function getAll() {
         $this->db->order_by('id','desc');
         return $this->db->get($this->_db)->result();
+    }
+
+    public function count(){
+        return count($this->db->get($this->_db)->result());
     }
 
     public function update($object){

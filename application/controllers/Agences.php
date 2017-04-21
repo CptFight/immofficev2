@@ -38,7 +38,10 @@ class Agences extends MY_Controller {
 			$agence = array();
 			$agence['id'] = $this->input->post('id');
 			$agence['name'] = $this->input->post('name');
-
+			$agence['adress'] = $this->input->post('adress');
+			$agence['price_htva'] = $this->input->post('price_htva');
+			$agence['price_tvac'] = $this->input->post('price_tvac');
+			
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));
 			}

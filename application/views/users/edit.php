@@ -56,29 +56,29 @@
             </div>
         </fieldset>
         <hr/>
-        <fieldset class="inputstyle">
-            <label for="owner_email"><?php echo $this->lang->line('owner_email'); ?></label>
-            <input type="text" id="owner_email" name="owner_email" value='<?php echo $user->owner_email; ?>' >
-        </fieldset>
+       
         <fieldset class="inputstyle">
             <label for="owner_commercial"><?php echo $this->lang->line('owner_commercial'); ?></label>
             <input type="text" id="owner_commercial" name="owner_commercial" value='<?php echo $user->owner_commercial; ?>' >
         </fieldset>
-        <fieldset class="inputstyle">
-            <label for="price_htva"><?php echo $this->lang->line('price_htva'); ?></label>
-            <input type="text" id="price_htva" name="price_htva" value='<?php echo $user->price_htva; ?>' >
-        </fieldset>
-        <fieldset class="inputstyle">
-            <label for="price_tvac"><?php echo $this->lang->line('price_tvac'); ?></label>
-            <input type="text" id="price_tvac" name="price_tvac" value='<?php echo $user->price_tvac; ?>' >
-        </fieldset>
-
+        
         <fieldset class="inputstyle select">
             <select name="role">
                 <?php foreach( $roles as $key => $role){ ?>
                 <option value="<?php echo $role->id; ?>" <?php if($user->role_id == $role->id) echo "selected"; ?>><?php echo $role->name; ?></option>
                 <?php } ?>
             </select>
+        </fieldset>
+
+        <fieldset class="radio-inline-cont ">
+            <div>
+                <input name="deleted" type="radio" value="0" id="delete-no" <?php if($user->deleted == 0) echo 'checked'; ?>>
+                <label for="delete-no"><?php echo $this->lang->line('active'); ?></label>
+            </div><!--
+             --><div>
+                <input name="deleted" type="radio" value="1" id="delete-yes" <?php if($user->deleted == 1) echo 'checked'; ?>>
+                <label for="delete-yes"><?php echo $this->lang->line('no_active'); ?></label>
+            </div>
         </fieldset>
 
         <fieldset class="form-buttons">
