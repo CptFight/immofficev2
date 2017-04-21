@@ -53,6 +53,11 @@ class Agences_m extends MY_Model {
         );
     }
 
+    public function countPayed(){
+        $this->db->where('price_tvac >',0);
+        return count($this->db->get($this->_db)->result());
+    }
+
 
     public function delete($id){
         $this->db->where('agence_id', $id);

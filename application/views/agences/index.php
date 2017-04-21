@@ -11,6 +11,10 @@
             <thead>
                 <tr>
                     <th ><?php echo $this->lang->line('name'); ?></th>
+                    <th ><?php echo $this->lang->line('adress'); ?></th>
+                    <th ><?php echo $this->lang->line('price_htva'); ?></th>
+                    <th ><?php echo $this->lang->line('price_tvac'); ?></th>
+
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                 </tr>
             </thead>

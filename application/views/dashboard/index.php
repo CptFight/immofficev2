@@ -10,6 +10,15 @@
 
         <fieldset >
            
+        Nombre agences clientes ( qui payent ) : <?php echo $number_agence_who_payed; ?>
+
+
+        </fieldset>
+
+        
+
+        <fieldset >
+           
     	Nombre utilisateurs : <?php echo $number_users; ?>
 
 

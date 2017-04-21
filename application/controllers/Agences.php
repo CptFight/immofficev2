@@ -111,6 +111,9 @@ class Agences extends MY_Controller {
 		foreach($agences as $key => $agence){
 			$data[] = array(
 				$agence->name,
+				$agence->adress,
+				$agence->price_htva,
+				$agence->price_tvac,
 				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('agences/edit/?id='.$agence->id).'"><i class="fa fa-pencil"></i><span>Editer agence</span></a></li>
                 </ul>'

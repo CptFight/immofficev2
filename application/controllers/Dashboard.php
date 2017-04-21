@@ -11,6 +11,7 @@ class Dashboard extends MY_Controller {
 
 		$totals = $this->Agences_m->getTotalPrice();
 		$this->data['number_agence'] = $this->Agences_m->count();
+		$this->data['number_agence_who_payed'] = $this->Agences_m->countPayed();
 		$this->data['number_users'] = $this->Users_m->count();
 		$this->data['total_price_htva'] = $totals['total_htva'];
 		$this->data['total_price_tvac'] = $totals['total_tvac'];
