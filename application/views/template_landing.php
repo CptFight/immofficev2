@@ -35,4 +35,5 @@
 
    
     <?php $this->load->view('common/js') ?>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/scripts/login.js"></script>
 </html>
