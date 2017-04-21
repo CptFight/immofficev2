@@ -2225,11 +2225,14 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   display: none; }
 
 @media screen and (min-width: 992px) {
-  #tabsselect {
+  .tabsselectcont {
     display: none; }
 
   .tabs {
     display: block; } }
+.l-form .index-select {
+  margin-top: 66px; }
+
 @media screen and (max-width: 460px) {
   .pull-right, .pull-left {
     float: none !important;

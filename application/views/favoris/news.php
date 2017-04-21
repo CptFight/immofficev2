@@ -6,10 +6,19 @@
 
     
         <ul class="tabs">
-            <li><div id="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
-            <li><div id="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
-            <li><div id="tab3" class="<?php if($tab == 3) echo 'active'; ?>">Infos supplémentaires</div></li>
+            <li><div id="tab1" data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
+            <li><div id="tab2" data-select="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
+            <li><div id="tab3" data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>">Infos supplémentaires</div></li>
         </ul>
+        <fieldset class="inputstyle select tabsselectcont">
+            <select id="tabsselect" >
+                <option value="tab1" <?php if($tab == 1) echo 'selected'; ?>><?php echo $this->lang->line('favoris'); ?></option>
+                <option value="tab2" <?php if($tab == 2) echo 'selected'; ?>><?php echo $this->lang->line('rappel'); ?></option>
+                <option value="tab3" <?php if($tab == 3) echo 'selected'; ?>>Infos supplémentaires</option>
+            </select>
+         </fieldset>
+
+
         <div class="block">
             <div class='<?php if($tab == 1) echo 'active'; ?> tab tab1'>
                 <fieldset class="inputstyle">
