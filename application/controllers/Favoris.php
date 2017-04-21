@@ -15,8 +15,9 @@ class Favoris extends MY_Controller {
 		}
 
 		$this->load->model(array('Users_m'));
-		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
-
+		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);	
+		$this->data['tab'] = 1;
+		
 		$this->load->view('template', $this->data);
 	}
 
@@ -33,9 +34,7 @@ class Favoris extends MY_Controller {
 
 			if($this->savePost()){
 				redirect($this->data['back_path'] );
-			}
-
-				
+			}		
 		}
 
 		$this->data['tab'] = 1;
