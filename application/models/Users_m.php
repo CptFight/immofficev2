@@ -7,12 +7,37 @@ class Users_m extends MY_Model {
   
     public function delete($id){
         $this->db->where('user_id', $id);
-        $result = $this->db->get('connections')->row();
-        if($result) return false;
-        else{
-            $this->db->where('id', $id);
-            return $this->db->delete($this->_db); 
-        } 
+        $this->db->delete('connections'); 
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('visits'); 
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('uploads'); 
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('subscribers');
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('favoris'); 
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('rappels');  
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('exports');  
+
+        $this->db->where('user_id', $id);
+        $this->db->delete('connections');  
+        
+        $this->db->where('id', $id);
+        return $this->db->delete($this->_db);     
+    }
+
+
+    public function getByAgences($agence_id){
+        $this->db->where('agence_id',$agence_id);
+        return $this->db->get($this->_db)->result();
     }
 
      public function get($params) {
@@ -28,6 +53,10 @@ class Users_m extends MY_Model {
 
             if(!isset($params['deleted'])){
                 $this->db->where('deleted !=',1);
+            }
+
+             if(isset($params['agence_id']) && $params['agence_id']){
+                $this->db->where('agence_id',$params['agence_id']);
             }
 
             if($params['length'] <= 0){

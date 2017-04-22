@@ -44,10 +44,15 @@ class Supervision extends MY_Controller {
 		}
 		
 		if($this->input->get('user_id' )){
-
 			$user_id = $this->input->get('user_id');
 		}else{
 			$user_id = false;
+		}
+
+		if($this->input->get('agence_id' )){
+			$agence_id = $this->input->get('agence_id');
+		}else{
+			$agence_id = false;
 		}
 
 		$start = 0;
@@ -77,11 +82,12 @@ class Supervision extends MY_Controller {
 			}
 		}
 
-		if($this->current_user->role_id == 4){
+		/*if($this->current_user->role_id == 4){
 			$agence_id = false;
 		}else{
 			$agence_id = $this->current_user->agence_id;
-		}
+		}*/
+
 		$params = array(
 			"search" => $search,
 			"start" => $start,

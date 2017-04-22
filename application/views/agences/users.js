@@ -46,7 +46,10 @@ liste.initTableDatatablesResponsive = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
-                url : base_url()+"index.php/agences/getAllDataTable"
+                data:{
+                    agence_id : $('#agence_id').val()
+                },
+                url : base_url()+"index.php/users/getAllUsersDataTable"
             },
             
             /* end param server side */
@@ -99,7 +102,6 @@ liste.initTableDatatablesResponsive = function () {
 *********************************/
 liste.init = function(){
     liste.tableObject = false;
-
     liste.initTableDatatablesResponsive();
     liste.bind();
 }

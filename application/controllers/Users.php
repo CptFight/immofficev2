@@ -55,6 +55,7 @@ class Users extends MY_Controller {
 		$this->load->model(array('Users_m','Connections_m'));
 
 		if($this->input->post('send-login')) {
+
 			$login = $this->input->post('login');
 			$password = $this->input->post('password');
 			$user = $this->Users_m->login($login,$password);
@@ -160,6 +161,8 @@ class Users extends MY_Controller {
 			//$user['deleted'] = 1;
 			if(!$this->Users_m->delete($this->input->get('id'))){
 				$this->addError($this->lang->line('users_with_favoris'));
+			}else{
+				$this->addMessage($this->lang->line('delete_done'));
 			}
 			redirect('users/index');
 		}
@@ -320,6 +323,12 @@ class Users extends MY_Controller {
 			$search = false;
 		}
 
+		if($this->input->get('agence_id')){
+			$agence_id = $this->input->get('agence_id');
+		}else{
+			$agence_id = false;
+		}
+
 		$start = 0;
 		$length = 0;
 
@@ -366,6 +375,7 @@ class Users extends MY_Controller {
 			"start" => $start,
 			"length" => $length,
 			"order" => $order,
+			"agence_id" => $agence_id,
 			"deleted" => true
 		);
 

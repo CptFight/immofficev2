@@ -19,14 +19,9 @@ class Agences_m extends MY_Model {
             } 
             
             if($params['search']){
-                $request_search = "( users.name LIKE '%".$params['search']."%'";
-                $request_search .= "OR agence LIKE '%".$params['search']."%'";
-                $request_search .= "OR login LIKE '%".$params['search']."%' )";
-                $request_search .= "OR tel LIKE '%".$params['search']."%' )";
-                $request_search .= "OR role LIKE '%".$params['search']."%' )";
-                $request_search .= "OR firstname LIKE '%".$params['search']."%' )";
-                $request_search .= "OR adress LIKE '%".$params['search']."%' )";
-                $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' )";
+                $request_search = "(";
+                $request_search .= "adress LIKE '%".$params['search']."%'";
+                $request_search .= "OR name LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
             }
 
