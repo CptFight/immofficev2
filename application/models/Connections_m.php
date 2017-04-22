@@ -11,7 +11,7 @@ class Connections_m extends MY_Model {
 
         $this->db->join('users','connections.user_id = users.id');
 
-        if(isset($params['agence_id'] )){ 
+        if(isset($params['agence_id'] ) && $params['agence_id']){ 
             $this->db->where('agence_id',$params['agence_id']);
         } 
 

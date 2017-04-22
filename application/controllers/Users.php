@@ -67,8 +67,6 @@ class Users extends MY_Controller {
 				redirect('/annonces/index');
 				die();
 			}else{
-				
-			
 				$this->addError($this->lang->line('error_login'));
 			}
 		}		

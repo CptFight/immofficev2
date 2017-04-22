@@ -44,11 +44,8 @@ annonces.bind = function(){
     });
 
    });
-}
 
-annonces.bindElementTable = function(){
-
-    $('#annonces .table-btn-link').click(function(e){
+    annonces.tableObject.on('click','.table-btn-link', function (e) { 
         var checkbox = $(this).closest('tr').find('.visited');
         checkbox.attr('checked',true);
 
@@ -68,34 +65,10 @@ annonces.bindElementTable = function(){
             }
         });
 
-
     });
 
-    $('#annonces .visited').click(function(e){
-        var annonce_id = $(this).closest('tr').find('ul').data('annonce_id');
-        add = false;
-        if($(this).is(':checked')){
-            console.log('oui');
-            add = true;
-        }
-
-        $.ajax({
-            type: "POST",
-            url: base_url()+"index.php/users/addOrRemoveVisited",
-            dataType: 'json',
-            data: {
-                user_id : $('#user_id').val(),
-                annonce_id : annonce_id,
-                add : add 
-            },
-            success: function(response){
-              // console.log('response',response);
-            }
-        });
-    });
-    
-    $('#annonces .add_favoris').click(function(e){
-        e.preventDefault();
+    annonces.tableObject.on('click','.add_favoris', function (e) { 
+         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
         var count_favoris = $('.alert-tag.favoris').html();
@@ -132,10 +105,32 @@ annonces.bindElementTable = function(){
                console.log('response',response);
             }
         });
-        
     });
 
-    $('#annonces .add_rappel').click(function(e){
+    annonces.tableObject.on('click','.visited', function (e) { 
+        var annonce_id = $(this).closest('tr').find('ul').data('annonce_id');
+        add = false;
+        if($(this).is(':checked')){
+            console.log('oui');
+            add = true;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: base_url()+"index.php/users/addOrRemoveVisited",
+            dataType: 'json',
+            data: {
+                user_id : $('#user_id').val(),
+                annonce_id : annonce_id,
+                add : add 
+            },
+            success: function(response){
+              // console.log('response',response);
+            }
+        });
+    });
+
+    annonces.tableObject.on('click','.add_rappel', function (e) { 
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
@@ -173,8 +168,10 @@ annonces.bindElementTable = function(){
                console.log('response',response);
             }
         });
-        
     });
+}
+
+annonces.bindElementTable = function(){
 
 }
 
@@ -192,6 +189,7 @@ annonces.activeFavorisRappelVisits = function(){
                 var annonce_id = $(this).data('annonce_id');
 
                 var index = favoris_rappels_list.favoris.indexOf(annonce_id.toString());
+                
                 if(index != -1){
                     $(this).find('.add_favoris').addClass('active');
                 }

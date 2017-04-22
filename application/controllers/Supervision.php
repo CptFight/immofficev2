@@ -77,13 +77,17 @@ class Supervision extends MY_Controller {
 			}
 		}
 
-		
+		if($this->current_user->role_id == 4){
+			$agence_id = false;
+		}else{
+			$agence_id = $this->current_user->agence_id;
+		}
 		$params = array(
 			"search" => $search,
 			"start" => $start,
 			"length" => $length,
 			"order" => $order,
-			"agence_id" => $this->current_user->agence_id,
+			"agence_id" => $agence_id,
 			"user_id" => $user_id
 		);
 

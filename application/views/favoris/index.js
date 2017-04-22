@@ -12,29 +12,9 @@ var favoris = favoris || {
 *   bind  instance  
 *********************************/
 favoris.bind = function(){
-}
+    favoris.tableObject.on('click','.add_rappel', function (e) { 
 
-
-favoris.insertExport = function(type){
-    $.ajax({
-        type: "POST",
-        url: base_url()+"index.php/exports/insertExport",
-        dataType: 'json',
-        data: {
-            user_id : $('#user_id').val(),
-            nb_annonces : favoris.nb_elems,
-            type : type,
-            page : 'favoris'
-        },
-        success: function(response){
-           
-        }
-    });
-}
-
-favoris.bindElementTable = function(){
-    
-    $('#annonces .add_rappel').click(function(e){
+        console.log('passe');
         e.preventDefault();
         var favoris_id = $(this).closest('ul').data('favoris_id');
 
@@ -67,7 +47,28 @@ favoris.bindElementTable = function(){
         });
         
     });
+}
 
+
+favoris.insertExport = function(type){
+    $.ajax({
+        type: "POST",
+        url: base_url()+"index.php/exports/insertExport",
+        dataType: 'json',
+        data: {
+            user_id : $('#user_id').val(),
+            nb_annonces : favoris.nb_elems,
+            type : type,
+            page : 'favoris'
+        },
+        success: function(response){
+           
+        }
+    });
+}
+
+favoris.bindElementTable = function(){
+  
 }
 
 
