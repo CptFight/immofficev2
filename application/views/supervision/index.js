@@ -34,6 +34,9 @@ admin.initTableDatatablesResponsive = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
+                data : {
+                     agence_id : $('#agence_id').val()
+                },
                 url : base_url()+"index.php/supervision/getAllConnectionDataTable",
                
             },
@@ -116,6 +119,9 @@ admin.initTableDatatablesResponsive = function () {
             "processing": true,
             "serverSide": true,
             "ajax": {
+                data : {
+                     agence_id : $('#agence_id').val()
+                },
                 url : base_url()+"index.php/supervision/getAllDataTable"
             },
 

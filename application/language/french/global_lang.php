@@ -74,6 +74,7 @@
 
 	$lang['message'] = 'Message';
 	$lang['update_done'] = 'Modification effectuée';
+	$lang['delete_done'] = 'Suppression effectuée';
 	$lang['insert_done'] = 'Ajout effectué';
 	$lang['error_password'] = 'Les mots de passes ne correspondent pas';
 	$lang['mail_send'] = 'Le message a bien été envoyé.';

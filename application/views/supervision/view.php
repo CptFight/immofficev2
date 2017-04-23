@@ -2,7 +2,7 @@
     <div class="l-annonces-form l-form">
         <h3><?php echo $user->name." ".$user->firstname; ?></h3>
         
-       
+        <input type="hidden" name="agence_id" id="agence_id" value="<?php echo $current_user->agence_id; ?>" />
         <ul class="tabs">
             <li><div id="tab1" data-select="tab1" class='active'><?php echo $this->lang->line('since_1_week'); ?></div></li>
             <li><div id="tab3" data-select="tab3"><?php echo $this->lang->line('since_1_month'); ?></div></li>
@@ -48,7 +48,7 @@
                             <li>
                                 <h5><?php echo $this->lang->line('last_favoris'); ?></h5>
                                 <?php if($favoris_infos['since_1_week']['last_favoris']) { ?>
-                                <a target="_blank" href="<?php echo $favoris_infos['since_1_week']['last_favoris']->url; ?>"><?php echo $favoris_infos['last_favoris']->title; ?></a>
+                                <a target="_blank" href="<?php echo $favoris_infos['since_1_week']['last_favoris']->url; ?>"><?php echo $favoris_infos['since_1_week']['last_favoris']->title; ?></a>
                                 <?php }  ?>
                             </li>
                             <li>

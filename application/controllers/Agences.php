@@ -60,8 +60,14 @@ class Agences extends MY_Controller {
 		$this->load->view('template', $this->data);
 	}
 
+	public function users(){
+		$this->data['agence_id'] = $this->input->get('id');
+		$this->load->view('template', $this->data);
+	}
+
+
 	public function getAllDataTable(){
-		$this->load->model(array('Agences_m'));
+		$this->load->model(array('Agences_m','Users_m'));
 		
 		$return = $this->input->get();
 		if(isset($this->input->get('search')['value'])){
@@ -109,10 +115,18 @@ class Agences extends MY_Controller {
 		$data = array();
 
 		foreach($agences as $key => $agence){
+
+			$count_users = count($this->Users_m->getByAgences($agence->id) );
+
 			$data[] = array(
 				$agence->name,
+				$agence->adress,
+				$agence->price_htva,
+				$agence->price_tvac,
+				$count_users,
 				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('agences/edit/?id='.$agence->id).'"><i class="fa fa-pencil"></i><span>Editer agence</span></a></li>
+                    <li class="table-btn-rappel"><a href="'.site_url('agences/users/?id='.$agence->id).'"><i class="fa fa-user"></i><span>utilisateurs agence</span></a></li>
                 </ul>'
 			);
 		}

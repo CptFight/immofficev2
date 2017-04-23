@@ -37,7 +37,8 @@ admin.initTableDatatablesResponsive = function () {
             "ajax": {
                 url : base_url()+"index.php/supervision/getAllConnectionDataTable",
                 data : {
-                    user_id : $('#current_user_id_view').val()
+                    user_id : $('#current_user_id_view').val(),
+                    agence_id : $('#agence_id').val()
                 }
             },
             
