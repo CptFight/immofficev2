@@ -389,13 +389,18 @@ class Users extends MY_Controller {
 				$deleted = '<i class="fa fa-check green"></i>';
 			else $deleted = '<i class="fa fa-remove red"></i>';
 
+			if($user->last_connection){
+				$last_connection = date('d/m/Y H:i:s',$user->last_connection);
+			}else{
+				$last_connection = '';
+			}
 			
 			$data[] = array(
 				$user->name." ".$user->firstname,
 				$user->agence_name,
 				$user->login,
 				date('d/m/Y H:i:s',$user->created),
-				date('d/m/Y H:i:s',$user->last_connection),
+				$last_connection,
 				$deleted,
 				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('users/edit/?id='.$user->id).'"><i class="fa fa-pencil"></i><span>Editer le user</span></a></li>
