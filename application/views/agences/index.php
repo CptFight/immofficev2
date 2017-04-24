@@ -11,7 +11,6 @@
             <thead>
                 <tr>
                     <th ><?php echo $this->lang->line('name'); ?></th>
-                    <th ><?php echo $this->lang->line('adress'); ?></th>
                     <th ><?php echo $this->lang->line('price_htva'); ?></th>
                     <th ><?php echo $this->lang->line('price_tvac'); ?></th>
                     <th ><?php echo $this->lang->line('users'); ?></th>

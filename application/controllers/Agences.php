@@ -18,6 +18,9 @@ class Agences extends MY_Controller {
 			$this->load->model(array('Agences_m'));
 			$agence = array();
 			$agence['name'] = $this->input->post('name');
+			$agence['adress'] = $this->input->post('adress');
+			$agence['price_htva'] = $this->input->post('price_htva');
+			$agence['price_tvac'] = $this->input->post('price_tvac');
 
 			if($this->Agences_m->insert($agence)){
 				$this->addMessage($this->lang->line('insert_done'));
@@ -120,7 +123,6 @@ class Agences extends MY_Controller {
 
 			$data[] = array(
 				$agence->name,
-				$agence->adress,
 				$agence->price_htva,
 				$agence->price_tvac,
 				$count_users,

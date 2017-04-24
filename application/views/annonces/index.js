@@ -130,6 +130,10 @@ annonces.bind = function(){
         });
     });
 
+    annonces.tableObject.on( 'click', 'tr td:first()', function () {
+       annonces.activeFavorisRappelVisits();
+    } );
+
     annonces.tableObject.on('click','.add_rappel', function (e) { 
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
@@ -185,12 +189,13 @@ annonces.activeFavorisRappelVisits = function(){
             user_id : $('#user_id').val()
         },
         success: function(favoris_rappels_list){
+            $('#annonces ul.list-tables-buttons').addClass('tes');
             $('#annonces ul.list-tables-buttons').each(function(e){
                 var annonce_id = $(this).data('annonce_id');
 
             
                 var index = favoris_rappels_list.favoris.indexOf(annonce_id.toString());
-                
+               
                 if(index != -1){
                     $(this).find('.add_favoris').addClass('active');
                 }
@@ -366,7 +371,7 @@ annonces.initSearchValues = function(){
     var date_max = $('#date-max').val();
 
     if(!date_min){
-        date_min = moment().subtract(1, 'days').format("X");
+        date_min = moment().subtract(1, 'month').format("X");
     }
 
     if(!date_max){
