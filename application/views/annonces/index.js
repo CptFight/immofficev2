@@ -188,6 +188,7 @@ annonces.activeFavorisRappelVisits = function(){
             $('#annonces ul.list-tables-buttons').each(function(e){
                 var annonce_id = $(this).data('annonce_id');
 
+            
                 var index = favoris_rappels_list.favoris.indexOf(annonce_id.toString());
                 
                 if(index != -1){
