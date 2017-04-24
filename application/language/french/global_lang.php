@@ -450,5 +450,5 @@
 	$lang["all_provinces"] = "Toutes les provinces";
 	$lang["add"] = "Ajouter";
 
-
+	$lang["agences"] = "Agences";
  ?>

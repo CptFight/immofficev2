@@ -345,6 +345,6 @@
     $lang["all_provinces"] = "Alle provincies";
     $lang["add"] = "Toevoegen";
 
-
+    $lang["agences"] = "Agencies";
  ?>
 

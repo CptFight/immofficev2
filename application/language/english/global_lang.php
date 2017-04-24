@@ -348,5 +348,10 @@
 	$lang["add"] = "Ajouter";
 
 
+	$lang["agences"] = "Agencies";
+
+
+
+
  ?>
 

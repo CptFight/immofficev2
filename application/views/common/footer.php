@@ -37,7 +37,7 @@
                 <?php if($current_user->role_id == 4){ ?>
                 <li><a href="<?php echo site_url('users/index'); ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('users'); ?></span></a></li>
                  <li><a href="<?php echo site_url('agences/index'); ?>" class="<?php if($pagename == "agences") echo "active"; ?>"><i class="fa fa-building-o"></i> <span ><?php echo $this->lang->line('agences'); ?></span></a></li>
-                  <li><a href="<?php echo site_url('dashboard/index'); ?>" class="<?php if($pagename == "dashboard") echo "active"; ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('dashboard'); ?></span></a></li>
+                  <li><a href="<?php echo site_url('dashboard/index'); ?>" class="<?php if($pagename == "dashboard") echo "active"; ?>"><i class="fa fa-dashboard"></i> <span ><?php echo $this->lang->line('dashboard'); ?></span></a></li>
                 <?php } ?>
 
                 <?php if($current_user->role_id == 3 || $current_user->role_id == 4){ ?>
