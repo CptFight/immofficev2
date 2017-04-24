@@ -27,6 +27,7 @@ subscribers.init = function(){
 *********************************/
 $(document).ready(function() {     
     subscribers.init();
+    $(".l-alertmail-section:first").addClass("first");
 });
 
 
