@@ -12,9 +12,14 @@ var favoris = favoris || {
 *   bind  instance  
 *********************************/
 favoris.bind = function(){
+
+    favoris.tableObject.on( 'click', 'tr td:first()', function () {
+       favoris.activeFavorisRappel();
+    } );
+
+
     favoris.tableObject.on('click','.add_rappel', function (e) { 
 
-        console.log('passe');
         e.preventDefault();
         var favoris_id = $(this).closest('ul').data('favoris_id');
 
