@@ -1,3 +1,9 @@
+/* ------ Dropdown ------*/
+/* --------------------- */
+$(".btn-dropdown").on("click", function(){
+  var id = $(this).attr("data-id");
+  $("#"+id).toggleClass("hidden");
+});
 
 /* ------ Nav Toggle ---------- */
 /* ---------------------------- */
@@ -19,8 +25,6 @@ function clickmenu(){
 }
 /* ------ Smooth Scroll ---- */
 /* ---------------------------- */
-console.log("bob");
-
 function linkScroll(){
   	$('a[href*="#"]:not([href="#"])').click(function() {
     	if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
