@@ -183,7 +183,7 @@ class Annonces extends MY_Controller {
 			$historic_price = $this->getHistoricPrices($annonce->id);
 
 			$actions = '<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
-	 				<li class="table-btn-link"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
+	 				<li class="table-btn-link" data-annonce_id="'.$annonce->id.'"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>';
             if($this->current_user->role_id == 4){
@@ -205,7 +205,7 @@ class Annonces extends MY_Controller {
                 $annonce->adress,
                 $annonce->province,
               	$annonce->description,
-				"<a target='_blank' href='".$annonce->url."'>".$annonce->url."</a>"
+				"<a class='table-btn-link' data-annonce_id='".$annonce->id."' target='_blank' href='".$annonce->url."'>".$annonce->url."</a>"
 			);
 		}
 

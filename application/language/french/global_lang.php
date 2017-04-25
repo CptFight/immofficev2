@@ -7,6 +7,8 @@
 	$lang['prospecter'] = 'Prospecteur';
 	$lang['superviser'] = 'Superviseur';
 	$lang['admin'] = 'Administrateur';
+	$lang['boss_name'] = 'Nom du responsable';
+	$lang['agence_name'] = "Nom de l'agence";
 
 
 	$lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";

@@ -11,9 +11,21 @@
     <div class="l-annonces-form l-form">
         <input type="hidden" name="id" value="<?php echo $agence->id; ?>" />
         <fieldset class="inputstyle">
-            <label for="name"><?php echo $this->lang->line('name'); ?></label>
+            <label for="name"><?php echo $this->lang->line('agence_name'); ?></label>
             <input type="text" id="name" name="name" value='<?php echo $agence->name; ?>' required>
         </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="boss_name"><?php echo $this->lang->line('boss_name'); ?></label>
+            <input type="text" id="boss_name" name="boss_name" value='<?php echo $agence->boss_name; ?>' >
+        </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
+            <input type="text" id="tel" name="tel" value='<?php echo $agence->tel; ?>' >
+        </fieldset>
+
+
         <fieldset class="inputstyle">
             <label for="adress"><?php echo $this->lang->line('adress'); ?></label>
             <input type="text" id="adress" name="adress" value='<?php echo $agence->adress; ?>' >
@@ -26,6 +38,11 @@
         <fieldset class="inputstyle">
             <label for="price_tvac"><?php echo $this->lang->line('price_tvac'); ?></label>
             <input type="text" id="price_tvac" name="price_tvac" value='<?php echo $agence->price_tvac; ?>' >
+        </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="note"><?php echo $this->lang->line('note'); ?></label>
+            <textarea name="note" id="note"><?php echo $agence->note; ?></textarea>
         </fieldset>
 
         <fieldset class="form-buttons">

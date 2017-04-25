@@ -13,6 +13,17 @@
             <label for"name"><?php echo $this->lang->line('name'); ?></label>
             <input type="text" id="name" name="name" value='' required>
         </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="boss_name"><?php echo $this->lang->line('boss_name'); ?></label>
+            <input type="text" id="boss_name" name="boss_name" value='' >
+        </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
+            <input type="text" id="tel" name="tel" value='' >
+        </fieldset>
+
         
         <fieldset class="inputstyle">
             <label for="adress"><?php echo $this->lang->line('adress'); ?></label>
@@ -27,6 +38,12 @@
             <label for="price_tvac"><?php echo $this->lang->line('price_tvac'); ?></label>
             <input type="text" id="price_tvac" name="price_tvac" value='' >
         </fieldset>
+
+        <fieldset class="inputstyle">
+            <label for="note"><?php echo $this->lang->line('note'); ?></label>
+            <textarea name="note" id="note"></textarea>
+        </fieldset>
+
 
         <fieldset>
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
