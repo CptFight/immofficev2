@@ -175,8 +175,7 @@ class Users extends MY_Controller {
 	}
 
 	private function verifyPassword($password1,$password2,$verify_empty = true){
-		if($password1 == '') return true;
-
+		
 		if($verify_empty){
 			if(  $password1 == '' || $password2 == '' ) {
 				return false;
@@ -195,11 +194,16 @@ class Users extends MY_Controller {
 			$user = array();
 			$user['id'] = $this->current_user->id;
 			$user['login'] = $this->current_user->login = $this->input->post('email');
-			if($this->verifyPassword($this->input->post('password'), $this->input->post('verify_password'),false)){
-				$user['password'] = $this->current_user->password = md5($this->input->post('password'));
-			}else{
-				$this->addError($this->lang->line('error_password'));
+
+			if($this->input->post('password') != ''){
+				if($this->verifyPassword($this->input->post('password'), $this->input->post('verify_password'),false)){
+					$user['password'] = $this->current_user->password = md5($this->input->post('password'));
+				}else{
+					$this->addError($this->lang->line('error_password'));
+				}
 			}
+
+			
 			$user['lang'] = $this->current_user->lang = $this->input->post('lang');
 			$user['name'] = $this->current_user->name = $this->input->post('name');
 			$user['firstname'] = $this->current_user->firstname = $this->input->post('firstname');

@@ -46,11 +46,11 @@ annonces.bind = function(){
    });
 
     annonces.tableObject.on('click','.table-btn-link', function (e) { 
+
         var checkbox = $(this).closest('tr').find('.visited');
         checkbox.attr('checked',true);
 
-        var annonce_id = $(this).closest('ul').data('annonce_id');
-
+        var annonce_id = $(this).data('annonce_id');
         $.ajax({
             type: "POST",
             url: base_url()+"index.php/users/addOrRemoveVisited",
@@ -68,7 +68,7 @@ annonces.bind = function(){
     });
 
     annonces.tableObject.on('click','.add_favoris', function (e) { 
-         e.preventDefault();
+        e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
         var count_favoris = $('.alert-tag.favoris').html();

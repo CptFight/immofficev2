@@ -21,6 +21,9 @@ class Agences extends MY_Controller {
 			$agence['adress'] = $this->input->post('adress');
 			$agence['price_htva'] = $this->input->post('price_htva');
 			$agence['price_tvac'] = $this->input->post('price_tvac');
+			$agence['boss_name'] = $this->input->post('boss_name');
+			$agence['tel'] = $this->input->post('tel');
+			$agence['note'] = $this->input->post('note');
 
 			if($this->Agences_m->insert($agence)){
 				$this->addMessage($this->lang->line('insert_done'));
@@ -44,6 +47,9 @@ class Agences extends MY_Controller {
 			$agence['adress'] = $this->input->post('adress');
 			$agence['price_htva'] = $this->input->post('price_htva');
 			$agence['price_tvac'] = $this->input->post('price_tvac');
+			$agence['boss_name'] = $this->input->post('boss_name');
+			$agence['tel'] = $this->input->post('tel');
+			$agence['note'] = $this->input->post('note');
 			
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));
