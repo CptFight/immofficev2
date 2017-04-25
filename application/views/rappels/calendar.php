@@ -1,5 +1,5 @@
 
-<section class="l-annonces-search l-annonces-section apparitionright">
+<section class="l-annonces-search l-annonces-section apparitionright l-section-calendar">
 
     <div class="clearfix l-top-annonces-export">
         <div class="btns-calendar">

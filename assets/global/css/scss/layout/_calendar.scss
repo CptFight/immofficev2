@@ -26,6 +26,12 @@
 
 	}
 }
+@media screen and (max-width: 991px) {
+	.l-calendar
+	{
+    	margin-top: -32px;
+	}
+}
 .btn.btn-calendar 
 {
 	display:none;
@@ -40,5 +46,17 @@
     position: absolute;
     @media screen and (min-width: $medium) {
     	display: inline-block;
+    }
+}
+
+.l-section-calendar .l-top-annonces-export
+{
+	height:63px;
+}
+.l-section-calendar .btns-calendar 
+{
+	
+	@media screen and (max-width: 480px) {
+        margin-top: 0px !important;
     }
 }

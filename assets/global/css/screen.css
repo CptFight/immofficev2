@@ -1846,6 +1846,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     .l-calendar .input-separation:last-child .fc th {
       padding: 9px 0; } }
 
+@media screen and (max-width: 991px) {
+  .l-calendar {
+    margin-top: -32px; } }
 .btn.btn-calendar, .btn-calendar.btn-grey {
   display: none;
   bottom: 0;
@@ -1860,6 +1863,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   @media screen and (min-width: 992px) {
     .btn.btn-calendar, .btn-calendar.btn-grey {
       display: inline-block; } }
+
+.l-section-calendar .l-top-annonces-export {
+  height: 63px; }
+
+@media screen and (max-width: 480px) {
+  .l-section-calendar .btns-calendar {
+    margin-top: 0px !important; } }
 
 /* Modules */
 /* ==|====================
@@ -1977,6 +1987,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     background: #eeeeee; }
   .btns-calendar a.active:hover {
     background: #149278; }
+  @media screen and (max-width: 480px) {
+    .btns-calendar {
+      margin-top: 44px; } }
 
 .btn-delete {
   display: inline-block;
