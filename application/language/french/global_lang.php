@@ -10,7 +10,7 @@
 	$lang['boss_name'] = 'Nom du responsable';
 	$lang['agence_name'] = "Nom de l'agence";
 
-
+	$lang['total'] = "Total";
 	$lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";
 	$lang['load_scan'] = 'Lancer un nouveau scan';
 	$lang['send_new_password'] = 'Envoyer un nouveau mot de passe';
