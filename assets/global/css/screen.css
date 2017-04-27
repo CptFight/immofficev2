@@ -1869,7 +1869,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 @media screen and (max-width: 480px) {
   .l-section-calendar .btns-calendar {
     margin-top: 0px !important; } }
-
+@media screen and (max-width: 400px) {
+  #calendar_month .fc-right {
+    margin-top: 8px;
+    float: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px; } }
 /* Modules */
 /* ==|====================
    Module/Button
@@ -2243,6 +2249,13 @@ table li[class^='table-btn'] {
 
 .tabs {
   display: none; }
+
+.inputstyle.select.tabsselectcont select {
+  height: 41px;
+  background: #eee; }
+.inputstyle.select.tabsselectcont:after {
+  content: "\f0c9";
+  font-size: 21px; }
 
 @media screen and (min-width: 992px) {
   .tabsselectcont {

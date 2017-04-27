@@ -53,10 +53,20 @@
 {
 	height:63px;
 }
-.l-section-calendar .btns-calendar 
-{
-	
-	@media screen and (max-width: 480px) {
-        margin-top: 0px !important;
-    }
+@media screen and (max-width: 480px) {
+    .l-section-calendar .btns-calendar 
+	{	
+		margin-top: 0px !important;
+	}
+}
+@media screen and (max-width: 400px) {
+
+	#calendar_month .fc-right
+	{
+		margin-top: 8px;
+	    float: left;
+	    width:100%;
+	    display:block;
+	    margin-bottom: 10px;
+	}
 }
