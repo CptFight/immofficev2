@@ -130,6 +130,23 @@ $(document).ready(function() {
         }
         
     });
+
+    $("#tabsselect").on("change", function(){
+        var thisvalue = $(this).val();
+        $(".l-calendar > div").hide();
+        $("#"+thisvalue).fadeIn();
+        return false;
+    });
+
+    if($(window).width() < 992)
+    {
+        $(".l-calendar > div").hide();
+        $("#"+$('#tabsselect').val()).fadeIn();
+    }
+    else 
+    {
+        $(".l-calendar > div").show();
+    }
     $( window ).resize(function() {
         
         setTimeout(
@@ -148,6 +165,15 @@ $(document).ready(function() {
             
         }, 300);
         
+        if($(window).width() < 992)
+        {
+            $(".l-calendar > div").hide();
+            $("#"+$('#tabsselect').val()).fadeIn();
+        }
+        else 
+        {
+            $(".l-calendar > div").show();
+        }
     });
 
 });

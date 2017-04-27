@@ -1847,7 +1847,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 
 @media screen and (max-width: 991px) {
   .l-calendar {
-    margin-top: -32px; } }
+    margin-top: -22px; } }
 .btn.btn-calendar, .btn-calendar.btn-grey {
   display: none;
   bottom: 0;
