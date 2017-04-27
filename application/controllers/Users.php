@@ -365,7 +365,7 @@ class Users extends MY_Controller {
 					$order['column'] = 'last_connection';
 					break;	
 				case 5:
-					$order['column'] = 'price_htva';
+					$order['column'] = 'deleted';
 					break;					
 				default:
 					$order['column'] = 'name';
