@@ -141,15 +141,15 @@
 	padding: 5px 15px;
 	display:block;
 	margin-bottom:15px;
-	height: 100px;
+	height:60px;
 	.btn-inverse 
 	{
 		float:right;
 	}
 
-	.btns-calendar h5
+	h5
     {
-    	margin-top: 62px;
+    	margin-top: 18px;
     	font-size:0.9em;
     	font-weight:100;
     	span 
@@ -158,13 +158,7 @@
     		font-weight:500;
     	}
     }
-    @media screen and (min-width: $small) {
-		height:60px;
-	    .btns-calendar h5
-	    {
-	    	margin-top: 20px;
-	    }
-	}
+
 }
 .number-annonces
 {

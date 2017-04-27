@@ -1386,21 +1386,16 @@ a.profile-btn {
   padding: 5px 15px;
   display: block;
   margin-bottom: 15px;
-  height: 100px; }
+  height: 60px; }
   .l-top-annonces-export .btn-inverse, .l-top-annonces-export .dataTables_wrapper .dt-button, .dataTables_wrapper .l-top-annonces-export .dt-button {
     float: right; }
-  .l-top-annonces-export .btns-calendar h5 {
-    margin-top: 62px;
+  .l-top-annonces-export h5 {
+    margin-top: 18px;
     font-size: 0.9em;
     font-weight: 100; }
-    .l-top-annonces-export .btns-calendar h5 span {
+    .l-top-annonces-export h5 span {
       font-size: 1.1em;
       font-weight: 500; }
-  @media screen and (min-width: 769px) {
-    .l-top-annonces-export {
-      height: 60px; }
-      .l-top-annonces-export .btns-calendar h5 {
-        margin-top: 20px; } }
 
 .number-annonces {
   font-size: 0.8em;
@@ -1987,9 +1982,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     background: #eeeeee; }
   .btns-calendar a.active:hover {
     background: #149278; }
-  @media screen and (max-width: 480px) {
-    .btns-calendar {
-      margin-top: 44px; } }
 
 .btn-delete {
   display: inline-block;
@@ -2065,6 +2057,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     position: absolute;
     top: 40px;
     right: 20px; }
+    @media screen and (max-width: 769px) {
+      .dataTables_wrapper > .row:first-child {
+        display: none; } }
   .dataTables_wrapper .button.dt-button:hover:not(.disabled), .dataTables_wrapper div.dt-button:hover:not(.disabled), .dataTables_wrapper a.dt-button:hover:not(.disabled) {
     display: inline-block;
     padding: 10px 20px;
@@ -2072,6 +2067,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     background: #f4f4f4;
     border-radius: 3px;
     border: 1px solid #e7eaec; }
+
+table.dataTable > tbody > tr.child ul li {
+  border-bottom: none; }
 
 /* ==|================
    Module/Animation decoration
