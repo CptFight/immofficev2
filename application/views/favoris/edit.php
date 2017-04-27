@@ -78,7 +78,7 @@
                     <?php if($favoris->date_rappel == '') { $date_rappel = ''; }else{ $date_rappel = date('d/m/Y H:i',$favoris->date_rappel); } ?>
 
                     <div class='input-group date datetimepicker' id="datetimepicker_rappel">
-                        <input type="text" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date_rappel; ?>'>
+                        <input type="text" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date_rappel; ?>' >
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar">
                             </span>

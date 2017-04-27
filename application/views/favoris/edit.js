@@ -24,18 +24,20 @@ favoris_edit.init = function(){
 	    }
 	});
 
+
 	$('#datetimepicker_publication').datetimepicker({
 		format: 'DD/MM/YYYY',
 		locale: 'fr',
 		defaultDate: new Date()
-	}).on("dp.show", function(){
+		}).on("dp.show", function(){
 		if ($('#date_rappel').val() == ''){
 	    	var date = new Date();  	
 	        $(this).data('DateTimePicker').date(date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() );
 	        
-	    }
+	    } 
 	});
 	
+
   	   
     $('.tab').hide();
  	$('.active').show();

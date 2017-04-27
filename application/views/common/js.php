@@ -8,7 +8,8 @@
 <!--  JQUERY -->
 <script src="<?php echo base_url(); ?>assets/global/libs/jquery-1.11.2.js"></script>
 <script src="<?php echo base_url(); ?>assets/global/libs/equalizer.js"></script>
-
+<script src="<?php echo base_url(); ?>assets/global/plugins/placeholder/jquery.placeholder.min.js"></script>
+<script>$('input, textarea').placeholder();</script>
 
 <!-- BOOTSTRAP -->
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
