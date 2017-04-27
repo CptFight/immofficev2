@@ -1,5 +1,5 @@
 <section class="l-annonces-search l-annonces-section apparitionright">
-    <div class="l-annonces-form l-form">
+    <div class="l-annonces-form">
         <input type="hidden" name="agence_id" id="agence_id" value="<?php echo $current_user->agence_id; ?>" />
         <ul class="tabs">
             <li><div id="tab1" data-select="tab1" class='active'><?php echo $this->lang->line('dashboard'); ?></div></li>

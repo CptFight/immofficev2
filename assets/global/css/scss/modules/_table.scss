@@ -32,7 +32,7 @@
     	border: 1px solid #e7eaec;
 	}
 }
-table.dataTable>tbody>tr.child ul li
+table li[class^='table-btn'] 
 {
-	border-bottom:none;
+	border-bottom:none !important;
 }

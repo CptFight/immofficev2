@@ -1385,17 +1385,21 @@ a.profile-btn {
   border-bottom: 1px solid #e7eaec;
   padding: 5px 15px;
   display: block;
-  margin-bottom: 15px;
-  height: 60px; }
+  margin-bottom: 15px; }
   .l-top-annonces-export .btn-inverse, .l-top-annonces-export .dataTables_wrapper .dt-button, .dataTables_wrapper .l-top-annonces-export .dt-button {
     float: right; }
   .l-top-annonces-export h5 {
-    margin-top: 18px;
+    margin-top: 10px;
     font-size: 0.9em;
     font-weight: 100; }
     .l-top-annonces-export h5 span {
       font-size: 1.1em;
       font-weight: 500; }
+  @media screen and (min-width: 992px) {
+    .l-top-annonces-export {
+      height: 60px; }
+      .l-top-annonces-export h5 {
+        margin-top: 18px; } }
 
 .number-annonces {
   font-size: 0.8em;
@@ -1964,7 +1968,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   top: 85px; }
 
 .btns-calendar {
-  height: 60px;
+  height: 50px;
   margin-left: -10px; }
   .btns-calendar a {
     display: inline-block;
@@ -2068,8 +2072,8 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     border-radius: 3px;
     border: 1px solid #e7eaec; }
 
-table.dataTable > tbody > tr.child ul li {
-  border-bottom: none; }
+table li[class^='table-btn'] {
+  border-bottom: none !important; }
 
 /* ==|================
    Module/Animation decoration
@@ -2246,6 +2250,9 @@ table.dataTable > tbody > tr.child ul li {
 
   .tabs {
     display: block; } }
+.index-select {
+  margin-top: 15px; }
+
 .l-form .index-select {
   margin-top: 66px; }
 
