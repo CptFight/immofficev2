@@ -70,7 +70,7 @@ class Users_m extends MY_Model {
                 $request_search .= "users.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR agences.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR login LIKE '%".$params['search']."%' ";
-                $request_search .= "OR tel LIKE '%".$params['search']."%' ";
+                $request_search .= "OR users.tel LIKE '%".$params['search']."%' ";
                 $request_search .= "OR roles.name LIKE '%".$params['search']."%' ";
                 $request_search .= "OR firstname LIKE '%".$params['search']."%' ";
                 $request_search .= "OR users.adress LIKE '%".$params['search']."%' ";
@@ -110,13 +110,11 @@ class Users_m extends MY_Model {
 
         if($params['search']){
             $request_search = "( users.name LIKE '%".$params['search']."%'";
-            $request_search .= "OR agence LIKE '%".$params['search']."%'";
-            $request_search .= "OR login LIKE '%".$params['search']."%' )";
-            $request_search .= "OR tel LIKE '%".$params['search']."%' )";
-            $request_search .= "OR role LIKE '%".$params['search']."%' )";
-            $request_search .= "OR firstname LIKE '%".$params['search']."%' )";
-            $request_search .= "OR adress LIKE '%".$params['search']."%' )";
-            $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' )";
+            $request_search .= " OR login LIKE '%".$params['search']."%' ";
+            $request_search .= " OR users.tel LIKE '%".$params['search']."%' ";
+            $request_search .= " OR firstname LIKE '%".$params['search']."%' ";
+            $request_search .= " OR users.adress LIKE '%".$params['search']."%' ";
+            $request_search .= " OR owner_commercial LIKE '%".$params['search']."%' )";
             $this->db->where($request_search);
         }
 

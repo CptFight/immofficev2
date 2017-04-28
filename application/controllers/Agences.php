@@ -104,8 +104,17 @@ class Agences extends MY_Controller {
 				case 0:
 					$order['column'] = 'name';
 					break;
-				default:
+				case 1:
+					$order['column'] = 'price_htva';
+					break;
+				case 2:
+					$order['column'] = 'price_tvac';
+					break;
+				case 3:
 					$order['column'] = 'name';
+					break;
+				default:
+					$order['column'] = '';
 					break;
 			}
 		}
