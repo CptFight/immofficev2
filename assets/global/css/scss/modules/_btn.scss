@@ -123,7 +123,7 @@
 }
 .btns-calendar
 {
-    height: 60px;
+    height: 50px;
     margin-left: -10px;
     a 
     {
@@ -148,9 +148,6 @@
     a.active:hover 
     {
         background:#149278;
-    }
-    @media screen and (max-width: 480px) {
-        margin-top: 44px;
     }
 }
 

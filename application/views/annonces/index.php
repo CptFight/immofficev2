@@ -2,7 +2,7 @@
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="clearfix l-top-annonces-export">
        
-        <div class="btns-calendar">
+        <div>
             <h5><?php echo $this->lang->line('annonces_find'); ?> : <span id="num_result">0</span></h5>
         </div>
 

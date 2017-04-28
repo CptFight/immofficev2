@@ -453,4 +453,7 @@
 	$lang["add"] = "Ajouter";
 
 	$lang["agences"] = "Agences";
+
+	$lang["calendar_week"] = "Calendrier de la semaine";
+	$lang["calendar_month"] = "Calendrier du mois";
  ?>

@@ -40,7 +40,6 @@ function linkScroll(){
 	});
 }
 
-
 $(document).ready(function() {     
     linkScroll();
 

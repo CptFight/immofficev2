@@ -8,6 +8,13 @@
         </div>
     </div>
 
+    <fieldset class="inputstyle select index-select tabsselectcont">
+        <select id="tabsselect">
+            <option value="calendar_week_container" selected><?php echo $this->lang->line('calendar_week'); ?></option>
+            <option value="calendar_month_container"><?php echo $this->lang->line('calendar_month'); ?></option>
+        </select>
+     </fieldset>
+
      <div class='clearfix l-calendar'>
       	<div class="float-middle input-separation" id="calendar_week_container">
             <fieldset>

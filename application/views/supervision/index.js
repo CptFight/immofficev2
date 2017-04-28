@@ -130,24 +130,15 @@ admin.initTableDatatablesResponsive = function () {
                 { 
                     extend: 'print', 
                     className: 'btn dark btn-outline',
-                    orientation: 'landscape', 
-                    exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 5 ,6,7 ,8,9,10]
-                    } 
+                    orientation: 'landscape'
                 },{ 
                     extend: 'pdf', 
                     className: 'btn green btn-outline', 
-                    orientation: 'landscape', 
-                    exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 5 ,6,7 ,8,9,10]
-                    } 
+                    orientation: 'landscape'
                 },{ 
                     extend: 'csv', 
                     className: 'btn purple btn-outline ',
-                    orientation: 'landscape',
-                    exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 5 ,6,7 ,8,9,10]
-                    } 
+                    orientation: 'landscape'
                 }
             ],
 

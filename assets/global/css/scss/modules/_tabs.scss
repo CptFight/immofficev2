@@ -41,6 +41,19 @@
 {
     display:none;
 }
+.inputstyle.select.tabsselectcont
+{
+    select 
+    {
+        height: 41px;
+        background: #eee;
+    }
+    &:after 
+    {
+        content: "\f0c9";
+        font-size: 21px;
+    }
+}
 @media screen and (min-width: $medium) {
     .tabsselectcont
     {
@@ -51,8 +64,11 @@
         display:block;
     }
 }
+.index-select
+{
+    margin-top:15px;
+}
 .l-form .index-select
 {
     margin-top: 66px;
-
 }   

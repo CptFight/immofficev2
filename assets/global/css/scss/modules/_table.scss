@@ -13,6 +13,10 @@
 		position: absolute;
     	top: 40px;
     	right:20px;
+    	@media screen and (max-width:$small)
+    	{
+    		display:none;
+    	}
 	}
 	.dt-button 
 	{
@@ -27,4 +31,8 @@
     	border-radius: 3px;
     	border: 1px solid #e7eaec;
 	}
+}
+table li[class^='table-btn'] 
+{
+	border-bottom:none !important;
 }
