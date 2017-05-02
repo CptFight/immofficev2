@@ -12,6 +12,7 @@
                 <tr>
                     <th ><?php echo $this->lang->line('name'); ?></th>
                     <th ><?php echo $this->lang->line('agence'); ?></th>
+                    <th ><?php echo $this->lang->line('role'); ?></th>
                     <th ><?php echo $this->lang->line('email'); ?></th>
                     <th ><?php echo $this->lang->line('created_at'); ?></th>
                     <th ><?php echo $this->lang->line('last_connection'); ?></th>

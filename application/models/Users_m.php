@@ -41,7 +41,7 @@ class Users_m extends MY_Model {
     }
 
      public function get($params) {
-        $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name');
+        $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name, roles.name as role_name');
         $this->db->join('agences','users.agence_id = agences.id');
         $this->db->join('roles','users.role_id = roles.id');
     

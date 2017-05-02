@@ -9,7 +9,7 @@
 	$lang['admin'] = 'Administrateur';
 	$lang['boss_name'] = 'Nom du responsable';
 	$lang['agence_name'] = "Nom de l'agence";
-
+	$lang['direct_access_page'] = "Accéder directement à la page quand j'ajoute un favoris ou un rappel";
 	$lang['total'] = "Total";
 	$lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";
 	$lang['load_scan'] = 'Lancer un nouveau scan';
@@ -24,7 +24,7 @@
 	$lang['number_export_print'] = "Nombre d'impression exportées";
 	$lang['number_export_pdf'] = "Nombre de pdf exportés";
 	$lang['number_export_mail'] = "Nombre de mails exportés";
-
+	$lang['role'] = 'Role';
 	$lang['since_1_month'] = 'Depuis 1 mois';
 	$lang['since_1_week'] = 'Depuis 1 semaine';
 	$lang['last_export'] = 'Dernier export envoyé';
@@ -453,7 +453,7 @@
 	$lang["add"] = "Ajouter";
 
 	$lang["agences"] = "Agences";
-
+	$lang["calendar_day"] = "Calendrier du jour";
 	$lang["calendar_week"] = "Calendrier de la semaine";
 	$lang["calendar_month"] = "Calendrier du mois";
  ?>

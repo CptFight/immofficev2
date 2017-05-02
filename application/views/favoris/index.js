@@ -47,7 +47,9 @@ favoris.bind = function(){
                 add : add 
             },
             success: function(response){
-               console.log('response',response);
+                if(add && typeof response.direct_access_page != 'undefined' && response.direct_access_page){
+                    document.location.href = response.direct_access_page+"&back_path=favoris/index";
+                }
             }
         });
         

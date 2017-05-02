@@ -47,20 +47,8 @@
         </fieldset>
         <hr/>
         <fieldset class="inputstyle">
-            <label for="owner_email"><?php echo $this->lang->line('owner_email'); ?></label>
-            <input type="text" id="owner_email" name="owner_email" value='' >
-        </fieldset>
-        <fieldset class="inputstyle">
             <label for="owner_commercial"><?php echo $this->lang->line('owner_commercial'); ?></label>
             <input type="text" id="owner_commercial" name="owner_commercial" value='' >
-        </fieldset>
-        <fieldset class="inputstyle">
-            <label for="price_htva"><?php echo $this->lang->line('price_htva'); ?></label>
-            <input type="text" id="price_htva" name="price_htva" value='' >
-        </fieldset>
-        <fieldset class="inputstyle">
-            <label for="price_tvac"><?php echo $this->lang->line('price_tvac'); ?></label>
-            <input type="text" id="price_tvac" name="price_tvac" value='' >
         </fieldset>
         <fieldset class="radio-inline-cont ">
             <div>

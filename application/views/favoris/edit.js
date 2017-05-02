@@ -14,13 +14,12 @@ favoris_edit.init = function(){
 	var date = new Date();
 	$('#datetimepicker_rappel').datetimepicker({
 		format: 'DD/MM/YYYY HH:mm',
-		locale: 'fr',
-		defaultDate: new Date()
+		locale: 'fr'
+		//defaultDate: new Date()
 	}).on("dp.show", function(){
 		if ($('#date_rappel').val() == ''){
-	    	var date = new Date();  	
-	        $(this).data('DateTimePicker').date(date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " 12:00");
-	        
+			var date = new Date();  	
+	        $(this).data('DateTimePicker').date(date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() + " 12:00");       
 	    }
 	});
 

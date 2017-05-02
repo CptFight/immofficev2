@@ -41,6 +41,19 @@
                 <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
             </div>
         </fieldset>
+        <hr/>
+        <fieldset class="radio-inline-cont ">
+            <?php echo $this->lang->line('direct_access_page'); ?> : 
+            <div>
+                <input name="direct_access_page" type="radio" value="1" id="direct_access_page_1" <?php if($user->direct_access_page == '1') echo 'checked'; ?>>
+                <label for="direct_access_page_1"><?php echo $this->lang->line('yes'); ?></label>
+            </div><!--
+             --><div>
+                <input name="direct_access_page" type="radio" value="0" id="direct_access_page_0" <?php if($user->direct_access_page == '0') echo 'checked'; ?>>
+                <label for="direct_access_page_0"><?php echo $this->lang->line('no'); ?></label>
+            </div>
+        </fieldset>
+        <hr/>
         <fieldset>
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
          </fieldset>

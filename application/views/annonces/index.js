@@ -102,7 +102,9 @@ annonces.bind = function(){
                 add : add 
             },
             success: function(response){
-               console.log('response',response);
+                if(add && typeof response.direct_access_page != 'undefined' && response.direct_access_page){
+                    document.location.href = response.direct_access_page+"&back_path=annonces/index";
+                }
             }
         });
     });
@@ -111,7 +113,6 @@ annonces.bind = function(){
         var annonce_id = $(this).closest('tr').find('ul').data('annonce_id');
         add = false;
         if($(this).is(':checked')){
-            console.log('oui');
             add = true;
         }
 
@@ -169,7 +170,9 @@ annonces.bind = function(){
                 add : add 
             },
             success: function(response){
-               console.log('response',response);
+                if(add && typeof response.direct_access_page != 'undefined' && response.direct_access_page){
+                    document.location.href = response.direct_access_page+"&back_path=annonces/index";
+                }
             }
         });
     });

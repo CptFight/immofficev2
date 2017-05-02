@@ -278,7 +278,7 @@
 
                 </div>
                 <div class="width98">
-                    <h4><?php echo $this->lang->line('export'); ?></h4>
+                    <h4><?php echo $this->lang->line('number_export'); ?></h4>
                     <div class="clearfix">
                         <div class="float-tiers">
                             <ul>

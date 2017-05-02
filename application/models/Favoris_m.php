@@ -125,11 +125,10 @@ class Favoris_m extends MY_Model {
            'annonce_id' => $annonce->id,
            'mandataire_user_id' => $user_id,
            'price' => $annonce->price,
-           'created' => $annonce->created,
            'date_publication' => $annonce->date_publication,
            'url' => $annonce->url,
            'web_site' => $annonce->web_site,
-           'created' => $annonce->created,
+           'created' => strtotime('now'),
            'zip_code' => $annonce->zip_code,
            'province' => $annonce->province,
            'living_space' => $annonce->living_space,
@@ -144,7 +143,12 @@ class Favoris_m extends MY_Model {
 
         $return = $this->db->insert($this->_db, $data); 
         $this->updateRappelFavorisCountInSession();
-        return $return;
+        if($return){
+          return $this->db->insert_id();
+        }else{
+          return false;
+        }
+        
     }
 
     public function getFavorisAnnoncesIds($user_id){

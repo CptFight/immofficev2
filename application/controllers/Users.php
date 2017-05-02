@@ -209,6 +209,7 @@ class Users extends MY_Controller {
 			$user['firstname'] = $this->current_user->firstname = $this->input->post('firstname');
 			$user['adress'] = $this->current_user->adress = $this->input->post('adress');
 			$user['tel'] = $this->current_user->tel = $this->input->post('tel');
+			$user['direct_access_page'] = $this->current_user->direct_access_page = $this->input->post('direct_access_page');
 			if($this->Users_m->update($user)){
 				$this->addMessage($this->lang->line('update_done'));
 			}
@@ -235,12 +236,18 @@ class Users extends MY_Controller {
 		$user_id = $this->input->post('user_id');
 		$annonce_id = $this->input->post('annonce_id');
 		$add = $this->input->post('add');
+		$favoris_id = 0;
 		if($add == 'true'){
 			$annonce = $this->Annonces_m->get($annonce_id);
-			$this->Favoris_m->addAnnonceInFavoris($user_id,$annonce);
+			$favoris_id = $this->Favoris_m->addAnnonceInFavoris($user_id,$annonce);
 		}else{
 			$this->Favoris_m->removeAnnonceFromFavoris($user_id,$annonce_id);
 		}	
+		$return = array();
+		if($this->current_user->direct_access_page){
+			$return['direct_access_page'] = site_url('favoris/edit/?id='.$favoris_id);
+		}
+		echo json_encode($return);
 	}
 
 	public function addOrRemoveVisited(){
@@ -284,6 +291,11 @@ class Users extends MY_Controller {
 		}else{
 			$this->Rappels_m->deleteByUserFavorisIds($user_id,$favoris_id);
 		}	
+		$return = array();
+		if($this->current_user->direct_access_page){
+			$return['direct_access_page'] = site_url('favoris/edit/?id='.$favoris_id.'&view=rappel');
+		}
+		echo json_encode($return);
 	}
 	
 	public function saveLastSearch(){
@@ -356,15 +368,18 @@ class Users extends MY_Controller {
 					$order['column'] = 'agence_name';
 					break;
 				case 2:
-					$order['column'] = 'login';
+					$order['column'] = 'role_name';
 					break;
 				case 3:
-					$order['column'] = 'created';
+					$order['column'] = 'login';
 					break;
 				case 4:
+					$order['column'] = 'created';
+					break;
+				case 5:
 					$order['column'] = 'last_connection';
 					break;	
-				case 5:
+				case 6:
 					$order['column'] = 'deleted';
 					break;					
 				default:
@@ -402,6 +417,7 @@ class Users extends MY_Controller {
 			$data[] = array(
 				$user->name." ".$user->firstname,
 				$user->agence_name,
+				$user->role_name,
 				$user->login,
 				date('d/m/Y H:i:s',$user->created),
 				$last_connection,
