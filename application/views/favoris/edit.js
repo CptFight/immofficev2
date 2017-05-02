@@ -75,6 +75,15 @@ favoris_edit.init = function(){
 $(document).ready(function() {     
     favoris_edit.init();
 
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	 	$(".date-desktop").hide();
+	 	$(".date-mobile").show();
+	}
+	else 
+	{
+		$(".date-mobile").hide();
+		$(".date-desktop").show();
+	}
 });
 
 

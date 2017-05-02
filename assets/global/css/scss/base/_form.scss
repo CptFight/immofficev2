@@ -6,7 +6,7 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="password"],
-input[type="date"],
+input[type="date"], input[type="time"],
 input[type="search"],  
 textarea, .input, .chosen-container-multi .chosen-choices{
     background-color: #FFFFFF;
@@ -322,3 +322,6 @@ select.input-sm
         top:10px;
     }
 }
+
+
+

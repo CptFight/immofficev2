@@ -66,3 +66,20 @@
 	border:1px solid #eee; 
 	min-height:100px;
 }
+
+.date-mobile
+{
+	& > div 
+	{
+		@extend .clearfix;
+	}
+	.input-group
+	{
+		width:48%;
+		float:left;
+	}
+	.input-group:last-child 
+	{
+		float:right;
+	}
+}	
