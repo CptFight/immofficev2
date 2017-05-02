@@ -73,11 +73,11 @@
                     <label for="rappel_tags"><?php echo $this->lang->line('tags'); ?></label>
                     <input type="text" name="rappel_tags" id="rappel_tags" value='<?php echo $favoris->rappel_tags; ?>'>
                 </fieldset>
-                <fieldset >
+                <fieldset class="date-desktop">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <?php if($favoris->date_rappel == '') { $date_rappel = ''; }else{ $date_rappel = date('d/m/Y H:i',$favoris->date_rappel); } ?>
 
-                    <div class='input-group date datetimepicker' id="datetimepicker_rappel">
+                    <div class='input-group date datetimepicker ' id="datetimepicker_rappel">
                         <input type="text" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date_rappel; ?>' >
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar">
@@ -85,7 +85,17 @@
                         </span>
                     </div>
                 </fieldset>
-
+                <fieldset class="date-mobile">
+                    <label><?php echo $this->lang->line('date'); ?></label>
+                    <div>
+                        <div class='input-group'>
+                            <input type="date" class="form-control" id="date_rappel" name="rappel_date_rappel" value='2017-12-12' >
+                        </div>
+                        <div class='input-group'>
+                            <input type="time" class="form-control" id="date_rappel" name="rappel_date_rappel" value='20:20' >
+                        </div>
+                    </div>
+                </fieldset>
                  <fieldset class="inputstyle">
                     <label for="rappel_note"><?php echo $this->lang->line('note'); ?></label>
                     <textarea name="rappel_note" id="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>

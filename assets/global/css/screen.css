@@ -96,7 +96,7 @@
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.clearfix:before, .content:before, .l-header:before, .l-nav-big a:before, .range_inputs:before, .m-news-list:before, .m-news-list article:before, .m-news-list li:before,
+.clearfix:before, .content:before, .l-header:before, .l-nav-big a:before, .range_inputs:before, .m-news-list:before, .m-news-list article:before, .m-news-list li:before, .date-mobile > div:before,
 .clearfix:after,
 .content:after,
 .l-header:after,
@@ -104,20 +104,21 @@
 .range_inputs:after,
 .m-news-list:after,
 .m-news-list article:after,
-.m-news-list li:after {
+.m-news-list li:after,
+.date-mobile > div:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.clearfix:after, .content:after, .l-header:after, .l-nav-big a:after, .range_inputs:after, .m-news-list:after, .m-news-list article:after, .m-news-list li:after {
+.clearfix:after, .content:after, .l-header:after, .l-nav-big a:after, .range_inputs:after, .m-news-list:after, .m-news-list article:after, .m-news-list li:after, .date-mobile > div:after {
   clear: both; }
 
 /*
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-.clearfix, .content, .l-header, .l-nav-big a, .range_inputs, .m-news-list, .m-news-list article, .m-news-list li {
+.clearfix, .content, .l-header, .l-nav-big a, .range_inputs, .m-news-list, .m-news-list article, .m-news-list li, .date-mobile > div {
   *zoom: 1; }
 
 /* =Layout
@@ -168,7 +169,7 @@
    Tools/Grille
    =========================== */
 @media screen and (min-width: 992px) {
-  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p, .map-database > div {
+  .float-middle, .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p, .l-landing-contact .date-mobile > div p, .map-database > div {
     width: 50%;
     float: left;
     margin: 0;
@@ -641,7 +642,7 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="password"],
-input[type="date"],
+input[type="date"], input[type="time"],
 input[type="search"],
 textarea, .input, .chosen-container-multi .chosen-choices {
   background-color: #FFFFFF;
@@ -661,7 +662,7 @@ textarea, .input, .chosen-container-multi .chosen-choices {
   input[type="number"]::-webkit-input-placeholder,
   input[type="email"]::-webkit-input-placeholder,
   input[type="password"]::-webkit-input-placeholder,
-  input[type="date"]::-webkit-input-placeholder,
+  input[type="date"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder,
   input[type="search"]::-webkit-input-placeholder,
   textarea::-webkit-input-placeholder, .input::-webkit-input-placeholder, .chosen-container-multi .chosen-choices::-webkit-input-placeholder {
     color: #acacac; }
@@ -669,7 +670,7 @@ textarea, .input, .chosen-container-multi .chosen-choices {
   input[type="number"]:-moz-placeholder,
   input[type="email"]:-moz-placeholder,
   input[type="password"]:-moz-placeholder,
-  input[type="date"]:-moz-placeholder,
+  input[type="date"]:-moz-placeholder, input[type="time"]:-moz-placeholder,
   input[type="search"]:-moz-placeholder,
   textarea:-moz-placeholder, .input:-moz-placeholder, .chosen-container-multi .chosen-choices:-moz-placeholder {
     color: #acacac; }
@@ -677,7 +678,7 @@ textarea, .input, .chosen-container-multi .chosen-choices {
   input[type="number"]:-ms-input-placeholder,
   input[type="email"]:-ms-input-placeholder,
   input[type="password"]:-ms-input-placeholder,
-  input[type="date"]:-ms-input-placeholder,
+  input[type="date"]:-ms-input-placeholder, input[type="time"]:-ms-input-placeholder,
   input[type="search"]:-ms-input-placeholder,
   textarea:-ms-input-placeholder, .input:-ms-input-placeholder, .chosen-container-multi .chosen-choices:-ms-input-placeholder {
     color: #acacac; }
@@ -685,7 +686,7 @@ textarea, .input, .chosen-container-multi .chosen-choices {
   input[type="number"]:hover,
   input[type="email"]:hover,
   input[type="password"]:hover,
-  input[type="date"]:hover,
+  input[type="date"]:hover, input[type="time"]:hover,
   input[type="search"]:hover,
   textarea:hover, .input:hover, .chosen-container-multi .chosen-choices:hover {
     border-color: #1ab394 !important; }
@@ -693,7 +694,7 @@ textarea, .input, .chosen-container-multi .chosen-choices {
   input[type="number"]:focus,
   input[type="email"]:focus,
   input[type="password"]:focus,
-  input[type="date"]:focus,
+  input[type="date"]:focus, input[type="time"]:focus,
   input[type="search"]:focus,
   textarea:focus, .input:focus, .chosen-container-multi .chosen-choices:focus {
     outline: 0;
@@ -1287,18 +1288,18 @@ a.profile-btn {
   background: url("img/word_map.png") center top no-repeat;
   margin-top: 30px;
   text-align: center; }
-  .l-landing-contact .clearfix, .l-landing-contact .content, .l-landing-contact .l-header, .l-landing-contact .l-nav-big a, .l-nav-big .l-landing-contact a, .l-landing-contact .range_inputs, .l-landing-contact .m-news-list, .l-landing-contact .m-news-list article, .m-news-list .l-landing-contact article, .l-landing-contact .m-news-list li, .m-news-list .l-landing-contact li {
+  .l-landing-contact .clearfix, .l-landing-contact .content, .l-landing-contact .l-header, .l-landing-contact .l-nav-big a, .l-nav-big .l-landing-contact a, .l-landing-contact .range_inputs, .l-landing-contact .m-news-list, .l-landing-contact .m-news-list article, .m-news-list .l-landing-contact article, .l-landing-contact .m-news-list li, .m-news-list .l-landing-contact li, .l-landing-contact .date-mobile > div {
     max-width: 550px;
     margin: 10px auto 50px;
     display: block; }
-  .l-landing-contact .clearfix p:first-child, .l-landing-contact .content p:first-child, .l-landing-contact .l-header p:first-child, .l-landing-contact .l-nav-big a p:first-child, .l-nav-big .l-landing-contact a p:first-child, .l-landing-contact .range_inputs p:first-child, .l-landing-contact .m-news-list p:first-child, .m-news-list .l-landing-contact article p:first-child, .m-news-list .l-landing-contact li p:first-child {
+  .l-landing-contact .clearfix p:first-child, .l-landing-contact .content p:first-child, .l-landing-contact .l-header p:first-child, .l-landing-contact .l-nav-big a p:first-child, .l-nav-big .l-landing-contact a p:first-child, .l-landing-contact .range_inputs p:first-child, .l-landing-contact .m-news-list p:first-child, .m-news-list .l-landing-contact article p:first-child, .m-news-list .l-landing-contact li p:first-child, .l-landing-contact .date-mobile > div p:first-child {
     font-size: 13px;
     color: #1ab394;
     font-weight: bolder; }
-  .l-landing-contact .clearfix p:last-child, .l-landing-contact .content p:last-child, .l-landing-contact .l-header p:last-child, .l-landing-contact .l-nav-big a p:last-child, .l-nav-big .l-landing-contact a p:last-child, .l-landing-contact .range_inputs p:last-child, .l-landing-contact .m-news-list p:last-child, .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact li p:last-child {
+  .l-landing-contact .clearfix p:last-child, .l-landing-contact .content p:last-child, .l-landing-contact .l-header p:last-child, .l-landing-contact .l-nav-big a p:last-child, .l-nav-big .l-landing-contact a p:last-child, .l-landing-contact .range_inputs p:last-child, .l-landing-contact .m-news-list p:last-child, .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact li p:last-child, .l-landing-contact .date-mobile > div p:last-child {
     font-size: 16px; }
   @media screen and (min-width: 992px) {
-    .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p {
+    .l-landing-contact .clearfix p, .l-landing-contact .content p, .l-landing-contact .l-header p, .l-landing-contact .l-nav-big a p, .l-nav-big .l-landing-contact a p, .l-landing-contact .range_inputs p, .l-landing-contact .m-news-list p, .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact li p, .l-landing-contact .date-mobile > div p {
       text-align: left; } }
 
 /* ==|======================
@@ -1560,9 +1561,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     color: white; }
 
 @media screen and (min-width: 992px) {
-  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p, .l-suggestions-section .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-suggestions-section p, .l-suggestions-section .map-database > div {
+  .l-suggestions-section .float-middle, .l-suggestions-section .l-landing-contact .clearfix p, .l-landing-contact .clearfix .l-suggestions-section p, .l-suggestions-section .l-landing-contact .content p, .l-landing-contact .content .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-header p, .l-landing-contact .l-header .l-suggestions-section p, .l-suggestions-section .l-landing-contact .l-nav-big a p, .l-landing-contact .l-nav-big a .l-suggestions-section p, .l-suggestions-section .l-nav-big .l-landing-contact a p, .l-nav-big .l-landing-contact a .l-suggestions-section p, .l-suggestions-section .l-landing-contact .range_inputs p, .l-landing-contact .range_inputs .l-suggestions-section p, .l-suggestions-section .l-landing-contact .m-news-list p, .l-landing-contact .m-news-list .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact article p, .m-news-list .l-landing-contact article .l-suggestions-section p, .l-suggestions-section .m-news-list .l-landing-contact li p, .m-news-list .l-landing-contact li .l-suggestions-section p, .l-suggestions-section .l-landing-contact .date-mobile > div p, .l-landing-contact .date-mobile > div .l-suggestions-section p, .l-suggestions-section .map-database > div {
     width: 49%; }
-  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-suggestions-section p:last-child, .l-suggestions-section .map-database > div:last-child {
+  .l-suggestions-section .float-middle:last-child, .l-suggestions-section .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .content p:last-child, .l-landing-contact .content .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-suggestions-section p:last-child, .l-suggestions-section .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-suggestions-section p:last-child, .l-suggestions-section .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-suggestions-section p:last-child, .l-suggestions-section .l-landing-contact .date-mobile > div p:last-child, .l-landing-contact .date-mobile > div .l-suggestions-section p:last-child, .l-suggestions-section .map-database > div:last-child {
     float: right; } }
 
 .l-alertmail-section .btn.submit, .l-alertmail-section .submit.btn-grey {
@@ -1716,6 +1717,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
 .description p {
   border: 1px solid #eee;
   min-height: 100px; }
+
+.date-mobile .input-group {
+  width: 48%;
+  float: left; }
+.date-mobile .input-group:last-child {
+  float: right; }
 
 .l-map-section {
   padding: 0;
@@ -2255,7 +2262,8 @@ table li[class^='table-btn'] {
   background: #eee; }
 .inputstyle.select.tabsselectcont:after {
   content: "\f0c9";
-  font-size: 21px; }
+  font-size: 21px;
+  pointer-events: none; }
 
 @media screen and (min-width: 992px) {
   .tabsselectcont {
