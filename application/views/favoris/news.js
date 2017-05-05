@@ -74,6 +74,15 @@ news.init = function(){
 $(document).ready(function() {     
     news.init();
 
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	 	$(".date-desktop").hide();
+	 	$(".date-mobile").show();
+	}
+	else 
+	{
+		$(".date-mobile").hide();
+		$(".date-desktop").show();
+	}
 });
 
 

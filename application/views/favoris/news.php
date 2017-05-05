@@ -72,7 +72,7 @@
                     <label for="rappel_tags"><?php echo $this->lang->line('tags'); ?></label>
                     <input type="text" name="rappel_tags" id="rappel_tags" value=''>
                 </fieldset>
-                <fieldset >
+                <fieldset class="date-desktop">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     
                     <div class='input-group date datetimepicker' id="datetimepicker_rappel">
@@ -83,6 +83,18 @@
                         </span>
                     </div>
                 </fieldset>
+                <fieldset class="date-mobile">
+                    <label><?php echo $this->lang->line('date'); ?></label>
+                    <div>
+                        <div class='input-group'>
+                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_date" value='2017-12-12' >
+                        </div>
+                        <div class='input-group'>
+                            <input type="time" class="form-control" id="date_rappel_hour" name="rappel_date_rappel_hour" value='20:20' >
+                        </div>
+                    </div>
+                </fieldset>
+
 
                  <fieldset class="inputstyle">
                     <label for="rappel_note"><?php echo $this->lang->line('note'); ?></label>
