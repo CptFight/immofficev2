@@ -10,6 +10,8 @@
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
         <input type="hidden" name="id" value="<?php echo $agence->id; ?>" />
+
+       
         <fieldset class="inputstyle">
             <label for="name"><?php echo $this->lang->line('agence_name'); ?></label>
             <input type="text" id="name" name="name" value='<?php echo $agence->name; ?>' required>

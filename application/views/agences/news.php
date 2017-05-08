@@ -9,10 +9,14 @@
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS -->
     <form action="" method="POST">
     <div class="l-annonces-form l-form">
+
+       
         <fieldset class="inputstyle">
             <label for"name"><?php echo $this->lang->line('name'); ?></label>
             <input type="text" id="name" name="name" value='' required>
         </fieldset>
+
+      
 
         <fieldset class="inputstyle">
             <label for="boss_name"><?php echo $this->lang->line('boss_name'); ?></label>

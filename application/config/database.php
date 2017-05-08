@@ -80,6 +80,10 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => 'mysql',
 	'database' => 'immofficeimport',
+	/*'hostname' => '178.62.202.118',
+	'username' => 'robots',
+	'password' => 'h=Bw6IN9rs',
+	'database' => 'immofficeimport',*/
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

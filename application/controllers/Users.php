@@ -101,7 +101,6 @@ class Users extends MY_Controller {
 			$user['agence_id'] = $this->input->post('agence');
 			$user['adress'] = $this->input->post('adress');
 			$user['tel'] = $this->input->post('tel');
-			$user['owner_commercial'] = $this->input->post('owner_commercial');
 			$user['role_id'] = $this->input->post('role');
 
 			$user['created'] = strtotime('now');
@@ -140,10 +139,8 @@ class Users extends MY_Controller {
 			$user['agence_id'] = $this->input->post('agence');
 			$user['adress'] = $this->input->post('adress');
 			$user['tel'] = $this->input->post('tel');
-			$user['owner_commercial'] = $this->input->post('owner_commercial');
 			$user['role_id'] = $this->input->post('role');
 			$user['deleted'] = $this->input->post('deleted');
-			//$user['created'] = strtotime('now');
 			
 			if($this->Users_m->update($user)){
 				$this->addMessage($this->lang->line('update_done'));
@@ -400,6 +397,7 @@ class Users extends MY_Controller {
 
 		
 		$users = $this->Users_m->get($params);
+		$all_users = $this->Users_m->getAll();
 	//	echo $this->db->last_query();
 		$data = array();
 
@@ -428,7 +426,7 @@ class Users extends MY_Controller {
                 </ul>'
 			);
 		}
-		$return["recordsTotal"] = count($users);
+		$return["recordsTotal"] = count($all_users);
 		$return["recordsFiltered"] = count($users);
 		
 		$return["data"] = $data;

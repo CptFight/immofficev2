@@ -40,8 +40,8 @@ class Users_m extends MY_Model {
         return $this->db->get($this->_db)->result();
     }
 
-     public function get($params) {
-        $this->db->select('*,users.id as id, users.name as name, agences.name as agence_name, roles.name as role_name');
+    public function get($params) {
+        $this->db->select('*,users.id as id,users.tel as tel, agences.tel as agences_tel, users.name as name, agences.name as agence_name, roles.name as role_name');
         $this->db->join('agences','users.agence_id = agences.id');
         $this->db->join('roles','users.role_id = roles.id');
     
@@ -74,7 +74,6 @@ class Users_m extends MY_Model {
                 $request_search .= "OR roles.name LIKE '%".$params['search']."%' ";
                 $request_search .= "OR firstname LIKE '%".$params['search']."%' ";
                 $request_search .= "OR users.adress LIKE '%".$params['search']."%' ";
-                $request_search .= "OR owner_commercial LIKE '%".$params['search']."%' ";
                 $request_search .= ")";
                 $this->db->where($request_search);
             }
@@ -114,7 +113,6 @@ class Users_m extends MY_Model {
             $request_search .= " OR users.tel LIKE '%".$params['search']."%' ";
             $request_search .= " OR firstname LIKE '%".$params['search']."%' ";
             $request_search .= " OR users.adress LIKE '%".$params['search']."%' ";
-            $request_search .= " OR owner_commercial LIKE '%".$params['search']."%' )";
             $this->db->where($request_search);
         }
 

@@ -56,12 +56,7 @@
             </div>
         </fieldset>
         <hr/>
-       
-        <fieldset class="inputstyle">
-            <label for="owner_commercial"><?php echo $this->lang->line('owner_commercial'); ?></label>
-            <input type="text" id="owner_commercial" name="owner_commercial" value='<?php echo $user->owner_commercial; ?>' >
-        </fieldset>
-        
+         
         <fieldset class="inputstyle select">
             <select name="role">
                 <?php foreach( $roles as $key => $role){ ?>

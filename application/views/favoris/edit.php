@@ -45,7 +45,7 @@
                     <input type="text" id="tags" name="tags" value='<?php echo $favoris->tags; ?>'>
                 </fieldset>
 
-                <div class='clearfix'>
+                <div class='dat'>
                     <div class="float-middle input-separation">
                        <fieldset class="inputstyle">
                             <label for="owner_name"><?php echo $this->lang->line('owner_name'); ?></label>
@@ -85,7 +85,7 @@
                         </span>
                     </div>
                 </fieldset>
-                <fieldset class="date-mobile">
+                <fieldset class="date-mobile hidden">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <div>
                         <div class='input-group'>
@@ -95,7 +95,7 @@
                             <input type="time" class="form-control" id="date_rappel" name="rappel_date_rappel" value='20:20' >
                         </div>
                     </div>
-                </fieldset>
+                </fieldset> 
                  <fieldset class="inputstyle">
                     <label for="rappel_note"><?php echo $this->lang->line('note'); ?></label>
                     <textarea name="rappel_note" id="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>

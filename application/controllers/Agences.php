@@ -24,7 +24,7 @@ class Agences extends MY_Controller {
 			$agence['boss_name'] = $this->input->post('boss_name');
 			$agence['tel'] = $this->input->post('tel');
 			$agence['note'] = $this->input->post('note');
-
+			
 			if($this->Agences_m->insert($agence)){
 				$this->addMessage($this->lang->line('insert_done'));
 			}
@@ -129,6 +129,7 @@ class Agences extends MY_Controller {
 
 		
 		$agences = $this->Agences_m->get($params);
+		$all_agences = $this->Agences_m->getAll();
 	//	echo $this->db->last_query();
 		$data = array();
 
@@ -147,7 +148,7 @@ class Agences extends MY_Controller {
                 </ul>'
 			);
 		}
-		$return["recordsTotal"] = count($agences);
+		$return["recordsTotal"] = count($all_agences);
 		$return["recordsFiltered"] = count($agences);
 		
 		$return["data"] = $data;

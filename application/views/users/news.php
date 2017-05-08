@@ -46,10 +46,7 @@
             <input type="text" id="adress" name="adress" value='' >
         </fieldset>
         <hr/>
-        <fieldset class="inputstyle">
-            <label for="owner_commercial"><?php echo $this->lang->line('owner_commercial'); ?></label>
-            <input type="text" id="owner_commercial" name="owner_commercial" value='' >
-        </fieldset>
+      
         <fieldset class="radio-inline-cont ">
             <div>
                 <input name="lang" type="radio" value="french" id="fr" required checked>
