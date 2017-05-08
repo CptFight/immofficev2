@@ -89,10 +89,10 @@
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <div>
                         <div class='input-group'>
-                            <input type="date" class="form-control" id="date_rappel" name="rappel_date_rappel" value='2017-12-12' >
+                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_date" value='2017-12-12' >
                         </div>
                         <div class='input-group'>
-                            <input type="time" class="form-control" id="date_rappel" name="rappel_date_rappel" value='20:20' >
+                            <input type="time" class="form-control" id="date_rappel_hour" name="rappel_date_rappel_hour" value='20:20' >
                         </div>
                     </div>
                 </fieldset> 
