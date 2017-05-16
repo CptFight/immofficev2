@@ -85,7 +85,7 @@
                         </span>
                     </div>
                 </fieldset>
-                <fieldset class="date-mobile">
+                <?php /*<fieldset class="date-mobile">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <div>
                         <?php $date = date('d/m/Y',$favoris->date_rappel); ?>
@@ -97,7 +97,7 @@
                             <input type="time" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $time; ?>' >
                         </div>
                     </div>
-                </fieldset> 
+                </fieldset> */ ?>
                  <fieldset class="inputstyle">
                     <label for="rappel_note"><?php echo $this->lang->line('note'); ?></label>
                     <textarea name="rappel_note" id="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>

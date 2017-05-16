@@ -141,6 +141,7 @@ class Favoris extends MY_Controller {
 				$date_rappel = str_replace('/', '-', $this->input->post('rappel_date_rappel') );
 				$rappel['date_rappel'] = strtotime( $date_rappel );
 
+				
 				if(!$rappel['id']){
 					unset($rappel['id']);
 					$rappel['created'] = strtotime('now');

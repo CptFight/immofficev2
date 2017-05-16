@@ -17,7 +17,6 @@ annonces.bind = function(){
     annonces.criterias.price_min = $('#price-min').val(); 
     annonces.criterias.price_max = $('#price-max').val(); 
     annonces.criterias.date_min = $('#date-min').val(); 
-     annonces.criterias.date_min = 0;
     annonces.criterias.date_max = $('#date-max').val(); 
     annonces.criterias.province = $('#province').val();
     annonces.criterias.zipcode = $('#zipcode').val(); 
