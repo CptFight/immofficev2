@@ -86,11 +86,13 @@
                 <fieldset class="date-mobile">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <div>
+                        <?php $date = date('d/m/Y',$favoris->date_rappel); ?>
+                        <?php $time = date('H:i',$favoris->date_rappel); ?>
                         <div class='input-group'>
-                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_date" value='2017-12-12' >
+                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_date" value='<?php echo $date; ?>' >
                         </div>
                         <div class='input-group'>
-                            <input type="time" class="form-control" id="date_rappel_hour" name="rappel_date_rappel_hour" value='20:20' >
+                            <input type="time" class="form-control" id="date_rappel_hour" name="rappel_date_rappel_hour" value='<?php echo $time; ?>' >
                         </div>
                     </div>
                 </fieldset>
