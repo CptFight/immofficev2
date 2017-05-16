@@ -456,4 +456,5 @@
 	$lang["calendar_day"] = "Calendrier du jour";
 	$lang["calendar_week"] = "Calendrier de la semaine";
 	$lang["calendar_month"] = "Calendrier du mois";
+	$lang["add_infos"] = "Informations supplémentaires";
  ?>

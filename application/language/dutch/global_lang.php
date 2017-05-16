@@ -349,5 +349,6 @@
     
     $lang["calendar_week"] = "Calendar of the week";
     $lang["calendar_month"] = "Calendar of the month";
+    $lang["add_infos"] = "Additional informations";
  ?>
 
