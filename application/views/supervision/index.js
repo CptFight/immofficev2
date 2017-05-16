@@ -137,6 +137,14 @@ admin.initTableDatatablesResponsive = function () {
                     orientation: 'landscape'
                 },{ 
                     extend: 'csv', 
+                    text: 'Excel 1',
+                    fieldSeparator: ',',
+                    className: 'btn purple btn-outline ',
+                    orientation: 'landscape'
+                },{ 
+                    extend: 'csv',
+                    text: 'Excel 2', 
+                    fieldSeparator: ';',
                     className: 'btn purple btn-outline ',
                     orientation: 'landscape'
                 }

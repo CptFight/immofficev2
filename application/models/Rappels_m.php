@@ -29,6 +29,7 @@ class Rappels_m extends MY_Model {
             if($params['search']){
                 $request_search = "( favoris.title LIKE '%".$params['search']."%'";
                 $request_search .= "OR rappels.tags LIKE '%".$params['search']."%'";
+                $request_search .= "OR rappels.note LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.tags LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.owner_name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.price LIKE '%".$params['search']."%'";

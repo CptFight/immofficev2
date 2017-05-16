@@ -17,6 +17,7 @@ annonces.bind = function(){
     annonces.criterias.price_min = $('#price-min').val(); 
     annonces.criterias.price_max = $('#price-max').val(); 
     annonces.criterias.date_min = $('#date-min').val(); 
+     annonces.criterias.date_min = 0;
     annonces.criterias.date_max = $('#date-max').val(); 
     annonces.criterias.province = $('#province').val();
     annonces.criterias.zipcode = $('#zipcode').val(); 
@@ -314,13 +315,28 @@ annonces.initTableDatatablesResponsive = function () {
                     }
                 },{ 
                     extend: 'csv', 
+                    text: 'Excel 1',
                     className: 'btn purple btn-outline ',
                     orientation: 'landscape',
+                    fieldSeparator: ',',
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('csv');
+                        $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
+                    }
+                },{ 
+                    extend: 'csv', 
+                    text: 'Excel 2',
+                    className: 'btn purple btn-outline ',
+                    orientation: 'landscape',
+                    fieldSeparator: ';',
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                    },
+                    action  : function(e, dt, button, config) {
+                        annonces.insertExport('excel');
                         $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
                     }
                 }
@@ -402,7 +418,7 @@ annonces.initSearchValues = function(){
         minDate: '01/01/2017',
         maxDate: '12/31/2020',
       
-        dateLimit: { days: 60 },
+        dateLimit: { days: 90 },
         showDropdowns: true,
         showWeekNumbers: true,
         timePicker: false,

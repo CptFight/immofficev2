@@ -47,6 +47,7 @@ class Favoris_m extends MY_Model {
                 $request_search .= "OR favoris.adress LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.zip_code LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.province LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.note LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.web_site LIKE '%".$params['search']."%'";
                 $request_search .= "OR users.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR users.firstname LIKE '%".$params['search']."%'";
