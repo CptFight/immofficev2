@@ -10,13 +10,15 @@
         <ul class="tabs">
             <li><div id="tab1"  data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
             <li><div id="tab2"  data-select="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
-            <li><div id="tab3"  data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>">Infos supplémentaires</div></li>
+            <li><div id="tab3"  data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>"><?php echo $this->lang->line('add_infos'); ?></div></li>
+            <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('notes'); ?></div></li>
         </ul>
         <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
                 <option value="tab1" <?php if($tab == 1) echo 'selected'; ?>><?php echo $this->lang->line('favoris'); ?></option>
                 <option value="tab2" <?php if($tab == 2) echo 'selected'; ?>><?php echo $this->lang->line('rappel'); ?></option>
-                <option value="tab3" <?php if($tab == 3) echo 'selected'; ?>>Infos supplémentaires</option>
+                <option value="tab3" <?php if($tab == 3) echo 'selected'; ?>><?php echo $this->lang->line('add_infos'); ?></option>
+                 <option value="tab4" <?php if($tab == 4) echo 'selected'; ?>><?php echo $this->lang->line('notes'); ?></option>
             </select>
          </fieldset>
 
@@ -195,6 +197,17 @@
                 <fieldset class="inputstyle">
                     <input type="file" name="picture" id="picture">
                 </fieldset>
+            </div>
+            <div class="tab tab4 <?php if($tab == 4) echo 'active'; ?>">
+                <div class='clearfix'>
+                    <div id="fields">
+                        <fieldset class="inputstyle field" id="field1" >
+                            <textarea name="description" placeholder="description"></textarea>
+                            <button data-id="field1" class="remove-me"><i class="fa fa-remove"></i></button>
+                        </fieldset>
+                    </div>
+                    <button id="b1" class="btn add-more" type="button">Add +</button>
+                </div>
             </div>
         </div>
 
