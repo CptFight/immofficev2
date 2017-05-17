@@ -1,6 +1,116 @@
 <?php
 
 	$lang['base_url'] = base_url();
+
+
+
+
+    $lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";
+    $lang['prospecter'] = 'Prospecteur';
+    $lang['superviser'] = 'Superviseur';
+    $lang['admin'] = 'Administrateur';
+    $lang['boss_name'] = 'Nom du responsable';
+    $lang['agence_name'] = "Nom de l'agence";
+    $lang['direct_access_page'] = "Accéder directement à la page quand j'ajoute un favoris ou un rappel";
+    $lang['total'] = "Total";
+    $lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";
+    $lang['load_scan'] = 'Lancer un nouveau scan';
+    $lang['send_new_password'] = 'Envoyer un nouveau mot de passe';
+    $lang['new_password_subject'] = 'Nouveau mot de passe';
+    $lang['mail_password_title'] = 'Nouveau mot de passe';
+    $lang['new_password_content_mail'] = 'Immoffice vous a généré un nouveau mot de passe';
+    $lang['new_password_send'] = "Un nouveau mot de passe a été envoyé à l'adresse : ";
+    $lang['email_not_exist'] = "Cet email n'existe pas.";
+    $lang['since_all_time'] = 'Depuis toujours';
+    $lang['number_export_csv'] = "Nombre d'excel exportés";
+    $lang['number_export_print'] = "Nombre d'impression exportées";
+    $lang['number_export_pdf'] = "Nombre de pdf exportés";
+    $lang['number_export_mail'] = "Nombre de mails exportés";
+    $lang['role'] = 'Role';
+    $lang['since_1_month'] = 'Depuis 1 mois';
+    $lang['since_1_week'] = 'Depuis 1 semaine';
+    $lang['last_export'] = 'Dernier export envoyé';
+    $lang['number_export'] = "Nombre d'exports";
+    $lang['number_visits'] = 'Nombre de visites';
+    $lang['agences_with_users'] = "L'agence a des utilisateurs associés";
+    $lang['last_link_visited'] = 'Dernier lien visité';
+    $lang['supervision'] = "Supervision";
+    $lang['number_link_visited_since_1_week'] = 'Nombre de liens visités depuis une semaine';
+    $lang['see_him'] = 'Le visualiser';
+    $lang['number_link_visited'] = 'Nombre de liens visités';
+    $lang['number_mail_receive'] = 'Nombre de mails reçus';
+    $lang['number_remember'] = 'Nombre de rappels';
+    $lang['last_remember'] = 'Dernier rappel';
+    $lang['number_favoris'] = 'Nombre de favoris';
+    $lang['last_favoris'] = 'Dernier favoris';
+    $lang['connection_historic'] = 'Historique des connexions';
+    $lang['agences'] = 'Agences';
+    $lang['error_login'] = 'Login/mot de passe inconnu.';
+    $lang['subscriber'] = 'Abonné';
+
+    $lang['active'] = 'Actif';
+    $lang['no_active'] = 'Désactivé';
+    //error upload
+    $lang['allowed_types'] = 'Extentions authorisées';
+    $lang['max_size'] = 'Taille maximum';
+    $lang['max_width'] = 'Largeur maximum';
+    $lang['max_height'] = 'Hauteur maximum';
+
+    $lang['mandatory'] = 'Mandataire';
+    //breadcrumb
+    $lang['breadcrumb_supervision'] = 'Supervision';
+    $lang['breadcrumb_favoris'] = 'Favoris';
+    $lang['breadcrumb_subscribers'] = 'Abonnements';
+    $lang['breadcrumb_annonces'] = 'Annonces';
+    $lang['breadcrumb_users'] = 'Utilisateurs';
+    $lang['breadcrumb_rappels'] = 'Rappels';
+    $lang['breadcrumb_agences'] = 'Agences';
+    $lang['breadcrumb_suggestions'] = 'Suggestions';
+    $lang['breadcrumb_dashboard'] = 'Tableau de bord';
+
+    $lang['breadcrumb_view'] = 'Detail';
+    $lang['breadcrumb_index'] = 'Liste';
+    $lang['breadcrumb_edit'] = 'Edition';
+    $lang['breadcrumb_edit_full'] = 'Edition';
+    $lang['breadcrumb_news'] = 'News';
+    $lang['breadcrumb_calendar'] = 'Calendrier';
+    $lang['breadcrumb_edit_profile'] = 'Edition de profil';
+
+    $lang['message'] = 'Message';
+    $lang['update_done'] = 'Modification effectuée';
+    $lang['delete_done'] = 'Suppression effectuée';
+    $lang['insert_done'] = 'Ajout effectué';
+    $lang['error_password'] = 'Les mots de passes ne correspondent pas';
+    $lang['mail_send'] = 'Le message a bien été envoyé.';
+    $lang['mail_not_send'] = "Le message n'a pas été envoyé !" ;
+
+    $lang['note'] = 'Note';
+    $lang['upload_link'] = 'Lien du fichier';
+    $lang['last_connection'] = 'Dernière connexion';
+    $lang['listcustomers'] = 'List utilisateurs';
+    $lang['mail_subscribers_message'] = 'Vous avez <strong>%1$s</strong> nouvelles annonces sur Immoffice';
+    $lang['mail_subscribers_title'] = "De nouvelles annonces sur Immoffice";
+    $lang['mail_subscribers_subject'] = "De nouvelles annonces correspondent à vos recherches";
+    $lang['liste'] = 'Liste';
+    $lang['rappel'] = 'Rappel';
+    $lang['date_rappel'] = 'Date du rappel';
+    $lang['new_user'] = 'Nouvel utilisateur';
+    $lang['user'] = 'Utilisateur';
+    $lang['price_tvac'] = 'Prix TVAC';
+    $lang['price_htva'] = 'Prix HTVA';
+    $lang['verify_password'] = 'Confirmer le mot de passe';
+    $lang['owner_commercial'] = 'Email du commercial responsable';
+    $lang['tags'] = 'Mots clés ( mandataire, importance, .. )';
+    $lang['url'] = 'Url';
+    $lang['edit'] = "Edition";
+
+
+
+
+
+
+
+    //avant
 	
     $lang["event_error_title"] = "Ontwrichting ! ";
     $lang["event_error_body"] = "Immoffice maakte updates. De service kan worden verstoord. ";   
