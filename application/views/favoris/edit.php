@@ -77,6 +77,7 @@
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <?php if($favoris->date_rappel == '') { $date_rappel = ''; }else{ $date_rappel = date('d/m/Y H:i',$favoris->date_rappel); } ?>
 
+
                     <div class='input-group date datetimepicker ' id="datetimepicker_rappel">
                         <input type="text" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date_rappel; ?>' >
                         <span class="input-group-addon">
@@ -85,19 +86,19 @@
                         </span>
                     </div>
                 </fieldset>
-                <?php /*<fieldset class="date-mobile">
+                <fieldset class="date-mobile">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <div>
-                        <?php $date = date('d/m/Y',$favoris->date_rappel); ?>
+                        <?php $date = date('Y-m-d',$favoris->date_rappel); ?>
                         <?php $time = date('H:i',$favoris->date_rappel); ?>
                         <div class='input-group'>
-                            <input type="date" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $date; ?>' >
+                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_mobile_date" value='<?php echo $date; ?>' >
                         </div>
                         <div class='input-group'>
-                            <input type="time" class="form-control" id="date_rappel" name="rappel_date_rappel" value='<?php echo $time; ?>' >
+                            <input type="time" class="form-control" id="date_rappel_time" name="rappel_date_rappel_mobile_time" value='<?php echo $time; ?>' >
                         </div>
                     </div>
-                </fieldset> */ ?>
+                </fieldset>
                  <fieldset class="inputstyle">
                     <label for="rappel_note"><?php echo $this->lang->line('note'); ?></label>
                     <textarea name="rappel_note" id="rappel_note"><?php echo $favoris->rappel_note; ?></textarea>
