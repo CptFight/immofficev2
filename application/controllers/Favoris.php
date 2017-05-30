@@ -253,6 +253,7 @@ class Favoris extends MY_Controller {
                 </ul>',
                 $favoris->note,
                 $favoris->id,
+                $favoris->annonce_id,
                 "<span class='historic_price'>".number_format($favoris->price, 0, ',', ' ')."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$favoris->date_publication)."</span>",
                 $favoris->adress,
