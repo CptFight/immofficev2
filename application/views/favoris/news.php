@@ -9,14 +9,14 @@
             <li><div id="tab1" data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
             <li><div id="tab2" data-select="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
             <li><div id="tab3" data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>"><?php echo $this->lang->line('add_infos'); ?></div></li>
-            <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('notes'); ?></div></li>
+           <!-- <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('notes'); ?></div></li> -->
         </ul>
         <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
                 <option value="tab1" <?php if($tab == 1) echo 'selected'; ?>><?php echo $this->lang->line('favoris'); ?></option>
                 <option value="tab2" <?php if($tab == 2) echo 'selected'; ?>><?php echo $this->lang->line('rappel'); ?></option>
                 <option value="tab3" <?php if($tab == 3) echo 'selected'; ?>><?php echo $this->lang->line('add_infos'); ?></option>
-                <option value="tab4" <?php if($tab == 4) echo 'selected'; ?>><?php echo $this->lang->line('notes'); ?></option>
+               <!-- <option value="tab4" <?php if($tab == 4) echo 'selected'; ?>><?php echo $this->lang->line('notes'); ?></option> -->
             </select>
          </fieldset>
 
@@ -88,13 +88,12 @@
                 <fieldset class="date-mobile">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <div>
-                        <?php $date = date('Y-m-d',$favoris->date_rappel); ?>
-                        <?php $time = date('H:i',$favoris->date_rappel); ?>
+                       
                         <div class='input-group'>
-                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_date" value='<?php echo $date; ?>' >
+                            <input type="date" class="form-control" id="date_rappel_date" name="rappel_date_rappel_mobile_date" value='' >
                         </div>
                         <div class='input-group'>
-                            <input type="time" class="form-control" id="date_rappel_hour" name="rappel_date_rappel_hour" value='<?php echo $time; ?>' >
+                            <input type="time" class="form-control" id="date_rappel_time" name="rappel_date_rappel_mobile_time" value='' >
                         </div>
                     </div>
                 </fieldset>
