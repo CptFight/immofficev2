@@ -59,7 +59,7 @@ class Favoris extends MY_Controller {
 
 	private function savePost(){
 		$this->load->model(array('Favoris_m','Rappels_m'));
-		
+
 		if($this->input->post('delete') ){
 			$id = $this->input->post('id');
 			$this->Favoris_m->delete($id);
@@ -70,8 +70,6 @@ class Favoris extends MY_Controller {
 		}
 
 		if($this->input->post('save') ){
-			
-
 			$favoris = array();
 			$favoris['user_id'] = $this->current_user->id;
 			if($this->input->post('id')){
@@ -121,7 +119,7 @@ class Favoris extends MY_Controller {
 				//redirect('favoris/index');
 			}
 
-			if($this->input->post('rappel_date_rappel') != ''){
+			if($this->input->post('rappel_date_rappel') != '' || $this->input->post('rappel_date_rappel_mobile_date') != ''){
 				$rappel = array();
 				if($this->input->post('rappel_id')){
 					$rappel['id'] = $this->input->post('rappel_id');
@@ -138,7 +136,13 @@ class Favoris extends MY_Controller {
 				$rappel['tags'] = $this->input->post('rappel_tags');
 				$rappel['note'] = $this->input->post('rappel_note');
 
-				$date_rappel = str_replace('/', '-', $this->input->post('rappel_date_rappel') );
+				if($this->input->post('rappel_date_rappel') != ''){
+					$date_rappel = str_replace('/', '-', $this->input->post('rappel_date_rappel') );
+				}
+				if($this->input->post('rappel_date_rappel_mobile_date') != ''){
+					$date_rappel = $this->input->post('rappel_date_rappel_mobile_date')." ".$this->input->post('rappel_date_rappel_mobile_time');
+				}
+
 				$rappel['date_rappel'] = strtotime( $date_rappel );
 
 				
