@@ -335,7 +335,7 @@ annonces.initTableDatatablesResponsive = function () {
                         columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
                     },
                     action  : function(e, dt, button, config) {
-                        annonces.insertExport('excel');
+                        annonces.insertExport('csv');
                         $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
                     }
                 }

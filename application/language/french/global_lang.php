@@ -65,6 +65,7 @@
 	$lang['breadcrumb_agences'] = 'Agences';
 	$lang['breadcrumb_suggestions'] = 'Suggestions';
 	$lang['breadcrumb_dashboard'] = 'Tableau de bord';
+	$lang['breadcrumb_map'] = 'Générateur de code postaux';
 
 	$lang['breadcrumb_view'] = 'Detail';
 	$lang['breadcrumb_index'] = 'Liste';

@@ -11,7 +11,7 @@
             <li><div id="tab1"  data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
             <li><div id="tab2"  data-select="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
             <li><div id="tab3"  data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>"><?php echo $this->lang->line('add_infos'); ?></div></li>
-            <!-- <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('notes'); ?></div></li> -->
+             <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('notes'); ?></div></li> 
         </ul>
         <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
