@@ -12,10 +12,10 @@
                         <!--<li><a href="" class="notification-link"><i class="fa fa-bell"></i><span class="badge">1</span><span class="visuallyhidden"><?php echo $this->lang->line('notifications'); ?></span></a></li>-->
                         <li><a href="<?php echo site_url('users/logout'); ?>"><i class="fa fa-sign-out"></i> <?php echo $this->lang->line('logout'); ?></a></li>
                         <li class="dropdown-container">
-                            <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue-big"><?php echo $this->lang->line('lang'); ?></a>
+                            <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue-big">Gabygaël Pirson</a>
                             <ul class="dropdown hidden" id="langue-big">
-                                <li><a href="<?php echo site_url('annonces/index').'?lang_user=french'; ?>" ><?php echo $this->lang->line('french'); ?></a></li>
-                                <li><a href="<?php echo site_url('annonces/index').'?lang_user=dutch'; ?>"><?php echo $this->lang->line('dutch'); ?></a></li>
+                                <li><a href="<?php echo site_url('annonces/index').'?lang_user=french'; ?>" >User 1</a></li>
+                                <li><a href="<?php echo site_url('annonces/index').'?lang_user=dutch'; ?>">User 2</a></li>
                             </ul>
                         </li>
                     </ul>

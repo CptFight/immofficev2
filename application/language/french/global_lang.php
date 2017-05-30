@@ -9,7 +9,7 @@
 	$lang['admin'] = 'Administrateur';
 	$lang['boss_name'] = 'Nom du responsable';
 	$lang['agence_name'] = "Nom de l'agence";
-	$lang['direct_access_page'] = "Accéder directement à la page quand j'ajoute un favoris ou un rappel";
+	$lang['direct_access_page'] = "Accéder directement à la page quand j'ajoute un biens ou un rappel";
 	$lang['total'] = "Total";
 	$lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";
 	$lang['load_scan'] = 'Lancer un nouveau scan';
@@ -39,8 +39,8 @@
 	$lang['number_mail_receive'] = 'Nombre de mails reçus';
 	$lang['number_remember'] = 'Nombre de rappels';
 	$lang['last_remember'] = 'Dernier rappel';
-	$lang['number_favoris'] = 'Nombre de favoris';
-	$lang['last_favoris'] = 'Dernier favoris';
+	$lang['number_favoris'] = 'Nombre de biens';
+	$lang['last_favoris'] = 'Dernier biens';
 	$lang['connection_historic'] = 'Historique des connexions';
 	$lang['agences'] = 'Agences';
 	$lang['error_login'] = 'Login/mot de passe inconnu.';
@@ -57,7 +57,7 @@
 	$lang['mandatory'] = 'Mandataire';
 	//breadcrumb
 	$lang['breadcrumb_supervision'] = 'Supervision';
-	$lang['breadcrumb_favoris'] = 'Favoris';
+	$lang['breadcrumb_favoris'] = 'Biens';
 	$lang['breadcrumb_subscribers'] = 'Abonnements';
 	$lang['breadcrumb_annonces'] = 'Annonces';
 	$lang['breadcrumb_users'] = 'Utilisateurs';
@@ -74,6 +74,7 @@
 	$lang['breadcrumb_news'] = 'News';
 	$lang['breadcrumb_calendar'] = 'Calendrier';
 	$lang['breadcrumb_edit_profile'] = 'Edition de profil';
+	$lang['breadcrumb_edit_param'] = 'Agence';
 
 	$lang['message'] = 'Message';
 	$lang['update_done'] = 'Modification effectuée';
@@ -104,7 +105,7 @@
 	$lang['edit'] = "Edition";
 	$lang["event_error_title"] = "Perturbation ! ";
 	$lang["event_error_body"] = "Immoffice fait des grosses mises à jours. Le service peut être perturbé. ";
-	$lang["load_more_favoris"] = "Charger plus de favoris";
+	$lang["load_more_favoris"] = "Charger plus de biens";
 	$lang["new"] = "Nouveau";
 	$lang["enter_new_favoris"] = "Entrez les informations de votre annonce";
 	$lang["zipcode"] = "Code postal";
@@ -137,13 +138,13 @@
 	$lang["expand_all"] = "Tout ouvrir";
 	$lang["collapse_all"] = "Tout fermer";
 	$lang["calendar"] = "Calendrier";
-	$lang["sure_load_old_favoris"] = "Etes-vous sur? Vous allez reinitialiser la page avec vos vieux favoris.";
+	$lang["sure_load_old_favoris"] = "Etes-vous sur? Vous allez reinitialiser la page avec vos vieux biens.";
 	$lang["sure_delete_favoris"] = "Etes-vous sur de vouloir supprimer cette annonce ?";
 	$lang["logout"] = "Se déconnecter";
 	$lang["delete_notification"] = "Supprimer les notifications";
 	$lang["welkome_immoffice"] = "Bienvenue sur Immoffice";
 	$lang["cdn_datatable_lang_url"] = "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json";
-	$lang["load_old_favoris"] = "Charger mes favoris";
+	$lang["load_old_favoris"] = "Charger mes biens";
 	$lang["new_repository"] = "Nouveau répertoire";
 	$lang["more_infos"] = "Plus d'information";
 	$lang["more_infos_down"] = "Détail";
@@ -161,7 +162,7 @@
 	$lang["edit_my_profil"] = "Editer mon profil";
 	$lang["annonces"] = "Annonces";
 	$lang["my_filters"] = "Mes recherches";
-	$lang["favoris"] = "Favoris";
+	$lang["favoris"] = "Biens";
 	$lang["my_remembers"] = "Mes rappels";
 	$lang["my_accounts"] = "Mes comptes";
 	$lang["news"] = "News";
@@ -279,7 +280,7 @@
 	$lang["actions"] = "Action";
 	$lang["see_this_annonce"] = "Voir l'annonce";
 	$lang["go_to_the_annonce"] = "Accéder directement à l'annonce";
-	$lang["add_to_favoris"] = "Ajouter aux favoris";
+	$lang["add_to_favoris"] = "Ajouter aux biens";
 	$lang["add_to_remembers"] = "Ajouter aux rappels";
 	$lang["add_a_note"] = "Ajouter une note";
 	$lang["delete_the_annonce"] = "Supprimer l'annonce";
@@ -368,17 +369,17 @@
 	$lang["event_12_title"] = "Centralisation des exports";
 	$lang["event_12_body"] = "Tous les exports partent de la même interface qui permet une uniformisation optimale. De cette manière; vous pouvez exporter en csv; excel; pdf mais également copier coller les données ou les imprimer directement.";
 	$lang["event_12_button_label"] = "";
-	$lang["event_13_title"] = "Favoris 2.0";
-	$lang["event_13_body"] = "Une nouvelle interface de gestion des favoris a été concue par Immoffice. Vous pouvez ajouter des répertoires; trier vos favoris dans ceux-ci. Puis mieux structurer votre agenda grâce à la couleur de vos répertoires !";
+	$lang["event_13_title"] = "Biens 2.0";
+	$lang["event_13_body"] = "Une nouvelle interface de gestion des biens a été concue par Immoffice. Vous pouvez ajouter des répertoires; trier vos biens dans ceux-ci. Puis mieux structurer votre agenda grâce à la couleur de vos répertoires !";
 	$lang["event_13_button_label"] = "Tester";
 	$lang["event_14_title"] = "Location";
 	$lang["event_14_body"] = "Les annonces à louer sont ajoutées sur Immoffice! Il va falloir attendre encore un peu le temps de remplir la base de données et de vérifier que tout fonctionne bien. C'est pour bientôt!  ";
 	$lang["event_14_button_label"] = "Ou ça ?";
-	$lang["event_15_title"] = "Favoris 2.0";
-	$lang["event_15_body"] = "L'interface favoris 2.0 a été revue pour être plus fonctionnelle. Simplicité; efficacité sont les maîtres mots d'Immoffice !";
+	$lang["event_15_title"] = "Biens 2.0";
+	$lang["event_15_body"] = "L'interface Biens 2.0 a été revue pour être plus fonctionnelle. Simplicité; efficacité sont les maîtres mots d'Immoffice !";
 	$lang["event_15_button_label"] = "Tester";
-	$lang["event_16_title"] = "Vos favoris";
-	$lang["event_16_body"] = "Vous pouvez dès à présent ajouter vos propres favoris. ";
+	$lang["event_16_title"] = "Vos biens";
+	$lang["event_16_body"] = "Vous pouvez dès à présent ajouter vos propres biens. ";
 	$lang["event_17_title"] = "Immoffice V2";
 	$lang["event_17_body"] = "Nous avons pris en compte toutes vos suggestions et avons le plaisir de vous présenter la nouvelle version d'Immoffice. N'hesitez pas à nous contacter pour une présentation en détail de toutes les nouveautés ! ";
 
@@ -458,4 +459,14 @@
 	$lang["calendar_week"] = "Calendrier de la semaine";
 	$lang["calendar_month"] = "Calendrier du mois";
 	$lang["add_infos"] = "Informations supplémentaires";
+	$lang["edition"] = "Edition";
+    $lang["vue"] = "Vue";
+    $lang["agency"] = "Agence";
+
+    $lang["number"] = "Number";
+    $lang["postcode"] = "Code postal";
+    $lang["city"] = "Ville";
+    $lang["status"] = "Statut";
+
+	$lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
  ?>

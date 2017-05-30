@@ -42,7 +42,7 @@
             </div>
         </fieldset>
         <hr/>
-        <fieldset class="radio-inline-cont ">
+        <fieldset class="radio-inline-cont separation-form">
             <?php echo $this->lang->line('direct_access_page'); ?> : 
             <div>
                 <input name="direct_access_page" type="radio" value="1" id="direct_access_page_1" <?php if($user->direct_access_page == '1') echo 'checked'; ?>>
@@ -51,6 +51,24 @@
              --><div>
                 <input name="direct_access_page" type="radio" value="0" id="direct_access_page_0" <?php if($user->direct_access_page == '0') echo 'checked'; ?>>
                 <label for="direct_access_page_0"><?php echo $this->lang->line('no'); ?></label>
+            </div>
+        </fieldset>
+        <hr/>
+        <fieldset class="radio-inline-cont ">
+            <?php echo $this->lang->line('autorisation_members'); ?> : 
+            <div  id="autorisation_members_access_cont">
+                <input name="autorisation_members_access" type="checkbox" value="1" id="autorisation_members_access">
+                <label for="autorisation_members_access"><?php echo $this->lang->line('yes'); ?></label>
+            </div>
+            <div class="options_radio">
+                <div>
+                    <input name="autorisation_members_access_option" type="radio" value="1" id="autorisation_members_access_option_1" >
+                    <label for="autorisation_members_access_option_1"><?php echo $this->lang->line('edition'); ?></label>
+                </div><!--
+                 --><div>
+                    <input name="autorisation_members_access_option" type="radio" value="0" id="autorisation_members_access_option_0" >
+                    <label for="autorisation_members_access_option_0"><?php echo $this->lang->line('vue'); ?></label>
+                </div>
             </div>
         </fieldset>
         <hr/>

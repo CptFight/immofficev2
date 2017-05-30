@@ -39,6 +39,9 @@
 <!-- datetimepicker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
+<!-- colorpicker -->
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/colorpicker/bootstrap-colorpicker-plus.min.js"></script>
 
 <?php 
 if(isset($custom_scripts) && is_array($custom_scripts)  ) { 

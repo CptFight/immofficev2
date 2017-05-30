@@ -11,7 +11,7 @@
     $lang['admin'] = 'Administrateur';
     $lang['boss_name'] = 'Nom du responsable';
     $lang['agence_name'] = "Nom de l'agence";
-    $lang['direct_access_page'] = "Accéder directement à la page quand j'ajoute un favoris ou un rappel";
+    $lang['direct_access_page'] = "Accéder directement à la page quand j'ajoute un bien ou un rappel";
     $lang['total'] = "Total";
     $lang['users_with_favoris'] = "Impossible de supprimer cet utilisateur";
     $lang['load_scan'] = 'Lancer un nouveau scan';
@@ -41,8 +41,8 @@
     $lang['number_mail_receive'] = 'Nombre de mails reçus';
     $lang['number_remember'] = 'Nombre de rappels';
     $lang['last_remember'] = 'Dernier rappel';
-    $lang['number_favoris'] = 'Nombre de favoris';
-    $lang['last_favoris'] = 'Dernier favoris';
+    $lang['number_favoris'] = 'Nombre de biens';
+    $lang['last_favoris'] = 'Dernier biens';
     $lang['connection_historic'] = 'Historique des connexions';
     $lang['agences'] = 'Agences';
     $lang['error_login'] = 'Login/mot de passe inconnu.';
@@ -59,7 +59,7 @@
     $lang['mandatory'] = 'Mandataire';
     //breadcrumb
     $lang['breadcrumb_supervision'] = 'Supervision';
-    $lang['breadcrumb_favoris'] = 'Favoris';
+    $lang['breadcrumb_favoris'] = 'Biens';
     $lang['breadcrumb_subscribers'] = 'Abonnements';
     $lang['breadcrumb_annonces'] = 'Annonces';
     $lang['breadcrumb_users'] = 'Utilisateurs';
@@ -75,6 +75,7 @@
     $lang['breadcrumb_news'] = 'News';
     $lang['breadcrumb_calendar'] = 'Calendrier';
     $lang['breadcrumb_edit_profile'] = 'Edition de profil';
+    $lang['breadcrumb_edit_param'] = 'Agence';
 
     $lang['message'] = 'Message';
     $lang['update_done'] = 'Modification effectuée';
@@ -460,5 +461,14 @@
     $lang["calendar_week"] = "Calendar of the week";
     $lang["calendar_month"] = "Calendar of the month";
     $lang["add_infos"] = "Additional informations";
+
+    $lang["edition"] = "Edition";
+    $lang["vue"] = "Vue";
+    $lang["agency"] = "Agence";
+    $lang["number"] = "Number";
+    $lang["postcode"] = "Code postal";
+    $lang["city"] = "Ville";
+    $lang["status"] = "Statut";
+    $lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
  ?>
 

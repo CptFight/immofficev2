@@ -34,6 +34,10 @@ textarea, .input, .chosen-container-multi .chosen-choices{
         box-shadow:none;
         border-color: #1ab394 !important;
     }
+    &.disabled:hover, &.disabled:focus
+    {
+        border-color: #e5e6e7 !important;
+    }
 }
 textarea 
 {
@@ -322,6 +326,4 @@ select.input-sm
         top:10px;
     }
 }
-
-
 
