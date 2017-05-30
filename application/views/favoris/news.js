@@ -77,26 +77,16 @@ $(document).ready(function() {
     $(".date-mobile").hide();
 	$(".date-desktop").show();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-	 	$(".date-desktop").hide();
+	 	$(".date-desktop").remove();
 	 	$(".date-mobile").show();
 	}
 	else 
 	{
-		$(".date-mobile").hide();
+		$(".date-mobile").remove();
 		$(".date-desktop").show();
 	}
 
-    $(".add-more").click(function(e){
-        e.preventDefault();
-        var addto = "#fields";
-        var newIn = '<fieldset class="inputstyle field" id="field' + next + '" ><textarea name="description' + next + '" placeholder=""></textarea><button data-id="field' + next + '" class="remove-me"><i class="fa fa-remove"></i></button></fieldset>';
-        $(addto).append(newIn); 
-    });
-    $(document).on("click", ".remove-me", function(e){
-        e.preventDefault();
-        var id = $(this).attr("data-id");
-        $("#"+id).remove();
-    });
+
     
 });
 
