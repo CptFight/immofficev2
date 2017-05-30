@@ -42,7 +42,7 @@
             </div>
         </fieldset>
         <hr/>
-        <fieldset class="radio-inline-cont ">
+        <fieldset class="radio-inline-cont separation-form">
             <?php echo $this->lang->line('direct_access_page'); ?> : 
             <div>
                 <input name="direct_access_page" type="radio" value="1" id="direct_access_page_1" <?php if($user->direct_access_page == '1') echo 'checked'; ?>>

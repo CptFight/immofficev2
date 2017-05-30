@@ -75,6 +75,7 @@
     $lang['breadcrumb_news'] = 'News';
     $lang['breadcrumb_calendar'] = 'Calendrier';
     $lang['breadcrumb_edit_profile'] = 'Edition de profil';
+    $lang['breadcrumb_edit_param'] = 'Agence';
 
     $lang['message'] = 'Message';
     $lang['update_done'] = 'Modification effectuée';
@@ -463,6 +464,11 @@
 
     $lang["edition"] = "Edition";
     $lang["vue"] = "Vue";
+    $lang["agency"] = "Agence";
+    $lang["number"] = "Number";
+    $lang["postcode"] = "Code postal";
+    $lang["city"] = "Ville";
+    $lang["status"] = "Statut";
     $lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
  ?>
 

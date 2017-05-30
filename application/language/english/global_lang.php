@@ -356,6 +356,11 @@
 	$lang["add_infos"] = "Additional informations";
 	$lang["edition"] = "Edition";
     $lang["vue"] = "Vue";
+    $lang["agency"] = "Agence";
+    $lang["number"] = "Number";
+    $lang["postcode"] = "Code postal";
+    $lang["city"] = "Ville";
+    $lang["status"] = "Statut";
 	$lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
 
 

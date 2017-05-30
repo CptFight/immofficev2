@@ -157,6 +157,11 @@ class Agences extends MY_Controller {
 		 
 	
 	}
+
+	public function edit_param(){
+		
+		$this->load->view('template', $this->data);
+	}
 	
 
 }
