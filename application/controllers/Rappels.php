@@ -122,6 +122,8 @@ class Rappels extends MY_Controller {
 	 				<li class="table-btn-link"><a target="_blank" href="'.$rappel->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
                     <li class="table-btn-edit"><a href="'.site_url('favoris/edit/?id='.$rappel->favoris_id.'&back_path=rappels/index&view=rappel').'"><i class="fa fa-pencil"></i><span>Editer le favoris</span></a></li>
                 </ul>',
+                $rappel->annonce_id,
+                $rappel->favoris_id,
                 $rappel->id,
                 "<span class='historic_price'>".$rappel->price."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$rappel->date_publication)."</span>",

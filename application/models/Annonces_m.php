@@ -50,6 +50,7 @@ class Annonces_m extends MY_Model {
 
             if($params['search']){
                 $request_search = "( title LIKE '%".$params['search']."%'";
+                $request_search .= "OR annonces.id LIKE '%".$params['search']."%'";
                 $request_search .= "OR web_site LIKE '%".$params['search']."%'";
                 $request_search .= "OR description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
