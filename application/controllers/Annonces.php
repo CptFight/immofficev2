@@ -195,7 +195,7 @@ class Annonces extends MY_Controller {
 				$annonce->title,
 				$annonce->zip_code,
 				number_format($annonce->price, 0, ',', ' ').' €',
-				$annonce->web_site,
+                $annonce->web_site,
 				date('d/m/Y',$annonce->date_publication),
 				'<input type="checkbox" class="visited" />',
 				$actions,

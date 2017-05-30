@@ -327,3 +327,24 @@ select.input-sm
     }
 }
 
+.inputwithbtn
+{
+    input 
+    {
+        width: calc(100% - 55px);
+        float: left;
+        position:relative;
+        z-index:10;
+        border-top-right-radius:0px;
+        border-bottom-right-radius:0px;
+    }
+    .btn-inverse
+    {
+        width:55px;
+        margin-left:-1px;
+        border-top-left-radius:0px;
+        border-bottom-left-radius:0px;
+        height: 33px;
+        padding-top: 7px;
+    }
+}

@@ -66,6 +66,7 @@
 	$lang['breadcrumb_suggestions'] = 'Suggestions';
 	$lang['breadcrumb_dashboard'] = 'Tableau de bord';
 	$lang['breadcrumb_map'] = 'Générateur de code postaux';
+	$lang['breadcrumb_owner'] = 'Propriétaires';
 
 	$lang['breadcrumb_view'] = 'Detail';
 	$lang['breadcrumb_index'] = 'Liste';
@@ -467,6 +468,14 @@
     $lang["postcode"] = "Code postal";
     $lang["city"] = "Ville";
     $lang["status"] = "Statut";
-
+    $lang["status_owner"] = "Statut propriétaire";
+    $lang["general"] = "Général";
+    $lang["archives"] = "Archives";
+    $lang["actives"] = "Actives";
+    $lang["archiver"] = "Archiver";
+    $lang["assign_to"] = "Assigner à";
+    $lang["owners"] = "Propriétaires";
+    $lang["following"] = "Suivis";
+    
 	$lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
  ?>

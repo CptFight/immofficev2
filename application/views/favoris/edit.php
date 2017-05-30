@@ -8,59 +8,53 @@
 
     
         <ul class="tabs">
-            <li><div id="tab1"  data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('favoris'); ?></div></li>
+            <li><div id="tab1"  data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('general'); ?></div></li>
             <li><div id="tab2"  data-select="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
             <li><div id="tab3"  data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>"><?php echo $this->lang->line('add_infos'); ?></div></li>
-            <!-- <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('notes'); ?></div></li>  -->
+            <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('following'); ?></div></li> 
+            <li><div id="tab5" data-select="tab5" class="<?php if($tab == 5) echo 'active'; ?>"><?php echo $this->lang->line('owner'); ?></div></li> 
         </ul>
         <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
                 <option value="tab1" <?php if($tab == 1) echo 'selected'; ?>><?php echo $this->lang->line('favoris'); ?></option>
                 <option value="tab2" <?php if($tab == 2) echo 'selected'; ?>><?php echo $this->lang->line('rappel'); ?></option>
                 <option value="tab3" <?php if($tab == 3) echo 'selected'; ?>><?php echo $this->lang->line('add_infos'); ?></option>
-                <!-- <option value="tab4" <?php if($tab == 4) echo 'selected'; ?>><?php echo $this->lang->line('notes'); ?></option>-->
+                <option value="tab4" <?php if($tab == 4) echo 'selected'; ?>><?php echo $this->lang->line('notes'); ?></option>
+                <option value="tab5" <?php if($tab == 5) echo 'selected'; ?>><?php echo $this->lang->line('owner'); ?></option>
             </select>
          </fieldset>
 
         <div class="block">
             <div class='<?php if($tab == 1) echo 'active'; ?> tab tab1'>
-                <fieldset class="inputstyle">
-                    <select name="mandataire_user_id" id="mandataire" class="form-control">
-                        <?php foreach($mandataires as $key => $mandataire){ ?> 
-                            <option value="<?php echo $mandataire->id; ?>" <?php if($mandataire->id == $favoris->mandataire_user_id) echo "selected"; ?>><?php echo $mandataire->login." : ".$mandataire->name." ".$mandataire->firstname; ?></option>
-                        <?php } ?>
-                    </select>
+                <fieldset class="favoris-edit-assign ">
+                    <div><label for="mandataire"><?php echo $this->lang->line('assign_to'); ?>:</label></div>
+                    <div>
+                        <select name="mandataire_user_id" id="mandataire" class="form-control">
+                            <?php foreach($mandataires as $key => $mandataire){ ?> 
+                                <option value="<?php echo $mandataire->id; ?>" <?php if($mandataire->id == $favoris->mandataire_user_id) echo "selected"; ?>><?php echo $mandataire->login." : ".$mandataire->name." ".$mandataire->firstname; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </fieldset>
+                <!--<div class="error">
+                    <p>Ceci n'est pas possible</p>
+                </div>-->
 
                 <fieldset class="inputstyle">
                     <label for="title"><?php echo $this->lang->line('title'); ?></label>
                     <input type="text" id="title" name="title" value='<?php echo $favoris->title; ?>' >
                 </fieldset>
 
-                 <fieldset class="inputstyle">
+                 <fieldset class="inputstyle inputwithbtn">
                     <label for="url"><?php echo $this->lang->line('url'); ?></label>
                     <input type="text" id="url" name="url" value='<?php echo $favoris->url; ?>' >
+                    <a href="<?php echo $favoris->url; ?>" class="btn-inverse" target="_blank"><i class="fa fa-link"></i></a>
                 </fieldset>
 
                 <fieldset  class="inputstyle">
                     <label for="tags"><?php echo $this->lang->line('tags'); ?></label>
                     <input type="text" id="tags" name="tags" value='<?php echo $favoris->tags; ?>'>
                 </fieldset>
-
-                <div class='dat clearfix'>
-                    <div class="float-middle input-separation">
-                       <fieldset class="inputstyle">
-                            <label for="owner_name"><?php echo $this->lang->line('owner_name'); ?></label>
-                            <input type="text" name="owner_name" id="owner_name" value='<?php echo $favoris->owner_name; ?>'>
-                        </fieldset>
-                    </div>
-                    <div class="float-middle input-separation">
-                        <fieldset class="inputstyle">
-                            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
-                            <input type="text" name="tel" id="tel" value='<?php echo $favoris->tel; ?>'>
-                        </fieldset>
-                    </div>
-                </div>
                 <fieldset class="inputstyle" style="clear: both;">
 
                     <label for="note"><?php echo $this->lang->line('note'); ?></label>
@@ -199,21 +193,81 @@
                 </fieldset>
             </div>
             <div class="tab tab4 <?php if($tab == 4) echo 'active'; ?>">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="favoris_edit_table">
+                        <thead>
+                            <tr>
+                                <th>Note</th>
+                                <th>Date</th>
+                                <th>Heure</th>
+                                <th width="80px"> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</td>
+                                <td>01/07/2017</td>
+                                <td>10:22</td>
+                                <td>
+                                    <ul class="list-tables-buttons tes" data-annonce_id="472">
+                                        <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-external-link"></i><span>Editer</span></a></li>
+                                        <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-remove"></i><span>Supprimer</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="new-note">
+                    <h3>Add a note</h3>
+                    <fieldset class="inputstyle">
+                        <textarea name="newnote" placeholder="Note"></textarea>
+                        <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="tab tab5 <?php if($tab == 5) echo 'active'; ?>">
                 <div class='clearfix'>
-                    <div id="fields">
-                        <fieldset class="inputstyle field" id="field1" >
-                            <textarea name="description" placeholder="description"></textarea>
-                            <button data-id="field1" class="remove-me"><i class="fa fa-remove"></i></button>
+                    <div class="float-middle input-separation">
+                       <fieldset class="inputstyle">
+                            <label for="owner_name"><?php echo $this->lang->line('owner_name'); ?></label>
+                            <input type="text" name="owner_name" id="owner_name" value='<?php echo $favoris->owner_name; ?>'>
                         </fieldset>
                     </div>
-                    <button id="b1" class="btn add-more" type="button">Add +</button>
+                    <div class="float-middle input-separation">
+                        <fieldset class="inputstyle">
+                            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
+                            <input type="text" name="tel" id="tel" value='<?php echo $favoris->tel; ?>'>
+                        </fieldset>
+                    </div>
                 </div>
+                <div class='clearfix'>
+                    <div class="float-middle input-separation">
+                       <fieldset class="inputstyle">
+                            <label for="owner_mail"><?php echo $this->lang->line('owner_mail'); ?></label>
+                            <input type="email" name="owner_mail" id="owner_mail" value=''>
+                        </fieldset>
+                    </div>
+                    <div class="float-middle input-separation">
+                        <fieldset >
+                            <select name="owner_status" id="owner_status" class="form-control">
+                                <option value="Status">Status</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                </div>
+                <fieldset class="inputstyle" style="clear: both;">
+                    <label for="note_owner"><?php echo $this->lang->line('note'); ?></label>
+                    <textarea name="note_owner" id="note_owner"><?php echo $favoris->note; ?></textarea>
+                </fieldset>
             </div>
         </div>
 
         <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
+            <button name="delete" class="btn archive pull-right" value="delete" type="submit"><?php echo $this->lang->line('archiver'); ?></button>
         </fieldset>
 
     </div>

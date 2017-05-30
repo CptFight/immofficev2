@@ -294,7 +294,7 @@ annonces.initTableDatatablesResponsive = function () {
                     className: 'btn dark btn-outline',
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('print');
@@ -306,7 +306,7 @@ annonces.initTableDatatablesResponsive = function () {
                     className: 'btn green btn-outline', 
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('pdf');
@@ -319,7 +319,7 @@ annonces.initTableDatatablesResponsive = function () {
                     orientation: 'landscape',
                     fieldSeparator: ',',
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('csv');

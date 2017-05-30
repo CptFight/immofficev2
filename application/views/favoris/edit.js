@@ -67,6 +67,49 @@ favoris_edit.init = function(){
 
 }
 
+/* ----- Tables ----- */
+/* ------------------- */
+favoris_edit.initTableDatatablesResponsive = function () {
+    var table = $('#favoris_edit_table');
+
+    if(!favoris_edit.tableObject){
+        favoris_edit.tableObject = table.dataTable({
+            // Internationalisation. For more info refer to http://datatables.net/manual/i18n
+            "language": {
+                "aria": {
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                },
+                "emptyTable": "No data available in table",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "No entries found",
+                "infoFiltered": "(filtered1 from _MAX_ total entries)",
+                "lengthMenu": "_MENU_ entries",
+                "search": "Search:",
+                "zeroRecords": "No matching records found",
+                
+            },
+            searching:true,
+            bShowAll: false,
+            buttons: [],
+
+
+            "order": [
+                [1, 'desc']
+            ],
+            
+            "lengthMenu": [
+                [5, 10, 15, 20, -1],
+                [5, 10, 15, 20, "All"] // change per page values here
+            ],
+            // set the initial value
+            "pageLength": 20,
+
+            "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+        });
+    }
+
+};
 /*********************************
 *   @name : (window).load
 *   params : /
@@ -74,7 +117,7 @@ favoris_edit.init = function(){
 *********************************/
 $(document).ready(function() {     
     favoris_edit.init();
-
+    favoris_edit.initTableDatatablesResponsive();
     $(".date-mobile").hide();
 	$(".date-desktop").show();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -86,18 +129,6 @@ $(document).ready(function() {
 		$(".date-mobile").remove();
 		$(".date-desktop").show();
 	}
-	/*
-	 $(".add-more").click(function(e){
-        e.preventDefault();
-        var addto = "#fields";
-        var newIn = '<fieldset class="inputstyle field" id="field' + next + '" ><textarea name="description' + next + '" placeholder=""></textarea><button data-id="field' + next + '" class="remove-me"><i class="fa fa-remove"></i></button></fieldset>';
-        $(addto).append(newIn); 
-    });
-    $(document).on("click", ".remove-me", function(e){
-        e.preventDefault();
-        var id = $(this).attr("data-id");
-        $("#"+id).remove();
-    });*/
 });
 
 

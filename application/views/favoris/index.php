@@ -3,6 +3,8 @@
 
 
     <div class="btns-calendar">
+        <a class='active btn-actives' href="javascript:;"><?php echo $this->lang->line('actives'); ?></a> 
+        <a href="javascript:;"><?php echo $this->lang->line('archives'); ?></a>
         <a class="btn-new" href="<?php echo site_url('favoris/news'); ?>"><i class="fa fa-plus"></i> <?php echo $this->lang->line('new'); ?></a> 
     </div>
 
@@ -16,11 +18,12 @@
                     <th ><?php echo $this->lang->line('title'); ?></th>
                     <th ><?php echo $this->lang->line('zip_code'); ?></th>
                     <th width="50px"><?php echo $this->lang->line('price'); ?></th>
-                    <th ><?php echo $this->lang->line('web_site'); ?></th>
+                    <th ><?php echo $this->lang->line('status'); ?></th>
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                     <th class="none"><?php echo $this->lang->line('note'); ?> : </th>
                     <th class="none">ID : </th>
+                    <th class="none"><?php echo $this->lang->line('web_site'); ?></th>
                     <th class="none"><?php echo $this->lang->line('price'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('publications'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('adress'); ?> : </th>

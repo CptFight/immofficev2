@@ -85,8 +85,19 @@ $(document).ready(function() {
 		$(".date-mobile").remove();
 		$(".date-desktop").show();
 	}
-
-
+	/*var next = 2;
+	$(".add-more").click(function(e){
+        e.preventDefault();
+        var addto = "#fields";
+        var newIn = '<fieldset class="inputstyle field" id="field' + next + '" ><textarea name="description' + next + '" placeholder="Note"></textarea><button data-id="field' + next + '" class="remove-me"><i class="fa fa-remove"></i></button></fieldset>';
+        $(addto).append(newIn); 
+        next = next + 1;
+    });
+    $(document).on("click", ".remove-me", function(e){
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        $("#"+id).remove();
+    });*/
     
 });
 
