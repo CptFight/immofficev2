@@ -23,7 +23,7 @@
                 <?php if($current_user->role_id != 1){ ?>
                 <li><a href="<?php echo site_url('annonces/index'); ?>" class='<?php if($pagename == "annonces") echo "active"; ?>'><i class="fa fa-search"></i><span><?php echo $this->lang->line('annonces'); ?></span></a></li>
                 <?php } ?>
-                <li><a href="<?php echo site_url('subscribers/index'); ?>" class="<?php if($pagename == "subscribers") echo "active"; ?>"><i class="fa fa-reddit"></i> <span><?php echo $this->lang->line('subscribers'); ?></span></a></li>
+                <li><a href="<?php echo site_url('subscribers/index'); ?>" class="<?php if($pagename == "subscribers") echo "active"; ?>"><i class="fa fa-envelope"></i> <span><?php echo $this->lang->line('subscribers'); ?></span></a></li>
                 <?php if($current_user->role_id != 1){ ?>
                 <li><a href="<?php echo site_url('favoris/index'); ?>" class='<?php if($pagename == "favoris") echo "active"; ?>'><i class="fa fa-heart"></i> <span><?php echo $this->lang->line('favoris'); ?>
                 <?php if(isset($current_user->count_favoris)) { ?><strong class="alert-tag favoris"><?php echo $current_user->count_favoris; ?></strong><?php } ?></span></a></li>
