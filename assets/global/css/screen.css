@@ -4213,6 +4213,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
     width: 100%;
     display: block;
     margin-bottom: 10px; } }
+/* ==|====================
+   Layout/Profile
+   ======================= */
+div.options_radio {
+  margin-left: 10px; }
+
 /* Modules */
 /* ==|====================
    Module/Button

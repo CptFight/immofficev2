@@ -184,7 +184,7 @@ class Annonces extends MY_Controller {
 
 			$actions = '<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
 	 				<li class="table-btn-link" data-annonce_id="'.$annonce->id.'"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
-                    <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-heart"></i><span> favoris</span></a></li>
+                    <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-home"></i><span> favoris</span></a></li>
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>';
             if($this->current_user->role_id == 4){
             	$actions .= ' <li class="table-btn-edit"><a href="'.site_url('annonces/edit/?id='.$annonce->id).'"><i class="fa fa-pencil"></i><span>Editer annonce</span></a></li>';

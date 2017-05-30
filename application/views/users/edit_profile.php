@@ -54,6 +54,24 @@
             </div>
         </fieldset>
         <hr/>
+        <fieldset class="radio-inline-cont ">
+            <?php echo $this->lang->line('autorisation_members'); ?> : 
+            <div  id="autorisation_members_access_cont">
+                <input name="autorisation_members_access" type="checkbox" value="1" id="autorisation_members_access">
+                <label for="autorisation_members_access"><?php echo $this->lang->line('yes'); ?></label>
+            </div>
+            <div class="options_radio">
+                <div>
+                    <input name="autorisation_members_access_option" type="radio" value="1" id="autorisation_members_access_option_1" >
+                    <label for="autorisation_members_access_option_1"><?php echo $this->lang->line('edition'); ?></label>
+                </div><!--
+                 --><div>
+                    <input name="autorisation_members_access_option" type="radio" value="0" id="autorisation_members_access_option_0" >
+                    <label for="autorisation_members_access_option_0"><?php echo $this->lang->line('vue'); ?></label>
+                </div>
+            </div>
+        </fieldset>
+        <hr/>
         <fieldset>
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
          </fieldset>
