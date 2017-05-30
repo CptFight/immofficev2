@@ -41,60 +41,52 @@
                 <input type="text" id="phone" name="phone" value='' >
             </fieldset>
             <div class="clearfix separation-form ul-multiple-inputs-container no-bottom-margin">
-                <div class="float-quart">
-                    <h3><?php echo $this->lang->line('status'); ?>:</h3>
-                </div>
-                <div class="float-trois-quart">
-                    <ul>
-                        <li>
-                            <div class="inputsstatus">
-                                <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
-                                <fieldset class="inputstyle">
-                                    <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                    <input type="text" id="status1" name="status1" value='' >
-                                </fieldset>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="inputsstatus">
-                                <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
-                                <fieldset class="inputstyle">
-                                    <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                    <input type="text" id="status1" name="status1" value='' >
-                                </fieldset>
-                            </div>
-                            <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
-                        </li>
-                    </ul>
-                </div>
+                <h3><?php echo $this->lang->line('status'); ?>:</h3>
+                <ul>
+                    <li>
+                        <div class="inputsstatus">
+                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
+                            <fieldset class="inputstyle">
+                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status1" name="status1" value='' >
+                            </fieldset>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputsstatus">
+                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
+                            <fieldset class="inputstyle">
+                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status1" name="status1" value='' >
+                            </fieldset>
+                        </div>
+                        <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
+                    </li>
+                </ul>
             </div>
             <div class="clearfix separation-form ul-multiple-inputs-container no-top-margin">
-                <div class="float-quart">
-                    <h3><?php echo $this->lang->line('status'); ?>:</h3>
-                </div>
-                <div class="float-trois-quart">
-                    <ul>
-                        <li>
-                            <div class="inputsstatus">
-                                <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
-                                <fieldset class="inputstyle">
-                                    <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                    <input type="text" id="status1" name="status1" value='' >
-                                </fieldset>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="inputsstatus">
-                                <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
-                                <fieldset class="inputstyle">
-                                    <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                    <input type="text" id="status1" name="status1" value='' >
-                                </fieldset>
-                            </div>
-                            <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
-                        </li>
-                    </ul>
-                </div>
+                <h3><?php echo $this->lang->line('status_owner'); ?>:</h3>
+                <ul>
+                    <li>
+                        <div class="inputsstatus">
+                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
+                            <fieldset class="inputstyle">
+                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status1" name="status1" value='' >
+                            </fieldset>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputsstatus">
+                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
+                            <fieldset class="inputstyle">
+                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status1" name="status1" value='' >
+                            </fieldset>
+                        </div>
+                        <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </form>

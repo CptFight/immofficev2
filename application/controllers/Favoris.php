@@ -244,7 +244,7 @@ class Favoris extends MY_Controller {
 				$favoris->title,
 				$favoris->zip_code,
 				number_format($favoris->price, 0, ',', ' ').' €',
-				$favoris->web_site,
+				"<div class='statusflag' style='color:#179d82'><i class='fa fa-flag'></i> Status</div>",
 				date('d/m/Y',$favoris->date_publication),
 				'<ul class="list-tables-buttons list-favoris" data-favoris_id="'.$favoris->id.'">
 	 				<li class="table-btn-link"><a target="_blank" href="'.$favoris->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
@@ -254,6 +254,7 @@ class Favoris extends MY_Controller {
                 $favoris->note,
                 $favoris->annonce_id,
                 $favoris->id,
+				$favoris->web_site,
                 "<span class='historic_price'>".number_format($favoris->price, 0, ',', ' ')."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$favoris->date_publication)."</span>",
                 $favoris->adress,

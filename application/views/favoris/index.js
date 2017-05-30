@@ -150,7 +150,7 @@ favoris.initTableDatatablesResponsive = function () {
                     className: 'btn dark btn-outline',
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 , 14 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('print');
@@ -162,7 +162,7 @@ favoris.initTableDatatablesResponsive = function () {
                     className: 'btn green btn-outline', 
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 , 14 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('pdf');
@@ -175,7 +175,7 @@ favoris.initTableDatatablesResponsive = function () {
                     orientation: 'landscape',
                     fieldSeparator: ',',
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 , 14 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('csv');

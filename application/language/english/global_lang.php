@@ -361,6 +361,14 @@
     $lang["postcode"] = "Code postal";
     $lang["city"] = "Ville";
     $lang["status"] = "Statut";
+    $lang["general"] = "Général";
+     $lang["archives"] = "Archives";
+    $lang["actives"] = "Actives";
+    $lang["assign_to"] = "Assign to";
+    $lang["archiver"] = "Archiver";
+    $lang["status_owner"] = "Statut propriétaire";
+    $lang["owners"] = "Propriétaires";
+    $lang["following"] = "Suivis";
 	$lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
 
 
