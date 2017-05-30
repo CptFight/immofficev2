@@ -24,6 +24,16 @@
 
         <div class="block">
             <div class='<?php if($tab == 1) echo 'active'; ?> tab tab1'>
+
+                <fieldset>
+                <?php if($favoris->annonce_id) { ?>
+                    <?php echo $this->lang->line('annonce_id'); ?> : <?php echo $favoris->annonce_id; ?>
+                <?php } ?>
+
+                <?php echo $this->lang->line('favoris_id'); ?> : <?php echo $favoris->id; ?>
+                </fieldset>
+
+
                 <fieldset class="inputstyle">
                     <select name="mandataire_user_id" id="mandataire" class="form-control">
                         <?php foreach($mandataires as $key => $mandataire){ ?> 
@@ -71,6 +81,14 @@
             </div>
             <div class="tab tab2 <?php if($tab == 2) echo 'active'; ?>">
                 <input type="hidden" name="rappel_id" value='<?php echo $favoris->rappel_id; ?>'>
+
+                <fieldset>
+                 <?php echo $this->lang->line('rappel_id'); ?> : <?php echo $favoris->rappel_id; ?>
+                </fieldset>
+
+                
+
+
                 <fieldset class="inputstyle">
                     <label for="rappel_tags"><?php echo $this->lang->line('tags'); ?></label>
                     <input type="text" name="rappel_tags" id="rappel_tags" value='<?php echo $favoris->rappel_tags; ?>'>

@@ -252,8 +252,8 @@ class Favoris extends MY_Controller {
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
                 $favoris->note,
-                $favoris->id,
                 $favoris->annonce_id,
+                $favoris->id,
                 "<span class='historic_price'>".number_format($favoris->price, 0, ',', ' ')."</span>",
                 "<span class='historic_publications'>".date('d/m/Y',$favoris->date_publication)."</span>",
                 $favoris->adress,

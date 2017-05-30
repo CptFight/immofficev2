@@ -39,6 +39,8 @@ class Favoris_m extends MY_Model {
 
             if($params['search']){
                 $request_search = "( title LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.id LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.annonce_id LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.tags LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.owner_name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.price LIKE '%".$params['search']."%'";

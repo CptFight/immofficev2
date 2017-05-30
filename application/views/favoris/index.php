@@ -20,8 +20,8 @@
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                     <th class="none"><?php echo $this->lang->line('note'); ?> : </th>
-                    <th class="none">ID : </th>
-                    <th class="none">Annonce id : </th>
+                    <th class="none"><?php echo $this->lang->line('annonce_id'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('favoris_id'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('price'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('publications'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('adress'); ?> : </th>
