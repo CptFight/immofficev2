@@ -32,8 +32,6 @@
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->
                 
 
-                <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
-                <li><a href="<?php echo site_url('suggestions/index'); ?>" class="<?php if($pagename == "suggestions") echo "active"; ?>"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
                 <?php if($current_user->role_id == 4){ ?>
                 <li><a href="<?php echo site_url('users/index'); ?>" class="<?php if($pagename == "users") echo "active"; ?>"><i class="fa fa-user"></i> <span ><?php echo $this->lang->line('users'); ?></span></a></li>
                  <li><a href="<?php echo site_url('agences/index'); ?>" class="<?php if($pagename == "agences") echo "active"; ?>"><i class="fa fa-building-o"></i> <span ><?php echo $this->lang->line('agences'); ?></span></a></li>
@@ -46,6 +44,10 @@
                 <?php if($current_user->role_id == 3 || $current_user->role_id == 4){ ?>
                 <li><a href="<?php echo site_url('supervision/index'); ?>" class="<?php if($pagename == "supervision") echo "active"; ?>"><i class="fa fa-cog"></i> <span ><?php echo $this->lang->line('supervision'); ?></span></a></li>
                 <?php } ?>
+
+                
+                <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
+                <li><a href="<?php echo site_url('suggestions/index'); ?>" class="<?php if($pagename == "suggestions") echo "active"; ?>"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
             </ul>
             <ul class="l-nav-small">
                 <!--<li><a href=""><?php echo $this->lang->line('need_help'); ?>?</a></li> -->

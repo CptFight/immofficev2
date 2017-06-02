@@ -75,6 +75,44 @@ class Agences extends MY_Controller {
 	}
 
 
+	public function edit_param(){
+		$this->load->model(array('Agences_m','Status_m'));
+		
+
+		$this->data['status_favoris'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
+		if(count($this->data['status_favoris']) <= 0) {
+			$this->data['status_favoris'] = $this->Status_m->getBasicStatus('favoris',$this->current_user->lang);
+		}
+
+		$this->data['status_owners'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
+		if(count($this->data['status_owners']) <= 0) {
+			$this->data['status_owners'] = $this->Status_m->getBasicStatus('owners',$this->current_user->lang);
+		}
+
+		if($this->input->post('save')){
+
+			$agence['id'] = $this->current_user->agence_id;
+			$agence['adress'] = $this->input->post('adress');
+			$agence['number'] = $this->input->post('number');
+			$agence['zipcode'] = $this->input->post('zipcode');
+			$agence['city'] = $this->input->post('city');
+			$agence['tel'] = $this->input->post('tel');
+			
+			/*$agence['status_favoris'] = $this->input->post('status_favoris');
+			$agence['status_owners'] = $this->input->post('status_owners');*/
+
+			if($this->Agences_m->update($agence)){
+				$this->addMessage($this->lang->line('update_done'));
+			}
+			
+		}
+
+		$this->data['agence'] = $this->Agences_m->get($this->current_user->agence_id);
+		$this->load->view('template', $this->data);
+	}
+	
+
+
 	public function getAllDataTable(){
 		$this->load->model(array('Agences_m','Users_m'));
 		
@@ -158,11 +196,6 @@ class Agences extends MY_Controller {
 	
 	}
 
-	public function edit_param(){
-		
-		$this->load->view('template', $this->data);
-	}
-	
 
 }
 

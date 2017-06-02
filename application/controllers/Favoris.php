@@ -70,6 +70,7 @@ class Favoris extends MY_Controller {
 		}
 
 		if($this->input->post('save') ){
+		
 			$favoris = array();
 			$favoris['user_id'] = $this->current_user->id;
 			if($this->input->post('id')){

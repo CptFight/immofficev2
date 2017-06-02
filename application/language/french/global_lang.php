@@ -471,6 +471,7 @@
     $lang["postcode"] = "Code postal";
     $lang["city"] = "Ville";
     $lang["status"] = "Statut";
+    $lang['status_favoris'] = "Status favoris";
     $lang["status_owner"] = "Statut propriétaire";
     $lang["general"] = "Général";
     $lang["archives"] = "Archives";
