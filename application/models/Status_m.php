@@ -12,7 +12,20 @@ class Status_m extends MY_Model {
         $results = $this->db->get($this->_db)->result();
         if(count($results) <= 0){
             $lang = $this->getCurrentUser()->lang;
-            return $this->getBasicStatus($type,$lang);
+
+            $this->db->where('type',"basic_".$type."_".$lang);
+            $basic_status = $this->db->get($this->_db)->result();
+
+            foreach($basic_status as $key => $basic_statu){
+                $status = array();
+                $status['agence_id'] = $agence_id;
+                $status['name'] = $basic_statu->name;
+                $status['color'] = $basic_statu->color;
+                $status['type'] = $type;
+                $this->insert($status);
+            } 
+            
+            return $this->getStatus($agence_id,$type);
         }else{
             return $results;
         }

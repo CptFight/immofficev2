@@ -219,8 +219,9 @@ class Users extends MY_Controller {
 				}
 			}
 			
-			$user['public_access'] = $this->current_user->lang = $this->input->post('public_access');
-			$user['public_access_option'] = $this->current_user->lang = $this->input->post('public_access_option');
+			$user['public_access'] = $this->current_user->public_access = $this->input->post('public_access');
+			
+			$user['public_access_option'] = $this->current_user->public_access_option = $this->input->post('public_access_option');
 
 			$user['lang'] = $this->current_user->lang = $this->input->post('lang');
 			$user['name'] = $this->current_user->name = $this->input->post('name');

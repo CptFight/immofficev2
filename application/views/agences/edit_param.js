@@ -14,20 +14,19 @@ var edit_param = edit_param || {
 edit_param.bind = function(){
     edit_param.bindColorPicker();
 
-    $('.btn-add').click(function(e){ 
+    /*$('.btn-add').click(function(e){ 
       e.preventDefault();
       var new_elem = $(this).closest('li').clone();
       $(new_elem).find('.btn-add').remove();
       console.log('passe',new_elem);
       $(new_elem.html()).insertBefore($(this).closest('ul').find('.add-element-template'));
       edit_param.bindColorPicker();
-    });
+    });*/
 }
 
 edit_param.bindColorPicker = function(){
   edit_param.colorpicker.on('changeColor', function(e,color){
-    e.preventDefault();
-    e.stopPropagation();
+  
       if(color==null) {
         //when select transparent color
         $('.color-fill-icon', $(this)).addClass('colorpicker-color');
@@ -35,7 +34,7 @@ edit_param.bindColorPicker = function(){
         $('.color-fill-icon', $(this)).removeClass('colorpicker-color');
         $('.color-fill-icon', $(this)).css('background-color', color);
       }
-      
+      $(this).closest('li').find('.status_color').val(color);
   }); 
 }
 

@@ -6,7 +6,7 @@ class Favoris_m extends MY_Model {
     public $_name = 'favoris_m';
  
     public function get($params) {
-        $this->db->group_by('favoris.id');
+        //$this->db->group_by('favoris.id');
         $this->db->select('*, 
           favoris.id as id, 
           favoris.user_id as user_id, 
@@ -29,7 +29,7 @@ class Favoris_m extends MY_Model {
           owners.note as owner_note, 
 
         ');
-        
+
         $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
         $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
         $this->db->join('users','users.id = favoris.user_id');
@@ -53,7 +53,6 @@ class Favoris_m extends MY_Model {
                 $request_search .= "OR favoris.id LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.annonce_id LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.tags LIKE '%".$params['search']."%'";
-                $request_search .= "OR favoris.owner_name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.price LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.date_publication LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.tel LIKE '%".$params['search']."%'";
@@ -65,6 +64,10 @@ class Favoris_m extends MY_Model {
                 $request_search .= "OR users.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR users.firstname LIKE '%".$params['search']."%'";
                 $request_search .= "OR users.login LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.name LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.tel LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.email LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.note LIKE '%".$params['search']."%'";
                 $request_search .= "OR status.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);

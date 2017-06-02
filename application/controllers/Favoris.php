@@ -24,6 +24,10 @@ class Favoris extends MY_Controller {
 		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);	
 		$this->data['tab'] = 1;
 		
+		$this->data['favoris_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
+		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
+		$this->data['owners'] = $this->Owners_m->getByAgence($this->current_user->agence_id);
+
 		$this->load->view('template', $this->data);
 	}
 
@@ -36,6 +40,8 @@ class Favoris extends MY_Controller {
 			$this->data['back_path'] = 'favoris/index';
 			if(isset($_GET['back_path'])){
 				$this->data['back_path'] = $_GET['back_path'];
+			}else{
+				$this->data['back_path'] = 'favoris/edit?id='.$_GET['id'].'&view='.$this->input->post('current_tab');
 			}
 
 			if($this->savePost()){
@@ -47,8 +53,23 @@ class Favoris extends MY_Controller {
 		if(isset($_GET['view'])){
 			switch ($_GET['view']) {
 				case 'rappel':
+				case 'tab2':
 					$this->data['tab'] = 2;
 					break;
+				case '3':
+				case 'tab3':
+					$this->data['tab'] = 3;
+					break;
+				case '4':
+				case 'tab4':
+					$this->data['tab'] = 4;
+					break;
+				case '5':
+				case 'tab5':
+					$this->data['tab'] = 5;
+					break;
+				case '1':
+				case 'tab1':
 				default:
 					$this->data['tab'] = 1;
 					break;
@@ -59,23 +80,30 @@ class Favoris extends MY_Controller {
 		$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
 		$this->data['remarks'] = $this->Remarks_m->getByFavoris($_GET['id']);
 		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
+		$this->data['favoris_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
+		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
+		$this->data['owners'] = $this->Owners_m->getByAgence($this->current_user->agence_id);
 
+		if($this->input->get('remark_edit')){
+			$this->data['remark_placeholder'] = $this->Remarks_m->get($this->input->get('remark_edit'))->note;
+		}else{
+			$this->data['remark_placeholder'] = $this->lang->line('placeholder_note');
+		}
 		$this->load->view('template', $this->data);
 	}
 
 	private function savePost(){
 		$this->load->model(array('Favoris_m','Rappels_m','Remarks_m','Status_m','Owners_m'));
 
-		$this->data['favoris_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
-		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
+		
+		
 
 		if($this->input->post('delete') ){
 			$id = $this->input->post('id');
 			$this->Favoris_m->delete($id);
 			
 			$this->Rappels_m->deleteByUserFavorisIds($this->current_user->id,$id);
-			return true;
-			//redirect('favoris/index');
+			redirect('favoris/index');
 		}
 
 		if($this->input->post('archive') ){
@@ -101,15 +129,19 @@ class Favoris extends MY_Controller {
 			$favoris['tags'] = $this->input->post('tags');
 
 
-
-
-
 			if($this->input->post('new_remark') && $this->input->post('new_remark') != '' && $this->input->post('new_remark') != $this->lang->line('placeholder_note')){
 				$remarks = array();
 				$remarks['favoris_id'] = $favoris['id'];
 				$remarks['created'] = strtotime('now');
 				$remarks['note'] = $this->input->post('new_remark');
-				$this->Remarks_m->insert($remarks);
+
+				if($this->input->get('remark_edit')){
+					$remarks['id'] = $this->input->get('remark_edit');
+					$this->Remarks_m->update($remarks);
+				}else{
+					$this->Remarks_m->insert($remarks);
+				}
+				
 			}
 
 			
@@ -127,9 +159,14 @@ class Favoris extends MY_Controller {
 			$favoris['description'] = $this->input->post('description');
 			$favoris['note'] = $this->input->post('note');
 			$favoris['tel'] = $this->input->post('tel');
-			$favoris['status_id'] = $this->input->post('favoris_status');
 
+
+			if($this->input->post('favoris_status') && $this->input->post('favoris_status') > 0){
+				$favoris['status_id'] = $this->input->post('favoris_status');
+			}
 			
+
+		
 
 			if($this->input->post('mandataire_user_id') && $this->input->post('mandataire_user_id') != '' && $this->input->post('mandataire_user_id') != $this->current_user->id){
 				$favoris['user_id'] = $this->input->post('mandataire_user_id');
@@ -150,8 +187,6 @@ class Favoris extends MY_Controller {
 				$favoris['owner_id'] = $owner['id'];
 				$this->Owners_m->update($owner);
 			}
-
-
 			
 			$error_upload = false;
 			if(isset($_FILES['picture']['name']) && ($_FILES['picture']['name'] != '')){
@@ -220,11 +255,24 @@ class Favoris extends MY_Controller {
 			else 
 				return true;		
 		}
+		
 		return false;
 	}
 
 
 	//AJAX
+
+	//AJAX
+	public function removeRemark(){
+		$this->load->model(array('Remarks_m'));
+		
+		if($this->input->post('id')){
+			$this->Remarks_m->delete($this->input->post('id'));
+		}
+		echo json_encode($this->input->post('id'));
+	}
+
+
 	public function getAllAnnoncesDataTable(){
 		$this->load->model(array('Favoris_m'));
 		

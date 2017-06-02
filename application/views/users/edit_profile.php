@@ -41,8 +41,7 @@
                 <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
             </div>
         </fieldset>
-        <hr/>
-        <fieldset class="radio-inline-cont separation-form">
+        <fieldset class="radio-inline-cont separation-form"><br/>
             <?php echo $this->lang->line('direct_access_page'); ?> : 
             <div>
                 <input name="direct_access_page" type="radio" value="1" id="direct_access_page_1" <?php if($user->direct_access_page == '1') echo 'checked'; ?>>
@@ -53,24 +52,23 @@
                 <label for="direct_access_page_0"><?php echo $this->lang->line('no'); ?></label>
             </div>
         </fieldset>
-        <hr/>
         <fieldset class="radio-inline-cont ">
             <?php echo $this->lang->line('autorisation_members'); ?> : 
             <div >
-                <input name="public_access" type="radio" value="1" <?php if($user->public_access >= '1') echo 'checked'; ?> id="autorisation_members_access_yes">
+                <input name="public_access" type="radio" value="1" <?php if($user->public_access >= 1){ echo 'checked'; }?> id="autorisation_members_access_yes">
                 <label for="autorisation_members_access_yes"><?php echo $this->lang->line('yes'); ?></label>
-
-                <input name="public_access" type="radio" value="0" <?php if($user->public_access == '0') echo 'checked'; ?> id="autorisation_members_access_no">
+            </div>
+            <div>
+                <input name="public_access" type="radio" value="0" <?php if($user->public_access == 0){ echo 'checked'; }?> id="autorisation_members_access_no">
                 <label for="autorisation_members_access_no"><?php echo $this->lang->line('no'); ?></label>`
 
             </div>
-            <div class="options_radio">
                 <div>
-                    <input name="public_access_option" type="radio" value="1" id="autorisation_members_access_option_0" <?php if($user->public_access == '1') echo 'checked'; ?> >
+                    <input name="public_access_option" type="radio" value="1" id="autorisation_members_access_option_0" <?php if($user->public_access_option == '1') echo 'checked'; ?> >
                     <label for="autorisation_members_access_option_0"><?php echo $this->lang->line('vue'); ?></label>
                 </div>
                 <div>
-                    <input name="public_access_option" type="radio" value="2" id="autorisation_members_access_option_1" <?php if($user->public_access == '2') echo 'checked'; ?>>
+                    <input name="public_access_option" type="radio" value="2" id="autorisation_members_access_option_1" <?php if($user->public_access_option == '2') echo 'checked'; ?>>
                     <label for="autorisation_members_access_option_1"><?php echo $this->lang->line('edition'); ?></label>
                 </div><!--
                  -->

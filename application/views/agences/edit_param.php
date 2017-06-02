@@ -43,53 +43,73 @@
             <div class="clearfix separation-form ul-multiple-inputs-container no-bottom-margin">
                 <h3><?php echo $this->lang->line('status_favoris'); ?>:</h3>
                 <ul>
-                    <?php foreach($status_favoris as $key => $status){  ?>
+                <?php $cpt = 0; ?>
+                    <?php foreach($status_favoris as $key => $status){   ?>
                     <li>
+                        <input type="hidden" name="status_favoris_id[]" value="<?php echo $status->id; ?>" >
+                        <input type="hidden" name="status_favoris_color[]" class="status_color" value="<?php echo $status->color; ?>" >
                         <div class="inputsstatus">
                             <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:<?php echo $status->color; ?>;"></span></a>
                             <fieldset class="inputstyle">
-                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                <input type="text" id="status1" name="status_favoris[]" value='<?php echo $status->name; ?>' >
+                                <label for="status<?php echo $cpt; ?>"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status<?php echo $cpt; ?>" name="status_favoris[]" value='<?php echo $status->name; ?>' >
+                            </fieldset>
+                        </div>
+                    </li>
+                    <?php $cpt++; } ?>
+
+                    <?php for($i = $cpt; $i < 7; $i++){ ?>
+                    <li>
+                        <input type="hidden" name="status_favoris_id[]" value="" >
+                        <input type="hidden" name="status_favoris_color[]" class="status_color" value="" >
+                        <div class="inputsstatus">
+                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#ffffff;"></span></a>
+                            <fieldset class="inputstyle">
+                                <label for="status<?php echo $i; ?>"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status<?php echo $i; ?>" name="status_favoris[]" value='' >
                             </fieldset>
                         </div>
                     </li>
                     <?php } ?>
-                    <li class="add-element-template">
-                        <div class="inputsstatus">
-                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
-                            <fieldset class="inputstyle">
-                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                <input type="text" id="status1" name="status_favoris[]" value='' >
-                            </fieldset>
-                        </div>
-                        <a href="#" class="btn-add"><i class="fa fa-plus"></i></a>
-                    </li>
+                    
                 </ul>
             </div>
             <div class="clearfix separation-form ul-multiple-inputs-container no-top-margin">
                 <h3><?php echo $this->lang->line('status_owner'); ?>:</h3>
                 <ul>
-                    <?php foreach($status_owners as $key => $status){  ?>
+                    <?php $cpt = 0;
+                    foreach($status_owners as $key => $status){  ?>
+
                     <li>
+                        <input type="hidden" name="status_owners_id[]" value="<?php echo $status->id; ?>" >
+                        <input type="hidden" name="status_owners_color[]" class="status_color" value="<?php echo $status->color; ?>" >
+                        
                         <div class="inputsstatus">
                             <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:<?php echo $status->color; ?>;"></span></a>
                             <fieldset class="inputstyle">
-                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                <input type="text" id="status1" name="status_owners[]" value='<?php echo $status->name; ?>' >
+                                <label for="status<?php echo $cpt; ?>"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status<?php echo $cpt; ?>" name="status_owners[]" value='<?php echo $status->name; ?>' >
+                            </fieldset>
+                        </div>
+                    </li>
+                    <?php $cpt++; } ?>
+
+                    <?php for($i = $cpt; $i < 7; $i++){ ?>
+                    <li>
+                        <input type="hidden" name="status_owners_id[]" value="" >
+                        <input type="hidden" name="status_owners_color[]" class="status_color" value="" >
+                        
+                        <div class="inputsstatus">
+                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#ffffff;"></span></a>
+                            <fieldset class="inputstyle">
+                                <label for="status<?php echo $i; ?>"><?php echo $this->lang->line('status'); ?></label>
+                                <input type="text" id="status<?php echo $i; ?>" name="status_owners[]" value='' >
                             </fieldset>
                         </div>
                     </li>
                     <?php } ?>
-                    <li class="add-element-template">
-                        <div class="inputsstatus">
-                            <a href="javascript:;" class="btn-colorpicker colorpickerjs" ><span class="color-fill-icon dropdown-color-fill-icon" style="background-color:#000;"></span></a>
-                            <fieldset class="inputstyle">
-                                <label for="status1"><?php echo $this->lang->line('status'); ?></label>
-                                <input type="text" id="status1" name="status_owners[]" value='' >
-                            </fieldset>
-                        </div>
-                        <a href="#" class="btn-add"><i class="fa fa-plus"></i></a>
-                    </li>
+
+
                 </ul>
 
             </div>

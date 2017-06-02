@@ -2,11 +2,12 @@
 
 class Owners_m extends MY_Model {
 
-    public $_db = 'Owners';
+    public $_db = 'owners';
     public $_name = 'owners_m';
 
     public function getByAgence($agence_id){
     	$this->db->select('*,
+            owners.id as id,
     		owners.name as name,
     		status.color as status_color,
     		status.name as status_name');

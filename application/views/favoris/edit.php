@@ -6,7 +6,7 @@
        
     <div class="l-annonces-form l-form">
 
-    
+        <input type="hidden" name="current_tab" id="current_tab" value="tab<?php echo $tab; ?>" >
         <ul class="tabs">
             <li><div id="tab1"  data-select="tab1" class="<?php if($tab == 1) echo 'active'; ?>"><?php echo $this->lang->line('general'); ?></div></li>
             <li><div id="tab2"  data-select="tab2" class="<?php if($tab == 2) echo 'active'; ?>"><?php echo $this->lang->line('rappel'); ?></div></li>
@@ -189,6 +189,12 @@
                 </fieldset>
             </div>
             <div class="tab tab4 <?php if($tab == 4) echo 'active'; ?>">
+                <div class="">
+                    <fieldset class="inputstyle">
+                        <textarea name="new_remark"><?php echo $remark_placeholder; ?></textarea>
+                    </fieldset>
+                </div>
+
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="favoris_edit_table">
                         <thead>
@@ -206,25 +212,25 @@
                                 <td><?php echo date('d/m/Y',$remark->created); ?></td>
                                 <td><?php echo date('H:i',$remark->created); ?></td>
                                 <td>
-                                    <!-- <ul class="list-tables-buttons tes" data-annonce_id="472">
-                                        <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-external-link"></i><span>Editer</span></a></li>
-                                        <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-remove"></i><span>Supprimer</span></a></li>
-                                    </ul> -->
+                                    <ul class="list-tables-buttons tes" data-id="<?php echo $remark->id; ?>">
+                                        <li class="table-btn-edit"><a target="_blank" href="<?php echo site_url('favoris/edit?id='.$favoris->id.'&view=tab4&remark_edit='.$remark->id); ?>"><i class="fa fa-pencil"></i><span><?php echo $this->lang->line('edit'); ?></span></a></li>
+                                        <li class="table-btn-edit"><a target="_blank" class="remove-remark" href="#"><i class="fa fa-remove"></i><span><?php echo $this->lang->line('delete'); ?></span></a></li>
+                                    </ul> 
                                 </td>
                             </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="new-note">
-                    <h3><?php echo $this->lang->line('add_note'); ?></h3>
-                    <fieldset class="inputstyle">
-                        <textarea name="new_remark" placeholder="<?php echo $this->lang->line('placeholder_note'); ?>"></textarea>
-                    </fieldset>
-                </div>
+               
             </div>
             <div class="tab tab5 <?php if($tab == 5) echo 'active'; ?>">
                 <input type="hidden" name="owner_id" id="owner_id" value='<?php echo $favoris->owner_id; ?>'>
+
+
+                
+
+
                 <div class='clearfix'>
                     <div class="float-middle input-separation">
                        <fieldset class="inputstyle">
@@ -256,10 +262,54 @@
                         </fieldset>
                     </div>
                 </div>
+
+
                 <fieldset class="inputstyle" style="clear: both;">
                     <label for="note_owner"><?php echo $this->lang->line('note'); ?></label>
                     <textarea name="note_owner" id="note_owner"><?php echo $favoris->owner_note; ?></textarea>
                 </fieldset>
+
+                <hr/>
+                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="owner_table">
+                    <thead>
+                        <tr>
+                            <th ><?php echo $this->lang->line('name'); ?></th>
+                            <th ><?php echo $this->lang->line('email'); ?></th>
+                            <th ><?php echo $this->lang->line('tel'); ?></th>
+                            <th><?php echo $this->lang->line('status'); ?></th>
+                            <th><?php echo $this->lang->line('actions'); ?></th>
+                            <th class='none'><?php echo $this->lang->line('note'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($owners as $key => $owner){ ?>
+                        <tr>
+                            <td>
+                                <?php echo $owner->name; ?>
+                            </td>
+                            <td>
+                                <?php echo $owner->email; ?>
+                            </td>
+                            <td>
+                               <?php echo $owner->tel; ?>
+                            </td>
+                            <td>
+                                <div style="color:<?php echo $owner->status_color; ?>"><i class="fa fa-flag"></i> <?php echo $owner->status_name; ?></div>
+                            </td>
+                            <td>
+                                <ul class="list-tables-buttons" data-id="<?php echo $owner->id; ?>" data-name="<?php echo $owner->name; ?>" data-email="<?php echo $owner->email; ?>" data-tel="<?php echo $owner->tel; ?>" data-status_name="<?php echo $owner->status_name; ?>" data-status_color="<?php echo $owner->status_color; ?>" data-status_id="<?php echo $owner->status_id; ?>" data-note="<?php echo $owner->note; ?>">
+                                    <li class="table-btn-edit"><a class="load-owner" href="#"><i class="fa fa-external-link"></i><span><?php echo $this->lang->line('target'); ?></span></a></li>  
+                                </ul> 
+                            </td>
+                            <td>
+                                <?php echo $owner->note; ?>
+                            </td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+
+
             </div>
         </div>
 

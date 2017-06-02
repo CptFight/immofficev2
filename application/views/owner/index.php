@@ -14,6 +14,7 @@
                     <th ><?php echo $this->lang->line('email'); ?></th>
                     <th ><?php echo $this->lang->line('tel'); ?></th>
                     <th><?php echo $this->lang->line('status'); ?></th>
+                    <th><?php echo $this->lang->line('actions'); ?></th>
                     <th class='none'><?php echo $this->lang->line('note'); ?></th>
                 </tr>
             </thead>
@@ -29,8 +30,15 @@
                     <td>
                        <?php echo $owner->tel; ?>
                     </td>
+                    
                     <td>
                         <div style="color:<?php echo $owner->status_color; ?>"><i class="fa fa-flag"></i> <?php echo $owner->status_name; ?></div>
+                    </td>
+                    <td>
+                    <ul class="list-tables-buttons">
+                            <li class="table-btn-edit"><a class="load-owner" href="<?php echo site_url('owner/edit?id='.$owner->id); ?>"><i class="fa fa-pencil"></i><span><?php echo $this->lang->line('edit'); ?></span></a></li>  
+                        </ul> 
+
                     </td>
                     <td>
                         <?php echo $owner->note; ?>

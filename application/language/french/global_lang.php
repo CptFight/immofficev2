@@ -6,8 +6,9 @@
 	$lang['rappel_id'] = 'Rappel ID';
 	$lang['favoris_id'] = 'Favoris ID';
 
+	$lang['owner_associated'] = "Le propriétaire est lié à un favoris";
 	$lang['hour'] = 'Heure';
-	$lang['placeholder_note'] = 'Note';
+	$lang['placeholder_note'] = 'Ajouter une note';
 	$lang['add_note'] = "Ajouter une note";
 	$lang['bad_token'] = "Mauvais token. Essayer de rafraichir la page avant de changer d'utilisateur";
 	$lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";

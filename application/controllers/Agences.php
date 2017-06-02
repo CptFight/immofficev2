@@ -79,8 +79,6 @@ class Agences extends MY_Controller {
 		$this->load->model(array('Agences_m','Status_m'));
 		
 
-		$this->data['status_favoris'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
-		$this->data['status_owners'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
 		
 		if($this->input->post('save')){
 
@@ -91,19 +89,61 @@ class Agences extends MY_Controller {
 			$agence['city'] = $this->input->post('city');
 			$agence['tel'] = $this->input->post('tel');
 			
-			
-			foreach($this->input->post('status_favoris') as $key => $status_favoris){
+			$status_favoris_names = $this->input->post('status_favoris');
+			$status_favoris_ids = $this->input->post('status_favoris_id');
+			$status_favoris_colors = $this->input->post('status_favoris_color');
+
+			foreach($status_favoris_names as $key => $status_favoris){
 				if($status_favoris && $status_favoris != ''){
+
 					$status = array();
 					$status['agence_id'] = $this->current_user->agence_id;
 					$status['name'] = $status_favoris;
-					$status['color'] = 'green';
+					if(isset($status_favoris_colors[$key]) && $status_favoris_colors[$key]){
+						$status['color'] = $status_favoris_colors[$key];
+					}else{
+						$status['color'] = "#ffffff";
+					}
 					$status['type'] = 'favoris';
-					$this->Status_m->insert($status);
+
+					if(isset($status_favoris_ids[$key]) && $status_favoris_ids[$key]){
+						$status['id'] = $status_favoris_ids[$key];
+						$this->Status_m->update($status);
+					}else{
+						$this->Status_m->insert($status);
+					}
+					
 				}
 			}
 
-			foreach($this->input->post('status_owners') as $key => $status_owners){
+			$status_owners_names = $this->input->post('status_owners');
+			$status_owners_ids = $this->input->post('status_owners_id');
+			$status_owners_colors = $this->input->post('status_owners_color');
+
+			foreach($status_owners_names as $key => $status_owners){
+				if($status_owners && $status_owners != ''){
+
+					$status = array();
+					$status['agence_id'] = $this->current_user->agence_id;
+					$status['name'] = $status_owners;
+					if(isset($status_owners_colors[$key]) && $status_owners_colors[$key]){
+						$status['color'] = $status_owners_colors[$key];
+					}else{
+						$status['color'] = "#ffffff";
+					}
+					$status['type'] = 'owners';
+
+					if(isset($status_owners_ids[$key]) && $status_owners_ids[$key]){
+						$status['id'] = $status_owners_ids[$key];
+						$this->Status_m->update($status);
+					}else{
+						$this->Status_m->insert($status);
+					}
+					
+				}
+			}
+
+			/*foreach($this->input->post('status_owners') as $key => $status_owners){
 				if($status_owners && $status_owners != ''){
 					$status = array();
 					$status['agence_id'] = $this->current_user->agence_id;
@@ -112,15 +152,22 @@ class Agences extends MY_Controller {
 					$status['type'] = 'owners';
 					$this->Status_m->insert($status);
 				}
-			}
+			}*/
 
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));
 			}
 			
+			
 		}
 
+		$this->data['status_favoris'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
+		$this->data['status_owners'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
+		
 		$this->data['agence'] = $this->Agences_m->get($this->current_user->agence_id);
+
+			
+
 		$this->load->view('template', $this->data);
 	}
 	

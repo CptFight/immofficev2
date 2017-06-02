@@ -8,11 +8,27 @@ class Rappels_m extends MY_Model {
     public function get($params) {
         $this->db->group_by('rappels.id');
         $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
+        $this->db->join('status','favoris.status_id = status.id','left');
+        $this->db->join('owners','owners.id = favoris.owner_id','left');
+
         $this->db->select("*,
             rappels.id as id,
             favoris.id as favoris_id,
             rappels.tags as tags,
+            rappels.note as rappel_note, 
+            
             favoris.tags as favoris_tags,
+            favoris.tel as tel, 
+
+            status.name as status_name, 
+            status.color as status_color, 
+          
+            owners.name as owner_name, 
+            owners.status_id as owner_status_id, 
+            owners.tel as owner_tel, 
+            owners.email as owner_email, 
+            owners.note as owner_note,
+
         ");
 
         if(!is_array($params)){
@@ -28,10 +44,12 @@ class Rappels_m extends MY_Model {
 
             if($params['search']){
                 $request_search = "( favoris.title LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.annonce_id LIKE '%".$params['search']."%'";
+                $request_search .= "OR rappels.id LIKE '%".$params['search']."%'";
+                $request_search .= "OR favoris.id LIKE '%".$params['search']."%'";
                 $request_search .= "OR rappels.tags LIKE '%".$params['search']."%'";
                 $request_search .= "OR rappels.note LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.tags LIKE '%".$params['search']."%'";
-                $request_search .= "OR favoris.owner_name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.price LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.date_publication LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.tel LIKE '%".$params['search']."%'";
@@ -39,6 +57,11 @@ class Rappels_m extends MY_Model {
                 $request_search .= "OR favoris.zip_code LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.province LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.web_site LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.name LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.tel LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.email LIKE '%".$params['search']."%'";
+                $request_search .= "OR owners.note LIKE '%".$params['search']."%'";
+                $request_search .= "OR status.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
             }

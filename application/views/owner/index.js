@@ -37,7 +37,6 @@ owner.initTableDatatablesResponsive = function () {
                     className: 'btn dark btn-outline',
                     orientation: 'landscape', 
                     action  : function(e, dt, button, config) {
-                        favoris.insertExport('print');
                         $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
                     } 
 
@@ -46,7 +45,6 @@ owner.initTableDatatablesResponsive = function () {
                     className: 'btn green btn-outline', 
                     orientation: 'landscape',
                     action  : function(e, dt, button, config) {
-                        favoris.insertExport('pdf');
                         $.fn.dataTable.ext.buttons.pdfHtml5.action(e, dt, button, config);
                     }
                 },{ 
