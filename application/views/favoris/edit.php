@@ -60,6 +60,18 @@
                     <label for="tags"><?php echo $this->lang->line('tags'); ?></label>
                     <input type="text" id="tags" name="tags" value='<?php echo $favoris->tags; ?>'>
                 </fieldset>
+
+                <div class="inputstyle">
+                        <fieldset >
+                            <select name="favoris_status" id="favoris_status" class="form-control">
+                            <?php foreach($favoris_status as $key => $favoris_statut){ ?>
+                                <option value="<?php echo $favoris_statut->id; ?>" <?php if($favoris->status_id == $favoris_statut->id) echo 'selected'; ?>><?php echo $favoris_statut->name; ?></option>
+                            <?php } ?>
+                            </select>
+                        </fieldset>
+                    </div>
+
+
                 <fieldset class="inputstyle" style="clear: both;">
 
                     <label for="note"><?php echo $this->lang->line('note'); ?></label>
@@ -194,10 +206,10 @@
                                 <td><?php echo date('d/m/Y',$remark->created); ?></td>
                                 <td><?php echo date('H:i',$remark->created); ?></td>
                                 <td>
-                                    <ul class="list-tables-buttons tes" data-annonce_id="472">
+                                    <!-- <ul class="list-tables-buttons tes" data-annonce_id="472">
                                         <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-external-link"></i><span>Editer</span></a></li>
                                         <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-remove"></i><span>Supprimer</span></a></li>
-                                    </ul>
+                                    </ul> -->
                                 </td>
                             </tr>
                             <?php } ?>
@@ -205,13 +217,14 @@
                     </table>
                 </div>
                 <div class="new-note">
-                    <h3>Add a note</h3>
+                    <h3><?php echo $this->lang->line('add_note'); ?></h3>
                     <fieldset class="inputstyle">
                         <textarea name="new_remark" placeholder="<?php echo $this->lang->line('placeholder_note'); ?>"></textarea>
                     </fieldset>
                 </div>
             </div>
             <div class="tab tab5 <?php if($tab == 5) echo 'active'; ?>">
+                <input type="hidden" name="owner_id" id="owner_id" value='<?php echo $favoris->owner_id; ?>'>
                 <div class='clearfix'>
                     <div class="float-middle input-separation">
                        <fieldset class="inputstyle">
@@ -221,29 +234,31 @@
                     </div>
                     <div class="float-middle input-separation">
                         <fieldset class="inputstyle">
-                            <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
-                            <input type="text" name="tel" id="tel" value='<?php echo $favoris->tel; ?>'>
+                            <label for="owner_tel"><?php echo $this->lang->line('tel'); ?></label>
+                            <input type="text" name="owner_tel" id="owner_tel" value='<?php echo $favoris->owner_tel; ?>'>
                         </fieldset>
                     </div>
                 </div>
                 <div class='clearfix'>
                     <div class="float-middle input-separation">
                        <fieldset class="inputstyle">
-                            <label for="owner_mail"><?php echo $this->lang->line('owner_mail'); ?></label>
-                            <input type="email" name="owner_mail" id="owner_mail" value=''>
+                            <label for="owner_mail"><?php echo $this->lang->line('email'); ?></label>
+                            <input type="email" name="owner_mail" id="owner_mail" value='<?php echo $favoris->owner_email; ?>'>
                         </fieldset>
                     </div>
                     <div class="float-middle input-separation">
                         <fieldset >
                             <select name="owner_status" id="owner_status" class="form-control">
-                                <option value="Status">Status</option>
+                                 <?php foreach($owners_status as $key => $owners_statu){ ?>
+                                <option value="<?php echo $owners_statu->id; ?>" <?php if($favoris->owner_status_id == $owners_statu->id) echo 'selected'; ?>><?php echo $owners_statu->name; ?></option>
+                            <?php } ?>
                             </select>
                         </fieldset>
                     </div>
                 </div>
                 <fieldset class="inputstyle" style="clear: both;">
                     <label for="note_owner"><?php echo $this->lang->line('note'); ?></label>
-                    <textarea name="note_owner" id="note_owner"><?php echo $favoris->note; ?></textarea>
+                    <textarea name="note_owner" id="note_owner"><?php echo $favoris->owner_note; ?></textarea>
                 </fieldset>
             </div>
         </div>

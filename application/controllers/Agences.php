@@ -80,8 +80,6 @@ class Agences extends MY_Controller {
 		
 
 		$this->data['status_favoris'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
-		
-
 		$this->data['status_owners'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
 		
 		if($this->input->post('save')){
@@ -93,8 +91,28 @@ class Agences extends MY_Controller {
 			$agence['city'] = $this->input->post('city');
 			$agence['tel'] = $this->input->post('tel');
 			
-			/*$agence['status_favoris'] = $this->input->post('status_favoris');
-			$agence['status_owners'] = $this->input->post('status_owners');*/
+			
+			foreach($this->input->post('status_favoris') as $key => $status_favoris){
+				if($status_favoris && $status_favoris != ''){
+					$status = array();
+					$status['agence_id'] = $this->current_user->agence_id;
+					$status['name'] = $status_favoris;
+					$status['color'] = 'green';
+					$status['type'] = 'favoris';
+					$this->Status_m->insert($status);
+				}
+			}
+
+			foreach($this->input->post('status_owners') as $key => $status_owners){
+				if($status_owners && $status_owners != ''){
+					$status = array();
+					$status['agence_id'] = $this->current_user->agence_id;
+					$status['name'] = $status_owners;
+					$status['color'] = 'green';
+					$status['type'] = 'owners';
+					$this->Status_m->insert($status);
+				}
+			}
 
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));

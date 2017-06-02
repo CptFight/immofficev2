@@ -8,6 +8,7 @@
 
 	$lang['hour'] = 'Heure';
 	$lang['placeholder_note'] = 'Note';
+	$lang['add_note'] = "Ajouter une note";
 	$lang['bad_token'] = "Mauvais token. Essayer de rafraichir la page avant de changer d'utilisateur";
 	$lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";
 	$lang['prospecter'] = 'Prospecteur';

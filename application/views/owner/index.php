@@ -11,31 +11,32 @@
             <thead>
                 <tr>
                     <th ><?php echo $this->lang->line('name'); ?></th>
+                    <th ><?php echo $this->lang->line('email'); ?></th>
                     <th ><?php echo $this->lang->line('tel'); ?></th>
                     <th><?php echo $this->lang->line('status'); ?></th>
                     <th class='none'><?php echo $this->lang->line('note'); ?></th>
                 </tr>
             </thead>
             <tbody>
+            <?php foreach($owners as $key => $owner){ ?>
                 <tr>
                     <td>
-                        Nom
+                        <?php echo $owner->name; ?>
                     </td>
                     <td>
-                        0476/54.69.41
+                        <?php echo $owner->email; ?>
                     </td>
                     <td>
-                        <div style="color:green"><i class="fa fa-flag"></i> Statut</div>
+                       <?php echo $owner->tel; ?>
                     </td>
                     <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <div style="color:<?php echo $owner->status_color; ?>"><i class="fa fa-flag"></i> <?php echo $owner->status_name; ?></div>
+                    </td>
+                    <td>
+                        <?php echo $owner->note; ?>
                     </td>
                 </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

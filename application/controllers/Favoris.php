@@ -64,8 +64,10 @@ class Favoris extends MY_Controller {
 	}
 
 	private function savePost(){
-		$this->load->model(array('Favoris_m','Rappels_m','Remarks_m'));
+		$this->load->model(array('Favoris_m','Rappels_m','Remarks_m','Status_m','Owners_m'));
 
+		$this->data['favoris_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
+		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
 
 		if($this->input->post('delete') ){
 			$id = $this->input->post('id');
@@ -98,6 +100,10 @@ class Favoris extends MY_Controller {
 			}
 			$favoris['tags'] = $this->input->post('tags');
 
+
+
+
+
 			if($this->input->post('new_remark') && $this->input->post('new_remark') != '' && $this->input->post('new_remark') != $this->lang->line('placeholder_note')){
 				$remarks = array();
 				$remarks['favoris_id'] = $favoris['id'];
@@ -118,19 +124,34 @@ class Favoris extends MY_Controller {
 			$favoris['zip_code'] = $this->input->post('zip_code');
 			$favoris['province'] = $this->input->post('province');
 			$favoris['living_space'] = $this->input->post('living_space');
-			$favoris['owner_name'] = $this->input->post('owner_name');
 			$favoris['description'] = $this->input->post('description');
 			$favoris['note'] = $this->input->post('note');
 			$favoris['tel'] = $this->input->post('tel');
+			$favoris['status_id'] = $this->input->post('favoris_status');
+
+			
 
 			if($this->input->post('mandataire_user_id') && $this->input->post('mandataire_user_id') != '' && $this->input->post('mandataire_user_id') != $this->current_user->id){
 				$favoris['user_id'] = $this->input->post('mandataire_user_id');
 			}
-			//$
+
+			$owner = array();
+			$owner['agence_id'] = $this->current_user->agence_id;
+			$owner['status_id'] = $this->input->post('owner_status');
+			$owner['name'] = $this->input->post('owner_name');
+			$owner['tel'] = $this->input->post('owner_tel');
+			$owner['email'] = $this->input->post('owner_mail');
+			$owner['note'] = $this->input->post('note_owner');
+
+			if(!$this->input->post('owner_id') || $this->input->post('owner_id') == 0){
+				$favoris['owner_id'] = $this->Owners_m->insert($owner);
+			}else{
+				$owner['id'] = $this->input->post('owner_id');
+				$favoris['owner_id'] = $owner['id'];
+				$this->Owners_m->update($owner);
+			}
 
 
-			/*$favoris['sale'] = $this->input->post('sale');
-			$favoris['lang'] = $this->input->post('lang');*/
 			
 			$error_upload = false;
 			if(isset($_FILES['picture']['name']) && ($_FILES['picture']['name'] != '')){

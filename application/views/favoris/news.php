@@ -150,25 +150,13 @@
                 </fieldset>
             </div>
             <div class="tab tab4 <?php if($tab == 4) echo 'active'; ?>">
-                <div class="new-note news-new-note">
-                    <h3>Add a note</h3>
+                
+                <div class="new-note">
+                    <h3><?php echo $this->lang->line('add_note'); ?></h3>
                     <fieldset class="inputstyle">
-                        <textarea name="newnote" placeholder="Note"></textarea>
-                    </fieldset>
-                    <fieldset class="inputstyle">
-                        <textarea name="newnote" placeholder="Note"></textarea>
-                        <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
+                        <textarea name="new_remark" placeholder="<?php echo $this->lang->line('placeholder_note'); ?>"></textarea>
                     </fieldset>
                 </div>
-                <!--<div class='clearfix'>
-                    <div id="fields">
-                        <fieldset class="inputstyle field" id="field1" >
-                            <textarea name="description" placeholder="Note"></textarea>
-                            <button data-id="field1" class="remove-me"><i class="fa fa-remove"></i></button>
-                        </fieldset>
-                    </div>
-                    <button id="b1" class="btn add-more" type="button">Add +</button>
-                </div>-->
             </div>
             <div class="tab tab5 <?php if($tab == 5) echo 'active'; ?>">
                 <div class='clearfix'>
@@ -188,14 +176,14 @@
                 <div class='clearfix'>
                     <div class="float-middle input-separation">
                        <fieldset class="inputstyle">
-                            <label for="owner_mail"><?php echo $this->lang->line('owner_mail'); ?></label>
+                            <label for="owner_mail"><?php echo $this->lang->line('email'); ?></label>
                             <input type="email" name="owner_mail" id="owner_mail" value=''>
                         </fieldset>
                     </div>
                     <div class="float-middle input-separation">
                         <fieldset >
                             <select name="owner_status" id="owner_status" class="form-control">
-                                <option value="Status">Status</option>
+                                <option value="Status"><?php echo $this->lang->line('status'); ?></option>
                             </select>
                         </fieldset>
                     </div>

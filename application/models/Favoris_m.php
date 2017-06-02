@@ -15,18 +15,26 @@ class Favoris_m extends MY_Model {
           rappels.id as rappel_id, 
           favoris.note as note, 
           favoris.adress as adress,
-          favoris.owner_name as owner_name, 
+          favoris.status_id as status_id,
+          favoris.owner_id as owner_id, 
           status.name as status_name, 
           status.color as status_color, 
           favoris.tel as tel, 
           rappels.note as rappel_note, 
+
+          owners.name as owner_name, 
+          owners.status_id as owner_status_id, 
+          owners.tel as owner_tel, 
+          owners.email as owner_email, 
+          owners.note as owner_note, 
 
         ');
         
         $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
         $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
         $this->db->join('users','users.id = favoris.user_id');
-        $this->db->join('status','favoris.status_id = status.id');
+        $this->db->join('status','favoris.status_id = status.id','left');
+        $this->db->join('owners','owners.id = favoris.owner_id','left');
         
         if(!is_array($params)){
             $id = $params;
