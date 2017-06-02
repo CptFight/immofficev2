@@ -80,15 +80,10 @@ class Agences extends MY_Controller {
 		
 
 		$this->data['status_favoris'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
-		if(count($this->data['status_favoris']) <= 0) {
-			$this->data['status_favoris'] = $this->Status_m->getBasicStatus('favoris',$this->current_user->lang);
-		}
+		
 
 		$this->data['status_owners'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
-		if(count($this->data['status_owners']) <= 0) {
-			$this->data['status_owners'] = $this->Status_m->getBasicStatus('owners',$this->current_user->lang);
-		}
-
+		
 		if($this->input->post('save')){
 
 			$agence['id'] = $this->current_user->agence_id;

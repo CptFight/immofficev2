@@ -36,7 +36,7 @@
                     <div>
                         <select name="mandataire_user_id" id="mandataire" class="form-control">
                             <?php foreach($mandataires as $key => $mandataire){ ?> 
-                                <option value="<?php echo $mandataire->id; ?>" <?php if($mandataire->id == $favoris->mandataire_user_id) echo "selected"; ?>><?php echo $mandataire->login." : ".$mandataire->name." ".$mandataire->firstname; ?></option>
+                                <option value="<?php echo $mandataire->id; ?>" <?php if($mandataire->id == $favoris->user_id) echo "selected"; ?>><?php echo $mandataire->name." ".$mandataire->firstname; ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -166,32 +166,6 @@
                     <textarea name="description" id="description"><?php echo $favoris->description; ?></textarea>
                 </fieldset>
 
-               <!-- <div class='clearfix'>
-                    <div class="input-separation">
-                        <fieldset class="radio-inline-cont pull-left">
-                            <div>
-                                <input name="sale" type="radio" value="1" id="sell" <?php if($favoris->sale == 1) echo "checked"; ?>>
-                                <label for="sell"><?php echo $this->lang->line('sell'); ?></label>
-                            </div><div>
-                                <input name="sale" type="radio" value="0" id="location" <?php if($favoris->sale == 0) echo "checked"; ?>>
-                                <label for="location"><?php echo $this->lang->line('location'); ?></label>
-                            </div>
-                        </fieldset>
-                        <fieldset class="radio-inline-cont pull-right">
-                            <div>
-                                <input name="lang" type="radio" value="fr" id="fr" <?php if($favoris->lang == 'fr') echo "checked"; ?>>
-                                <label for="fr"><?php echo $this->lang->line('french'); ?></label>
-                            </div><div>
-                                <input name="lang" type="radio" value="nl" id="nl" <?php if($favoris->lang == 'nl') echo "checked"; ?>>
-                                <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
-                            </div>
-                        </fieldset>
-                    </div>
-                   
-                </div>-->
-
-               
-
                 <?php if(isset($favoris->web_path)) {  ?>
                 <fieldset class="inputstyle">
                     <a target="_blank" href="<?php echo $favoris->web_path; ?>"><?php echo $favoris->file_name; ?></a>
@@ -207,18 +181,18 @@
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="favoris_edit_table">
                         <thead>
                             <tr>
-                                <th>Note</th>
-                                <th>Date</th>
-                                <th>Heure</th>
-                                <th width="80px"> Actions</th>
+                                <th><?php echo $this->lang->line('note'); ?></th>
+                                <th><?php echo $this->lang->line('date'); ?></th>
+                                <th><?php echo $this->lang->line('hour'); ?></th>
+                                <th width="80px"><?php echo $this->lang->line('actions'); ?></th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($remarks as $key => $remark){ ?>
                             <tr>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua.</td>
-                                <td>01/07/2017</td>
-                                <td>10:22</td>
+                                <td><?php echo $remark->note; ?></td>
+                                <td><?php echo date('d/m/Y',$remark->created); ?></td>
+                                <td><?php echo date('H:i',$remark->created); ?></td>
                                 <td>
                                     <ul class="list-tables-buttons tes" data-annonce_id="472">
                                         <li class="table-btn-edit"><a target="_blank" href=""><i class="fa fa-external-link"></i><span>Editer</span></a></li>
@@ -226,14 +200,14 @@
                                     </ul>
                                 </td>
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="new-note">
                     <h3>Add a note</h3>
                     <fieldset class="inputstyle">
-                        <textarea name="newnote" placeholder="Note"></textarea>
-                        <a href="javascript:;" class="btn-add"><i class="fa fa-plus"></i></a>
+                        <textarea name="new_remark" placeholder="<?php echo $this->lang->line('placeholder_note'); ?>"></textarea>
                     </fieldset>
                 </div>
             </div>
@@ -277,7 +251,12 @@
         <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
-            <button name="delete" class="btn archive pull-right" value="delete" type="submit"><?php echo $this->lang->line('archiver'); ?></button>
+
+            <?php if($favoris->archive) { ?>
+            <button name="desarchive" class="btn archive pull-right" value="archive" type="submit"><?php echo $this->lang->line('desarchiver'); ?></button>
+            <?php }else{ ?>
+            <button name="archive" class="btn archive pull-right" value="archive" type="submit"><?php echo $this->lang->line('archiver'); ?></button>
+            <?php } ?>
         </fieldset>
 
     </div>

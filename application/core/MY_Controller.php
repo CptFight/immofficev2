@@ -44,6 +44,13 @@ class MY_Controller extends CI_Controller {
 
 		$this->data['header'] = $header; 
 		$this->data['pagename'] = $controller;
+		$this->data['current_controller'] = $controller;
+		$this->data['current_method'] = $method;
+
+		$this->load->model(array('Users_m'));
+		$this->data['agence_users'] = $this->Users_m->getUserAgenceListAuthorize($this->current_user->agence_id,$this->current_user->id);
+
+
 
 /*		$this->data['errors'] = array();
 		$this->data['errors'] = array();*/

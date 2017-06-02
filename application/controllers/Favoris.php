@@ -5,6 +5,12 @@ class Favoris extends MY_Controller {
 
 	public function index() {
 		/* Custom Scripts */
+		if($this->input->get('archive')){
+			$this->data['archive'] = $this->input->get('archive');
+		}else{
+			$this->data['archive'] = 0;
+		}
+
 		$this->load->view('template', $this->data);
 	}
 
@@ -49,16 +55,17 @@ class Favoris extends MY_Controller {
 			}
 		}
 
-		$this->load->model(array('Favoris_m','Users_m'));
+		$this->load->model(array('Favoris_m','Users_m','Remarks_m'));
 		$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
-		
+		$this->data['remarks'] = $this->Remarks_m->getByFavoris($_GET['id']);
 		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
 
 		$this->load->view('template', $this->data);
 	}
 
 	private function savePost(){
-		$this->load->model(array('Favoris_m','Rappels_m'));
+		$this->load->model(array('Favoris_m','Rappels_m','Remarks_m'));
+
 
 		if($this->input->post('delete') ){
 			$id = $this->input->post('id');
@@ -69,6 +76,19 @@ class Favoris extends MY_Controller {
 			//redirect('favoris/index');
 		}
 
+		if($this->input->post('archive') ){
+			$id = $this->input->post('id');
+			$this->Favoris_m->archive($id,true);
+			$this->Rappels_m->deleteByUserFavorisIds($this->current_user->id,$id);
+			redirect('favoris/index');
+		}
+
+		if($this->input->post('desarchive') ){
+			$id = $this->input->post('id');
+			$this->Favoris_m->archive($id,false);
+			redirect('favoris/index');
+		}
+
 		if($this->input->post('save') ){
 		
 			$favoris = array();
@@ -77,6 +97,16 @@ class Favoris extends MY_Controller {
 				$favoris['id'] = $this->input->post('id');
 			}
 			$favoris['tags'] = $this->input->post('tags');
+
+			if($this->input->post('new_remark') && $this->input->post('new_remark') != '' && $this->input->post('new_remark') != $this->lang->line('placeholder_note')){
+				$remarks = array();
+				$remarks['favoris_id'] = $favoris['id'];
+				$remarks['created'] = strtotime('now');
+				$remarks['note'] = $this->input->post('new_remark');
+				$this->Remarks_m->insert($remarks);
+			}
+
+			
 			$favoris['title'] = $this->input->post('title');
 			$date_publication = str_replace('/', '-', $this->input->post('date_publication') );
 			$favoris['date_publication'] = strtotime( $date_publication );
@@ -93,7 +123,12 @@ class Favoris extends MY_Controller {
 			$favoris['note'] = $this->input->post('note');
 			$favoris['tel'] = $this->input->post('tel');
 
-			$favoris['mandataire_user_id'] = $this->input->post('mandataire_user_id');
+			if($this->input->post('mandataire_user_id') && $this->input->post('mandataire_user_id') != '' && $this->input->post('mandataire_user_id') != $this->current_user->id){
+				$favoris['user_id'] = $this->input->post('mandataire_user_id');
+			}
+			//$
+
+
 			/*$favoris['sale'] = $this->input->post('sale');
 			$favoris['lang'] = $this->input->post('lang');*/
 			
@@ -182,7 +217,7 @@ class Favoris extends MY_Controller {
 		$start = 0;
 		$length = 0;
 		$user_id = 0;
-
+		$archive = 0;
 		if($this->input->get('start')){
 			$start = $this->input->get('start');
 		}
@@ -193,6 +228,10 @@ class Favoris extends MY_Controller {
 
 		if($this->input->get('user_id')){
 			$user_id = $this->input->get('user_id');
+		}
+
+		if($this->input->get('archive')){
+			$archive = $this->input->get('archive');
 		}
 
 		$order = false;
@@ -233,7 +272,8 @@ class Favoris extends MY_Controller {
 			"start" => $start,
 			"length" => $length,
 			"order" => $order,
-			"user_id" => $user_id
+			"user_id" => $user_id,
+			"archive" => $archive
 		);
 
 		
@@ -245,7 +285,7 @@ class Favoris extends MY_Controller {
 				$favoris->title,
 				$favoris->zip_code,
 				number_format($favoris->price, 0, ',', ' ').' €',
-				"<div class='statusflag' style='color:#179d82'><i class='fa fa-flag'></i> Status</div>",
+				"<div class='statusflag' style='color:".$favoris->status_color."'><i class='fa fa-flag'></i> ".$favoris->status_name."</div>",
 				date('d/m/Y',$favoris->date_publication),
 				'<ul class="list-tables-buttons list-favoris" data-favoris_id="'.$favoris->id.'">
 	 				<li class="table-btn-link"><a target="_blank" href="'.$favoris->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>

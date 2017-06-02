@@ -131,6 +131,7 @@ favoris.initTableDatatablesResponsive = function () {
             "serverSide": true,
             "ajax": {
                 data : {
+                    archive : $('#archive').val(),
                     user_id : $('#user_id').val()
                 },
                 url : base_url()+"index.php/favoris/getAllannoncesDataTable",

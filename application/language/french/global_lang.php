@@ -6,6 +6,9 @@
 	$lang['rappel_id'] = 'Rappel ID';
 	$lang['favoris_id'] = 'Favoris ID';
 
+	$lang['hour'] = 'Heure';
+	$lang['placeholder_note'] = 'Note';
+	$lang['bad_token'] = "Mauvais token. Essayer de rafraichir la page avant de changer d'utilisateur";
 	$lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";
 	$lang['prospecter'] = 'Prospecteur';
 	$lang['superviser'] = 'Superviseur';
@@ -475,6 +478,7 @@
     $lang["status_owner"] = "Statut propriétaire";
     $lang["general"] = "Général";
     $lang["archives"] = "Archives";
+    $lang['desarchiver'] = "Désarchiver";
     $lang["actives"] = "Actives";
     $lang["archiver"] = "Archiver";
     $lang["assign_to"] = "Assigner à";

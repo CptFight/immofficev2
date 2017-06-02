@@ -126,6 +126,15 @@ class Users_m extends MY_Model {
     public function getMandatairesList($agence_id){
         $this->db->where('agence_id',$agence_id);
         $this->db->where('deleted !=',1);
+        $this->db->where('public_access >',0);
+        return $this->db->get($this->_db)->result();
+    }
+
+    public function getUserAgenceListAuthorize($agence_id, $current_user_id){
+        $this->db->where('agence_id',$agence_id);
+        $this->db->where('public_access >',0);
+        $this->db->where('deleted !=',1);
+        $this->db->where('id !=',$current_user_id);
         return $this->db->get($this->_db)->result();
     }
 

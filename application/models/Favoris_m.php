@@ -16,6 +16,8 @@ class Favoris_m extends MY_Model {
           favoris.note as note, 
           favoris.adress as adress,
           favoris.owner_name as owner_name, 
+          status.name as status_name, 
+          status.color as status_color, 
           favoris.tel as tel, 
           rappels.note as rappel_note, 
 
@@ -23,7 +25,8 @@ class Favoris_m extends MY_Model {
         
         $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
         $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
-        $this->db->join('users','users.id = favoris.mandataire_user_id');
+        $this->db->join('users','users.id = favoris.user_id');
+        $this->db->join('status','favoris.status_id = status.id');
         
         if(!is_array($params)){
             $id = $params;
@@ -54,12 +57,19 @@ class Favoris_m extends MY_Model {
                 $request_search .= "OR users.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR users.firstname LIKE '%".$params['search']."%'";
                 $request_search .= "OR users.login LIKE '%".$params['search']."%'";
+                $request_search .= "OR status.name LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.description LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
             }
 
             if($params['user_id']){
                 $this->db->where('favoris.user_id',$params['user_id']);
+            }
+
+            if($params['archive']){
+                $this->db->where('favoris.archive',$params['archive']);
+            }else{
+                $this->db->where('favoris.archive',0);
             }
 
             if(isset($params['order'])){
@@ -122,11 +132,11 @@ class Favoris_m extends MY_Model {
     }
 
 
-    public function addAnnonceInFavoris($user_id,$annonce){
+    public function addAnnonceInFavoris($user_id,$annonce,$status_id = 1){
         $data = array(
            'user_id' => $user_id,
            'annonce_id' => $annonce->id,
-           'mandataire_user_id' => $user_id,
+           //'mandataire_user_id' => $user_id,
            'price' => $annonce->price,
            'date_publication' => $annonce->date_publication,
            'url' => $annonce->url,
@@ -138,6 +148,7 @@ class Favoris_m extends MY_Model {
            'sale' => $annonce->sale,
            'lang' => $annonce->lang,
            'title' => $annonce->title,
+           'status_id' => $status_id,
            'description' => $annonce->description,
            'adress' => $annonce->adress,
            'city' => $annonce->city,
@@ -170,6 +181,24 @@ class Favoris_m extends MY_Model {
     
       $this->db->where('id', $id);
       $this->db->delete($this->_db); 
+      $this->updateRappelFavorisCountInSession();
+    }
+
+
+    public function archive($id,$archive){
+      $this->db->where('favoris_id', $id);
+      $this->db->delete('rappels'); 
+    
+
+
+      $this->db->where('id', $id);
+      if($archive) $archive = 1;
+      else $archive = 0;
+      $favoris = array();
+      $favoris['archive'] = $archive;
+      
+      $this->db->update($this->_db,$favoris);
+
       $this->updateRappelFavorisCountInSession();
     }
 

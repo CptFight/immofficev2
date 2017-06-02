@@ -56,19 +56,24 @@
         <hr/>
         <fieldset class="radio-inline-cont ">
             <?php echo $this->lang->line('autorisation_members'); ?> : 
-            <div  id="autorisation_members_access_cont">
-                <input name="autorisation_members_access" type="checkbox" value="1" id="autorisation_members_access">
-                <label for="autorisation_members_access"><?php echo $this->lang->line('yes'); ?></label>
+            <div >
+                <input name="public_access" type="radio" value="1" <?php if($user->public_access >= '1') echo 'checked'; ?> id="autorisation_members_access_yes">
+                <label for="autorisation_members_access_yes"><?php echo $this->lang->line('yes'); ?></label>
+
+                <input name="public_access" type="radio" value="0" <?php if($user->public_access == '0') echo 'checked'; ?> id="autorisation_members_access_no">
+                <label for="autorisation_members_access_no"><?php echo $this->lang->line('no'); ?></label>`
+
             </div>
             <div class="options_radio">
                 <div>
-                    <input name="autorisation_members_access_option" type="radio" value="1" id="autorisation_members_access_option_1" >
-                    <label for="autorisation_members_access_option_1"><?php echo $this->lang->line('edition'); ?></label>
-                </div><!--
-                 --><div>
-                    <input name="autorisation_members_access_option" type="radio" value="0" id="autorisation_members_access_option_0" >
+                    <input name="public_access_option" type="radio" value="1" id="autorisation_members_access_option_0" <?php if($user->public_access == '1') echo 'checked'; ?> >
                     <label for="autorisation_members_access_option_0"><?php echo $this->lang->line('vue'); ?></label>
                 </div>
+                <div>
+                    <input name="public_access_option" type="radio" value="2" id="autorisation_members_access_option_1" <?php if($user->public_access == '2') echo 'checked'; ?>>
+                    <label for="autorisation_members_access_option_1"><?php echo $this->lang->line('edition'); ?></label>
+                </div><!--
+                 -->
             </div>
         </fieldset>
         <hr/>
