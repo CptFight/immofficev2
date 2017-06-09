@@ -63,11 +63,11 @@
                 <label for="autorisation_members_access_no"><?php echo $this->lang->line('no'); ?></label>`
 
             </div>
-                <div>
+                <div class="hidden">
                     <input name="public_access_option" type="radio" value="1" id="autorisation_members_access_option_0" <?php if($user->public_access_option == '1') echo 'checked'; ?> >
                     <label for="autorisation_members_access_option_0"><?php echo $this->lang->line('vue'); ?></label>
                 </div>
-                <div>
+                <div class="hidden">
                     <input name="public_access_option" type="radio" value="2" id="autorisation_members_access_option_1" <?php if($user->public_access_option == '2') echo 'checked'; ?>>
                     <label for="autorisation_members_access_option_1"><?php echo $this->lang->line('edition'); ?></label>
                 </div><!--

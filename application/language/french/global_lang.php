@@ -5,12 +5,12 @@
 	$lang['annonce_id'] = 'Annonce ID';
 	$lang['rappel_id'] = 'Rappel ID';
 	$lang['favoris_id'] = 'Favoris ID';
-
+	$lang['params'] = "Paramètres";
 	$lang['owner_associated'] = "Le propriétaire est lié à un favoris";
 	$lang['hour'] = 'Heure';
-	$lang['placeholder_note'] = 'Ajouter une note';
+	$lang['placeholder_note'] = 'Votre commentaire';
 	$lang['add_note'] = "Ajouter une note";
-	$lang['bad_token'] = "Mauvais token. Essayer de rafraichir la page avant de changer d'utilisateur";
+	$lang['bad_token'] = "Mauvais token. Pouvez vous réessayer ?";
 	$lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";
 	$lang['prospecter'] = 'Prospecteur';
 	$lang['superviser'] = 'Superviseur';
@@ -56,6 +56,7 @@
 
 	$lang['active'] = 'Actif';
 	$lang['no_active'] = 'Désactivé';
+	$lang['update_error'] = "L'utilisateur a déjà ce favoris.";
 	//error upload
 	$lang['allowed_types'] = 'Extentions authorisées';
 	$lang['max_size'] = 'Taille maximum';
@@ -75,6 +76,7 @@
 	$lang['breadcrumb_dashboard'] = 'Tableau de bord';
 	$lang['breadcrumb_map'] = 'Générateur de code postaux';
 	$lang['breadcrumb_owner'] = 'Propriétaires';
+	$lang['breadcrumb_params'] = 'Paramètres';
 
 	$lang['breadcrumb_view'] = 'Detail';
 	$lang['breadcrumb_index'] = 'Liste';
@@ -392,6 +394,27 @@
 	$lang["event_17_title"] = "Immoffice V2";
 	$lang["event_17_body"] = "Nous avons pris en compte toutes vos suggestions et avons le plaisir de vous présenter la nouvelle version d'Immoffice. N'hesitez pas à nous contacter pour une présentation en détail de toutes les nouveautés ! ";
 
+	$lang["event_18_title"] = "Status";
+	$lang["event_18_body"] = "Vous pouvez ajouter des status pour vos favoris et vos propriétaires en cliquant sur le menu Paramètres";
+
+	$lang["event_19_title"] = "Propriétaire";
+	$lang["event_19_body"] = "Vous pouvez gérer vos propriétaires de bien depuis le nouveau menu Propriétaire!";
+
+	$lang["event_20_title"] = "Switch d'utilisateur";
+	$lang["event_20_body"] = "Vous pouvez vous connecter à un autre compte de votre agence si il l'a autorisé depuis les paramètres. De cette manière, une seule personne peut organiser le travail de votre agence.";
+
+
+	$lang["event_21_title"] = "Suivis";
+	$lang["event_21_body"] = "Enregistrez vos commentaires de suivi pour un bien depuis l'onget Suivis dans un favoris.";
+
+	$lang["event_22_title"] = "Paramètres";
+	$lang["event_22_body"] = "Paramètrez votre compte pour l'adapter à vos besoins !";
+
+	$lang["event_23_title"] = "Archive";
+	$lang["event_23_body"] = "Archivez un favoris pour nettoyer votre liste de travail. Pour le récupérer, cliquez sur le bouton -archives- en haut de la page favoris pour avoir la liste des biens archivés !";
+
+	$lang["event_24_title"] = "Ca en fait du changement !";
+	$lang["event_24_body"] = "Une grosse mise à jour vient d'être faite. Vous allez pouvoir découvrir un tas de nouvelles fonctionnalités ! <br/><br/>Elles sont détaillées plus bas dans les cases : archive, status, switch utilisateur, propriétaires, suivis et paramètres. <br/><br/> Si vous avez la moindre question ou que vous ne retrouvez plus une informations sur votre compte n'hesitez pas à nous en faire part !";
 
 
 	$lang["suggestion_label"] = "Si vous avez des suggestions pour l'amélioration d'Immoffice; n'hésitez pas à nous les faire parvenir depuis ce formulaire. ";

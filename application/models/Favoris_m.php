@@ -49,6 +49,7 @@ class Favoris_m extends MY_Model {
             } 
 
             if($params['search']){
+                $params['search'] = addslashes($params['search']);
                 $request_search = "( title LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.id LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.annonce_id LIKE '%".$params['search']."%'";
@@ -163,14 +164,20 @@ class Favoris_m extends MY_Model {
            'description' => $annonce->description,
            'adress' => $annonce->adress,
            'city' => $annonce->city,
-           'tel' => ''
+           'tel' => '',
+           'note' => '',
+           'tags' => '',
+           'archive' => 0
         );
 
-        $return = $this->db->insert($this->_db, $data); 
+        $return = $this->db->insert($this->_db, $data);
+        $id = $this->db->insert_id(); 
         $this->updateRappelFavorisCountInSession();
         if($return){
-          return $this->db->insert_id();
+          return $id;
         }else{
+          print_r($this->db->_error_message());
+          print_r($this->db->_error_number());
           return false;
         }
         
@@ -189,6 +196,9 @@ class Favoris_m extends MY_Model {
     public function delete($id){
       $this->db->where('favoris_id', $id);
       $this->db->delete('rappels'); 
+
+      $this->db->where('favoris_id', $favoris->id);
+        $this->db->delete('remarks'); 
     
       $this->db->where('id', $id);
       $this->db->delete($this->_db); 
@@ -221,7 +231,10 @@ class Favoris_m extends MY_Model {
 
     public function removeAnnonceFromFavoris($user_id,$annonce_id){
         $favoris = $this->getByUserAnnonceId($user_id,$annonce_id);
-        $this->db->where('user_id', $user_id);
+        $this->db->where('favoris_id', $favoris->id);
+        $this->db->delete('remarks'); 
+
+      //  $this->db->where('user_id', $user_id);
         $this->db->where('favoris_id', $favoris->id);
         $this->db->delete('rappels'); 
         

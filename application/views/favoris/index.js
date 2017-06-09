@@ -23,19 +23,19 @@ favoris.bind = function(){
         e.preventDefault();
         var favoris_id = $(this).closest('ul').data('favoris_id');
 
-        var count_rappels = $('.alert-tag.rappels').html();
+       // var count_rappels = $('.alert-tag.rappels').html();
 
         var add = true;
         if(!$(this).hasClass('active')){
             $(this).addClass('active');
-            count_rappels++;
+        //    count_rappels++;
         }else{
             $(this).removeClass('active');
             add = false;
-            count_rappels--;
+        //    count_rappels--;
         }
 
-        $('.alert-tag.rappels').html(count_rappels);
+        //$('.alert-tag.rappels').html(count_rappels);
 
         $.ajax({
             type: "POST",

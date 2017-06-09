@@ -43,6 +43,7 @@ class Rappels_m extends MY_Model {
             } 
 
             if($params['search']){
+                $params['search'] = addslashes($params['search']);
                 $request_search = "( favoris.title LIKE '%".$params['search']."%'";
                 $request_search .= "OR favoris.annonce_id LIKE '%".$params['search']."%'";
                 $request_search .= "OR rappels.id LIKE '%".$params['search']."%'";
@@ -125,8 +126,10 @@ class Rappels_m extends MY_Model {
     public function getRappelsBetween($user_id, $start,$end){
         
         $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
+        $this->db->join('status','favoris.status_id = status.id');
         $this->db->select("*,
             rappels.id as id,
+            status.color as color,
             rappels.tags as tags,
             favoris.tags as favoris_tags,
         ");

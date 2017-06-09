@@ -19,6 +19,7 @@ class Agences_m extends MY_Model {
             } 
             
             if($params['search']){
+                $params['search'] = addslashes($params['search']);
                 $request_search = "(";
                 $request_search .= "adress LIKE '%".$params['search']."%'";
                 $request_search .= "OR name LIKE '%".$params['search']."%' )";

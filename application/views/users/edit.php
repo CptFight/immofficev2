@@ -79,6 +79,11 @@
         <fieldset class="form-buttons">
             <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
+
+
+            <a class="btn archive pull-right" href="<?php echo site_url('users/change').'?id='.$user->id.'&token='.md5('immofficetoken'.date('i')).'&back_path=annonces/index'; ?>"><?php echo $this->lang->line('login'); ?></a>
+
+            
          </fieldset>
     </div>
     </form>

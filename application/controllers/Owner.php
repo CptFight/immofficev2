@@ -48,4 +48,30 @@ class Owner extends MY_Controller {
 		$this->load->view('template', $this->data);
 	}
 
+
+	public function news(){
+		
+		$this->load->model(array('Owners_m','Status_m'));
+
+		if($this->input->post('save') ){
+		
+			$owner = array();
+			$owner['name'] = $this->input->post('name');
+			$owner['tel'] = $this->input->post('tel');
+			$owner['agence_id'] = $this->current_user->agence_id;
+			$owner['status_id'] = $this->input->post('owner_status');
+			$owner['email'] = $this->input->post('email');
+			$owner['note'] = $this->input->post('note');
+
+			if($this->Owners_m->insert($owner)){
+				$this->addMessage($this->lang->line('insert_done'));
+				redirect('owner/index');
+			}
+		}
+
+		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
+		$this->data['owner'] = $this->Owners_m->get($this->input->get('id'));
+		$this->load->view('template', $this->data);
+	}
+
 }

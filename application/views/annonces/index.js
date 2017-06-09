@@ -71,26 +71,26 @@ annonces.bind = function(){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
-        var count_favoris = $('.alert-tag.favoris').html();
-        var count_rappels = $('.alert-tag.rappels').html();
+       // var count_favoris = $('.alert-tag.favoris').html();
+       // var count_rappels = $('.alert-tag.rappels').html();
 
         var add = true;
         if(!$(this).hasClass('active')){
             $(this).addClass('active');
-            count_favoris++;
+          //  count_favoris++;
         }else{
             $(this).removeClass('active');
             if($(this).closest('ul').find('.add_rappel').hasClass('active')){
-                count_rappels--;
+            //    count_rappels--;
                 $(this).closest('ul').find('.add_rappel').removeClass('active');
             }
             
             add = false;
-            count_favoris--;
+          //  count_favoris--;
            
         }
-        $('.alert-tag.favoris').html(count_favoris);
-        $('.alert-tag.rappels').html(count_rappels);
+        //$('.alert-tag.favoris').html(count_favoris);
+        //$('.alert-tag.rappels').html(count_rappels);
 
         $.ajax({
             type: "POST",
@@ -139,26 +139,26 @@ annonces.bind = function(){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
-        var count_favoris = $('.alert-tag.favoris').html();
-        var count_rappels = $('.alert-tag.rappels').html();
+       // var count_favoris = $('.alert-tag.favoris').html();
+       // var count_rappels = $('.alert-tag.rappels').html();
 
         var add = true;
         if(!$(this).hasClass('active')){
             if(!$(this).closest('ul').find('.add_favoris').hasClass('active')){
-                count_favoris++;
+              //  count_favoris++;
                 $(this).closest('ul').find('.add_favoris').addClass('active');
             }
             
             $(this).addClass('active');
-            count_rappels++;
+         //   count_rappels++;
         }else{
             $(this).removeClass('active');
             add = false;
-            count_rappels--;
+          //  count_rappels--;
         }
 
-        $('.alert-tag.favoris').html(count_favoris);
-        $('.alert-tag.rappels').html(count_rappels);
+       // $('.alert-tag.favoris').html(count_favoris);
+       // $('.alert-tag.rappels').html(count_rappels);
 
         $.ajax({
             type: "POST",

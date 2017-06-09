@@ -95,9 +95,6 @@ class Favoris extends MY_Controller {
 	private function savePost(){
 		$this->load->model(array('Favoris_m','Rappels_m','Remarks_m','Status_m','Owners_m'));
 
-		
-		
-
 		if($this->input->post('delete') ){
 			$id = $this->input->post('id');
 			$this->Favoris_m->delete($id);
@@ -120,7 +117,6 @@ class Favoris extends MY_Controller {
 		}
 
 		if($this->input->post('save') ){
-		
 			$favoris = array();
 			$favoris['user_id'] = $this->current_user->id;
 			if($this->input->post('id')){
@@ -164,9 +160,6 @@ class Favoris extends MY_Controller {
 			if($this->input->post('favoris_status') && $this->input->post('favoris_status') > 0){
 				$favoris['status_id'] = $this->input->post('favoris_status');
 			}
-			
-
-		
 
 			if($this->input->post('mandataire_user_id') && $this->input->post('mandataire_user_id') != '' && $this->input->post('mandataire_user_id') != $this->current_user->id){
 				$favoris['user_id'] = $this->input->post('mandataire_user_id');
@@ -207,8 +200,9 @@ class Favoris extends MY_Controller {
 				}
 				if($return){
 					$this->addMessage($this->lang->line('update_done'));
+				}else{
+					$this->addError($this->lang->line('update_error'));
 				}
-				//redirect('favoris/index');
 			}
 
 			if($this->input->post('rappel_date_rappel') != '' || $this->input->post('rappel_date_rappel_mobile_date') != ''){

@@ -230,7 +230,11 @@ class Users extends MY_Controller {
 			$user['tel'] = $this->current_user->tel = $this->input->post('tel');
 			$user['direct_access_page'] = $this->current_user->direct_access_page = $this->input->post('direct_access_page');
 			if($this->Users_m->update($user)){
+				$user = $this->Users_m->get($this->current_user->id);
+				$this->session->unset_userdata('user');
+				$this->session->set_userdata('user', $user);
 				$this->addMessage($this->lang->line('update_done'));
+				redirect('users/index');
 			}
 			
 		}
@@ -259,13 +263,12 @@ class Users extends MY_Controller {
 		if($add == 'true'){
 			$annonce = $this->Annonces_m->get($annonce_id);
 			$status = $this->Status_m->getFirstStatus($this->current_user->agence_id,'favoris');
-
 			$favoris_id = $this->Favoris_m->addAnnonceInFavoris($user_id,$annonce,$status->id);
 		}else{
 			$this->Favoris_m->removeAnnonceFromFavoris($user_id,$annonce_id);
 		}	
 		$return = array();
-		if($this->current_user->direct_access_page){
+		if($this->current_user->direct_access_page && $favoris_id > 0){
 			$return['direct_access_page'] = site_url('favoris/edit/?id='.$favoris_id);
 		}
 		echo json_encode($return);

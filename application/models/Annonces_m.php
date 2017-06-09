@@ -49,10 +49,10 @@ class Annonces_m extends MY_Model {
 
 
             if($params['search']){
-                $request_search = "( title LIKE '%".$params['search']."%'";
-                $request_search .= "OR annonces.id LIKE '%".$params['search']."%'";
-                $request_search .= "OR web_site LIKE '%".$params['search']."%'";
-                $request_search .= "OR description LIKE '%".$params['search']."%' )";
+                $request_search = '( title LIKE "%'.$params["search"].'%" ';
+                $request_search .= 'OR annonces.id LIKE "%'.$params["search"].'%" ';
+                $request_search .= 'OR web_site LIKE "%'.$params["search"].'%" ';
+                $request_search .= 'OR description LIKE "%'.$params["search"].'%" )';
                 $this->db->where($request_search);
             }
 
@@ -124,6 +124,7 @@ class Annonces_m extends MY_Model {
         $this->db->select('count(*) as count');
         
         if($params['search']){
+            $params['search'] = addslashes($params['search']);
             $request_search = "( title LIKE '%".$params['search']."%'";
             $request_search .= "OR web_site LIKE '%".$params['search']."%'";
             $request_search .= "OR description LIKE '%".$params['search']."%' )";

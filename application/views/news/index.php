@@ -4,6 +4,76 @@
         <li>
             <article>
                 <i class="fa fa-briefcase"></i>
+                <time datetime="2016-06-04">12/06/2017</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_24_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_24_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2017-06-12">12/06/2017</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_23_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_23_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2017-06-12">05/07/2016</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_18_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_18_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2017-06-12">12/06/2017</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_20_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_20_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2017-06-12">12/06/2017</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_19_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_19_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2017-06-12">12/06/2017</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_21_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_21_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
+                <time datetime="2017-06-12">12/06/2017</time>
+                <div>
+                    <h3><?php echo $this->lang->line('event_22_title'); ?></h3>
+                    <p><?php echo $this->lang->line('event_22_body'); ?></p>
+                </div>
+            </article>
+        </li>
+        <li>
+            <article>
+                <i class="fa fa-briefcase"></i>
                 <time datetime="2016-07-05">05/07/2016</time>
                 <div>
                     <h3><?php echo $this->lang->line('event_17_title'); ?></h3>

@@ -26,8 +26,8 @@
                 <li><a href="<?php echo site_url('subscribers/index'); ?>" class="<?php if($pagename == "subscribers") echo "active"; ?>"><i class="fa fa-envelope"></i> <span><?php echo $this->lang->line('subscribers'); ?></span></a></li>
                 <?php if($current_user->role_id != 1){ ?>
                 <li><a href="<?php echo site_url('favoris/index'); ?>" class='<?php if($pagename == "favoris") echo "active"; ?>'><i class="fa fa-home"></i> <span><?php echo $this->lang->line('favoris'); ?>
-                <?php if(isset($current_user->count_favoris)) { ?><strong class="alert-tag favoris"><?php echo $current_user->count_favoris; ?></strong><?php } ?></span></a></li>
-                <li><a href="<?php echo site_url('rappels/calendar'); ?>" class='<?php if($pagename == "rappels") echo "active"; ?>'><i class="fa fa-phone"></i> <?php if(isset($current_user->count_rappels)) { ?><strong class="alert-tag rappels"><?php echo $current_user->count_rappels; ?></strong><?php } ?><span ><?php echo $this->lang->line('my_remembers'); ?></span></a></li>
+                <?php if(isset($current_user->count_favoris) && $current_user->count_favoris > 0 ) { ?><strong class="alert-tag favoris"><?php echo $current_user->count_favoris; ?></strong><?php } ?></span></a></li>
+                <li><a href="<?php echo site_url('rappels/calendar'); ?>" class='<?php if($pagename == "rappels") echo "active"; ?>'><i class="fa fa-phone"></i> <?php if(isset($current_user->count_rappels) && $current_user->count_rappels > 0 ) { ?><strong class="alert-tag rappels"><?php echo $current_user->count_rappels; ?></strong><?php } ?><span ><?php echo $this->lang->line('my_remembers'); ?></span></a></li>
                 <?php } ?>
               <!--  <li><a href=""><i class="fa fa-user"></i> <span >Mes comptes</span></a></li>-->
                 
@@ -38,12 +38,14 @@
                   <li><a href="<?php echo site_url('dashboard/index'); ?>" class="<?php if($pagename == "dashboard") echo "active"; ?>"><i class="fa fa-dashboard"></i> <span ><?php echo $this->lang->line('dashboard'); ?></span></a></li>
                 <?php } ?>
 
-                <li><a href="<?php echo site_url('agences/edit_param'); ?>" class="<?php if($pagename == "agences") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span ><?php echo $this->lang->line('agency'); ?></span></a></li>
 
                 <li><a href="<?php echo site_url('owner/index'); ?>" class="<?php if($pagename == "owner") echo "active"; ?>"><i class="fa fa-users"></i> <span ><?php echo $this->lang->line('owners'); ?></span></a></li>
                 <?php if($current_user->role_id == 3 || $current_user->role_id == 4){ ?>
                 <li><a href="<?php echo site_url('supervision/index'); ?>" class="<?php if($pagename == "supervision") echo "active"; ?>"><i class="fa fa-cog"></i> <span ><?php echo $this->lang->line('supervision'); ?></span></a></li>
                 <?php } ?>
+
+                
+                <li><a href="<?php echo site_url('params/edit'); ?>" class="<?php if($pagename == "params") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span ><?php echo $this->lang->line('params'); ?></span></a></li>
 
                 
                 <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
