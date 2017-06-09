@@ -200,9 +200,7 @@ class Rappels_m extends MY_Model {
         return $return;
     }
 
-    public function deleteByUserFavorisIds($user_id,$favoris_id){
-        $this->db->join('favoris','favoris.id = rappels.favoris_id');
-        $this->db->where('user_id', $user_id);
+    public function deleteByFavorisId($favoris_id){
         $this->db->where('favoris_id', $favoris_id);
         $this->db->delete($this->_db); 
         return $this->updateRappelFavorisCountInSession();

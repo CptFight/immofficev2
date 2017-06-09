@@ -105,17 +105,18 @@ class Favoris extends MY_Controller {
 		$this->load->model(array('Favoris_m','Rappels_m','Remarks_m','Status_m','Owners_m'));
 
 		if($this->input->post('delete') ){
+			$this->Rappels_m->deleteByFavorisId($id);
+
 			$id = $this->input->post('id');
 			$this->Favoris_m->delete($id);
-			
-			$this->Rappels_m->deleteByUserFavorisIds($this->current_user->id,$id);
+
 			redirect('favoris/index');
 		}
 
 		if($this->input->post('archive') ){
 			$id = $this->input->post('id');
+			$this->Rappels_m->deleteByFavorisId($id);
 			$this->Favoris_m->archive($id,true);
-			$this->Rappels_m->deleteByUserFavorisIds($this->current_user->id,$id);
 			redirect('favoris/index');
 		}
 

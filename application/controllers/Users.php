@@ -315,7 +315,7 @@ class Users extends MY_Controller {
 		if($add == 'true'){
 			$this->Rappels_m->add($favoris_id,$date_rappel);
 		}else{
-			$this->Rappels_m->deleteByUserFavorisIds($user_id,$favoris_id);
+			$this->Rappels_m->deleteByFavorisId($favoris_id);
 		}	
 		$return = array();
 		if($this->current_user->direct_access_page){
