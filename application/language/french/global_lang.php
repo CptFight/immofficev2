@@ -2,6 +2,7 @@
 
 	$lang['base_url'] = base_url();
 
+	$lang['favoris_send'] = "Le favoris à bien été assigné" ;
 	$lang['annonce_id'] = 'Annonce ID';
 	$lang['rappel_id'] = 'Rappel ID';
 	$lang['favoris_id'] = 'Favoris ID';

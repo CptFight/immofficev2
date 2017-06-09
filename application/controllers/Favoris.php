@@ -41,8 +41,16 @@ class Favoris extends MY_Controller {
 			if(isset($_GET['back_path'])){
 				$this->data['back_path'] = $_GET['back_path'];
 			}else{
-				$this->data['back_path'] = 'favoris/edit?id='.$_GET['id'].'&view='.$this->input->post('current_tab');
+				if($this->input->post('mandataire_user_id') && $this->input->post('mandataire_user_id') != '' && $this->input->post('mandataire_user_id') != $this->current_user->id){
+					$this->addMessage($this->lang->line('favoris_send'));
+					$this->data['back_path'] = 'favoris/index';
+				}else{
+					$this->data['back_path'] = 'favoris/edit?id='.$_GET['id'].'&view='.$this->input->post('current_tab');
+				}
 			}
+
+			
+
 
 			if($this->savePost()){
 				redirect($this->data['back_path'] );
@@ -88,7 +96,8 @@ class Favoris extends MY_Controller {
 			$this->data['remark_placeholder'] = $this->Remarks_m->get($this->input->get('remark_edit'))->note;
 		}else{
 			$this->data['remark_placeholder'] = $this->lang->line('placeholder_note');
-		}
+		}	
+
 		$this->load->view('template', $this->data);
 	}
 
@@ -212,7 +221,7 @@ class Favoris extends MY_Controller {
 				}else{
 					$rappel['id'] = false;
 				}
-				$rappel['user_id'] = $this->current_user->id;
+				
 				if($this->input->post('id')){
 					$rappel['favoris_id'] = $this->input->post('id');
 				}else{
