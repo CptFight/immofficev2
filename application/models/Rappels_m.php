@@ -153,8 +153,7 @@ class Rappels_m extends MY_Model {
 
     public function getRappelsAnnoncesIds($user_id){
       $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
-
-      $this->db->where('rappels.user_id',$user_id);
+      $this->db->where('favoris.user_id',$user_id);
       $result = $this->db->get($this->_db)->result();
       $list_ids = array();
       foreach($result as $key => $rappels){
@@ -165,7 +164,7 @@ class Rappels_m extends MY_Model {
 
     public function getRappelsFavorisIds($user_id){
       $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
-      $this->db->where('rappels.user_id',$user_id);
+      $this->db->where('favoris.user_id',$user_id);
       $result = $this->db->get($this->_db)->result();
       $list_ids = array();
       foreach($result as $key => $rappels){
@@ -180,9 +179,8 @@ class Rappels_m extends MY_Model {
         return $this->updateRappelFavorisCountInSession();
     }
 
-    public function add($user_id,$favoris_id,$date_rappel){
+    public function add($favoris_id,$date_rappel){
         $data = array(
-           'user_id' => $user_id,
            'favoris_id' => $favoris_id,
            'date_rappel' => $date_rappel,
            'created' => strtotime('now')
@@ -199,6 +197,7 @@ class Rappels_m extends MY_Model {
     }
 
     public function deleteByUserFavorisIds($user_id,$favoris_id){
+        $this->db->join('favoris','favoris.id = rappels.favoris_id');
         $this->db->where('user_id', $user_id);
         $this->db->where('favoris_id', $favoris_id);
         $this->db->delete($this->_db); 

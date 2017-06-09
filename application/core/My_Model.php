@@ -68,6 +68,7 @@ class MY_Model extends CI_Model {
         $tomorrow = strtotime('tomorrow');
        
         $this->db->select('count(*) as count');
+         $this->db->join('favoris','rappels.favoris_id = favoris.id');
         $this->db->where('user_id',$user->id);
         $this->db->where('date_rappel >=',$today);
         $this->db->where('date_rappel <',$tomorrow);
