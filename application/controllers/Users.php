@@ -239,7 +239,7 @@ class Users extends MY_Controller {
 			
 		}
 
-		$this->data['user'] = $this->current_user;
+		$this->data['user'] = $this->Users_m->get($this->current_user->id);
 		$this->load->view('template', $this->data);
 	}
 	
@@ -313,9 +313,9 @@ class Users extends MY_Controller {
 		$date_rappel = strtotime('now');
 		$add = $this->input->post('add');
 		if($add == 'true'){
-			$this->Rappels_m->add($user_id,$favoris_id,$date_rappel);
+			$this->Rappels_m->add($favoris_id,$date_rappel);
 		}else{
-			$this->Rappels_m->deleteByUserFavorisIds($user_id,$favoris_id);
+			$this->Rappels_m->deleteByFavorisId($favoris_id);
 		}	
 		$return = array();
 		if($this->current_user->direct_access_page){

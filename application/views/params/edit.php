@@ -131,6 +131,17 @@
                 </div>
             </div>
             <div class="tab tab2 <?php if($tab == 2) echo 'active'; ?>">
+
+                <fieldset class="radio-inline-cont ">
+                    <div>
+                        <input name="lang" type="radio" value="french" id="fr" <?php if($user->lang == 'french') echo 'checked'; ?>>
+                        <label for="fr"><?php echo $this->lang->line('french'); ?></label>
+                    </div><!--
+                     --><div>
+                        <input name="lang" type="radio" value="dutch" id="nl" <?php if($user->lang == 'dutch') echo 'checked'; ?>>
+                        <label for="nl"><?php echo $this->lang->line('dutch'); ?></label>
+                    </div>
+                </fieldset>
                 <fieldset class="radio-inline-cont separation-form"><br/>
                     <?php echo $this->lang->line('direct_access_page'); ?> : 
                     <div>

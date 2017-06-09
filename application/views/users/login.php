@@ -48,7 +48,7 @@
                         <p>IMMOffice, Inc.</p>
                         <p><?php echo $this->lang->line('ask_us_customized_offer'); ?></p> 
                     </div>
-                    <a href="" class="btn inlineblock"><?php echo $this->lang->line('forgot_password'); ?></a>
+                    <a href="" class="btn inlineblock"><?php echo $this->lang->line('contact'); ?></a>
                     <footer>
                         <p class="copyright">© 2017 IMMOffice</p>
                     </footer>

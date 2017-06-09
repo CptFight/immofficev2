@@ -68,7 +68,7 @@ class Rappels_m extends MY_Model {
             }
 
             if($params['user_id']){
-                $this->db->where('rappels.user_id',$params['user_id']);
+                $this->db->where('user_id',$params['user_id']);
             }
 
             if(isset($params['order'])){
@@ -80,8 +80,9 @@ class Rappels_m extends MY_Model {
     }
 
     public function getSupervisionInfos($user_id){
+        $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
         $this->db->where('user_id',$user_id);
-        $this->db->order_by('created','desc');
+        $this->db->order_by('rappels.created','desc');
 
         $rappels = $this->db->get($this->_db)->result();
         if(isset($rappels[0]))
@@ -90,16 +91,18 @@ class Rappels_m extends MY_Model {
             $last_rappels = false;
 
         //since 1 week
+        $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
         $this->db->where('user_id',$user_id);
-        $this->db->where('created >',strtotime('-1 week'));
+        $this->db->where('rappels.created >',strtotime('-1 week'));
         $rappels_since_1_week = $this->db->get($this->_db)->result();
         if(isset($rappels_since_1_week[0]))
             $last_rappels_since_1_week = $rappels_since_1_week[0]->created;
         else
             $last_rappels_since_1_week = false;
 
+        $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
         $this->db->where('user_id',$user_id);
-        $this->db->where('created >',strtotime('-1 month'));
+        $this->db->where('rappels.created >',strtotime('-1 month'));
         $rappels_since_1_month = $this->db->get($this->_db)->result();
         if(isset($rappels_since_1_month[0]))
             $last_rappels_since_1_month = $rappels_since_1_month[0]->created;
@@ -134,7 +137,8 @@ class Rappels_m extends MY_Model {
             favoris.tags as favoris_tags,
         ");
 
-        $this->db->where('rappels.user_id',$user_id);
+
+        $this->db->where('user_id',$user_id);
         $this->db->where('rappels.date_rappel >=',$start);
         $this->db->where('rappels.date_rappel <=',$end);
 
@@ -153,8 +157,7 @@ class Rappels_m extends MY_Model {
 
     public function getRappelsAnnoncesIds($user_id){
       $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
-
-      $this->db->where('rappels.user_id',$user_id);
+      $this->db->where('favoris.user_id',$user_id);
       $result = $this->db->get($this->_db)->result();
       $list_ids = array();
       foreach($result as $key => $rappels){
@@ -165,7 +168,7 @@ class Rappels_m extends MY_Model {
 
     public function getRappelsFavorisIds($user_id){
       $this->db->join('favoris','favoris.id = '.$this->_db.'.favoris_id');
-      $this->db->where('rappels.user_id',$user_id);
+      $this->db->where('favoris.user_id',$user_id);
       $result = $this->db->get($this->_db)->result();
       $list_ids = array();
       foreach($result as $key => $rappels){
@@ -180,9 +183,8 @@ class Rappels_m extends MY_Model {
         return $this->updateRappelFavorisCountInSession();
     }
 
-    public function add($user_id,$favoris_id,$date_rappel){
+    public function add($favoris_id,$date_rappel){
         $data = array(
-           'user_id' => $user_id,
            'favoris_id' => $favoris_id,
            'date_rappel' => $date_rappel,
            'created' => strtotime('now')
@@ -198,8 +200,7 @@ class Rappels_m extends MY_Model {
         return $return;
     }
 
-    public function deleteByUserFavorisIds($user_id,$favoris_id){
-        $this->db->where('user_id', $user_id);
+    public function deleteByFavorisId($favoris_id){
         $this->db->where('favoris_id', $favoris_id);
         $this->db->delete($this->_db); 
         return $this->updateRappelFavorisCountInSession();

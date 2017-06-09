@@ -41,7 +41,7 @@ class Users_m extends MY_Model {
     }
 
     public function get($params) {
-        $this->db->select('*,users.id as id,users.tel as tel, agences.tel as agences_tel, users.name as name, agences.name as agence_name, roles.name as role_name');
+        $this->db->select('*,users.id as id,users.tel as tel, agences.tel as agences_tel, users.name as name, agences.name as agence_name, roles.name as role_name, users.adress as adress');
         $this->db->join('agences','users.agence_id = agences.id');
         $this->db->join('roles','users.role_id = roles.id');
     
@@ -126,7 +126,7 @@ class Users_m extends MY_Model {
     public function getMandatairesList($agence_id){
         $this->db->where('agence_id',$agence_id);
         $this->db->where('deleted !=',1);
-        $this->db->where('public_access >',0);
+        //$this->db->where('public_access >',0);
         return $this->db->get($this->_db)->result();
     }
 
@@ -190,7 +190,7 @@ class Users_m extends MY_Model {
         $this->db->group_by('users.id');
         $this->db->select('*, 
             (SELECT COUNT(*) FROM favoris WHERE user_id = '.$this->_db.'.id AND date_publication >= '.$today.') as count_favoris,
-            (SELECT COUNT(*) FROM rappels WHERE user_id = '.$this->_db.'.id AND date_rappel >= '.$today.' AND date_rappel < '.$tomorrow.') as count_rappels
+            (SELECT COUNT(*) FROM rappels INNER JOIN favoris ON favoris.id=rappels.favoris_id WHERE user_id = '.$this->_db.'.id AND date_rappel >= '.$today.' AND date_rappel < '.$tomorrow.') as count_rappels
         ');
         $this->db->where('login',$login);
         $this->db->where('password',md5($password));

@@ -76,6 +76,7 @@ class Params extends MY_Controller {
 
 			$user = array();
 			$user['id'] = $this->current_user->id;
+			$user['lang'] = $this->current_user->lang = $this->input->post('lang');
 			$user['public_access'] = $this->current_user->public_access = $this->input->post('public_access');
 			$user['public_access_option'] = $this->current_user->public_access_option = $this->input->post('public_access_option');
 
