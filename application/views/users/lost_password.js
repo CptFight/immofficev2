@@ -24,7 +24,12 @@ function clickmenu(){
   $(".wrapper").toggleClass("move remove");
 }
 
-
+/* ------ Dropdown ------*/
+/* --------------------- */
+$(".btn-dropdown").on("click", function(){
+  var id = $(this).attr("data-id");
+  $("#"+id).toggleClass("hidden");
+});
 /* ------ Smooth Scroll ---- */
 /* ---------------------------- */
 function linkScroll(){

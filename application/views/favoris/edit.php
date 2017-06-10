@@ -314,13 +314,13 @@
         </div>
 
         <fieldset class="form-buttons">
-            <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
-            <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
+            <button name="save" class="btn save" value="save" type="submit"><i class="fa fa-floppy-o"></i><span><?php echo $this->lang->line('save'); ?></span></button>
+            <button name="delete" class="btn delete" value="delete" type="submit"><i class="fa fa-remove"></i><span><?php echo $this->lang->line('delete'); ?></span></button>
 
             <?php if($favoris->archive) { ?>
-            <button name="desarchive" class="btn archive pull-right" value="archive" type="submit"><?php echo $this->lang->line('desarchiver'); ?></button>
+            <button name="desarchive" class="btn archive" value="archive" type="submit"><i class="fa fa-archive"></i><span><?php echo $this->lang->line('desarchiver'); ?></span></button>
             <?php }else{ ?>
-            <button name="archive" class="btn archive pull-right" value="archive" type="submit"><?php echo $this->lang->line('archiver'); ?></button>
+            <button name="archive" class="btn archive" value="archive" type="submit"><i class="fa fa-archive"></i><span><?php echo $this->lang->line('archiver'); ?></span></button>
             <?php } ?>
         </fieldset>
 

@@ -36,8 +36,8 @@
 
 
         <fieldset class="form-buttons">
-            <button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('save'); ?></button>
-            <button name="delete" class="btn delete" value="delete" type="submit"><?php echo $this->lang->line('delete'); ?></button>
+            <button name="save" class="btn save" value="save" type="submit"><i class="fa fa-floppy-o"></i><span><?php echo $this->lang->line('save'); ?></span></button>
+            <button name="delete" class="btn delete" value="delete" type="submit"><i class="fa fa-remove"></i><span><?php echo $this->lang->line('delete'); ?></span></button>
          </fieldset>
     </div>
     </form>

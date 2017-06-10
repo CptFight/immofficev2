@@ -409,13 +409,13 @@
 	$lang["event_21_body"] = "Enregistrez vos commentaires de suivi pour un bien depuis l'onget Suivis dans un favoris.";
 
 	$lang["event_22_title"] = "Paramètres";
-	$lang["event_22_body"] = "Paramètrez votre compte pour l'adapter à vos besoins !";
+	$lang["event_22_body"] = "Paramètrez votre compte pour l'adapter à vos besoins!";
 
 	$lang["event_23_title"] = "Archive";
-	$lang["event_23_body"] = "Archivez un favoris pour nettoyer votre liste de travail. Pour le récupérer, cliquez sur le bouton -archives- en haut de la page favoris pour avoir la liste des biens archivés !";
+	$lang["event_23_body"] = "Archivez un favoris pour nettoyer votre liste de travail. Pour le récupérer, cliquez sur le bouton -archives- en haut de la page favoris pour avoir la liste des biens archivés!";
 
 	$lang["event_24_title"] = "Ca en fait du changement !";
-	$lang["event_24_body"] = "Une grosse mise à jour vient d'être faite. Vous allez pouvoir découvrir un tas de nouvelles fonctionnalités ! <br/><br/>Elles sont détaillées plus bas dans les cases : archive, status, switch utilisateur, propriétaires, suivis et paramètres. <br/><br/> Si vous avez la moindre question ou que vous ne retrouvez plus une informations sur votre compte n'hesitez pas à nous en faire part !";
+	$lang["event_24_body"] = "Une grosse mise à jour vient d'être faite. Vous allez pouvoir découvrir un tas de nouvelles fonctionnalités ! <br/><br/>Elles sont détaillées plus bas dans les cases : archive, status, switch utilisateur, propriétaires, suivis et paramètres. <br/><br/> Si vous avez la moindre question ou que vous ne retrouvez plus une informations sur votre compte n'hesitez pas à nous en faire part!";
 
 
 	$lang["suggestion_label"] = "Si vous avez des suggestions pour l'amélioration d'Immoffice; n'hésitez pas à nous les faire parvenir depuis ce formulaire. ";

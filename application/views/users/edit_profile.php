@@ -57,10 +57,10 @@
             <div >
                 <input name="public_access" type="radio" value="1" <?php if($user->public_access >= 1){ echo 'checked'; }?> id="autorisation_members_access_yes">
                 <label for="autorisation_members_access_yes"><?php echo $this->lang->line('yes'); ?></label>
-            </div>
-            <div>
+            </div><!--
+             --><div>
                 <input name="public_access" type="radio" value="0" <?php if($user->public_access == 0){ echo 'checked'; }?> id="autorisation_members_access_no">
-                <label for="autorisation_members_access_no"><?php echo $this->lang->line('no'); ?></label>`
+                <label for="autorisation_members_access_no"><?php echo $this->lang->line('no'); ?></label>
 
             </div>
                 <div class="hidden">

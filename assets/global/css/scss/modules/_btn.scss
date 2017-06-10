@@ -151,7 +151,8 @@
     }
 }
 
-    
+
+
 .btn-delete 
 {
     display:inline-block;
@@ -183,11 +184,46 @@
 {
     margin-left: 10px !important;
 }
+.btn-archives
+{
+    margin-left: 0px !important;
+}
 .btn.archive 
 {
     background-color:#676a6c;
 }
-
+.btn.delete, .btn.save, .btn.archive
+{
+    span 
+    {
+        display:block;
+    }
+    i 
+    {
+        display:none;
+    }
+    @media screen and (max-width:$small)
+    {
+        display:inline-block;
+        width:50px;
+        span 
+        {
+            display:none;
+        }
+        i 
+        {
+            display:block;
+        }
+    }
+}
+.btn.archive 
+{
+    float:right; 
+     @media screen and (max-width:$small)
+     {
+        float:none;
+     }
+}
 .btn-add 
 {
     width: 40px;

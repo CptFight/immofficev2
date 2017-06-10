@@ -13,3 +13,11 @@
 	z-index:10;
 	position:relative;
 }
+
+.labelnewadd
+{
+	@media screen and (max-width:$medium)
+	{
+    	margin-top: 20px;
+    }
+}

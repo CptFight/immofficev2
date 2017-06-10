@@ -2959,7 +2959,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ededee;
   margin: 1em 0;
   padding: 0; }
 
@@ -3382,10 +3382,10 @@ h1 {
 /* ==|====================
    Layout/Nav
    ======================= */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 849px) {
   .l-nav-top {
     display: none; } }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 850px) {
   .l-nav-small {
     display: none; }
 
@@ -3424,7 +3424,7 @@ h1 {
 .move #btn-toggle-nav i {
   transform: rotate(45deg); }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 850px) {
   #btn-toggle-nav i {
     transform: rotate(45deg); }
 
@@ -3512,7 +3512,7 @@ a.profile-btn {
 .l-nav-aside.hide-menu {
   margin-left: -220px; }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 849px) {
   .l-landing .move .content {
     opacity: 0.3; }
 
@@ -3534,7 +3534,7 @@ a.profile-btn {
 .l-landing .wrapper {
   background: white !important; }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 850px) {
   .l-nav-aside.hide-menu {
     width: 220px; }
 
@@ -3625,6 +3625,8 @@ a.profile-btn {
   -moz-transform: translateX(-50%);
   -wekit-transform: translateX(-50%);
   transform: translateX(-50%); }
+.l-landing .l-nav-aside {
+  position: fixed; }
 
 .l-landing-welcome {
   padding: 40px 55px;
@@ -3717,7 +3719,7 @@ a.profile-btn {
 .l-nav-aside.hide-menu .m-map-marker {
   display: none; }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 850px) {
   .l-nav-aside .dropdown-profile {
     display: none; }
   .l-nav-aside .m-map-marker {
@@ -3938,6 +3940,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   z-index: 10;
   position: relative; }
 
+@media screen and (max-width: 992px) {
+  .labelnewadd {
+    margin-top: 20px; } }
+
 .l-news-section {
   background: transparent;
   position: relative; }
@@ -4098,6 +4104,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table
   width: calc(100% - 86px);
   float: right; }
 
+/* ==|====================
+   Layout/Maps
+   ======================= */
 .l-map-section {
   padding: 0;
   border-top: 3px solid #e7eaec; }
@@ -4498,8 +4507,30 @@ div.options_radio {
 .btn-actives {
   margin-left: 10px !important; }
 
+.btn-archives {
+  margin-left: 0px !important; }
+
 .btn.archive, .archive.btn-grey {
   background-color: #676a6c; }
+
+.btn.delete span, .delete.btn-grey span, .btn.save span, .save.btn-grey span, .btn.archive span, .archive.btn-grey span {
+  display: block; }
+.btn.delete i, .delete.btn-grey i, .btn.save i, .save.btn-grey i, .btn.archive i, .archive.btn-grey i {
+  display: none; }
+@media screen and (max-width: 850px) {
+  .btn.delete, .delete.btn-grey, .btn.save, .save.btn-grey, .btn.archive, .archive.btn-grey {
+    display: inline-block;
+    width: 50px; }
+    .btn.delete span, .delete.btn-grey span, .btn.save span, .save.btn-grey span, .btn.archive span, .archive.btn-grey span {
+      display: none; }
+    .btn.delete i, .delete.btn-grey i, .btn.save i, .save.btn-grey i, .btn.archive i, .archive.btn-grey i {
+      display: block; } }
+
+.btn.archive, .archive.btn-grey {
+  float: right; }
+  @media screen and (max-width: 850px) {
+    .btn.archive, .archive.btn-grey {
+      float: none; } }
 
 .btn-add {
   width: 40px;
@@ -4562,7 +4593,7 @@ div.options_radio {
     position: absolute;
     top: 40px;
     right: 20px; }
-    @media screen and (max-width: 769px) {
+    @media screen and (max-width: 850px) {
       .dataTables_wrapper > .row:first-child {
         display: none; } }
   .dataTables_wrapper .button.dt-button:hover:not(.disabled), .dataTables_wrapper div.dt-button:hover:not(.disabled), .dataTables_wrapper a.dt-button:hover:not(.disabled) {

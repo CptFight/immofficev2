@@ -75,9 +75,7 @@
                         </div>
                     </fieldset>
                 </div>
-                 <div class="float-middle input-separation">
-                   
-                    
+                 <div class="float-middle input-separation labelnewadd">
                  <label for="<?php echo $id; ?>-active"><?php echo $this->lang->line('send_me_mail_label'); ?> <input name="active" type="checkbox" <?php if($active == '1') echo "checked"; ?>  id="<?php echo $id; ?>-active"></label>
                  </div>
             </div>
