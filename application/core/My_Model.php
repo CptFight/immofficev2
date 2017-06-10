@@ -14,8 +14,8 @@ class MY_Model extends CI_Model {
       return $this->db->get($this->_db)->row();
     }
 
-    public function getAll() {
-        $this->db->order_by('id','desc');
+    public function getAll($table = 'id', $order = 'desc') {
+        $this->db->order_by($table,$order);
         return $this->db->get($this->_db)->result();
     }
 

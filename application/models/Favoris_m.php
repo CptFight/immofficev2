@@ -4,7 +4,7 @@ class Favoris_m extends MY_Model {
 
     public $_db = 'favoris';
     public $_name = 'favoris_m';
- 
+
     public function get($params) {
         //$this->db->group_by('favoris.id');
         $this->db->select('*, 
@@ -88,7 +88,7 @@ class Favoris_m extends MY_Model {
                 $this->db->order_by($params['order']['column'],$params['order']['dir']);
             }
 
-            return $this->db->get($this->_db,$params['length'],$params['start'])->result();
+            return  $this->db->get($this->_db,$params['length'],$params['start'])->result();
         }
     }
 
@@ -135,6 +135,49 @@ class Favoris_m extends MY_Model {
 
     public function countDataLastRequest($params){
         $this->db->select('count(*) as count');
+
+        $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
+        $this->db->join('users','users.id = favoris.user_id');
+        $this->db->join('status','favoris.status_id = status.id','left');
+        $this->db->join('owners','owners.id = favoris.owner_id','left');
+        
+   
+        if($params['search']){
+            $params['search'] = addslashes($params['search']);
+            $request_search = "( title LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.id LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.annonce_id LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.tags LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.price LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.date_publication LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.tel LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.adress LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.zip_code LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.province LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.note LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.web_site LIKE '%".$params['search']."%'";
+            $request_search .= "OR users.name LIKE '%".$params['search']."%'";
+            $request_search .= "OR users.firstname LIKE '%".$params['search']."%'";
+            $request_search .= "OR users.login LIKE '%".$params['search']."%'";
+            $request_search .= "OR owners.name LIKE '%".$params['search']."%'";
+            $request_search .= "OR owners.tel LIKE '%".$params['search']."%'";
+            $request_search .= "OR owners.email LIKE '%".$params['search']."%'";
+            $request_search .= "OR owners.note LIKE '%".$params['search']."%'";
+            $request_search .= "OR status.name LIKE '%".$params['search']."%'";
+            $request_search .= "OR favoris.description LIKE '%".$params['search']."%' )";
+            $this->db->where($request_search);
+        }
+
+        if($params['user_id']){
+            $this->db->where('favoris.user_id',$params['user_id']);
+        }
+
+        if($params['archive']){
+            $this->db->where('favoris.archive',$params['archive']);
+        }else{
+            $this->db->where('favoris.archive',0);
+        }
+
         return $this->db->get($this->_db)->row()->count;
     }
 

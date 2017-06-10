@@ -7,7 +7,7 @@
     $lang['annonce_id'] = 'Annonce ID';
     $lang['rappel_id'] = 'Rappel ID';
     $lang['favoris_id'] = 'Favoris ID';
-
+    $lang['propriete'] = 'Bien';
     $lang['owner_associated'] = "Le propriétaire est lié à un favoris";
     $lang['hour'] = 'Heure';
     $lang['placeholder_note'] = 'Ajouter une note';
@@ -238,7 +238,7 @@
     $lang["flandre_occidentale"] = "West-Vlaanderen";
     $lang["brabant_wallon"] = "Waals-Brabant";
     $lang["hainaut"] = "Hainaut";
-    $lang["liege"] = "Kurk";
+    $lang["liege"] = "Luik";
     $lang["luxembourg"] = "Luxembourg";
     $lang["namur"] = "Namen";
     $lang["min_price"] = "Minimumprijs";

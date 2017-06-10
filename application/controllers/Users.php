@@ -99,7 +99,7 @@ class Users extends MY_Controller {
 		}
 		$this->load->model(array('Users_m'));
 		$this->load->model(array('Users_m','Agences_m','Roles_m'));
-		$this->data['agences'] = $this->Agences_m->getAll();
+		$this->data['agences'] = $this->Agences_m->getAll('name','asc');
 		$this->data['roles'] = $this->Roles_m->getAll();
 
 		if($this->input->post('save') ){
