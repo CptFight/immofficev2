@@ -322,18 +322,11 @@ class Favoris extends MY_Controller {
 					$order['column'] = 'price';
 					break;
 				case 3:
-					$order['column'] = 'web_site';
+					$order['column'] = 'status_name';
 					break;
 				case 4:
 					$order['column'] = 'date_publication';
 					break;
-				case 5:
-					$order['column'] = 'title';
-					break;
-				case 6:
-					$order['column'] = 'title';
-					break;
-				
 				default:
 					break;
 			}

@@ -7,6 +7,7 @@
 	$lang['rappel_id'] = 'Rappel ID';
 	$lang['favoris_id'] = 'Favoris ID';
 	$lang['params'] = "Paramètres";
+	$lang['propriete'] = 'bien';
 	$lang['owner_associated'] = "Le propriétaire est lié à un favoris";
 	$lang['hour'] = 'Heure';
 	$lang['placeholder_note'] = 'Votre commentaire';

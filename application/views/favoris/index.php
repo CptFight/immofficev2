@@ -3,9 +3,9 @@
 
 
     <div class="btns-calendar">
-        <a class='btn-actives <?php if(!$archive){ ?>active<?php } ?>' href="<?php echo site_url('favoris/index?archive=0'); ?>"><?php echo $this->lang->line('actives'); ?></a><!--
-        --><a class='btn-actives btn-archives <?php if($archive){ ?>active<?php } ?>' href="<?php echo site_url('favoris/index?archive=1'); ?>"><?php echo $this->lang->line('archives'); ?></a>
-        <a class="btn-new" href="<?php echo site_url('favoris/news'); ?>"><i class="fa fa-plus"></i> <?php echo $this->lang->line('new'); ?></a> 
+        <a class='btn-actives <?php if(!$archive){ ?>active<?php } ?>' href="<?php echo site_url('favoris/index?archive=0'); ?>"><?php echo $this->lang->line('actives'); ?></a> 
+        <a class='btn-actives <?php if($archive){ ?>active<?php } ?>' href="<?php echo site_url('favoris/index?archive=1'); ?>"><?php echo $this->lang->line('archives'); ?></a>
+        <a class="btn-new" href="<?php echo site_url('favoris/news'); ?>"><i class="fa fa-plus"></i> <?php echo $this->lang->line('new'); ?> <?php echo $this->lang->line('propriete'); ?></a> 
     </div>
 
     <input type="hidden" name="archive" id="archive" value="<?php echo $archive; ?>">

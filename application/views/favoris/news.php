@@ -30,7 +30,7 @@
                     <div>
                         <select name="mandataire_user_id" id="mandataire" class="form-control">
                             <?php foreach($mandataires as $key => $mandataire){ ?> 
-                                <option value="<?php echo $mandataire->id; ?>" ><?php echo $mandataire->name." ".$mandataire->firstname; ?></option>
+                                <option value="<?php echo $mandataire->id; ?>" <?php if($mandataire->id == $current_user->id) echo "selected"; ?>><?php echo $mandataire->name." ".$mandataire->firstname; ?></option>
                             <?php } ?>
                         </select>
                     </div>
