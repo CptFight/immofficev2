@@ -48,7 +48,7 @@
                         <p>IMMOffice, Inc.</p>
                         <p><?php echo $this->lang->line('ask_us_customized_offer'); ?></p> 
                     </div>
-                    <a href="" class="btn inlineblock"><?php echo $this->lang->line('contact'); ?></a>
+                    <a href="mailto:gabypirson@immoffice.be" class="btn inlineblock"><?php echo $this->lang->line('contact'); ?></a>
                     <footer>
                         <p class="copyright">© 2017 IMMOffice</p>
                     </footer>
@@ -57,7 +57,7 @@
             <aside class="l-nav-aside hide-menu">      
                 <ul class="l-nav-small">
                     <li><a href="#top" class="active"><?php echo $this->lang->line('connection'); ?></a></li>
-                    <li><a href="mailto:gabypirson@immoffice.be" ><span><?php echo $this->lang->line('contact'); ?></span></a></li>
+                    <li><a href="#contact" ><span><?php echo $this->lang->line('contact'); ?></span></a></li>
                     <li class="dropdown-container">
                         <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue"><?php echo $this->lang->line('lang'); ?></a>
                         <ul class="dropdown hidden" id="langue">
