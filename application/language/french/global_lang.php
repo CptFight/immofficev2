@@ -8,6 +8,7 @@
 	$lang['favoris_id'] = 'Favoris ID';
 	$lang['params'] = "Paramètres";
 	$lang['propriete'] = 'bien';
+	$lang['old_tel'] = "Téléphone";
 	$lang['owner_associated'] = "Le propriétaire est lié à un favoris";
 	$lang['hour'] = 'Heure';
 	$lang['placeholder_note'] = 'Votre commentaire';

@@ -94,7 +94,7 @@ favoris_edit.init = function(){
         $('#owner_name').val(infos.data('name'));
         $('#owner_tel').val(infos.data('tel'));
         $('#owner_mail').val(infos.data('email'));
-        $('#owner_note').val(infos.data('note'));
+        $('#note_owner').val(infos.data('note'));
         $('#owner_status').val(infos.data('status_id'));
     });
 

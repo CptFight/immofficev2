@@ -61,6 +61,10 @@
                     <input type="text" id="tags" name="tags" value="<?php echo $favoris->tags; ?>">
                 </fieldset>
 
+                 <fieldset class="inputstyle">
+                    <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
+                    <input type="text" name="tel" id="tel" value="<?php echo $favoris->tel; ?>">
+                </fieldset>
                 <div class="inputstyle">
                         <fieldset >
                             <select name="favoris_status" id="favoris_status" class="form-control">
@@ -91,6 +95,7 @@
                     <label for="rappel_tags"><?php echo $this->lang->line('tags'); ?></label>
                     <input type="text" name="rappel_tags" id="rappel_tags" value="<?php echo $favoris->rappel_tags; ?>">
                 </fieldset>
+                
                 <fieldset class="date-desktop">
                     <label><?php echo $this->lang->line('date'); ?></label>
                     <?php if($favoris->date_rappel == '') { $date_rappel = ''; }else{ $date_rappel = date('d/m/Y H:i',$favoris->date_rappel); } ?>

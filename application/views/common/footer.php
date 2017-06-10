@@ -63,7 +63,7 @@
                 <li><a href="<?php echo site_url('params/edit'); ?>" class="<?php if($pagename == "params") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span ><?php echo $this->lang->line('params'); ?></span></a></li>
 
                 
-                <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?></span></a></li>
+                <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><strong class="alert-tag favoris"><?php echo $this->lang->line('news'); ?> </strong></span></a></li>
                 <li><a href="<?php echo site_url('suggestions/index'); ?>" class="<?php if($pagename == "suggestions") echo "active"; ?>"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
             </ul>
 
