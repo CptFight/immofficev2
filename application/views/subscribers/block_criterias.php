@@ -28,22 +28,22 @@
                 <div class="float-middle input-separation">
                     <div class="float-middle input-separation">
                         <div class="input-field number-euro">
-                            <input type="number" name="price-min" id="price-min" placeholder="Prix minimum" value="<?php echo $price_min; ?>"/>
+                            <input type="number" name="price-min" id="price-min" placeholder="<?php echo $this->lang->line('min_price'); ?>" value="<?php echo $price_min; ?>"/>
                         </div>
                     </div>
                     <div class="float-middle input-separation">
                         <div class="input-field number-euro">
-                            <input type="number" name="price-max" id="price-max" placeholder="Prix maximum" value="<?php echo $price_max; ?>"/>
+                            <input type="number" name="price-max" id="price-max" placeholder="<?php echo $this->lang->line('max_price'); ?>" value="<?php echo $price_max; ?>"/>
                         </div>
                     </div>
                 </div>
                 <div class="float-middle input-separation" >
                     <fieldset class="inputstyle select">
                         <select name="frequency">
-                            <option value="hour" <?php if($frequency == 'hour'){ echo 'selected';} ?>>1x par heure</option>
-                            <option value="day" <?php if($frequency == 'day'){ echo 'selected';} ?>>1x par jour</option>
-                            <option value="week" <?php if($frequency == 'week'){ echo 'selected';} ?>>1x par semaine</option> 
-                            <option value="month" <?php if($frequency == 'month'){ echo 'selected';} ?>>1x par mois</option>
+                            <option value="hour" <?php if($frequency == 'hour'){ echo 'selected';} ?>>1x <?php echo $this->lang->line('by_hour'); ?></option>
+                            <option value="day" <?php if($frequency == 'day'){ echo 'selected';} ?>>1x <?php echo $this->lang->line('by_day'); ?></option>
+                            <option value="week" <?php if($frequency == 'week'){ echo 'selected';} ?>>1x <?php echo $this->lang->line('by_week'); ?></option> 
+                            <option value="month" <?php if($frequency == 'month'){ echo 'selected';} ?>>1x <?php echo $this->lang->line('by_month'); ?></option>
                         </select> 
                     </fieldset>
                 </div>
@@ -80,7 +80,7 @@
                  </div>
             </div>
             <div class="clearfix">
-                <input type="submit" name="save" value="Sauvegarder la recherche" class="btn submit">
+                <input type="submit" name="save" value="<?php echo $this->lang->line('save_search'); ?>" class="btn submit">
             </div>
         </div>
     </form>

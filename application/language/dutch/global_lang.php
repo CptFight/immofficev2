@@ -1,8 +1,10 @@
 <?php
 
 	$lang['base_url'] = base_url();
+    $lang['code_lang'] = 'nl';
 
-
+    $lang['old_publications'] = 'Oude publicaties';
+    $lang['old_prices'] = 'Oude prijs';
 
     $lang['annonce_id'] = 'Annonce ID';
     $lang['rappel_id'] = 'Rappel ID';
@@ -14,7 +16,8 @@
     $lang['add_note'] = "Ajouter une note";
     $lang['bad_token'] = "Mauvais token. Essayer de rafraichir la page avant de changer d'utilisateur";
 
-
+    $lang['load_owner_validate'] = "Etes vous sur de vouloir lier ce propriétaire avec ce bien?";
+    $lang['delete_verif'] = "Etes vous sur de vouloir supprimer ? L'action est irréversible.";
     $lang['annonce_already_linked'] = "Aankondiging is reeds gelinkt aan een account";
     $lang['prospecter'] = 'Prospector';
     $lang['superviser'] = 'Begeleider';
@@ -67,6 +70,9 @@
     $lang['max_height'] = 'Maximale hoogte';
 
     $lang['mandatory'] = 'Verplicht';
+
+    $lang['params'] = "Parameters";
+
     //breadcrumb
     $lang['breadcrumb_supervision'] = 'Begeleider';
     $lang['breadcrumb_favoris'] = 'Favoriet';
@@ -77,6 +83,8 @@
     $lang['breadcrumb_agences'] = 'Agentschappen';
     $lang['breadcrumb_suggestions'] = 'Suggesties';
     $lang['breadcrumb_dashboard'] = 'Dashboard';
+    $lang['breadcrumb_params'] = 'Parameters';
+
 
     $lang['breadcrumb_view'] = 'Detail';
     $lang['breadcrumb_index'] = 'Lijst';
@@ -111,13 +119,12 @@
     $lang['price_htva'] = 'Prijs exlusief BTW';
     $lang['verify_password'] = 'Wachtwoord bevestingen';
     $lang['owner_commercial'] = 'Email van de commerciële verantwoordelijke ';
-    $lang['tags'] = 'Tags';
+    $lang['tags'] = 'sleutelwoorden (gemachtigde, belangrijkheid…)';
     $lang['url'] = 'Url';
     $lang['edit'] = "Wijziging";
 
 
-
-
+    $lang['connection_historic'] = 'Aanmelding geschiedenis';
 
 
 
@@ -226,6 +233,15 @@
     $lang["customized"] = "Aangepaste prijsopgave";
     $lang["contact_sales"] = "Contacteer ons voor een offerte op maat ! ";
     $lang["contact_us"] = "Contact met ons opnemen";
+
+
+    $lang['by_hour'] = 'per huur';
+    $lang['by_day'] = 'per dag';
+    $lang['by_week'] = 'per week';
+    $lang['by_month'] = 'per maand';
+
+
+
     $lang["ask_us_customized_offer"] = "Vraag een aangepaste prijsopgave";
     $lang["send_email"] = "E-mail verzenden";
     $lang["annonces_find"] = "advertentie gevonden";
@@ -398,6 +414,38 @@
 	$lang["event_16_title"] = "Uw Favorieten";
  	$lang["event_16_body"] = "U kunt nu uw eigen favorieten. ";
     $lang["suggestion_label"] = "Als U suggestie hebt om Immoffice te verbeteren aarzel dan niet ons te contacteren door dit formulier";
+
+
+    $lang["event_17_title"] = "Immoffice V2";
+    $lang["event_17_body"] = "We rekening gehouden met alle suggesties en hebben het genoegen om de nieuwe versie van Immoffice presenteren. Aarzel niet om contact met ons op voor een uitgebreide presentatie van al het nieuws!";
+
+
+    $lang["event_18_title"] = "Staat";
+    $lang["event_18_body"] = "U kan statussen toevoegen (bv: te behandelen, agenda raadplegen…) voor uw favorieten en eigenaars door middel van het aanklikken van het parameters menu.";
+
+    $lang["event_19_title"] = "Eigenaar";
+    $lang["event_19_body"] = "U kan uw eigenaars beheren vanaf het nieuwe eigenaar menu en vervolgens deze exporteren naar uw apparaten om uw basisgegevens te vervolledigen.";
+
+    $lang["event_20_title"] = "Gebruiker wijzigen";
+    $lang["event_20_body"] = "U kan zich aanmelden op een andere agentschap account als het bij de parameters geautoriseerd is. Op deze manier kan slechts een persoon het werk van uw agentschap organiseren. ";
+
+
+    $lang["event_21_title"] = "Follow-up note";
+    $lang["event_21_body"] = "Registreer uw opvolging voor een vastgoed via de tab Opvolging die u onder favorieten kan vinden.";
+
+    $lang["event_22_title"] = "Parameters";
+    $lang["event_22_body"] = "Wijzig uw account instellingen op deze aan te passen aan uw noden. ";
+
+    $lang["event_23_title"] = "Archief";
+    $lang["event_23_body"] = "Archiveer een favoriet om uw werklijst op te schonen. Om het terug te vinden, klik op de archief knop bovenaan de favorieten pagina om de archief lijst te hebben!";
+
+    $lang["event_24_title"] = "Dat is veel verandering !";
+    $lang["event_24_body"] = "Vergeet uw Excel files, een grote update werd uitgevoerd. <br/>Jullie zullen een heleboel nieuwe functionaliteiten ontdekken!<br/>Meer details vindt u hieronder: archief, status, gebruiker switch, eigenaar, opvolging en parameters;<br/>Als u nog vragen hebt of als u informatie op uw account niet meer terugvindt, aarzel dan niet om ons te contacteren!";
+
+
+    $lang["save_search"] = "Zoekopdracht bewaren";
+
+
     $lang["put_your_message_here"] = "Schrijf uw boodschap hier";
     $lang["send"] = "Sturen";
     $lang["your_are_not_connected"] = "Je bent niet verbonden; sluit u!";
@@ -479,14 +527,19 @@
     $lang["postcode"] = "Code postal";
     $lang["city"] = "Ville";
     $lang["status"] = "Statut";
-    $lang["general"] = "Général";
-     $lang["archives"] = "Archives";
-    $lang["actives"] = "Actives";
     $lang["status_owner"] = "Statut propriétaire";
     $lang["assign_to"] = "Assign to";
     $lang["archiver"] = "Archiver";
-    $lang["owners"] = "Propriétaires";
-    $lang["following"] = "Suivis";
-    $lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
- ?>
+    $lang["owners"] = "Eigenaars";
+    $lang["following"] = "Follow-up note";
+    $lang["autorisation_members"] = "Toestemming geven aan andere leden van het agentschap om zich aan te melden op mijn profiel";
+
+
+    $lang["general"] = "Algemeen";
+    $lang["archives"] = "Huis";
+    $lang['desarchiver'] = "Uitpakken";
+    $lang["actives"] = "Nieuw";
+    $lang["archiver"] = "Archief";
+    $lang["assign_to"] = "Toewijzen";
+   ?>
 

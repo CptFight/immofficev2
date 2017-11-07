@@ -10,9 +10,17 @@ class Annonces extends MY_Controller {
 		$this->load->model(array('Annonces_m'));
 		
 		//TODO SET USER INFORMATIONS.
-		$this->data['date_min'] = '';
+		if($this->current_user->search_date == ''){
+			$date_min = strtotime('-1 week');
+		}else{
+			$dates = explode('-',$this->current_user->search_date);
+			$date_formated_fr = explode('/',$dates[0]);
+			$date_min = $date_formated_fr[1]."/".$date_formated_fr[0]."/".$date_formated_fr[2];
+		}
+		
+		$this->data['date_min'] = strtotime($date_min);//strtotime('-1 week');
 		$this->data['date_max'] = '';
-		$this->data['daterange'] = '';
+		$this->data['daterange'] = $this->current_user->search_date;
 		if(!$this->current_user->search_price_min) $this->data['price_min'] = '';
 		else $this->data['price_min'] = $this->current_user->search_price_min;
 		if(!$this->current_user->search_price_max) $this->data['price_max'] = '';
@@ -42,13 +50,10 @@ class Annonces extends MY_Controller {
 				redirect('annonces/index');
 			}else{
 				$this->addError($this->lang->line('annonce_already_linked'));
-			}
-			
+			}	
 		}
 
-
 		if($this->input->post('save') ){
-		
 			$annonce = array();
 			$annonce['id'] = $this->input->post('id');
 			$annonce['title'] = $this->input->post('title');
@@ -103,7 +108,7 @@ class Annonces extends MY_Controller {
 	}
 
 	public function getAllAnnoncesDataTable(){
-		$this->load->model(array('Annonces_m'));
+		$this->load->model(array('Annonces_m','Prices_m','Publications_m'));
 		
 		$return = $this->input->get();
 		if(isset($this->input->get('search')['value'])){
@@ -177,14 +182,15 @@ class Annonces extends MY_Controller {
 		$annonces = $this->Annonces_m->get($params);
 		//echo $this->db->last_query();
 		$data = array();
-
+		
 		foreach($annonces as $key => $annonce){
-			$historic_publications = $this->getHistoricPublications($annonce->id);
-			$historic_price = $this->getHistoricPrices($annonce->id);
+			$historic_publications = $this->Publications_m->getHistoricPublications($annonce->id);
+
+			$historic_price = $this->Prices_m->getHistoricPrices($annonce->id);
 
 			$actions = '<ul class="list-tables-buttons" data-annonce_id="'.$annonce->id.'">
 	 				<li class="table-btn-link" data-annonce_id="'.$annonce->id.'"><a target="_blank" href="'.$annonce->url.'"><i class="fa fa-external-link"></i><span>Voir le site</span></a></li>
-                    <li class="table-btn-love"><a href="#" class="add_favoris"><i class="fa fa-home"></i><span> favoris</span></a></li>
+                    <li class="table-btn-love"><a href="'.site_url('favoris/edit/').'" class="add_favoris"><i class="fa fa-home"></i><span> favoris</span></a></li>
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>';
             if($this->current_user->role_id == 4){
             	$actions .= ' <li class="table-btn-edit"><a href="'.site_url('annonces/edit/?id='.$annonce->id).'"><i class="fa fa-pencil"></i><span>Editer annonce</span></a></li>';
@@ -218,40 +224,7 @@ class Annonces extends MY_Controller {
 		 
 	}
 
-	private function getHistoricPublications($annonce_id){
-		$this->load->model(array('Publications_m'));
-		$historic_publications_in_string = '';
-		$historic_publications = $this->Publications_m->get($annonce_id);
-		if(count($historic_publications) <= 1){
-			return '';
-			
-		}else{
-			unset($historic_publications[count($historic_publications)-1]);
-			foreach($historic_publications as $key => $publication){
-				$historic_publications_in_string .= date('d/m/Y',$publication->date_publication)." ";
-			}
-			$historic_publications_in_string = trim($historic_publications_in_string,' ');
-			return $historic_publications_in_string;
-		}
-	}
-
-	private function getHistoricPrices($annonce_id){
-		$this->load->model(array('Prices_m'));
-		$historic_prices_in_string = '';
-		$historic_prices = $this->Prices_m->get($annonce_id);
-		if(count($historic_prices) <= 1){
-			return '';
-		}else{
-			unset($historic_prices[count($historic_prices)-1]);
-
-			foreach($historic_prices as $key => $price){
-				$historic_prices_in_string .= number_format($price->price, 0, ',', ' ')." ";
-			}
-			$historic_prices_in_string = trim($historic_prices_in_string,' ');
-			return $historic_prices_in_string." €";
-		}
-	}
-
+	
 	
 
 }

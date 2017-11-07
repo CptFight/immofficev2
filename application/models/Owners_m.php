@@ -11,14 +11,16 @@ class Owners_m extends MY_Model {
     		owners.name as name,
     		status.color as status_color,
     		status.name as status_name');
-    	$this->db->where('owners.agence_id',$agence_id);
+    	
+        $this->db->where('owners.agence_id',$agence_id);
 
-
-        $this->db->where("owners.name != '' OR owners.tel != '' OR owners.email != '' or owners.note != ''");
+        $this->db->where("(owners.name != '' OR owners.tel != '' OR owners.email != '' or owners.note != '')");
+       
 
         $this->db->join('status','status.id = owners.status_id');
 
         return $this->db->get($this->_db)->result();
+       
     }
-   
+
 }

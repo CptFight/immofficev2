@@ -81,7 +81,7 @@
             <button name="delete" class="btn delete" value="delete" type="submit"><i class="fa fa-remove"></i><span><?php echo $this->lang->line('delete'); ?></span></button>
 
 
-            <a class="btn archive" href="<?php echo site_url('users/change').'?id='.$user->id.'&token='.md5('immofficetoken'.date('i')).'&back_path=annonces/index'; ?>"><i class="fa fa-archive"></i><span><?php echo $this->lang->line('login'); ?></span></a>
+            <a class="btn archive" href="<?php echo site_url('users/change').'?id='.$user->id.'&token='.md5('immofficetoken'.date('h')).'&back_path=annonces/index'; ?>"><i class="fa fa-archive"></i><span><?php echo $this->lang->line('login'); ?></span></a>
 
             
          </fieldset>

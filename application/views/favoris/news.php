@@ -152,6 +152,18 @@
                         </fieldset>
                     </div>
                 </div>
+
+
+                <fieldset class="inputstyle">
+                    <label for="old_prices"><?php echo $this->lang->line('old_prices'); ?></label>
+                    <input type="text" id="old_prices" name="old_prices" value="" >
+                </fieldset>
+
+                <fieldset class="inputstyle">
+                    <label for="old_publications"><?php echo $this->lang->line('old_publications'); ?></label>
+                    <input type="text" id="old_publications" name="old_publications" value="" >
+                </fieldset>
+
                
                 <fieldset class="inputstyle">
                     <label for="description"><?php echo $this->lang->line('description'); ?></label>

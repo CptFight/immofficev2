@@ -7,6 +7,7 @@ class Remarks_m extends MY_Model {
 
     public function getByFavoris($favoris_id){
     	$this->db->where('favoris_id',$favoris_id);
+    	$this->db->order_by('created','desc');
     	return $this->db->get($this->_db)->result();
     }
 

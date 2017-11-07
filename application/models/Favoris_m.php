@@ -21,7 +21,7 @@ class Favoris_m extends MY_Model {
           status.color as status_color, 
           favoris.tel as tel, 
           rappels.note as rappel_note, 
-
+          favoris.owner_name as owner_name_old,
           owners.name as owner_name, 
           owners.status_id as owner_status_id, 
           owners.tel as owner_tel, 
@@ -90,6 +90,11 @@ class Favoris_m extends MY_Model {
 
             return  $this->db->get($this->_db,$params['length'],$params['start'])->result();
         }
+    }
+
+    public function getByOwner($owner_id){
+      $this->db->where('owner_id',$owner_id);
+      return $this->db->get($this->_db)->result();
     }
 
     public function getSupervisionInfos($user_id){
@@ -193,7 +198,9 @@ class Favoris_m extends MY_Model {
            'annonce_id' => $annonce->id,
            //'mandataire_user_id' => $user_id,
            'price' => $annonce->price,
+           'old_prices' => $annonce->old_prices,
            'date_publication' => $annonce->date_publication,
+           'old_publications' => $annonce->old_publications,
            'url' => $annonce->url,
            'web_site' => $annonce->web_site,
            'created' => strtotime('now'),

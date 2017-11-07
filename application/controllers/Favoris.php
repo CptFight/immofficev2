@@ -117,13 +117,13 @@ class Favoris extends MY_Controller {
 			$id = $this->input->post('id');
 			$this->Rappels_m->deleteByFavorisId($id);
 			$this->Favoris_m->archive($id,true);
-			redirect('favoris/index');
+			//redirect('favoris/index');
 		}
 
 		if($this->input->post('desarchive') ){
 			$id = $this->input->post('id');
 			$this->Favoris_m->archive($id,false);
-			redirect('favoris/index');
+			//redirect('favoris/index');
 		}
 
 		if($this->input->post('save') ){
@@ -165,6 +165,12 @@ class Favoris extends MY_Controller {
 			$favoris['description'] = $this->input->post('description');
 			$favoris['note'] = $this->input->post('note');
 			$favoris['tel'] = $this->input->post('tel');
+			$favoris['owner_name'] = $this->input->post('owner_name_old');
+
+			$favoris['old_publications'] = $this->input->post('old_publications');
+			$favoris['old_prices'] = $this->input->post('old_prices');
+
+			
 
 
 			if($this->input->post('favoris_status') && $this->input->post('favoris_status') > 0){
@@ -263,8 +269,6 @@ class Favoris extends MY_Controller {
 		return false;
 	}
 
-
-	//AJAX
 
 	//AJAX
 	public function removeRemark(){

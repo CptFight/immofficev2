@@ -65,6 +65,10 @@
                     <label for="tel"><?php echo $this->lang->line('tel'); ?></label>
                     <input type="text" name="tel" id="tel" value="<?php echo $favoris->tel; ?>">
                 </fieldset>
+                 <fieldset class="inputstyle">
+                    <label for="owner_name_old"><?php echo $this->lang->line('owner_name'); ?></label>
+                    <input type="text" name="owner_name_old" id="owner_name_old" value="<?php echo $favoris->owner_name_old; ?>">
+                </fieldset>
                 <div class="inputstyle">
                         <fieldset >
                             <select name="favoris_status" id="favoris_status" class="form-control">
@@ -179,6 +183,16 @@
                 </div>
                
                 <fieldset class="inputstyle">
+                    <label for="old_prices"><?php echo $this->lang->line('old_prices'); ?></label>
+                    <input type="text" id="old_prices" name="old_prices" value="<?php echo $favoris->old_prices; ?>" >
+                </fieldset>
+
+                <fieldset class="inputstyle">
+                    <label for="old_publications"><?php echo $this->lang->line('old_publications'); ?></label>
+                    <input type="text" id="old_publications" name="old_publications" value="<?php echo $favoris->old_publications; ?>" >
+                </fieldset>
+
+                <fieldset class="inputstyle">
                     <label for="description"><?php echo $this->lang->line('description'); ?></label>
                     <textarea name="description" id="description"><?php echo $favoris->description; ?></textarea>
                 </fieldset>
@@ -206,7 +220,6 @@
                             <tr>
                                 <th><?php echo $this->lang->line('note'); ?></th>
                                 <th><?php echo $this->lang->line('date'); ?></th>
-                                <th><?php echo $this->lang->line('hour'); ?></th>
                                 <th width="80px"><?php echo $this->lang->line('actions'); ?></th>
                             </tr>
                         </thead>
@@ -214,8 +227,7 @@
                             <?php foreach($remarks as $key => $remark){ ?>
                             <tr>
                                 <td><?php echo $remark->note; ?></td>
-                                <td><?php echo date('d/m/Y',$remark->created); ?></td>
-                                <td><?php echo date('H:i',$remark->created); ?></td>
+                                <td><span style="display:none;"><?php echo $remark->created; ?> </span><?php echo date('d/m/Y H:i:s',$remark->created); ?></td>
                                 <td>
                                     <ul class="list-tables-buttons tes" data-id="<?php echo $remark->id; ?>">
                                         <li class="table-btn-edit"><a target="_blank" href="<?php echo site_url('favoris/edit?id='.$favoris->id.'&view=tab4&remark_edit='.$remark->id); ?>"><i class="fa fa-pencil"></i><span><?php echo $this->lang->line('edit'); ?></span></a></li>

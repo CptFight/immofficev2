@@ -18,11 +18,14 @@ class Users_m extends MY_Model {
         $this->db->where('user_id', $id);
         $this->db->delete('subscribers');
 
-        $this->db->where('user_id', $id);
-        $this->db->delete('favoris'); 
+        $sql = "DELETE FROM rappels WHERE rappels.favoris_id IN (SELECT id FROM favoris WHERE favoris.user_id = ".$id." )";
+        $this->db->query($sql); 
+
+        $sql = "DELETE FROM remarks WHERE remarks.favoris_id IN (SELECT id FROM favoris WHERE favoris.user_id = ".$id." )";
+        $this->db->query($sql); 
 
         $this->db->where('user_id', $id);
-        $this->db->delete('rappels');  
+        $this->db->delete('favoris'); 
 
         $this->db->where('user_id', $id);
         $this->db->delete('exports');  

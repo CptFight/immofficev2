@@ -19,6 +19,7 @@ calendar.bind = function(){
 *   init  instance  
 *********************************/
 calendar.init = function(){
+    console.log('test',translate('code_lang'));
     calendar.calendarObject_month = false;
     calendar.calendarObject_week = false;
     calendar.events = [];
@@ -42,7 +43,7 @@ calendar.initFullCalendar = function () {
 			//defaultDate: date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate(),
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
-			locale : 'fr',
+			locale : translate('code_lang'),
 			eventLimit: true, // allow "more" link when too many events
 			//events: events
 			events: base_url()+"index.php/rappels/getEventsJson?user_id="+$('#user_id').val(),
@@ -75,7 +76,7 @@ calendar.initFullCalendar = function () {
     	var date = new Date();
     	calendar.calendarObject_week = $('#calendar_week').fullCalendar({
 			defaultView : 'listDay',
-			locale : 'fr',
+			locale : translate('code_lang'),
             aspectRatio: 1.35,
 			eventLimit: true, // allow "more" link when too many events
 			events: base_url()+"index.php/rappels/getEventsJson?user_id="+$('#user_id').val(),

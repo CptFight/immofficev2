@@ -16,6 +16,7 @@
                     <th ><?php echo $this->lang->line('email'); ?></th>
                     <th ><?php echo $this->lang->line('tel'); ?></th>
                     <th><?php echo $this->lang->line('status'); ?></th>
+                    <th><?php echo $this->lang->line('favoris'); ?></th>
                     <th><?php echo $this->lang->line('actions'); ?></th>
                     <th class='none'><?php echo $this->lang->line('note'); ?></th>
                 </tr>
@@ -35,6 +36,15 @@
                     
                     <td>
                         <div style="color:<?php echo $owner->status_color; ?>"><i class="fa fa-flag"></i> <?php echo $owner->status_name; ?></div>
+                    </td>
+
+                    <td>
+                         <ul class="list-tables-buttons">
+
+                         <?php foreach($owner->favoris_linked as $key => $favoris){ ?>
+                            <li class="table-btn-edit"><a title="<?php echo $favoris->title; ?>" class="load-owner" href="<?php echo site_url('favoris/edit?id='.$favoris->id); ?>"><i class="fa fa-home"></i><span><?php echo $this->lang->line('edit'); ?></span></a></li>  
+                        <?php }   ?>
+                        </ul> 
                     </td>
                     <td>
                     <ul class="list-tables-buttons">

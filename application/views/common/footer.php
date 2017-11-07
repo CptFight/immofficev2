@@ -19,21 +19,7 @@
                     <li><a href="<?php echo site_url('users/logout'); ?>"><?php echo $this->lang->line('logout'); ?></a></li>
                 </ul>
             </div>
-            <?php if( !empty($agence_users) ){ ?>
-            <ul class="l-nav-small">
-                <!--<li><a href=""><?php echo $this->lang->line('need_help'); ?>?</a></li> -->
-                <!--<li><a href=""><?php echo $this->lang->line('notification'); ?> <span class="badge">1</span></a></li>-->
-               <!-- <li><a href="<?php echo site_url('users/logout'); ?>"><?php echo $this->lang->line('logout'); ?></a></li>>-->
-               <li class="dropdown-container">
-                    <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue"><?php echo $current_user->name; ?> <?php echo $current_user->firstname; ?></a>
-                    <ul class="dropdown hidden" id="langue">
-                        <?php foreach($agence_users as $key => $agence_user){ ?> 
-                           <li><a href="<?php echo site_url('users/change').'?id='.$agence_user->id.'&token='.md5('immofficetoken'.date('i')).'&back_path='.$current_controller.'/'.$current_method; ?>"><?php echo $agence_user->name." ".$agence_user->firstname; ?></a></li>
-                        <?php } ?>
-                    </ul>
-                </li>
-            </ul>
-            <?php } ?>
+            
             <ul class="l-nav-big">
                 <?php if($current_user->role_id != 1){ ?>
                 <li><a href="<?php echo site_url('annonces/index'); ?>" class='<?php if($pagename == "annonces") echo "active"; ?>'><i class="fa fa-search"></i><span><?php echo $this->lang->line('annonces'); ?></span></a></li>
@@ -63,9 +49,25 @@
                 <li><a href="<?php echo site_url('params/edit'); ?>" class="<?php if($pagename == "params") echo "active"; ?>"><i class="fa fa-binoculars"></i> <span ><?php echo $this->lang->line('params'); ?></span></a></li>
 
                 
-                <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><strong class="alert-tag favoris"><?php echo $this->lang->line('news'); ?> </strong></span></a></li>
+                <li><a href="<?php echo site_url('news/index'); ?>" class="<?php if($pagename == "news") echo "active"; ?>"><i class="fa fa-calendar"></i> <span ><?php echo $this->lang->line('news'); ?> </span></a></li>
                 <li><a href="<?php echo site_url('suggestions/index'); ?>" class="<?php if($pagename == "suggestions") echo "active"; ?>"><i class="fa fa-at"></i> <span ><?php echo $this->lang->line('suggestions'); ?></span></a></li>
             </ul>
+
+            <?php if( !empty($agence_users)){ ?>
+            <ul class="l-nav-small">
+                <!--<li><a href=""><?php echo $this->lang->line('need_help'); ?>?</a></li> -->
+                <!--<li><a href=""><?php echo $this->lang->line('notification'); ?> <span class="badge">1</span></a></li>-->
+               <!-- <li><a href="<?php echo site_url('users/logout'); ?>"><?php echo $this->lang->line('logout'); ?></a></li>>-->
+               <li class="dropdown-container">
+                    <a href="javascript:;"  class="btn-grey btn-dropdown" data-id="langue"><?php echo $current_user->name; ?> <?php echo $current_user->firstname; ?></a>
+                    <ul class="dropdown hidden" id="langue">
+                        <?php foreach($agence_users as $key => $agence_user){ ?> 
+                           <li><a href="<?php echo site_url('users/change').'?id='.$agence_user->id.'&token='.md5('immofficetoken'.date('h')).'&back_path='.$current_controller.'/'.$current_method; ?>"><?php echo $agence_user->name." ".$agence_user->firstname; ?></a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+            </ul>
+            <?php } ?>
 
         </aside>
     </div>

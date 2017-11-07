@@ -14,5 +14,22 @@ class Prices_m extends MY_Model {
     	
     }
 
+
+    public function getHistoricPrices($annonce_id){
+		$historic_prices_in_string = '';
+		$historic_prices = $this->get($annonce_id);
+		if(count($historic_prices) <= 1){
+			return '';
+		}else{
+			unset($historic_prices[count($historic_prices)-1]);
+
+			foreach($historic_prices as $key => $price){
+				$historic_prices_in_string .= number_format($price->price, 0, ',', ' ')." ";
+			}
+			$historic_prices_in_string = trim($historic_prices_in_string,' ');
+			return $historic_prices_in_string." €";
+		}
+	}
+
    
 }

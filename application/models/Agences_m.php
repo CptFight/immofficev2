@@ -60,6 +60,20 @@ class Agences_m extends MY_Model {
         $result = $this->db->get('users')->row();
         if($result) return false;
         else{
+
+            $this->db->where('agence_id', $id);
+            $owners = $this->db->get('owners')->result();
+            foreach($owners as $key => $owner){
+                $this->db->where('owner_id', $owner->id);
+                $this->db->delete('favoris'); 
+            }
+
+            $this->db->where('agence_id', $id);
+            $this->db->delete('owners'); 
+
+            $this->db->where('agence_id', $id);
+            $this->db->delete('status'); 
+            
             $this->db->where('id', $id);
             return $this->db->delete($this->_db); 
         } 

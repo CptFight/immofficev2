@@ -29,6 +29,7 @@ owner.initTableDatatablesResponsive = function () {
                 
             },
             searching:true,
+           
             bShowAll: false,
              // setup buttons extentension: http://datatables.net/extensions/buttons/
             buttons: [
@@ -36,6 +37,9 @@ owner.initTableDatatablesResponsive = function () {
                     extend: 'print', 
                     className: 'btn dark btn-outline',
                     orientation: 'landscape', 
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 5]
+                    },
                     action  : function(e, dt, button, config) {
                         $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
                     } 
@@ -44,6 +48,9 @@ owner.initTableDatatablesResponsive = function () {
                     extend: 'pdf', 
                     className: 'btn green btn-outline', 
                     orientation: 'landscape',
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 5]
+                    },
                     action  : function(e, dt, button, config) {
                         $.fn.dataTable.ext.buttons.pdfHtml5.action(e, dt, button, config);
                     }
@@ -53,6 +60,9 @@ owner.initTableDatatablesResponsive = function () {
                     className: 'btn purple btn-outline ',
                     orientation: 'landscape',
                     fieldSeparator: ',',
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3,  5]
+                    },
                     action  : function(e, dt, button, config) {
                         $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
                     }
@@ -62,6 +72,9 @@ owner.initTableDatatablesResponsive = function () {
                     className: 'btn purple btn-outline ',
                     orientation: 'landscape',
                     fieldSeparator: ';',
+                    exportOptions: {
+                        columns: [ 0, 1, 2, 3, 5]
+                    },
                     action  : function(e, dt, button, config) {
                         $.fn.dataTable.ext.buttons.csvHtml5.action(e, dt, button, config);
                     }

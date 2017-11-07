@@ -56,6 +56,14 @@ favoris_edit.init = function(){
         });
 
    });
+
+    $('.btn.delete').click(function(e){
+        if (confirm(translate('delete_verif'))) {
+            return true;
+        }else{
+            return false;
+        }
+    });
   	   
     $('.tab').hide();
  	$('.active').show();
@@ -89,13 +97,16 @@ favoris_edit.init = function(){
     $('.load-owner').click(function(e){
         e.preventDefault();
 
-        var infos = $(this).closest('ul');
-        $('#owner_id').val(infos.data('id'));
-        $('#owner_name').val(infos.data('name'));
-        $('#owner_tel').val(infos.data('tel'));
-        $('#owner_mail').val(infos.data('email'));
-        $('#note_owner').val(infos.data('note'));
-        $('#owner_status').val(infos.data('status_id'));
+        if (confirm(translate('load_owner_validate'))) { 
+            var infos = $(this).closest('ul');
+            $('#owner_id').val(infos.data('id'));
+            $('#owner_name').val(infos.data('name'));
+            $('#owner_tel').val(infos.data('tel'));
+            $('#owner_mail').val(infos.data('email'));
+            $('#note_owner').val(infos.data('note'));
+            $('#owner_status').val(infos.data('status_id'));
+        }
+       
     });
 
 }

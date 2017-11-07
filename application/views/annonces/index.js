@@ -79,19 +79,25 @@ annonces.bind = function(){
             $(this).addClass('active');
           //  count_favoris++;
         }else{
-            $(this).removeClass('active');
-            if($(this).closest('ul').find('.add_rappel').hasClass('active')){
-            //    count_rappels--;
-                $(this).closest('ul').find('.add_rappel').removeClass('active');
+
+            if (confirm(translate('delete_verif'))) {
+                $(this).removeClass('active');
+             
+
+                $(this).removeClass('active');
+                if($(this).closest('ul').find('.add_rappel').hasClass('active')){
+                //    count_rappels--;
+                    $(this).closest('ul').find('.add_rappel').removeClass('active');
+                }
+                
+                add = false;
             }
-            
-            add = false;
           //  count_favoris--;
            
         }
+
         //$('.alert-tag.favoris').html(count_favoris);
         //$('.alert-tag.rappels').html(count_rappels);
-
         $.ajax({
             type: "POST",
             url: base_url()+"index.php/users/addOrRemoveFavoris",
@@ -139,8 +145,8 @@ annonces.bind = function(){
         e.preventDefault();
         var annonce_id = $(this).closest('ul').data('annonce_id');
 
-       // var count_favoris = $('.alert-tag.favoris').html();
-       // var count_rappels = $('.alert-tag.rappels').html();
+        // var count_favoris = $('.alert-tag.favoris').html();
+        // var count_rappels = $('.alert-tag.rappels').html();
 
         var add = true;
         if(!$(this).hasClass('active')){
@@ -152,13 +158,15 @@ annonces.bind = function(){
             $(this).addClass('active');
          //   count_rappels++;
         }else{
-            $(this).removeClass('active');
-            add = false;
+            if (confirm(translate('delete_verif'))) {
+                $(this).removeClass('active');
+                add = false;
+            }
           //  count_rappels--;
         }
 
-       // $('.alert-tag.favoris').html(count_favoris);
-       // $('.alert-tag.rappels').html(count_rappels);
+        // $('.alert-tag.favoris').html(count_favoris);
+        // $('.alert-tag.rappels').html(count_rappels);
 
         $.ajax({
             type: "POST",
@@ -446,8 +454,8 @@ annonces.initSearchValues = function(){
         $('#annonces #date-max').val(end.hours(23).minutes(59).seconds(59).format("X"));
     });
 
-    $('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
-    $('#annonces #date-max').val(moment.unix(date_max).hours(23).minutes(59).seconds(59).format("X"));
+    //$('#annonces #date-min').val(moment.unix(date_min).hours(0).minutes(0).seconds(0).format("X"));
+    //$('#annonces #date-max').val(moment.unix(date_max).hours(23).minutes(59).seconds(59).format("X"));
 
     annonces.criterias.date_min = $('#annonces #date-min').val();
     annonces.criterias.date_max = $('#annonces #date-max').val();

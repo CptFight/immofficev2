@@ -39,17 +39,17 @@
             <div class="float-middle input-separation">
                 <div class="float-middle input-separation">
                     <div class="input-field number-euro">
-                        <input type="number" name="price-min" id="price-min" placeholder="Prix minimum" value="<?php echo $price_min; ?>"/>
+                        <input type="number" name="price-min" id="price-min" placeholder="<?php echo $this->lang->line('min_price'); ?>" value="<?php echo $price_min; ?>"/>
                     </div>
                 </div>
                 <div class="float-middle input-separation">
                     <div class="input-field number-euro">
-                        <input type="number" name="price-max" id="price-max" placeholder="Prix maximum" value="<?php echo $price_max; ?>"/>
+                        <input type="number" name="price-max" id="price-max" placeholder="<?php echo $this->lang->line('max_price'); ?>" value="<?php echo $price_max; ?>"/>
                     </div>
                 </div>
             </div>
             <div class="float-middle input-separation m-input-postalcode">
-                <input type="text" id="zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="Code Postaux"/>
+                <input type="text" id="zipcode" value="<?php echo $zipcode; ?>" name="zipcode" placeholder="<?php echo $this->lang->line('zipcode'); ?>"/>
                 <a href="<?php echo site_url('map/index'); ?>?back=annonces/index" class="btn-inverse"><i class="fa fa-map-marker"></i> <?php echo $this->lang->line('map'); ?></a>
             </div>
         </div>

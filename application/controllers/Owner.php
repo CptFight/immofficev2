@@ -3,8 +3,13 @@
 class Owner extends MY_Controller {
 
 	public function index() {
-		$this->load->model(array('Owners_m'));
-		$this->data['owners'] = $this->Owners_m->getByAgence($this->current_user->agence_id);
+		$this->load->model(array('Owners_m','Favoris_m'));
+		$owners = $this->Owners_m->getByAgence($this->current_user->agence_id);
+		foreach($owners as $key => $owner){
+			$owners[$key]->favoris_linked = $this->Favoris_m->getByOwner($owner->id);
+		}
+		$this->data['owners'] = $owners;
+		
 		$this->load->view('template', $this->data);
 	}
 

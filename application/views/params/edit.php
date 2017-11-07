@@ -9,8 +9,8 @@
         </ul>
         <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
-                <option value="tab1" <?php if($tab == 1) echo 'selected'; ?>><?php echo $this->lang->line('favoris'); ?></option>
-                <option value="tab2" <?php if($tab == 2) echo 'selected'; ?>><?php echo $this->lang->line('rappel'); ?></option>
+                <option value="tab1" <?php if($tab == 1) echo 'selected'; ?>><?php echo $this->lang->line('agence'); ?></option>
+                <option value="tab2" <?php if($tab == 2) echo 'selected'; ?>><?php echo $this->lang->line('account'); ?></option>
             </select>
          </fieldset>
 

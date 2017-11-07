@@ -3,6 +3,9 @@
 class Users extends MY_Controller {
 
 	public function index(){
+		if($this->current_user->role_id != 4){
+			redirect('annonces/index');
+		}
 		$this->load->view('template', $this->data);
 	}
 
@@ -48,7 +51,7 @@ class Users extends MY_Controller {
 		$user_id = $this->input->get('id');
 		$token = $this->input->get('token');
 		$back_path = $this->input->get('back_path');
-		if($token == md5('immofficetoken'.date('i'))){
+		if($token == md5('immofficetoken'.date('h'))){
 			$this->load->model(array('Users_m'));
 			$user = $this->Users_m->get($user_id);
 			echo $user_id;
@@ -64,6 +67,7 @@ class Users extends MY_Controller {
 	}
 
 	public function login() {
+
 		$lang = 'french';
 		if(isset($_GET['lang_user'])){
 			$lang = $_GET['lang_user'];
@@ -234,7 +238,7 @@ class Users extends MY_Controller {
 				$this->session->unset_userdata('user');
 				$this->session->set_userdata('user', $user);
 				$this->addMessage($this->lang->line('update_done'));
-				redirect('users/index');
+				redirect('annonces/index');
 			}
 			
 		}
@@ -255,7 +259,7 @@ class Users extends MY_Controller {
 	//AJAX
 
 	public function addOrRemoveFavoris(){
-		$this->load->model(array('Favoris_m','Annonces_m','Status_m') );
+		$this->load->model(array('Favoris_m','Annonces_m','Status_m','Prices_m','Publications_m') );
 		$user_id = $this->input->post('user_id');
 		$annonce_id = $this->input->post('annonce_id');
 		$add = $this->input->post('add');
@@ -263,7 +267,10 @@ class Users extends MY_Controller {
 		if($add == 'true'){
 			$annonce = $this->Annonces_m->get($annonce_id);
 			$status = $this->Status_m->getFirstStatus($this->current_user->agence_id,'favoris');
-			$favoris_id = $this->Favoris_m->addAnnonceInFavoris($user_id,$annonce,$status->id);
+
+			$annonce->old_prices = $this->Prices_m->getHistoricPrices($annonce->id);
+        	$annonce->old_publications = $this->Publications_m->getHistoricPublications($annonce->id);
+        	$favoris_id = $this->Favoris_m->addAnnonceInFavoris($user_id,$annonce,$status->id);
 		}else{
 			$this->Favoris_m->removeAnnonceFromFavoris($user_id,$annonce_id);
 		}	
@@ -292,7 +299,7 @@ class Users extends MY_Controller {
 	}
 
 	public function addOrRemoveRappels(){
-		$this->load->model(array('Rappels_m','Favoris_m','Annonces_m','Status_m') );
+		$this->load->model(array('Rappels_m','Favoris_m','Annonces_m','Status_m','Prices_m','Publications_m') );
 		$user_id = $this->input->post('user_id');
 		$annonce_id = $this->input->post('annonce_id');
 		$favoris_id = $this->input->post('favoris_id');
@@ -303,6 +310,10 @@ class Users extends MY_Controller {
 				$annonce = $this->Annonces_m->get($annonce_id);
 
 				$status = $this->Status_m->getFirstStatus($this->current_user->agence_id,'favoris');
+
+				$annonce->old_prices = $this->Prices_m->getHistoricPrices($annonce->id);
+	        	$annonce->old_publications = $this->Publications_m->getHistoricPublications($annonce->id);
+
 				$this->Favoris_m->addAnnonceInFavoris($user_id,$annonce,$status->id);
 			}
 			$favoris = $this->Favoris_m->getByUserAnnonceId($user_id,$annonce_id);
