@@ -16,7 +16,7 @@
  * Your API Key from your account
  */
 
-$config['api_key']      = '2c8aa3852de33c3b6357d716ac6a25e7-us9';
+$config['api_key']      = '2e763759f01341f8e5f69e247848450f-us9';
 
 /**
  * API Endpoint
