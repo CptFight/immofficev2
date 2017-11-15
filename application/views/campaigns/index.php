@@ -6,19 +6,37 @@
     <div class="">
         <div class="clearfix">
         	
-        	<?php
+        	<div id="Glide" class="glide">
+
+			    <div class="glide__arrows">
+			        <button class="glide__arrow prev" data-glide-dir="<">prev</button>
+			        <button class="glide__arrow next" data-glide-dir=">">next</button>
+			    </div>
+
+			    <div class="glide__wrapper">
+			        <ul class="glide__track">
+			            <li class="glide__slide">gege</li>
+			            <li class="glide__slide">gege</li>
+			            <li class="glide__slide">gege</li>
+			        </ul>
+			    </div>
+
+			    <div class="glide__bullets"></div>
+
+			</div>
+
+	        <?php
 	            foreach($campaigns as $key => $campaign){
 	            	echo '<a href="#" data-featherlight="#mylightbox'.$key.'" class="btn-lightbox">';
-	                echo $campaign['content']['html'];
+	                echo '<iframe src="'.$campaign['url'].'" class="btn-iframe"></iframe>';
 	                echo '</a>';
 	            }
 	        ?>
-
-
+	      
         	<?php
 	            foreach($campaigns as $key => $campaign){
 	            	echo '<div id="mylightbox'.$key.'"  class="lightbox">';
-	                echo $campaign['content']['html'];
+	                echo '<iframe src="'.$campaign['url'].'"></iframe>';
 	                echo '</div>';
 	            }
 	        ?>
@@ -26,5 +44,6 @@
     </div>
     <!--<a href="" class="btn">Charger plus d'annonces</a>-->
 </section>
+
            
 

@@ -1,0 +1,3 @@
+$("#Glide").glide({
+    type: "carousel"
+});

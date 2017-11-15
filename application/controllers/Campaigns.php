@@ -19,10 +19,7 @@ class Campaigns extends MY_Controller {
 			$this->data['campaigns'][$key]['url'] = site_url('campaigns/view/?id='.$campaign['id']); 
 		}		
 		
-		echo "<pre>";
-		print_r($this->data['campaigns']);
-		echo "</pre>";
-		die();
+	
 		$this->load->view('template', $this->data);
 
 	}

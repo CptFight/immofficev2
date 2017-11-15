@@ -46,6 +46,8 @@
 <!-- featherlight -->
 <script src="<?php echo base_url(); ?>assets/global/plugins/featherlight/featherlight.js" type="text/javascript"></script>
 
+<script src="<?php echo base_url(); ?>assets/global/plugins/glide/glide.js" type="text/javascript"></script>
+
 <?php 
 if(isset($custom_scripts) && is_array($custom_scripts)  ) { 
 	foreach($custom_scripts as $key => $script_url){  
