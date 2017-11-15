@@ -31,7 +31,7 @@ ini_set('memory_limit', '255M');
 date_default_timezone_set('Europe/Paris');
 
 
-$config['base_url'] = 'http://localhost/immofficev2/';
+$config['base_url'] = 'http://immoffice.dev';
 
 
 /*
@@ -381,7 +381,7 @@ $config['encryption_key'] = '';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = $_SERVER['DOCUMENT_ROOT'].'/immofficev2/sessions/';
+$config['sess_save_path'] = $_SERVER['DOCUMENT_ROOT'].'/immoffice/sessions/';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

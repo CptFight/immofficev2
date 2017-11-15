@@ -370,11 +370,12 @@ class Users extends MY_Controller {
 	public function getAllUsersDataTable(){
 		$this->load->model(array('Users_m'));
 		$return = $this->input->get();
-		if(isset($this->input->get('search')['value'])){
+		/*if(isset($this->input->get('search')['value'])){
 			$search = $this->input->get('search')['value'];
 		}else{
 			$search = false;
-		}
+		}*/
+		$search = false;
 
 		if($this->input->get('agence_id')){
 			$agence_id = $this->input->get('agence_id');
@@ -396,8 +397,11 @@ class Users extends MY_Controller {
 		$order = false;
 		if($this->input->get('order')){
 			$order = array('column','dir');
-			$order['dir'] = $this->input->get('order')[0]['dir'];
-			switch($this->input->get('order')[0]['column']){
+			$order_value = $this->input->get('order');
+			$order['dir'] = $order_value[0]['dir'];
+
+			//$column = $this->input->get('order');
+			switch($order_value[0]['column']){
 				case 0:
 					$order['column'] = 'users.name';
 					break;
