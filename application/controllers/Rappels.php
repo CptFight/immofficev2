@@ -45,8 +45,9 @@ class Rappels extends MY_Controller {
 		$this->load->model(array('Rappels_m'));
 		
 		$return = $this->input->get();
-		if(isset($this->input->get('search')['value'])){
-			$search = $this->input->get('search')['value'];
+		$search = $this->input->get('search');
+		if(isset($search['value'])){
+			$search = $search['value'];
 		}else{
 			$search = false;
 		}
@@ -69,8 +70,9 @@ class Rappels extends MY_Controller {
 		$order = false;
 		if($this->input->get('order')){
 			$order = array('column','dir');
-			$order['dir'] = $this->input->get('order')[0]['dir'];
-			switch($this->input->get('order')[0]['column']){
+			$order_value = $this->input->get('order');
+			$order['dir'] = $order_value[0]['dir'];
+			switch($order_value[0]['column']){
 				case 0:
 					$order['column'] = 'title';
 					break;
