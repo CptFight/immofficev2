@@ -8,6 +8,7 @@ class Campains extends MY_Controller {
 		$this->load->library('Mailchimp');
 
 		$campaigns 	= $this->mailchimp->call('GET', 'campaign-folders',array('Name' => 'Honesty') );
+		
 		$folder = $campaigns['folders'][0];
 
 		$campaigns 	= $this->mailchimp->call('GET', 'campaigns',array('folder_id' => $folder['id']) );
