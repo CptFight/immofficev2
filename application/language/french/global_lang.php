@@ -85,7 +85,7 @@
 	$lang['breadcrumb_map'] = 'Générateur de code postaux';
 	$lang['breadcrumb_owner'] = 'Propriétaires';
 	$lang['breadcrumb_params'] = 'Paramètres';
-	$lang['breadcrumb_campains'] = 'Campagnes';
+	$lang['breadcrumb_campaigns'] = 'Campagnes';
 
 	$lang['breadcrumb_view'] = 'Detail';
 	$lang['breadcrumb_index'] = 'Liste';

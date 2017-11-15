@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Campains extends MY_Controller {
+class Campaigns extends MY_Controller {
 
 	
 	public function index() {

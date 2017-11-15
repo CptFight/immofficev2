@@ -43,6 +43,9 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/colorpicker/bootstrap-colorpicker-plus.min.js"></script>
 
+<!-- featherlight -->
+<script src="<?php echo base_url(); ?>assets/global/plugins/featherlight/featherlight.js" type="text/javascript"></script>
+
 <?php 
 if(isset($custom_scripts) && is_array($custom_scripts)  ) { 
 	foreach($custom_scripts as $key => $script_url){  
