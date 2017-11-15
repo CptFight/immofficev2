@@ -31,7 +31,7 @@ ini_set('memory_limit', '255M');
 date_default_timezone_set('Europe/Paris');
 
 
-$config['base_url'] = 'http://immoffice.dev';
+$config['base_url'] = 'http://immofficev2.dev';
 
 
 /*
