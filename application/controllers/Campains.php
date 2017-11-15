@@ -18,6 +18,10 @@ class Campains extends MY_Controller {
 			$this->data['campaigns'][$key]['content'] = $this->mailchimp->call('GET', '/campaigns/'.$campaign['id'].'/content', array() );
 		}		
 		
+		echo "<pre>";
+		print_r($this->data['campaigns']);
+		echo "</pre>";
+		die();
 		$this->load->view('template', $this->data);
 
 	}
