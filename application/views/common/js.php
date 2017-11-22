@@ -48,6 +48,10 @@
 
 <script src="<?php echo base_url(); ?>assets/global/plugins/glide/glide.js" type="text/javascript"></script>
 
+<!-- Bootbox -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js
+" type="text/javascript"></script>
+
 <?php 
 if(isset($custom_scripts) && is_array($custom_scripts)  ) { 
 	foreach($custom_scripts as $key => $script_url){  

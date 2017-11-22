@@ -30,10 +30,17 @@ favoris.bind = function(){
             $(this).addClass('active');
         //    count_rappels++;
         }else{
-            if (confirm(translate('delete_verif'))) {
-                $(this).removeClass('active');
-                add = false;
-            }
+            var objectverified = $(this);
+            bootbox.confirm(translate('delete_verif'), function(result){ 
+                if(result == true)
+                {
+                    objectverified.removeClass('active');
+                    
+                    add = false;
+                }
+
+            });
+
         //    count_rappels--;
         }
 

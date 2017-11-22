@@ -79,19 +79,22 @@ annonces.bind = function(){
             $(this).addClass('active');
           //  count_favoris++;
         }else{
-
-            if (confirm(translate('delete_verif'))) {
-                $(this).removeClass('active');
-             
-
-                $(this).removeClass('active');
-                if($(this).closest('ul').find('.add_rappel').hasClass('active')){
-                //    count_rappels--;
-                    $(this).closest('ul').find('.add_rappel').removeClass('active');
+            var objectverified = $(this);
+            bootbox.confirm(translate('delete_verif'), function(result){ 
+                if(result == true)
+                {
+                    objectverified.removeClass('active');
+                    objectverified.removeClass('active');
+                    if(objectverified.closest('ul').find('.add_rappel').hasClass('active')){
+                    //    count_rappels--;
+                        objectverified.closest('ul').find('.add_rappel').removeClass('active');
+                    }
+                    
+                    add = false;
                 }
-                
-                add = false;
-            }
+
+            });
+
           //  count_favoris--;
            
         }
@@ -158,10 +161,15 @@ annonces.bind = function(){
             $(this).addClass('active');
          //   count_rappels++;
         }else{
-            if (confirm(translate('delete_verif'))) {
-                $(this).removeClass('active');
-                add = false;
-            }
+            var objectverified = $(this);
+            bootbox.confirm(translate('delete_verif'), function(result){ 
+                if(result == true)
+                {
+                    objectverified.removeClass('active');
+                    add = false;
+                }
+
+            });
           //  count_rappels--;
         }
 

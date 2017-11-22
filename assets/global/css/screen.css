@@ -4554,7 +4554,7 @@ div.options_radio {
   .iframe-preview iframe {
     overflow: hidden;
     border: none;
-    height: 800px;
+    height: 746px;
     width: 100%;
     margin: 0 auto;
     display: block;
@@ -5673,5 +5673,16 @@ table li[class^='table-btn'] {
 .glide__bullets > *:focus {
   border: 2px solid black;
   background-color: rgba(0, 0, 0, 0.5); }
+
+.bootbox-confirm .btn, .bootbox-confirm .btn-grey {
+  display: inline-block; }
+  .bootbox-confirm .btn:hover, .bootbox-confirm .btn-grey:hover {
+    opacity: 0.9; }
+.bootbox-confirm .btn-default {
+  background: none;
+  border: 1px solid #c2c2c2;
+  color: #c2c2c2; }
+.bootbox-confirm .btn-primary {
+  background: #1ab394; }
 
 /*# sourceMappingURL=screen.css.map */

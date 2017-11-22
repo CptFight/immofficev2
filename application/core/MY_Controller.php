@@ -191,6 +191,7 @@ class MY_Controller extends CI_Controller {
 
 		$controller = strtolower($this->uri->segment(1) );
 		$view = strtolower($this->uri->segment(2) );
+		if($view == '') $view = 'index';
 
 		$base_view_path_abs = APPPATH."views/";
 		$base_view_path_rel = base_url().'application/views/';
@@ -202,11 +203,11 @@ class MY_Controller extends CI_Controller {
 		$custom_script_path_rel = $base_view_path_rel.$controller."/".$view.".js";
 		$custom_script_path_abs = $base_view_path_abs.$controller."/".$view.".js";
 	
+
 		if(file_exists($custom_script_path_abs)){
 			$this->data['custom_scripts'][] = $custom_script_path_rel;
 
 		}
-
 
 	}
 	
