@@ -430,7 +430,44 @@ select.input-sm
         color:$green;
     }
 }
-.nombrecharacter 
-{
+//INPUTFILE
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    background-color: #FFFFFF;
+    background-image: none;
+    box-shadow: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    height: 33px;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    font-size: 14px;
+    -webkit-appearance: none;
+    font-weight:300;
+}
 
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: $green;
+    color:white;
+}
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+    pointer-events: none;
 }

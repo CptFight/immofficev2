@@ -95,6 +95,34 @@ class Campaigns extends MY_Controller {
 	}
 
 	public function template() {
+	$this->load->library('Mailchimp');
+
+	
+
+		//$this->access_app_infos = $this->mailchimp->call('POST', '/authorized-apps',array('client_id' => '826491785515','client_secret' => 'fcb2e01df7b588293fd812050663d9e794b07f3323edd18325') );
+		
+
+		$campaigns = $this->session->get_userdata('campaigns');
+        if(!$campaigns || !isset($campaigns['campaigns']) ){
+            $campaigns 	= $this->mailchimp->call('GET', 'campaign-folders',array('Name' => '826491785515') );
+
+            $folder = $campaigns['folders'][0];
+            $campaigns 	= $this->mailchimp->call('GET', 'campaigns',array('folder_id' => $folder['id']) );
+
+            $this->session->set_userdata('campaigns', $campaigns);
+        }else{
+        	//print_r("YESS");
+            $campaigns = $campaigns['campaigns'];
+           
+        }
+
+			
+		$this->data['campaigns'] = array();
+		foreach($campaigns['campaigns'] as $key => $campaign){
+			$this->data['campaigns'][$key]['content'] = '';//$this->mailchimp->call('GET', '/campaigns/'.$campaign['id'].'/content', array() );
+			$this->data['campaigns'][$key]['url'] = site_url('campaigns/view/?id='.$campaign['id']); 
+		}		
+		
 	
 		$this->load->view('template', $this->data);
 
