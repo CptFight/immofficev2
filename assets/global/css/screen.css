@@ -3173,6 +3173,49 @@ fieldset {
   background-color: #1ab394;
   color: white; }
 
+.checkbox-outside div {
+  display: inline-block;
+  margin: 0 -1px 0 0; }
+.checkbox-outside label {
+  position: relative;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 7px 10px 7px 30px;
+  color: #676a6c; }
+.checkbox-outside label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: white;
+  border-radius: 0px;
+  border: 1px solid #e7eaec;
+  display: inline-block;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  left: 0; }
+.checkbox-outside div:first-child label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px; }
+.checkbox-outside div:last-child label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px; }
+.checkbox-outside label:hover:before {
+  background-color: #f4f4f4; }
+.checkbox-outside input[type="radio"], .checkbox-outside input[type="checkbox"] {
+  visibility: hidden;
+  position: absolute;
+  cursor: pointer; }
+.checkbox-outside input[type="radio"]:disabled ~ label:before, .checkbox-outside input[type="checkbox"]:disabled ~ label:before {
+  background-color: #f4f4f4; }
+.checkbox-outside input[type="radio"]:checked ~ label:before, .checkbox-outside input[type="checkbox"]:checked ~ label:before,
+.checkbox-outside input[type="radio"]:disabled:checked ~ label:before, .checkbox-outside input[type="checkbox"]:disabled:checked ~ label:before {
+  background-color: #1ab394; }
+.checkbox-outside p {
+  padding-left: 30px;
+  font-size: 0.8em;
+  font-weight: lighter; }
+
 .chosen-container-multi .chosen-choices {
   padding: 2px 12px; }
 
@@ -3274,6 +3317,56 @@ select.input-sm {
   height: 33px;
   padding-top: 7px; }
 
+.form-legend {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #acacac;
+  font-weight: lighter;
+  float: right;
+  text-align: right; }
+  .form-legend a {
+    color: #1ab394; }
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+
+.inputfile + label {
+  background-color: #FFFFFF;
+  background-image: none;
+  box-shadow: none;
+  border: 1px solid #e5e6e7;
+  border-radius: 1px;
+  height: 33px;
+  color: inherit;
+  display: block;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+  font-size: 14px;
+  -webkit-appearance: none;
+  font-weight: 300; }
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #1ab394;
+  color: white; }
+
+.inputfile + label {
+  cursor: pointer;
+  /* "hand" cursor */ }
+
+.inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px; }
+
+.inputfile + label * {
+  pointer-events: none; }
+
 /* ==|====================
    Base/Typos // Import, Tailles, couleurs, fonts
    ======================= */
@@ -3313,6 +3406,9 @@ select.input-sm {
 
 .red {
   color: #ec4758; }
+
+.bold {
+  font-weight: bolder; }
 
 /* Layout */
 /* ==|====================
@@ -4366,6 +4462,155 @@ div.options_radio {
   margin-top: 0px;
   border-top: 0px; }
 
+/* ==|====================
+   CAMPAIGNS
+   ======================= */
+/* ==|====================
+   Campaigns Choice of template
+   ======================= */
+.l-templatechoice {
+  padding-bottom: 50px; }
+  .l-templatechoice iframe {
+    overflow: hidden; }
+  .l-templatechoice .iframe-container {
+    margin: 30px auto;
+    display: block;
+    width: 90%;
+    width: calc(100% - 180px);
+    position: relative; }
+  .l-templatechoice .btn-iframe {
+    overflow: hidden;
+    border: none;
+    height: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 10px #b9b9b9; }
+  .l-templatechoice html {
+    overflow: hidden; }
+  .l-templatechoice .btn-choice {
+    margin: 0 auto 40px;
+    margin-bottom: 40px;
+    width: calc(100% - 180px);
+    display: block; }
+  .l-templatechoice .btn-lightbox {
+    display: block;
+    top: 50%;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    width: 100px;
+    background: white;
+    color: black;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    font-size: 3em;
+    opacity: 0.7;
+    padding-top: 21px;
+    border-radius: 100px; }
+  @media screen and (max-width: 850px) {
+    .l-templatechoice .glide__arrows, .l-templatechoice .btn-lightbox {
+      display: none; }
+    .l-templatechoice .iframe-container, .l-templatechoice .btn-choice {
+      width: 100% !important; } }
+
+@media screen and (min-width: 850px) {
+  .lightbox {
+    width: 600px; }
+
+  iframe {
+    width: 600px;
+    height: 300px; } }
+@media screen and (min-width: 992px) {
+  .lightbox {
+    width: 800px; }
+
+  iframe {
+    width: 800px;
+    height: 400px; } }
+/* ==|====================
+   Campaigns INFOS
+   ======================= */
+.l-campaignsinfos .maintitle {
+  float: left;
+  display: inline-block; }
+.l-campaignsinfos .separation-form {
+  border-top: none;
+  margin-bottom: 0;
+  margin-top: 0; }
+.l-campaignsinfos .hidden {
+  display: none; }
+.l-campaignsinfos .personnalizesecondary {
+  position: relative;
+  margin-left: 30px; }
+
+/* ==|====================
+   Campaigns TEMPLATE
+   ======================= */
+.iframe-preview {
+  padding-left: 10px;
+  margin-top: 20px; }
+  .iframe-preview iframe {
+    overflow: hidden;
+    border: none;
+    height: 746px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #eee;
+    box-shadow: 1px 1px 10px #b9b9b9 inset; }
+
+/* ==|====================
+   Campaigns RAPPORT
+   ======================= */
+.l-campaignsrapport {
+  padding-bottom: 50px; }
+  @media screen and (min-width: 992px) {
+    .l-campaignsrapport .float-middle:last-child, .l-campaignsrapport .l-landing-contact .clearfix p:last-child, .l-landing-contact .clearfix .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .content p:last-child, .l-landing-contact .content .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .l-header p:last-child, .l-landing-contact .l-header .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .l-nav-big a p:last-child, .l-landing-contact .l-nav-big a .l-campaignsrapport p:last-child, .l-campaignsrapport .l-nav-big .l-landing-contact a p:last-child, .l-nav-big .l-landing-contact a .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .range_inputs p:last-child, .l-landing-contact .range_inputs .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .m-news-list p:last-child, .l-landing-contact .m-news-list .l-campaignsrapport p:last-child, .l-campaignsrapport .m-news-list .l-landing-contact article p:last-child, .m-news-list .l-landing-contact article .l-campaignsrapport p:last-child, .l-campaignsrapport .m-news-list .l-landing-contact li p:last-child, .m-news-list .l-landing-contact li .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .date-mobile > div p:last-child, .l-landing-contact .date-mobile > div .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .favoris-edit-assign p:last-child, .l-landing-contact .favoris-edit-assign .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .ul-multiple-inputs-container li p:last-child, .l-landing-contact .ul-multiple-inputs-container li .l-campaignsrapport p:last-child, .l-campaignsrapport .ul-multiple-inputs-container .l-landing-contact li p:last-child, .ul-multiple-inputs-container .l-landing-contact li .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .ul-multiple-inputs-container .inputsstatus p:last-child, .l-landing-contact .ul-multiple-inputs-container .inputsstatus .l-campaignsrapport p:last-child, .l-campaignsrapport .ul-multiple-inputs-container .l-landing-contact .inputsstatus p:last-child, .ul-multiple-inputs-container .l-landing-contact .inputsstatus .l-campaignsrapport p:last-child, .l-campaignsrapport .l-landing-contact .new-note .inputstyle p:last-child, .l-landing-contact .new-note .inputstyle .l-campaignsrapport p:last-child, .l-campaignsrapport .new-note .l-landing-contact .inputstyle p:last-child, .new-note .l-landing-contact .inputstyle .l-campaignsrapport p:last-child, .l-campaignsrapport .map-database > div:last-child {
+      padding-left: 10px; } }
+  .l-campaignsrapport .title-line {
+    position: relative; }
+    .l-campaignsrapport .title-line p {
+      position: absolute;
+      right: 5px;
+      top: 10px; }
+  .l-campaignsrapport h3 {
+    float: left;
+    display: inline-block; }
+
+.pourcentage-bar {
+  width: 100%;
+  display: block;
+  height: 20px;
+  background: #eee;
+  margin-bottom: 10px; }
+  .pourcentage-bar span {
+    height: 20px;
+    background: #1ab394;
+    display: block; }
+
+.rapport-table li {
+  width: 50%;
+  float: left;
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+  margin: 15px 0;
+  margin-left: -1px; }
+.rapport-table p {
+  font-size: 1.1em;
+  margin-top: 10px;
+  font-weight: bold; }
+.rapport-table span {
+  display: block;
+  font-size: 0.9em;
+  font-weight: lighter;
+  text-transform: uppercase; }
+@media screen and (min-width: 992px) {
+  .rapport-table li {
+    width: 25%; } }
+
 /* Modules */
 /* ==|====================
    Module/Button
@@ -4539,6 +4784,15 @@ div.options_radio {
   margin-top: 20px;
   height: 33px;
   padding: 7px 14px; }
+
+.btn-back {
+  display: inline-block;
+  color: #676a6c;
+  border-radius: 0px;
+  border: 1px solid #e7eaec;
+  padding: 7px 10px;
+  float: right;
+  margin-top: 20px; }
 
 /* ==|================
    Module/Keyframes
@@ -5319,8 +5573,8 @@ table li[class^='table-btn'] {
 
 .glide--horizontal .glide__arrows {
   top: 50%;
-  width: 92%;
-  margin-left: 4%; }
+  width: 100%;
+  margin-left: 0; }
 
 .glide--vertical .glide__arrows {
   left: 50%;
@@ -5330,13 +5584,12 @@ table li[class^='table-btn'] {
 .glide__arrow {
   position: absolute;
   z-index: 2;
-  color: white;
+  color: #0000006;
   text-transform: uppercase;
   font: 11px Arial, sans-serif;
   padding: 9px 12px;
   background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
+  border: 2px solid  #0000006;
   opacity: 1;
   -webkit-transition: opacity 150ms ease, border 300ms ease-in-out;
   transition: opacity 150ms ease, border 300ms ease-in-out; }
@@ -5348,7 +5601,8 @@ table li[class^='table-btn'] {
   outline: none; }
 
 .glide__arrow:hover {
-  border-color: white; }
+  border: 2px solid black;
+  color: black; }
 
 .glide--horizontal .glide__arrow {
   -webkit-transform: translateY(-50%);
@@ -5373,10 +5627,11 @@ table li[class^='table-btn'] {
 .glide__bullets {
   position: absolute;
   z-index: 2;
-  list-style: none; }
+  list-style: none;
+  bottom: 0; }
 
 .glide--horizontal .glide__bullets {
-  bottom: 8%;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 12px;
@@ -5392,7 +5647,7 @@ table li[class^='table-btn'] {
 
 .glide__bullets > * {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.5);
+  background: #0000006b;
   width: 12px;
   height: 12px;
   padding: 0;
@@ -5409,14 +5664,25 @@ table li[class^='table-btn'] {
   vertical-align: middle; }
 
 .glide__bullets > *.active {
-  background-color: white; }
+  background-color: black; }
 
 .glide__bullets > *:focus {
   outline: none; }
 
 .glide__bullets > *:hover,
 .glide__bullets > *:focus {
-  border: 2px solid white;
-  background-color: rgba(255, 255, 255, 0.5); }
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.bootbox-confirm .btn, .bootbox-confirm .btn-grey {
+  display: inline-block; }
+  .bootbox-confirm .btn:hover, .bootbox-confirm .btn-grey:hover {
+    opacity: 0.9; }
+.bootbox-confirm .btn-default {
+  background: none;
+  border: 1px solid #c2c2c2;
+  color: #c2c2c2; }
+.bootbox-confirm .btn-primary {
+  background: #1ab394; }
 
 /*# sourceMappingURL=screen.css.map */

@@ -541,5 +541,38 @@
     $lang["actives"] = "Nieuw";
     $lang["archiver"] = "Archief";
     $lang["assign_to"] = "Toewijzen";
+
+    $lang['breadcrumb_campaigns'] = 'Campaign';
+    $lang['breadcrumb_rapport'] = 'Report';
+    $lang['breadcrumb_infos'] = 'Infos';
+    $lang['breadcrumb_template'] = 'Template';
+    $lang['breadcrumb_view'] = 'View';
+    $lang['breadcrumb_templatechoice'] = 'New template';
+    
+   $lang["campaign_name"] = "Campaign name";
+    $lang["preview_text"] = "Preview text";
+    $lang["from_name"] = "From name";
+    $lang["from_email_adress"] = "From email adress";
+    $lang["clone"] = "Clone";
+    $lang["see_rapport"] = "See rapport";
+    $lang["edit_campaign"] = "Edit campaign";
+    $lang["delete_campaign"] = "Delete Campaign";
+
+    $lang["open_rate"] = "Open rate";
+    $lang["list_average"] = "List average";
+    $lang["industry_average"] = "Industry average";
+    $lang["click_rate"] = "Click Rate";
+    $lang["opened"] = "Opened";
+    $lang["clicked"] = "Clicked";
+    $lang["bounced"] = "Bounced";
+    $lang["unscribed"] = "Unscribed";
+    $lang["successfull_deliveries"] = "Successfull deliveries";
+    $lang["total_opens"] = "Total Opens";
+    $lang["last_opened"] = "Last Opened";
+    $lang["forwarded"] = "Forwarded";
+    $lang["clicks_per_unique_opens"] = "Clicks per unique opens";
+    $lang["total_clicks"] = "Total Clicks";
+    $lang["last_clicked"] = "Last Clicked";
+    $lang["abuse_report"] = "Abuse report";
    ?>
 

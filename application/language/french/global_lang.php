@@ -528,4 +528,44 @@
     $lang["following"] = "Suivis";
     
 	$lang["autorisation_members"] = "Autoriser les autres membres de l'agence à se connecter sur mon profil";
+
+
+	$lang['breadcrumb_campaigns'] = 'Campaign';
+	$lang['breadcrumb_rapport'] = 'Rapport';
+	$lang['breadcrumb_infos'] = 'Infos';
+	$lang['breadcrumb_template'] = 'Templating';
+	$lang['breadcrumb_view'] = 'View';
+	$lang['breadcrumb_templatechoice'] = 'New template';
+
+	$lang["campaign_name"] = "Nom de campagne";
+    $lang["preview_text"] = "Pr&eacute;valisuation";
+    $lang["from_name"] = "Nom d&apos;envoi";
+    $lang["from_email_adress"] = "Adresse d'envoi";
+    $lang["clone"] = "Cloner";
+    $lang["see_rapport"] = "Voir rapport";
+    $lang["edit_campaign"] = "Editer campagne";
+    $lang["delete_campaign"] = "Supprimer Campagne";
+
+    $lang["email_subject"] = "Sujet de l&apos;email";
+    $lang["campaign_url"] = "Url de la campagne";
+
+
+	$lang["open_rate"] = "Open rate";
+    $lang["list_average"] = "List average";
+    $lang["industry_average"] = "Industry average";
+    $lang["click_rate"] = "Click Rate";
+    $lang["opened"] = "Opened";
+    $lang["clicked"] = "Clicked";
+    $lang["bounced"] = "Bounced";
+    $lang["unscribed"] = "Unscribed";
+    $lang["successfull_deliveries"] = "Successfull deliveries";
+    $lang["total_opens"] = "Total Opens";
+    $lang["last_opened"] = "Last Opened";
+    $lang["forwarded"] = "Forwarded";
+    $lang["clicks_per_unique_opens"] = "Clicks per unique opens";
+    $lang["total_clicks"] = "Total Clicks";
+    $lang["last_clicked"] = "Last Clicked";
+    $lang["abuse_report"] = "Abuse report";
+
+
  ?>

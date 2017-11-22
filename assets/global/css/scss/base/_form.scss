@@ -216,6 +216,75 @@ fieldset
     }
 }
 
+
+.checkbox-outside
+{
+   div 
+    {
+        display:inline-block;
+        margin:0 -1px 0 0;
+    }
+    label 
+    {
+        position:relative;
+        font-weight:500;
+        text-transform:uppercase;
+        padding: 7px 10px 7px 30px;
+        color:$textdark;
+    }
+
+    label:before{
+        content:"";
+        display:block;
+        position:absolute;
+        background:white;
+        border-radius: 0px;
+        border: 1px solid #e7eaec;
+        display:inline-block;
+        cursor: pointer;
+        height:20px;
+        width:20px;
+        left:0;
+    }
+    div:first-child label 
+    {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+    div:last-child label 
+    {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    label:hover:before{
+        background-color: $bg-grey-light;
+    }
+
+    input[type="radio"], input[type="checkbox"]{
+      visibility: hidden;
+      position: absolute;
+      cursor: pointer;
+    }
+
+
+    input[type="radio"]:disabled ~ label:before, input[type="checkbox"]:disabled ~ label:before{
+      background-color: $bg-grey-light;
+    }
+    input[type="radio"]:checked ~ label:before, input[type="checkbox"]:checked ~ label:before,
+    input[type="radio"]:disabled:checked ~ label:before, input[type="checkbox"]:disabled:checked ~ label:before{
+      background-color: $green;
+    }
+
+
+    p 
+    {
+        padding-left: 30px;
+        font-size: 0.8em;
+        font-weight: lighter;
+    }
+}
+
 .chosen-container-multi .chosen-choices{
     padding: 2px 12px;
 }
@@ -347,4 +416,58 @@ select.input-sm
         height: 33px;
         padding-top: 7px;
     }
+}
+.form-legend 
+{
+    font-size: 0.8em;
+    font-style: italic;
+    color: #acacac;
+    font-weight: lighter;
+    float: right;
+    text-align:right;
+    a 
+    {
+        color:$green;
+    }
+}
+//INPUTFILE
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    background-color: #FFFFFF;
+    background-image: none;
+    box-shadow: none;
+    border: 1px solid #e5e6e7;
+    border-radius: 1px;
+    height: 33px;
+    color: inherit;
+    display: block;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    font-size: 14px;
+    -webkit-appearance: none;
+    font-weight:300;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: $green;
+    color:white;
+}
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+.inputfile:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+    pointer-events: none;
 }
