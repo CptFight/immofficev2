@@ -10,13 +10,23 @@ class Campaigns extends MY_Controller {
 
 	
 
-		$this->access_app_infos = $this->mailchimp->call('POST', '/authorized-apps',array('client_id' => '826491785515','client_secret' => 'fcb2e01df7b588293fd812050663d9e794b07f3323edd18325') );
-
-		$campaigns 	= $this->mailchimp->call('GET', 'campaign-folders',array('Name' => '826491785515') );
+		//$this->access_app_infos = $this->mailchimp->call('POST', '/authorized-apps',array('client_id' => '826491785515','client_secret' => 'fcb2e01df7b588293fd812050663d9e794b07f3323edd18325') );
 		
-		$folder = $campaigns['folders'][0];
 
-		$campaigns 	= $this->mailchimp->call('GET', 'campaigns',array('folder_id' => $folder['id']) );
+		$campaigns = $this->session->get_userdata('campaigns');
+        if(!$campaigns || !isset($campaigns['campaigns']) ){
+            $campaigns 	= $this->mailchimp->call('GET', 'campaign-folders',array('Name' => '826491785515') );
+
+            $folder = $campaigns['folders'][0];
+            $campaigns 	= $this->mailchimp->call('GET', 'campaigns',array('folder_id' => $folder['id']) );
+
+            $this->session->set_userdata('campaigns', $campaigns);
+        }else{
+        	//print_r("YESS");
+            $campaigns = $campaigns['campaigns'];
+           
+        }
+
 			
 		$this->data['campaigns'] = array();
 		foreach($campaigns['campaigns'] as $key => $campaign){
