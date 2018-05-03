@@ -2,7 +2,7 @@
     <div class="l-annonces-form l-form">
         <div class="clearfix">
             <h3><?php echo $this->lang->line('campaign_name'); ?></h3>
-            <a href="<?php echo site_url('campaigns'); ?>" class="btn-back">Back</a>
+            <a href="<?php echo site_url('newsletters'); ?>" class="btn-back">Back</a>
         </div>
         
         <div class="clearfix">

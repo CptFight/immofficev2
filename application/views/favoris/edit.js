@@ -36,11 +36,17 @@ favoris_edit.init = function(){
 	    } 
 	});
 
+    $('#newsletter_generator_select_template').change(function(e){
+        e.preventDefault();
+
+        console.log('passe',$(e.target).val());
+
+        $("#button-search").attr('href',$(e.target).val());
+    });
 
     $('.remove-remark').click(function(e){
         $(this).closest('tr').remove();
         var id = $(this).closest('ul').data('id');
-        console.log('id',id);
         e.preventDefault();
             $.ajax({
             type: "POST",
@@ -58,14 +64,17 @@ favoris_edit.init = function(){
    });
 
     $('.btn.delete').click(function(e){
-        bootbox.confirm(translate('delete_verif'), function(result){ 
+        //e.preventDefault();
+       /* bootbox.confirm(translate('delete_verif'), function(result){ 
             if(result == true)
             {
+                $(this).closest('form').submit();
                 return true;
             }else{
-                return false;
+                
+               // return false;
             }
-        });
+        });*/
 
     });
   	   

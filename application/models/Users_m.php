@@ -188,6 +188,7 @@ class Users_m extends MY_Model {
 
     public function login($login, $password){
         $this->db->where('deleted !=',1);
+        
         $today = strtotime('today');
         $tomorrow = strtotime('tomorrow');
         $this->db->group_by('users.id');

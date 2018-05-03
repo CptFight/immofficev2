@@ -2,7 +2,7 @@
 <section class="l-annonces-search l-annonces-section apparitionright">
     <div class="clearfix l-top-annonces-export">
        <div class="btns-calendar">
-            <a href="<?php echo site_url('campaigns/templatechoice'); ?>"><?php echo $this->lang->line('new'); ?></a> 
+            <a href="<?php echo site_url('newsletters/templatechoice'); ?>"><?php echo $this->lang->line('new'); ?></a> 
         </div>
     </div>
     <div class="table-responsive">
@@ -28,8 +28,8 @@
                     <td>
                         <ul class="list-tables-buttons"">
                             <li class="table-btn-edit"><a href=""><i class="fa fa-clone"></i><span><?php echo $this->lang->line('clone'); ?></span></a></li>
-                            <li class="table-btn-edit"><a href="<?php echo site_url('campaigns/rapport'); ?>"><i class="fa fa-eye"></i><span><?php echo $this->lang->line('see_rapport'); ?></span></a></li>
-                            <li class="table-btn-edit"><a href="<?php echo site_url('campaigns/infos'); ?>"><i class="fa fa-pencil"></i><span><?php echo $this->lang->line('edit_campaign'); ?></span></a></li>
+                            <li class="table-btn-edit"><a href="<?php echo site_url('newsletters/rapport'); ?>"><i class="fa fa-eye"></i><span><?php echo $this->lang->line('see_rapport'); ?></span></a></li>
+                            <li class="table-btn-edit"><a href="<?php echo site_url('newsletters/infos'); ?>"><i class="fa fa-pencil"></i><span><?php echo $this->lang->line('edit_campaign'); ?></span></a></li>
                             <li class="table-btn-delete"><a href=""><i class="fa fa-remove"></i><span><?php echo $this->lang->line('delete_campaign'); ?></span></a></li>
                         </ul>
                     </td>

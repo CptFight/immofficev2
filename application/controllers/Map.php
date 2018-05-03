@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Map extends MY_Controller {
 
 	private $zipcodes; 
-
+	
 	public function __construct(){
 		$this->zipcodes = new Zipcodes(); 
 		parent::__construct();
@@ -13,8 +13,13 @@ class Map extends MY_Controller {
 	public function index() {
 		if($this->input->post('load_zip_code')){
 			
-
-			$zipcodes = $this->zipcodes->getZipCodes($this->input->post('codepostal'),$this->input->post('radius'));
+			//print_r($this->zipcodes);
+			if(!$this->zipcodes->last_query){
+				$zipcodes = $this->zipcodes->getZipCodes($this->input->post('codepostal'),$this->input->post('radius'));
+			}else{
+				$zipcodes = $this->zipcodes->last_query;
+			}
+			
 			$list = array();
 			$zipcodes_in_string = '';
 			foreach($zipcodes as $key => $city){
@@ -65,6 +70,14 @@ class Map extends MY_Controller {
 		$cpt = $return['start'];
 		$max = $cpt+$return['length'];
 
+/*		if($zipcodes && is_array($zipcodes) && count($zipcodes) > 0)
+		foreach($zipcodes as $key => $zipcode){
+			$data[] = array(
+					$zipcodes[$cpt]->city,
+					$zipcodes[$cpt]->zip
+				);
+		}*/
+
 		for($cpt;$cpt<$max;$cpt++){
 			if(isset($zipcodes[$cpt])){
 				$data[] = array(
@@ -87,7 +100,9 @@ class Map extends MY_Controller {
 Class Zipcodes{
 
     private $zipcodes_list;
+    public $last_query;
 
+   
     public function __construct(){
         $this->initListCoordBelgium();  
     }
@@ -96,8 +111,9 @@ Class Zipcodes{
         $geo_info = json_decode(file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?address=".$zip_code.",belgium&sensor=false"));
 
         if(isset($geo_info->results[0]->geometry)){
-            $location = $geo_info->results[0]->geometry->location;
-            return $this->searchCitiesInTheRadius($location->lat, $location->lng, $radius);
+        	$location = $geo_info->results[0]->geometry->location;
+        	$this->last_query = $this->searchCitiesInTheRadius($location->lat, $location->lng, $radius);
+            return $this->last_query;
         }else{
             return false;
         }
@@ -106,7 +122,6 @@ Class Zipcodes{
 
     private function initListCoordBelgium(){
         $this->zipcodes_list = json_decode(file_get_contents("assets/geolocalisations/belgium/zipcode-belgium.json"));
-
 
     }
 

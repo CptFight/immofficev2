@@ -36,5 +36,8 @@
                     <?php foreach($header['breadcrumb'] as $key => $page){ ?>
                     <a href="<?php echo $page['url']; ?>" class="<?php if($page['active']) echo 'active'; ?>"><?php echo $page['title']; ?></a>
                     <?php } ?>
+
+
+                    <!--<span class="alert alert-warning" style="padding: 5px;"><?php echo $this->lang->line('problem'); ?></span> -->
                 </li>
             </ul>

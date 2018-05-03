@@ -13,6 +13,8 @@
             <li><div id="tab3"  data-select="tab3" class="<?php if($tab == 3) echo 'active'; ?>"><?php echo $this->lang->line('add_infos'); ?></div></li>
             <li><div id="tab4" data-select="tab4" class="<?php if($tab == 4) echo 'active'; ?>"><?php echo $this->lang->line('following'); ?></div></li> 
             <li><div id="tab5" data-select="tab5" class="<?php if($tab == 5) echo 'active'; ?>"><?php echo $this->lang->line('owner'); ?></div></li> 
+
+            <li><div id="tab6" data-select="tab6" class="<?php if($tab == 6) echo 'active'; ?>"><?php echo $this->lang->line('email'); ?></div></li> 
         </ul>
         <fieldset class="inputstyle select tabsselectcont">
             <select id="tabsselect" >
@@ -21,6 +23,9 @@
                 <option value="tab3" <?php if($tab == 3) echo 'selected'; ?>><?php echo $this->lang->line('add_infos'); ?></option>
                 <option value="tab4" <?php if($tab == 4) echo 'selected'; ?>><?php echo $this->lang->line('notes'); ?></option>
                 <option value="tab5" <?php if($tab == 5) echo 'selected'; ?>><?php echo $this->lang->line('owner'); ?></option>
+                 <?php if($current_user->role_id == 4){ ?>
+                <option value="tab6" <?php if($tab == 6) echo 'selected'; ?>><?php echo $this->lang->line('email'); ?></option>
+                 <?php } ?>
             </select>
          </fieldset>
 
@@ -326,6 +331,41 @@
                     </tbody>
                 </table>
 
+
+            </div>
+
+            <div class="tab tab6 <?php if($tab == 6) echo 'active'; ?>">
+                 
+
+                <div class=''>
+
+                    <br/>
+                    <?php if($newsletters_templates) {  ?>
+                <select class="form-control" id="newsletter_generator_select_template">
+                    <?php foreach($newsletters_templates as $key => $template){ ?>
+                    <option value="mailto: <?php echo $favoris->owner_email; ?>
+                ?subject=<?php echo $template->subject; ?>
+                &cc=<?php echo $template->cc; ?>
+                &bcc=<?php echo $template->bcc; ?>
+                &body=<?php echo str_replace('+',' ',urlencode($template->value)); ?>
+                " id=""><?php echo $template->title; ?></option>
+                    <?php } ?>
+                </select>
+                <br/>
+
+               
+                <a href="
+                mailto: <?php echo $favoris->owner_email; ?>
+                ?subject=<?php echo $template->subject; ?>
+                &cc=<?php echo $template->cc; ?>
+                &bcc=<?php echo $template->bcc; ?>
+                &body=<?php echo str_replace('+',' ',urlencode($template->value)); ?>
+                " class="btn btn" id="button-search"><?php echo $this->lang->line('generate_email'); ?></a>
+
+                <?php }else{ 
+
+                     echo $this->lang->line('no_email_templates');
+                } ?>
 
             </div>
         </div>

@@ -247,8 +247,8 @@ class Favoris_m extends MY_Model {
       $this->db->where('favoris_id', $id);
       $this->db->delete('rappels'); 
 
-      $this->db->where('favoris_id', $favoris->id);
-        $this->db->delete('remarks'); 
+      $this->db->where('favoris_id', $id);
+      $this->db->delete('remarks'); 
     
       $this->db->where('id', $id);
       $this->db->delete($this->_db); 

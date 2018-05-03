@@ -84,13 +84,14 @@ class Favoris extends MY_Controller {
 			}
 		}
 
-		$this->load->model(array('Favoris_m','Users_m','Remarks_m'));
+		$this->load->model(array('Favoris_m','Users_m','Remarks_m','Newsletters_templates_m'));
 		$this->data['favoris'] = $this->Favoris_m->get($_GET['id']);
 		$this->data['remarks'] = $this->Remarks_m->getByFavoris($_GET['id']);
 		$this->data['mandataires'] = $this->Users_m->getMandatairesList($this->current_user->agence_id);
 		$this->data['favoris_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
 		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
 		$this->data['owners'] = $this->Owners_m->getByAgence($this->current_user->agence_id);
+		$this->data['newsletters_templates'] = $this->Newsletters_templates_m->getTemplates($this->current_user->id,$this->current_user->lang);
 
 		if($this->input->get('remark_edit')){
 			$this->data['remark_placeholder'] = $this->Remarks_m->get($this->input->get('remark_edit'))->note;
@@ -373,6 +374,10 @@ class Favoris extends MY_Controller {
                 $favoris->adress,
                 $favoris->province,
                 $favoris->city,
+                $favoris->owner_name,
+                $favoris->owner_email,
+                $favoris->owner_tel,
+                $favoris->owner_note,
               	$favoris->description,
 				"<a target='_blank' href='".$favoris->url."'>".$favoris->url."</a>",
 				"<a target='_blank' href='".$favoris->web_path."'>".$favoris->file_name."</a>"

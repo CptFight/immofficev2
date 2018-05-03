@@ -16,8 +16,10 @@
  * Your API Key from your account
  */
 
-$config['api_key']      = '2e763759f01341f8e5f69e247848450f-us9';
 
+
+$config['api_key']      = '2e763759f01341f8e5f69e247848450f-us9';
+$config['client_id'] =   '826491785515';
 /**
  * API Endpoint
  *
@@ -25,3 +27,4 @@ $config['api_key']      = '2e763759f01341f8e5f69e247848450f-us9';
  */
 
 $config['api_endpoint'] = 'https://<dc>.api.mailchimp.com/3.0/';
+$config['call_back'] = "http://localhost/immofficev2/index.php/newsletters/callback.php";

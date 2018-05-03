@@ -32,6 +32,12 @@
                     <th class="none"><?php echo $this->lang->line('adress'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('province'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('city'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('owner_name'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('owner_email'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('owner_tel'); ?> : </th>
+                    <th class="none"><?php echo $this->lang->line('owner_note'); ?> : </th>
+
+
                     <th class="none"><?php echo $this->lang->line('description'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('link'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('upload_link'); ?> : </th>

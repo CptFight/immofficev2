@@ -1,12 +1,40 @@
 <section class="l-annonces-section l-annonces-search apparitionright l-campaignsinfos">
     <div class="clearfix">
         <h3 class="maintitle">Campaign infos</h3>
-        <a href="<?php echo site_url('campaigns'); ?>" class="btn-back">Back</a>
+        <a href="<?php echo site_url('newsletters'); ?>" class="btn-back">Back</a>
     </div>
 
     <form action="" method="POST">
         <div class="l-annonces-form l-form">
-        
+
+         <fieldset class="inputstyle">
+                        <label for="name"><?php echo $this->lang->line('campaign_name'); ?></label>
+                        <input type="text" id="name" name="name" value="<?php echo $this->lang->line('campaign_name'); ?>" required>
+                    </fieldset>
+
+                    <fieldset class="inputstyle">
+                        <label for="email_subject"><?php echo $this->lang->line('email_subject'); ?></label>
+                        <input type="text" id="email_subject" name="email_subject" value="<?php echo $this->lang->line('email_subject'); ?>" required>  
+                    </fieldset>
+                    <?php /*
+                     <fieldset class="inputstyle">
+                        <label for="preview_text"><?php echo $this->lang->line('preview_text'); ?></label>
+                        <input type="text" id="preview_text" name="preview_text" value='<?php echo $this->lang->line('preview_text'); ?>' required>
+                        <p class="form-legend">The snippet will appear in the inbox after the subject line</p>
+                    </fieldset> */ ?>
+
+                    <fieldset class="inputstyle">
+                        <label for="from_name"><?php echo $this->lang->line('from_name'); ?></label>
+                        <input type="text" id="from_name" name="from_name" value="<?php echo $this->lang->line('from_name'); ?>" required>
+                    </fieldset>
+
+                     <fieldset class="inputstyle">
+                        <label for="from_email_adress"><?php echo $this->lang->line('from_email_adress'); ?></label>
+                        <input type="text" id="from_email_adress" name="from_email_adress" value="<?php echo $this->lang->line('from_email_adress'); ?>" required>
+                    </fieldset>
+
+
+            <?php /*
              <div class="separation-form clearfix">
                 <div class="float-middle input-separation">
                     <fieldset class="inputstyle">
@@ -21,12 +49,12 @@
                         <p class="form-legend"><a target="_blank" href="https://kb.mailchimp.com/campaigns/previews-and-tests/best-practices-for-email-subject-lines?&_ga=2.84929881.1988746597.1511346594-1467091953.1511346594&_gac=1.48781780.1511351715.Cj0KCQiA3dTQBRDnARIsAGKSfllQYZqRBeeITyIGpLHqTb5Vge1zaSq1-9K-GWf0fa4u1FBiudMacscaArTtEALw_wcB" >How do I write a good subject line?</a>-<a href="#" data-featherlight="#emojis" class="btn-lightbox"> Emoji supported</a></p>
                         
                     </fieldset>
-
+                    <?php /*
                      <fieldset class="inputstyle">
                         <label for="preview_text"><?php echo $this->lang->line('preview_text'); ?></label>
                         <input type="text" id="preview_text" name="preview_text" value='<?php echo $this->lang->line('preview_text'); ?>' required>
                         <p class="form-legend">The snippet will appear in the inbox after the subject line</p>
-                    </fieldset>
+                    </fieldset> 
 
                     <fieldset class="inputstyle">
                         <label for="from_name"><?php echo $this->lang->line('from_name'); ?></label>
@@ -38,9 +66,9 @@
                         <label for="from_email_adress"><?php echo $this->lang->line('from_email_adress'); ?></label>
                         <input type="text" id="from_email_adress" name="from_email_adress" value='<?php echo $this->lang->line('from_email_adress'); ?>' required>
                     </fieldset>
-                    <fieldset class="inputstyle">
+                    <?php /*<fieldset class="inputstyle">
                         <label for="campaign_url"><?php echo $this->lang->line('campaign_url'); ?></label>
-                        <input type="text" id="campaign_url" name="campaign_url" value='<?php echo $this->lang->line('campaign_url'); ?>' required>
+                        <input type="text" id="campaign_url" name="campaign_url" value='<?php echo $this->lang->line('campaign_url'); ?>' required> 
                     </fieldset>
                 </div>
                 <div class="float-middle input-separation">
@@ -65,6 +93,7 @@
                     </fieldset>
                 </div>
             </div>
+            <?php /*
             <div class="separation-form">
                 <h3>Tracking</h3>
                 <div class="clearfix">
@@ -164,10 +193,10 @@
                     </div>
                 </div>
             </div>
-
+            */ ?>
             <fieldset>
                 <!--<button name="save" class="btn" value="save" type="submit"><?php echo $this->lang->line('next'); ?></button>-->
-                <a href="template" class="btn"><?php echo $this->lang->line('next'); ?></a>
+                <button name="save" value="save" class="btn btn-choice"><?php echo $this->lang->line('next'); ?></button>
              </fieldset>
          </div>
     </form>

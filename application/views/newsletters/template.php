@@ -1,7 +1,7 @@
 <section class="l-annonces-section l-annonces-search apparitionright l-campaignsinfos">
     <div class="clearfix">
         <h3 class="maintitle">Campaign infos</h3>
-        <a href="<?php echo site_url('campaigns'); ?>" class="btn-back">Back</a>
+        <a href="<?php echo site_url('newsletters'); ?>" class="btn-back">Back</a>
     </div>
     <form action="" method="POST">
         <div class="clearfix">
@@ -49,14 +49,7 @@
             </div>
             <div class="float-middle">
                 <div class="iframe-preview">
-                    <?php
-                        foreach($campaigns as $key => $campaign){
-                            if($key == 0)
-                            {
-                                echo '<iframe src="'.$campaign['url'].'" class="btn-iframe"></iframe>';
-                            }
-                        }
-                    ?>
+                    <?php echo $html; ?>
                 </div>
             </div>
         </div>

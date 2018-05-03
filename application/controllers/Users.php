@@ -3,7 +3,7 @@
 class Users extends MY_Controller {
 
 	public function index(){
-		if($this->current_user->role_id != 4){
+		if($this->current_user->role_id != 4 && $this->current_user->role_id != 5){
 			redirect('annonces/index');
 		}
 		$this->load->view('template', $this->data);
@@ -75,7 +75,7 @@ class Users extends MY_Controller {
 		$this->lang->load('global', $lang);
 
 		$this->session->unset_userdata('user');
-		$this->load->model(array('Users_m','Connections_m'));
+		$this->load->model(array('Users_m','Connections_m','Agences_m'));
 
 		if($this->input->post('send-login')) {
 
@@ -83,13 +83,21 @@ class Users extends MY_Controller {
 			$password = $this->input->post('password');
 			$user = $this->Users_m->login($login,$password);
 			if($user){
-				$this->Connections_m->insert(array(
-					'user_id' => $user->id,
-					'timestamp' => strtotime('now')
-				));
-				$this->session->set_userdata('user', $user);
-				redirect('/annonces/index');
-				die();
+
+				$response = $this->Agences_m->isBlocked($user->agence_id);
+				if($response){
+					$this->addError($this->lang->line('agence_blocked'));
+				}else{
+					$this->Connections_m->insert(array(
+						'user_id' => $user->id,
+						'timestamp' => strtotime('now')
+					));
+					$this->session->set_userdata('user', $user);
+					redirect('/annonces/index');
+					die();
+				}
+
+				
 			}else{
 				$this->addError($this->lang->line('error_login'));
 			}
@@ -98,7 +106,7 @@ class Users extends MY_Controller {
 	}
 
 	public function news(){
-		if($this->current_user->role_id != 4){
+		if($this->current_user->role_id != 4 && $this->current_user->role_id != 5){
 			redirect('annonces/index');
 		}
 		$this->load->model(array('Users_m'));
@@ -141,7 +149,7 @@ class Users extends MY_Controller {
 	}
 
 	public function edit(){
-		if($this->current_user->role_id != 4){
+		if($this->current_user->role_id != 4 && $this->current_user->role_id != 5){
 			redirect('annonces/index');
 		}
 		$this->load->model(array('Users_m','Agences_m','Roles_m'));
@@ -370,12 +378,12 @@ class Users extends MY_Controller {
 	public function getAllUsersDataTable(){
 		$this->load->model(array('Users_m'));
 		$return = $this->input->get();
-		/*if(isset($this->input->get('search')['value'])){
+		if(isset($this->input->get('search')['value'])){
 			$search = $this->input->get('search')['value'];
 		}else{
 			$search = false;
-		}*/
-		$search = false;
+		}
+		//$search = false;
 
 		if($this->input->get('agence_id')){
 			$agence_id = $this->input->get('agence_id');

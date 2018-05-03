@@ -7,11 +7,18 @@ class Agences_m extends MY_Model {
 
 
     public function get($params) {
+       
+        $this->db->join('agences_status','agences.agences_status_id = agences_status.id','left');
+        $this->db->select('*,agences.id as id, agences.name as name, agences_status.name as status');
         if(!is_array($params)){
             $id = $params;
             $this->db->where('agences.id',$id);
             return $this->db->get($this->_db)->row();
         }else{
+
+            if(!isset($params['role_id']) || ( $params['role_id'] != 4 && $params['role_id'] != 5 ) ){
+                return false;
+            }
 
             if($params['length'] <= 0){
                $params['length'] = $this->_limit; 
@@ -22,8 +29,12 @@ class Agences_m extends MY_Model {
                 $params['search'] = addslashes($params['search']);
                 $request_search = "(";
                 $request_search .= "adress LIKE '%".$params['search']."%'";
-                $request_search .= "OR name LIKE '%".$params['search']."%' )";
+                $request_search .= "OR agences.name LIKE '%".$params['search']."%' )";
                 $this->db->where($request_search);
+            }
+
+            if($params['role_id'] == 5){
+                $this->db->where('commercial_user_id',$params['current_user_id']);
             }
 
             if(isset($params['order'])){
@@ -47,6 +58,18 @@ class Agences_m extends MY_Model {
                 'total_tvac' => $total_tvac,
                 'total_htva' => $total_htva
         );
+    }
+
+    public function isBlocked($agence_id){
+        $this->db->join('agences_status','agences.agences_status_id = agences_status.id');
+        $this->db->where('agences.id',$agence_id);
+        $agence = $this->db->get($this->_db)->row();
+        if($agence && ( $agence->agences_status_id == 1 || $agence->agences_status_id == 2 )){
+            return false;
+        }else{
+            return true;
+        }
+        
     }
 
     public function countPayed(){

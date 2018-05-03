@@ -3,14 +3,14 @@
 class Agences extends MY_Controller {
 
 	public function index() {
-		if($this->current_user->role_id != 4){
+		if($this->current_user->role_id != 4 && $this->current_user->role_id != 5){
 			redirect('annonces/index');
 		}
 		$this->load->view('template', $this->data);
 	}
 
 	public function news(){
-		if($this->current_user->role_id != 4){
+		if($this->current_user->role_id != 4 && $this->current_user->role_id != 5){
 			redirect('annonces/index');
 		}
 
@@ -34,11 +34,11 @@ class Agences extends MY_Controller {
 	}
 
 	public function edit(){
-		if($this->current_user->role_id != 4){
+		if($this->current_user->role_id != 4 && $this->current_user->role_id != 5){
 			redirect('annonces/index');
 		}
 
-		$this->load->model(array('Agences_m'));
+		$this->load->model(array('Agences_m','Agences_status_m'));
 
 		if($this->input->post('save') ){
 			$agence = array();
@@ -50,6 +50,8 @@ class Agences extends MY_Controller {
 			$agence['boss_name'] = $this->input->post('boss_name');
 			$agence['tel'] = $this->input->post('tel');
 			$agence['note'] = $this->input->post('note');
+
+			$agence['agences_status_id'] = $this->input->post('agences_status_id');
 			
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));
@@ -65,7 +67,9 @@ class Agences extends MY_Controller {
 			redirect('agences/index');
 		}
 
+		$this->data['status'] = $this->Agences_status_m->getAll();
 		$this->data['agence'] = $this->Agences_m->get($this->input->get('id'));
+		
 		$this->load->view('template', $this->data);
 	}
 
@@ -143,17 +147,6 @@ class Agences extends MY_Controller {
 				}
 			}
 
-			/*foreach($this->input->post('status_owners') as $key => $status_owners){
-				if($status_owners && $status_owners != ''){
-					$status = array();
-					$status['agence_id'] = $this->current_user->agence_id;
-					$status['name'] = $status_owners;
-					$status['color'] = 'green';
-					$status['type'] = 'owners';
-					$this->Status_m->insert($status);
-				}
-			}*/
-
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));
 			}
@@ -202,7 +195,7 @@ class Agences extends MY_Controller {
 			$order['dir'] = $order_value[0]['dir'];
 			switch($order_value[0]['column']){
 				case 0:
-					$order['column'] = 'name';
+					$order['column'] = 'agences.name';
 					break;
 				case 1:
 					$order['column'] = 'price_htva';
@@ -211,7 +204,7 @@ class Agences extends MY_Controller {
 					$order['column'] = 'price_tvac';
 					break;
 				case 3:
-					$order['column'] = 'name';
+					$order['column'] = 'agences.name';
 					break;
 				default:
 					$order['column'] = '';
@@ -225,9 +218,10 @@ class Agences extends MY_Controller {
 			"start" => $start,
 			"length" => $length,
 			"order" => $order,
+			"current_user_id" => $this->current_user->id,
+			"role_id" => $this->current_user->role_id
 		);
 
-		
 		$agences = $this->Agences_m->get($params);
 		$all_agences = $this->Agences_m->getAll();
 	//	echo $this->db->last_query();
@@ -242,6 +236,7 @@ class Agences extends MY_Controller {
 				$agence->price_htva,
 				$agence->price_tvac,
 				$count_users,
+				$agence->status,
 				'<ul class="list-tables-buttons">
                     <li class="table-btn-edit"><a href="'.site_url('agences/edit/?id='.$agence->id).'"><i class="fa fa-pencil"></i><span>Editer agence</span></a></li>
                     <li class="table-btn-rappel"><a href="'.site_url('agences/users/?id='.$agence->id).'"><i class="fa fa-user"></i><span>utilisateurs agence</span></a></li>

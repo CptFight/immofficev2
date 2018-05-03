@@ -14,15 +14,23 @@
 			    </div>
 
 			    <div class="glide__wrapper">
+			    	<form action="" method="POST">
 			        <ul class="glide__track">
 			            <?php
-				            foreach($campaigns as $key => $campaign){
-				            	echo '<li class="glide__slide"><div class="iframe-container">';
+			            	$first_key = false;
+				            foreach($campaigns as $campaign_id => $campaign){
+				            	if(!$first_key) $first_key = $campaign_id;
+				            	echo '<li class="glide__slide" data-template_id="'.$campaign_id.'"><div class="iframe-container">';
 				                echo '<iframe scrolling="no" src="'.$campaign['url'].'" class="btn-iframe"></iframe>';
-				                echo '<a href="#" data-featherlight="#mylightbox'.$key.'" class="btn-lightbox"><i class="fa fa-search"></i></a></div><a href="'.site_url('campaigns/infos').'" class="btn btn-choice">Choose this template</a></li>';
+				                echo '<a href="#" data-featherlight="#mylightbox'.$campaign_id.'" class="btn-lightbox"><i class="fa fa-search"></i></a></div></li>';
 				            }
 				        ?>
 			        </ul>
+
+
+			        <input type="hidden" name="template_id" id="template_id" value="<?php echo $first_key; ?>">
+			        <button name="save" value="save" class="btn btn-choice">Choose this template</a>
+			    	</form>
 			    </div>
 
 			    <div class="glide__bullets"></div>

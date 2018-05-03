@@ -77,6 +77,23 @@ annonces.bind = function(){
         var add = true;
         if(!$(this).hasClass('active')){
             $(this).addClass('active');
+
+            $.ajax({
+                type: "POST",
+                url: base_url()+"index.php/users/addOrRemoveFavoris",
+                dataType: 'json',
+                data: {
+                    user_id : $('#user_id').val(),
+                    annonce_id : annonce_id,
+                    add : add 
+                },
+                success: function(response){
+                    if(add && typeof response.direct_access_page != 'undefined' && response.direct_access_page){
+                        document.location.href = response.direct_access_page+"&back_path=annonces/index";
+                    }
+                }
+            });
+
           //  count_favoris++;
         }else{
             var objectverified = $(this);
@@ -91,9 +108,27 @@ annonces.bind = function(){
                     }
                     
                     add = false;
+
+                     $.ajax({
+                        type: "POST",
+                        url: base_url()+"index.php/users/addOrRemoveFavoris",
+                        dataType: 'json',
+                        data: {
+                            user_id : $('#user_id').val(),
+                            annonce_id : annonce_id,
+                            add : add 
+                        },
+                        success: function(response){
+                            if(add && typeof response.direct_access_page != 'undefined' && response.direct_access_page){
+                                document.location.href = response.direct_access_page+"&back_path=annonces/index";
+                            }
+                        }
+                    });
                 }
 
             });
+
+
 
           //  count_favoris--;
            
@@ -101,21 +136,7 @@ annonces.bind = function(){
 
         //$('.alert-tag.favoris').html(count_favoris);
         //$('.alert-tag.rappels').html(count_rappels);
-        $.ajax({
-            type: "POST",
-            url: base_url()+"index.php/users/addOrRemoveFavoris",
-            dataType: 'json',
-            data: {
-                user_id : $('#user_id').val(),
-                annonce_id : annonce_id,
-                add : add 
-            },
-            success: function(response){
-                if(add && typeof response.direct_access_page != 'undefined' && response.direct_access_page){
-                    document.location.href = response.direct_access_page+"&back_path=annonces/index";
-                }
-            }
-        });
+       
     });
 
     annonces.tableObject.on('click','.visited', function (e) { 

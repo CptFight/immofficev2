@@ -94,7 +94,7 @@
            <button name="save" class="btn save" value="save" type="submit"><i class="fa fa-floppy-o"></i><span><?php echo $this->lang->line('save'); ?></span></button>
             <button name="delete" class="btn delete" value="delete" type="submit"><i class="fa fa-remove"></i><span><?php echo $this->lang->line('delete'); ?></span></button>
 
-            <a class="btn archive" href="http://188.166.14.107/loadOne.php?load=1&vente=<?php echo $annonce->sale; ?>&website=<?php echo $annonce->web_site; ?>&path=<?php echo $annonce->url; ?>" target="_blank"><i class="fa fa-archive"></i><span><?php echo $this->lang->line('load_scan'); ?></span></a>
+            <a class="btn archive" href="http://146.185.138.251/robots/loadOne.php?load=1&vente=<?php echo $annonce->sale; ?>&website=<?php echo $annonce->web_site; ?>&path=<?php echo $annonce->url; ?>" target="_blank"><i class="fa fa-archive"></i><span><?php echo $this->lang->line('load_scan'); ?></span></a>
             
         </fieldset>
 

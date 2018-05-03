@@ -14,6 +14,7 @@
                     <th ><?php echo $this->lang->line('price_htva'); ?></th>
                     <th ><?php echo $this->lang->line('price_tvac'); ?></th>
                     <th ><?php echo $this->lang->line('users'); ?></th>
+                    <th ><?php echo $this->lang->line('status'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
                 </tr>
             </thead>

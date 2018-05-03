@@ -3,6 +3,8 @@
 	$lang['base_url'] = base_url();
 	$lang['code_lang'] = 'fr';
 
+	$lang['newsletter_no_folders'] = "Vous n'avez pas activé les newsletters.";
+	$lang['problem'] = "Nous sommes au courant des soucis Immoweb. Notre équipe technique est sur le coup !";
 	$lang['old_publications'] = 'Vielles publications';
 	$lang['old_prices'] = 'Vieux prix';
 	$lang['load_owner_validate'] = "Etes vous sur de vouloir lier ce propriétaire avec ce bien?";
@@ -14,14 +16,18 @@
 	$lang['params'] = "Paramètres";
 	$lang['propriete'] = 'bien';
 	$lang['old_tel'] = "Téléphone";
+	$lang['copy'] = 'Copier';
 	$lang['owner_associated'] = "Le propriétaire est lié à un favoris";
 	$lang['hour'] = 'Heure';
 	$lang['placeholder_note'] = '';
+	$lang['agence_blocked'] = "L'agence a été bloquée";
 	$lang['add_note'] = "Ajouter une note";
 	$lang['bad_token'] = "Mauvais token. Pouvez vous réessayer ?";
 	$lang['annonce_already_linked'] = "L'annonce a déjà été liée par une personne à son compte";
 	$lang['prospecter'] = 'Prospecteur';
 	$lang['superviser'] = 'Superviseur';
+	$lang['no_email_templates'] = "Vous n'avez pas encore enregistré de template. ";
+	$lang['generate_email'] = 'Envoyer un email';
 	$lang['admin'] = 'Administrateur';
 	$lang['boss_name'] = 'Nom du responsable';
 	$lang['agence_name'] = "Nom de l'agence";
@@ -61,19 +67,26 @@
 	$lang['agences'] = 'Agences';
 	$lang['error_login'] = 'Login/mot de passe inconnu.';
 	$lang['subscriber'] = 'Abonné';
-
+	$lang['newsletters'] = 'Newsletters';
 	$lang['active'] = 'Actif';
 	$lang['no_active'] = 'Désactivé';
-	$lang['update_error'] = "L'utilisateur a déjà ce favoris.";
+	$lang['update_error'] = "Il y a eu une erreur. La modification n'a pas été effectuée. ";
 	//error upload
 	$lang['allowed_types'] = 'Extentions authorisées';
 	$lang['max_size'] = 'Taille maximum';
 	$lang['max_width'] = 'Largeur maximum';
 	$lang['max_height'] = 'Hauteur maximum';
 
+	$lang['subject'] = 'Sujet';
+	$lang['from_email'] = "Email d'envoi";
+	$lang['cc'] = 'CC';
+	$lang['bcc'] = 'BCC';
+
+
 	$lang['mandatory'] = 'Mandataire';
 	//breadcrumb
 	$lang['breadcrumb_supervision'] = 'Supervision';
+	$lang['breadcrumb_newsletters'] = 'Newsletters';
 	$lang['breadcrumb_favoris'] = 'Favoris';
 	$lang['breadcrumb_subscribers'] = 'Abonnements';
 	$lang['breadcrumb_annonces'] = 'Annonces';
@@ -322,6 +335,10 @@
 	$lang["drop_your_remember_to_activate"] = "Glissez vos rappels dans le calendrier pour les activer.";
 	$lang["new_event"] = "Nouvel évenement";
 	$lang["owner_name"] = "Nom du propriétaire";
+	$lang["owner_tel"] = "Téléphone du propriétaire";
+	$lang["owner_note"] = "Note sur le propriétaire";
+
+	
 	$lang["tel"] = "Téléphone";
 	$lang["your_note"] = "Votre commentaire";
 	$lang["delete"] = "Supprimer";
@@ -350,7 +367,7 @@
 	$lang['by_hour'] = 'par heure';
 	$lang['by_day'] = 'par jour';
 	$lang['by_week'] = 'par semaine';
-	$lang['by_month'] = 'par heure';
+	$lang['by_month'] = 'par mois';
 
 	$lang["day"] = "jour";
 	$lang["week"] = "Semaine";
