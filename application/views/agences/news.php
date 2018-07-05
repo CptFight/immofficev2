@@ -44,6 +44,14 @@
         </fieldset>
 
         <fieldset class="inputstyle">
+         <select name="agences_status_id" id="agences_status_id" class="form-control">
+            <?php foreach($status as $key => $statu){ ?> 
+                <option value="<?php echo $statu->id; ?>" <?php if($statu->id == 1) echo "selected"; ?>><?php echo $statu->name; ?></option>
+            <?php } ?>
+        </select>
+        </fieldset>
+
+        <fieldset class="inputstyle">
             <label for="note"><?php echo $this->lang->line('note'); ?></label>
             <textarea name="note" id="note"></textarea>
         </fieldset>

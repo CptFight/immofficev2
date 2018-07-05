@@ -1,6 +1,6 @@
 
 <section class="apparitionright l-map-section">
-    <h2>Remplissez les champs</h2>
+    <h2><?php echo $this->lang->line('fill_the_field'); ?></h2>
     <div class="l-map-section-container">
         <form action="" method="post">
             <div class="clearfix map-btns-container">
@@ -10,7 +10,7 @@
                     <input type="hidden" name="radius" id="radius" value="5000"/>
                 </fieldset>
                 <div class="zonedaction">
-                    <p>Zone d'action</p>
+                    <p><?php echo $this->lang->line('area_zone'); ?></p>
                     <a href="#" id="zoomIn" class="btn-zonedaction"><?php echo $this->lang->line('zoom_in'); ?></a><a href="#" id="zoomOut" class="btn-zonedaction"><?php echo $this->lang->line('zoom_out'); ?></a>
                 </div>
                 <button type="submit" id="search_zipcode" class="btn btn-map-rechercher"><?php echo $this->lang->line('search'); ?></button>

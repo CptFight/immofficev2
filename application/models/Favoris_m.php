@@ -97,6 +97,7 @@ class Favoris_m extends MY_Model {
       return $this->db->get($this->_db)->result();
     }
 
+    
     public function getSupervisionInfos($user_id){
       $this->db->where('user_id',$user_id);
       $this->db->order_by('created','desc');

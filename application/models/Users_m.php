@@ -37,6 +37,14 @@ class Users_m extends MY_Model {
         return $this->db->delete($this->_db);     
     }
 
+    public function getOtherOwnerAnnonce($user_id, $agence_id,$annonce_id){
+      $this->db->where('users.id !=',$user_id);
+      $this->db->where('agence_id',$agence_id);
+      $this->db->where('favoris.annonce_id',$annonce_id);
+      $this->db->where('public_access >',0);
+      $this->db->join('favoris','favoris.user_id = users.id');
+      return $this->db->get($this->_db)->result();
+   }
 
     public function getByAgences($agence_id){
         $this->db->where('agence_id',$agence_id);

@@ -49,7 +49,20 @@ class Owner extends MY_Controller {
 
 
 		$this->data['owners_status'] = $this->Status_m->getStatus($this->current_user->agence_id,'owners');
-		$this->data['owner'] = $this->Owners_m->get($this->input->get('id'));
+		$owner = $this->Owners_m->get($this->input->get('id'));
+		if(!$owner){
+			$this->addError($this->lang->line('owner_not_in_agence'));
+			redirect('owner/index');
+		}
+
+		if($owner && isset($owner->agence_id)){
+			if($this->current_user->agence_id != $owner->agence_id){
+				$this->addError($this->lang->line('owner_not_in_agence'));
+				redirect('owner/index');
+			}
+		}
+
+		$this->data['owner'] = $owner;
 		$this->load->view('template', $this->data);
 	}
 

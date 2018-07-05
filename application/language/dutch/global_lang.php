@@ -5,22 +5,26 @@
 
     $lang['old_publications'] = 'Oude publicaties';
     $lang['old_prices'] = 'Oude prijs';
-
+    $lang['fill_the_field'] = 'Vul de velden in ';
     $lang['annonce_id'] = 'Annonce ID';
     $lang['rappel_id'] = 'Rappel ID';
     $lang['favoris_id'] = 'Favoris ID';
     $lang['propriete'] = 'Bien';
     $lang['owner_associated'] = "Le propriétaire est lié à un favoris";
     $lang['hour'] = 'Heure';
+    $lang['saved_by_users_in_agence'] = "Andere gebruikers van het bureau die deze favoriet hebben";
     $lang['placeholder_note'] = 'Ajouter une note';
     $lang['add_note'] = "Ajouter une note";
     $lang['bad_token'] = "Mauvais token. Essayer de rafraichir la page avant de changer d'utilisateur";
-
+    $lang['area_zone'] = "Actiezone";
     $lang['load_owner_validate'] = "Etes vous sur de vouloir lier ce propriétaire avec ce bien?";
     $lang['delete_verif'] = "Etes vous sur de vouloir supprimer ? L'action est irréversible.";
     $lang['annonce_already_linked'] = "Aankondiging is reeds gelinkt aan een account";
     $lang['prospecter'] = 'Prospector';
     $lang['superviser'] = 'Begeleider';
+
+    $lang["owner_not_in_agence"] = "Je hebt geen toegang tot deze eigenaar";
+    
     $lang['admin'] = 'Administrator';
     $lang['boss_name'] = 'Naam van de verantwoordelijke';
     $lang['agence_name'] = "Naam van de agentschap";
@@ -244,7 +248,7 @@
 
     $lang["ask_us_customized_offer"] = "Vraag een aangepaste prijsopgave";
     $lang["send_email"] = "E-mail verzenden";
-    $lang["annonces_find"] = "advertentie gevonden";
+    $lang["annonces_find"] = "Advertenties gevonden";
     $lang["choose_province"] = "Kies een provincie";
     $lang["anvers"] = "Antwerpen";
     $lang["limbourg"] = "Limbourg";
@@ -333,7 +337,11 @@
     $lang["save_search"] = "Zoekopdracht opslaan";
     $lang["drop_your_remember_to_activate"] = "U kunt uw herinneringen in de agenda verslepen om hen te activeren";
     $lang["new_event"] = "Nieuw evenement";
-    $lang["owner_name"] = "eigenaar Naam";
+    $lang["owner_name"] = "Neigenaar naam";
+    $lang["owner_tel"] = "Neigenaar telefoon";
+    $lang["owner_note"] = "Neigenaar note";
+
+
     $lang["tel"] = "Telefoon";
     $lang["your_note"] = "Je reactie";
     $lang["delete"] = "Verwijderen";
@@ -415,7 +423,7 @@
  	$lang["event_16_body"] = "U kunt nu uw eigen favorieten. ";
     $lang["suggestion_label"] = "Als U suggestie hebt om Immoffice te verbeteren aarzel dan niet ons te contacteren door dit formulier";
 
-
+    $lang['newsletters'] = "nieuwsbrief";
     $lang["event_17_title"] = "Immoffice V2";
     $lang["event_17_body"] = "We rekening gehouden met alle suggesties en hebben het genoegen om de nieuwe versie van Immoffice presenteren. Aarzel niet om contact met ons op voor een uitgebreide presentatie van al het nieuws!";
 
@@ -472,7 +480,7 @@
     $lang["account_information"] = "Account Informatie";
     $lang["email"] = "E-mail";
     $lang["name"] = "Naam";
-    $lang["last_connection"] = "laatste bezoek";
+    $lang["last_connection"] = "Laatste bezoek";
     $lang["browser"] = "Browser";
     $lang["notes"] = "Notes";
     $lang["last_search"] = "Laatste zoekopdracht";
@@ -526,7 +534,7 @@
     $lang["number"] = "Number";
     $lang["postcode"] = "Code postal";
     $lang["city"] = "Ville";
-    $lang["status"] = "Statut";
+    $lang["status"] = "Statuut";
     $lang["status_owner"] = "Statut propriétaire";
     $lang["assign_to"] = "Assign to";
     $lang["archiver"] = "Archiver";
@@ -574,5 +582,7 @@
     $lang["total_clicks"] = "Total Clicks";
     $lang["last_clicked"] = "Last Clicked";
     $lang["abuse_report"] = "Abuse report";
+
+    $lang['new'] = 'Toevoegen';
    ?>
 

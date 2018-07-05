@@ -315,6 +315,7 @@ annonces.initTableDatatablesResponsive = function () {
                     vente : $("input[name='vente']:checked").val(),
                 }*/,
                 url : base_url()+"index.php/annonces/getAllannoncesDataTable",
+               
             },
             
             /* end param server side */
@@ -331,7 +332,7 @@ annonces.initTableDatatablesResponsive = function () {
                     className: 'btn dark btn-outline',
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 14]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('print');
@@ -343,7 +344,7 @@ annonces.initTableDatatablesResponsive = function () {
                     className: 'btn green btn-outline', 
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 14]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('pdf');
@@ -356,7 +357,7 @@ annonces.initTableDatatablesResponsive = function () {
                     orientation: 'landscape',
                     fieldSeparator: ',',
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 14]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('csv');
@@ -369,7 +370,7 @@ annonces.initTableDatatablesResponsive = function () {
                     orientation: 'landscape',
                     fieldSeparator: ';',
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 13 ]
+                        columns: [ 0, 1, 2, 3, 4, 8, 9, 10, 11, 14 ]
                     },
                     action  : function(e, dt, button, config) {
                         annonces.insertExport('csv');
@@ -387,7 +388,7 @@ annonces.initTableDatatablesResponsive = function () {
                 annonces.current_number_annonces = e._iRecordsDisplay;
                 annonces.refreshResult();
             },
-
+           
             "order": [
                 [4, 'desc']
             ],
@@ -406,6 +407,13 @@ annonces.initTableDatatablesResponsive = function () {
             // So when dropdowns used the scrollable div should be removed. 
             //"dom": "<'row' <'col-md-12'T>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         });
+
+        //$.fn.dataTable.ext.errMode = 'throw';
+        $.fn.dataTable.ext.errMode = 'none';
+        annonces.tableObject.on('error.dt', function(e, settings, techNote, message) {
+        window.location.replace(base_url()+"index.php/users/logout");
+       //    console.log( 'An error has been reported by DataTables: ', message);
+        })
     }
 
 };

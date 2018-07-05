@@ -111,7 +111,13 @@ class Users extends MY_Controller {
 		}
 		$this->load->model(array('Users_m'));
 		$this->load->model(array('Users_m','Agences_m','Roles_m'));
-		$this->data['agences'] = $this->Agences_m->getAll('name','asc');
+
+		if($this->current_user->role_id == 5){
+			$this->data['agences'] = $this->Agences_m->getAllByUser($this->current_user->id);
+		}else{
+			$this->data['agences'] = $this->Agences_m->getAll('name','asc');
+		}
+		
 		$this->data['roles'] = $this->Roles_m->getAll();
 
 		if($this->input->post('save') ){

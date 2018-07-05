@@ -2,7 +2,8 @@
 
 	$lang['base_url'] = base_url();
 	$lang['code_lang'] = 'fr';
-
+	$lang['fill_the_field'] = 'Remplissez les champs';
+	$lang['area_zone'] = "Zone d'action";
 	$lang['newsletter_no_folders'] = "Vous n'avez pas activé les newsletters.";
 	$lang['problem'] = "Nous sommes au courant des soucis Immoweb. Notre équipe technique est sur le coup !";
 	$lang['old_publications'] = 'Vielles publications';
@@ -15,6 +16,8 @@
 	$lang['favoris_id'] = 'Favoris ID';
 	$lang['params'] = "Paramètres";
 	$lang['propriete'] = 'bien';
+
+	$lang['saved_by_users_in_agence'] = "Autres utilisateurs de l'agence qui ont ce favoris";
 	$lang['old_tel'] = "Téléphone";
 	$lang['copy'] = 'Copier';
 	$lang['owner_associated'] = "Le propriétaire est lié à un favoris";
@@ -496,6 +499,8 @@
 	$lang["password"] = "Mot de passe";
 	$lang["password_confirm"] = "Confirmer le mot de passe";
 	$lang["owner_email"] = "Adresse mail du propriétaire";
+
+	$lang["owner_not_in_agence"] = "Vous ne pouvez accéder à ce propriétaire";
 	$lang["let_empty_if_owner"] = "Laissez vide si cette licence appartient à ce compte.";
 	$lang["owner_sale_email"] = "Adresse mail du commercial responsable";
 	$lang["other"] = "Autre";

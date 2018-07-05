@@ -2,7 +2,9 @@
 <section class="l-annonces-search l-annonces-section apparitionright">
     <input type="hidden" name="agence_id" id="agence_id" value="<?php echo $agence_id; ?>" >
     <div class="clearfix l-top-annonces-export">
-       
+       <div class="btns-calendar">
+            <a href="<?php echo site_url('users/news'); ?>"><?php echo $this->lang->line('new'); ?></a> 
+        </div>
     </div>
     <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" data-page-size="50" id="liste_table">

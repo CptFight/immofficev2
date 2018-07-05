@@ -14,8 +14,10 @@ class Agences extends MY_Controller {
 			redirect('annonces/index');
 		}
 
+		$this->load->model(array('Agences_m','Agences_status_m'));
+		
 		if($this->input->post('save') ){
-			$this->load->model(array('Agences_m'));
+			
 			$agence = array();
 			$agence['name'] = $this->input->post('name');
 			$agence['adress'] = $this->input->post('adress');
@@ -25,11 +27,15 @@ class Agences extends MY_Controller {
 			$agence['tel'] = $this->input->post('tel');
 			$agence['note'] = $this->input->post('note');
 			
+			$agence['agences_status_id'] = $this->input->post('agences_status_id');
+			$agence['commercial_user_id'] = $this->current_user->id;
+
 			if($this->Agences_m->insert($agence)){
 				$this->addMessage($this->lang->line('insert_done'));
 			}
 			redirect('agences/index');
 		}
+		$this->data['status'] = $this->Agences_status_m->getAll();
 		$this->load->view('template', $this->data);
 	}
 
@@ -52,7 +58,8 @@ class Agences extends MY_Controller {
 			$agence['note'] = $this->input->post('note');
 
 			$agence['agences_status_id'] = $this->input->post('agences_status_id');
-			
+			$agence['commercial_user_id'] = $this->current_user->id;
+
 			if($this->Agences_m->update($agence)){
 				$this->addMessage($this->lang->line('update_done'));
 			}

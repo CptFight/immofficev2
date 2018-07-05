@@ -186,6 +186,14 @@ class Annonces extends MY_Controller {
 		$data = array();
 		
 		foreach($annonces as $key => $annonce){
+
+			$results = $this->Users_m->getOtherOwnerAnnonce($this->current_user->id,$this->current_user->agence_id, $annonce->id);
+			$agence_users_who_have_this_favoris = array();
+			foreach($results as $key => $result){
+				$agence_users_who_have_this_favoris[] = $result->name." ".$result->firstname;
+			}
+
+
 			$historic_publications = $this->Publications_m->getHistoricPublications($annonce->id);
 
 			$historic_price = $this->Prices_m->getHistoricPrices($annonce->id);
@@ -207,6 +215,7 @@ class Annonces extends MY_Controller {
 				date('d/m/Y',$annonce->date_publication),
 				'<input type="checkbox" class="visited" />',
 				$actions,
+				implode($agence_users_who_have_this_favoris,', '),
                 $annonce->id,
                 "<span class='historic_price old'>".$historic_price."</span> ".number_format($annonce->price, 0, ',', ' ').' €',
                 "<span class='historic_publications old'>".$historic_publications."</span> ".date('d/m/Y',$annonce->date_publication),

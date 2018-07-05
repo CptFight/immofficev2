@@ -19,7 +19,7 @@ calendar.bind = function(){
 *   init  instance  
 *********************************/
 calendar.init = function(){
-    console.log('test',translate('code_lang'));
+   // console.log('test',translate('code_lang'));
     calendar.calendarObject_month = false;
     calendar.calendarObject_week = false;
     calendar.events = [];

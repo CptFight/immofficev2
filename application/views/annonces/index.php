@@ -95,6 +95,7 @@
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th ><?php echo $this->lang->line('visited'); ?></th>
                     <th class="desktop" width="100px"><?php echo $this->lang->line('actions'); ?></th>
+                    <th class="none"><?php echo $this->lang->line('saved_by_users_in_agence'); ?> : </th>
                     <th class="none">ID : </th>
                     <th class="none"><?php echo $this->lang->line('price'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('publications'); ?> : </th>

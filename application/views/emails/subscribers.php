@@ -31,6 +31,7 @@
                                             <li><?php echo $this->lang->line('province') ; ?>  : 
                                             <?php 
                                             $search_provinces = json_decode($subscriber->search_provinces);
+                                            if($search_provinces && is_array($search_provinces) && count($search_provinces) > 0)
                                             foreach($search_provinces as $key => $province){
                                                 echo $province." ,";
                                             }

@@ -160,7 +160,7 @@ favoris.initTableDatatablesResponsive = function () {
                     className: 'btn dark btn-outline',
                     orientation: 'landscape', 
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,16 ]
+                        columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,21 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('print');
@@ -172,7 +172,7 @@ favoris.initTableDatatablesResponsive = function () {
                     className: 'btn green btn-outline', 
                     orientation: 'landscape', 
                     exportOptions: {
-                       columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,16 ]
+                       columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,21 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('pdf');
@@ -185,7 +185,7 @@ favoris.initTableDatatablesResponsive = function () {
                     orientation: 'landscape',
                     fieldSeparator: ',',
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,16 ]
+                        columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,21 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('csv');
@@ -198,7 +198,7 @@ favoris.initTableDatatablesResponsive = function () {
                     orientation: 'landscape',
                     fieldSeparator: ';',
                     exportOptions: {
-                        columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,16 ]
+                        columns: [ 0, 1, 2, 3, 4, 10, 11, 12, 13 ,21 ]
                     },
                     action  : function(e, dt, button, config) {
                         favoris.insertExport('excel');

@@ -45,6 +45,12 @@ class Agences_m extends MY_Model {
         }
     }
 
+    public function getAllByUser($user_id) {
+        $this->db->where('commercial_user_id',$user_id);
+        $this->db->order_by($table,$order);
+        return $this->db->get($this->_db)->result();
+    }
+
 
     public function getTotalPrice(){
         $agences = $this->db->get($this->_db)->result();

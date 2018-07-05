@@ -5,7 +5,7 @@
     <div class="btns-calendar">
         <a class='btn-actives <?php if(!$archive){ ?>active<?php } ?>' href="<?php echo site_url('favoris/index?archive=0'); ?>"><?php echo $this->lang->line('actives'); ?></a> 
         <a class='btn-actives btn-archives <?php if($archive){ ?>active<?php } ?>' href="<?php echo site_url('favoris/index?archive=1'); ?>"><?php echo $this->lang->line('archives'); ?></a>
-        <a class="btn-new" href="<?php echo site_url('favoris/news'); ?>"><i class="fa fa-plus"></i> <?php echo $this->lang->line('new'); ?> <?php echo $this->lang->line('propriete'); ?></a> 
+        <a class="btn-new" href="<?php echo site_url('favoris/news'); ?>"><i class="fa fa-plus"></i> <?php echo $this->lang->line('new'); ?> <?php /*echo $this->lang->line('propriete'); */ ?></a> 
     </div>
 
     <input type="hidden" name="archive" id="archive" value="<?php echo $archive; ?>">
@@ -23,6 +23,7 @@
                     <th ><?php echo $this->lang->line('status'); ?></th>
                     <th ><?php echo $this->lang->line('date'); ?></th>
                     <th class="desktop"><?php echo $this->lang->line('actions'); ?></th>
+                    <th class="none"><?php echo $this->lang->line('saved_by_users_in_agence'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('note'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('annonce_id'); ?> : </th>
                     <th class="none"><?php echo $this->lang->line('favoris_id'); ?> : </th>

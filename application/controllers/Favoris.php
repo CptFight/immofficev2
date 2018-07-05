@@ -49,9 +49,6 @@ class Favoris extends MY_Controller {
 				}
 			}
 
-			
-
-
 			if($this->savePost()){
 				redirect($this->data['back_path'] );
 			}		
@@ -283,7 +280,7 @@ class Favoris extends MY_Controller {
 
 
 	public function getAllAnnoncesDataTable(){
-		$this->load->model(array('Favoris_m'));
+		$this->load->model(array('Favoris_m','Users_m'));
 		
 		$return = $this->input->get();
 		$search = $this->input->get('search');
@@ -354,6 +351,12 @@ class Favoris extends MY_Controller {
 		$data = array();
 
 		foreach($favoris as $key => $favoris){
+			$results = $this->Users_m->getOtherOwnerAnnonce($this->current_user->id, $this->current_user->agence_id, $favoris->annonce_id);
+			$agence_users_who_have_this_favoris = array();
+			foreach($results as $key => $result){
+				$agence_users_who_have_this_favoris[] = $result->name." ".$result->firstname;
+			}
+			//$agence_users_who_have_this_favoris = array('Test','azdazd');
 			$data[] = array(
 				$favoris->title,
 				$favoris->zip_code,
@@ -365,6 +368,7 @@ class Favoris extends MY_Controller {
                     <li class="table-btn-edit"><a href="'.site_url('favoris/edit/?id='.$favoris->id).'"><i class="fa fa-pencil"></i><span>Editer le favoris</span></a></li>
                     <li class="table-btn-rappel"><a href="#" class="add_rappel"><i class="fa fa-phone"></i><span>Ajouter aux rappels</span></a></li>
                 </ul>',
+                implode($agence_users_who_have_this_favoris,', '),
                 $favoris->note,
                 $favoris->annonce_id,
                 $favoris->id,
