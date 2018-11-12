@@ -302,5 +302,38 @@ class Favoris_m extends MY_Model {
         return $this->db->update($this->_db, $favoris); 
     }
 
+
+    public function gdpr_search($keywords) {
+        //$this->db->group_by('favoris.id');
+        $this->db->select('count(*) as count');
+
+        $this->db->join('uploads','favoris.upload_id = uploads.id', 'left');
+        $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
+        $this->db->join('users','users.id = favoris.user_id');
+        $this->db->join('status','favoris.status_id = status.id','left');
+        $this->db->join('owners','owners.id = favoris.owner_id','left');
+        
+        if($keywords){
+            $keywords = addslashes($keywords);
+            $request_search = "( favoris.tags LIKE '%".$keywords."%'";
+            $request_search .= "OR favoris.tel LIKE '%".$keywords."%'";
+            $request_search .= "OR favoris.adress LIKE '%".$keywords."%'";
+            $request_search .= "OR favoris.note LIKE '%".$keywords."%'";
+            $request_search .= "OR users.name LIKE '%".$keywords."%'";
+            $request_search .= "OR users.firstname LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.name LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.tel LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.email LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.note LIKE '%".$keywords."%'";
+            $request_search .= "OR status.name LIKE '%".$keywords."%'";
+            $request_search .= "OR favoris.description LIKE '%".$keywords."%' )";
+            $this->db->where($request_search);
+        }
+
+            
+        $return = $this->db->get($this->_db)->result();
+        return $return[0]->count;
+    }
+
    
 }

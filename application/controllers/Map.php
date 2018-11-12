@@ -108,7 +108,15 @@ Class Zipcodes{
     }
 
     public function getZipCodes($zip_code, $radius){
-        $geo_info = json_decode(file_get_contents("http://maps.googleapis.com/maps/api/geocode/json?address=".$zip_code.",belgium&sensor=false"));
+    	$arrContextOptions=array(
+		    "ssl"=>array(
+		        "verify_peer"=>false,
+		        "verify_peer_name"=>false,
+		    ),
+		);  
+
+    	$json = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=".$zip_code.",belgium&sensor=false&key=AIzaSyAvjFjp5hRq_ipP39YWgGFZOMnopRKsplo", false, stream_context_create($arrContextOptions));
+    	$geo_info = json_decode($json);
 
         if(isset($geo_info->results[0]->geometry)){
         	$location = $geo_info->results[0]->geometry->location;

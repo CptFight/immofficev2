@@ -25,6 +25,7 @@ class Crons extends CI_Controller {
 				$date_min = strtotime('-1 month');
 				break;
 			case 'day':
+				$date_min = strtotime('-1 day');
 			default:
 				//already the good value;
 				break;

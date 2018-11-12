@@ -79,7 +79,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => 'mysql',
-	'database' => 'immofficeimport',
+	'database' => 'immoffice',
 	/*'hostname' => '178.62.202.118',
 	'username' => 'robots',
 	'password' => 'h=Bw6IN9rs',

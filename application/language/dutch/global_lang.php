@@ -22,7 +22,14 @@
     $lang['annonce_already_linked'] = "Aankondiging is reeds gelinkt aan een account";
     $lang['prospecter'] = 'Prospector';
     $lang['superviser'] = 'Begeleider';
-
+    $lang['GDPR'] = 'GDPR';
+    $lang['keyword'] = "Mots clés";
+    $lang['gdpr_infos'] = "Vous pensez avoir été enregistré chez nous à votre insu ? 
+        <p> Nous ne stockons que les données enregistrées par nos clients. Et dans un soucis de totale transparance, toutes nos informations sont visibles et modifiables depuis leur compte.</p>
+        <p> Nous vous proposons de voir ici si c'est le cas grâce à cette outil de recherche interne. </p>
+        ";
+    $lang['be_finded'] = "a été retrouvés";
+    $lang['time'] = "fois";
     $lang["owner_not_in_agence"] = "Je hebt geen toegang tot deze eigenaar";
     
     $lang['admin'] = 'Administrator';

@@ -52,6 +52,7 @@ class Annonces_m extends MY_Model {
                 $request_search = '( title LIKE "%'.$params["search"].'%" ';
                 $request_search .= 'OR annonces.id LIKE "%'.$params["search"].'%" ';
                 $request_search .= 'OR web_site LIKE "%'.$params["search"].'%" ';
+                $request_search .= 'OR url LIKE "%'.$params["search"].'%" ';
                 $request_search .= 'OR description LIKE "%'.$params["search"].'%" )';
                 $this->db->where($request_search);
             }
@@ -68,9 +69,9 @@ class Annonces_m extends MY_Model {
 
             if($params['criterias']['zipcode']){
                 $zipcode_list = explode(' ',$params['criterias']['zipcode']);
-                $zipcode_request = "( zip_code LIKE '".$zipcode_list[0]."'";
+                $zipcode_request = '( zip_code LIKE "'.$zipcode_list[0].'"';
                 for($cpt=1;$cpt<count($zipcode_list); $cpt++){
-                    $zipcode_request .= " OR zip_code LIKE '".$zipcode_list[$cpt]."'";
+                    $zipcode_request .= ' OR zip_code LIKE "'.$zipcode_list[$cpt].'"';
                 }
                 $zipcode_request .= ')';
                 $this->db->where($zipcode_request);
@@ -143,9 +144,9 @@ class Annonces_m extends MY_Model {
 
         if($params['criterias']['zipcode']){
             $zipcode_list = explode(' ',$params['criterias']['zipcode']);
-            $zipcode_request = "( zip_code LIKE '".$zipcode_list[0]."'";
+            $zipcode_request = '( zip_code LIKE "'.$zipcode_list[0].'"';
             for($cpt=1;$cpt<count($zipcode_list); $cpt++){
-                $zipcode_request .= " OR zip_code LIKE '".$zipcode_list[$cpt]."'";
+                $zipcode_request .= ' OR zip_code LIKE "'.$zipcode_list[$cpt].'"';
             }
             $zipcode_request .= ')';
             $this->db->where($zipcode_request);  

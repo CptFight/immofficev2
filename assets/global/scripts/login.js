@@ -1,9 +1,3 @@
-/* ------ Dropdown ------*/
-/* --------------------- */
-$(".btn-dropdown").on("click", function(){
-  var id = $(this).attr("data-id");
-  $("#"+id).toggleClass("hidden");
-});
 
 /* ------ Nav Toggle ---------- */
 /* ---------------------------- */
@@ -23,7 +17,6 @@ function clickmenu(){
   $(".l-nav-aside").toggleClass("hide-menu");
   $(".wrapper").toggleClass("move remove");
 }
-
 
 /* ------ Smooth Scroll ---- */
 /* ---------------------------- */

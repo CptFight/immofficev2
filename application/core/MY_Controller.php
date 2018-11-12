@@ -14,18 +14,22 @@ class MY_Controller extends CI_Controller {
 		}
 
 		$user = $this->getCurrentUser();
-		if(isset($_GET['lang_user'])){
-			$this->load->model(array('Users_m'));
-			$user->lang = $_GET['lang_user'];
-			$this->Users_m->updateLang($user->id,$user->lang);
-		}
-
-
 		$this->current_user = $user;
-		$this->data['current_user'] = $this->current_user;
-		$this->lang->load('global', $this->current_user->lang);
+		
+		if ( isset( $this->current_user->lang )){
 
+			if(isset($_GET['lang_user'])){
+				$this->load->model(array('Users_m'));
+				$user->lang = $_GET['lang_user'];
+				$this->Users_m->updateLang($user->id,$user->lang);
+			}
 
+			$this->data['current_user'] = $this->current_user;
+			$this->lang->load('global', $this->current_user->lang);
+		}else{
+			$this->lang->load('global');
+		}
+		
 
 		$header = array();
 		$header['page_title'] =  $this->lang->line('breadcrumb_'.$controller); 
@@ -48,7 +52,10 @@ class MY_Controller extends CI_Controller {
 		$this->data['current_method'] = $method;
 
 		$this->load->model(array('Users_m'));
-		$this->data['agence_users'] = $this->Users_m->getUserAgenceListAuthorize($this->current_user->agence_id,$this->current_user->id);
+
+		if ( isset( $this->current_user->agence_id )){
+			$this->data['agence_users'] = $this->Users_m->getUserAgenceListAuthorize($this->current_user->agence_id,$this->current_user->id);
+		}
 
 
 
@@ -208,14 +215,13 @@ class MY_Controller extends CI_Controller {
 			$this->data['custom_scripts'][] = $custom_script_path_rel;
 
 		}
-
 	}
 	
     public function getCurrentUser(){
         $user = $this->session->get_userdata('user');
       
         if(!$user || !isset($user['user']) || !isset($user['user']->id)){
-            redirect('/users/login');
+            //redirect('/users/login');
         }else{
             $user = $user['user'];
         }

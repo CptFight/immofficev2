@@ -55,7 +55,7 @@ class MY_Model extends CI_Model {
         $user = $this->session->get_userdata('user');
       
         if(!$user || !isset($user['user']) || !isset($user['user']->id)){
-            redirect('/users/login');
+            //redirect('/users/login');
         }else{
             $user = $user['user'];
         }
