@@ -27,7 +27,9 @@
                     <div class="clearfix max-width apparition">
                         <div class="float-middle">
                             <h2 class="titre-green"><?php echo $this->lang->line('welkome_immoffice'); ?></h2>
-                            <p class="subtitle"><?php echo $this->lang->line('gdpr_infos'); ?></p>
+                            <p class="subtitle"><?php echo $this->lang->line('gdpr_infos_1'); ?></p>
+                            <p><?php echo $this->lang->line('gdpr_infos_2'); ?></p>
+                            <p><?php echo $this->lang->line('gdpr_infos_3'); ?></p>
                         </div>
                         <div class="float-middle">
                             <form action="" method="POST">

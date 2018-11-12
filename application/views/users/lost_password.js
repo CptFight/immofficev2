@@ -1,6 +1,6 @@
 /* ------ Dropdown ------*/
 /* --------------------- */
-$(".btn-dropdown").on("click", function(){
+)$(".btn-dropdown").on("click", function(){
   var id = $(this).attr("data-id");
   $("#"+id).toggleClass("hidden");
 });

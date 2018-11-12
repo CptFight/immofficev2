@@ -13,9 +13,9 @@ class Gdpr extends MY_Controller {
 
 		$this->data['results'] = 0;
 		if($this->input->post('gdpr_send')) {
-			$this->load->model(array('Favoris_m'));
-			
-			$this->addMessage($this->input->post('gdpr_search')." ".$this->lang->line('be_finded')." ".$this->Favoris_m->gdpr_search($this->input->post('gdpr_search'))." ".$this->lang->line('time'));
+			$this->load->model(array('Favoris_m','Owners_m'));
+			$total = $this->Favoris_m->gdpr_search($this->input->post('gdpr_search')) + $this->Owners_m->gdpr_search($this->input->post('gdpr_search'));
+			$this->addMessage($this->input->post('gdpr_search')." ".$this->lang->line('be_finded')." ".$total." ".$this->lang->line('time'));
 		}
 
 		$this->load->view('template_landing',$this->data);

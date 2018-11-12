@@ -23,4 +23,27 @@ class Owners_m extends MY_Model {
        
     }
 
+
+    public function gdpr_search($keywords) {
+        //$this->db->group_by('favoris.id');
+        $this->db->select('count(*) as count');
+        
+        if($keywords){
+            $keywords = addslashes($keywords);
+            $request_search = "( ";
+            $request_search .= "owners.name LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.tel LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.email LIKE '%".$keywords."%'";
+            $request_search .= "OR owners.note LIKE '%".$keywords."%')";
+            $this->db->where($request_search);
+        }
+
+            
+        $return = $this->db->get($this->_db)->result();
+      
+        return $return[0]->count;
+    }
+
+
+            
 }

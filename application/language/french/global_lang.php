@@ -18,10 +18,10 @@
 	$lang['propriete'] = 'bien';
 	$lang['GDPR'] = 'GDPR';
 	$lang['keyword'] = "Mots clés";
-	$lang['gdpr_infos'] = "Vous pensez avoir été enregistré chez nous à votre insu ? 
-		<p> Nous ne stockons que les données enregistrées par nos clients. Et dans un soucis de totale transparance, toutes nos informations sont visibles et modifiables depuis leur compte.</p>
-		<p> Nous vous proposons de voir ici si c'est le cas grâce à cette outil de recherche interne. </p>
-		";
+	$lang['gdpr_infos_1'] = "Vous pensez avoir été enregistré chez nous à votre insu ? ";
+	$lang['gdpr_infos_2'] = "Nous ne stockons que les données enregistrées par nos clients. Et dans un soucis de totale transparance, toutes nos informations sont visibles et modifiables depuis leur compte. ";
+	$lang['gdpr_infos_3'] = "Nous vous proposons de voir ici si c'est le cas grâce à cette outil de recherche interne. ";
+		
 	$lang['be_finded'] = "a été retrouvé";
 	$lang['time'] = "fois";
 	$lang['saved_by_users_in_agence'] = "Autres utilisateurs de l'agence qui ont ce favoris";
