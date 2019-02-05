@@ -45,11 +45,18 @@ class Favoris extends MY_Controller {
 					$this->addMessage($this->lang->line('favoris_send'));
 					$this->data['back_path'] = 'favoris/index';
 				}else{
-					$this->data['back_path'] = 'favoris/edit?id='.$_GET['id'].'&view='.$this->input->post('current_tab');
+
+					#if(isset($_GET['view']) && $_GET['view'] == "tab4"){
+					#	$this->data['back_path'] = 'favoris/edit?id='.$_GET['id'].'&view='.$this->input->post('current_tab');
+					#}else{
+						$this->data['back_path'] = 'favoris/index';
+					#}
+					
 				}
 			}
 
 			if($this->savePost()){
+				
 				redirect($this->data['back_path'] );
 			}		
 		}

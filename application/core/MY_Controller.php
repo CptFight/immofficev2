@@ -14,17 +14,17 @@ class MY_Controller extends CI_Controller {
 		}
 
 		$user = $this->getCurrentUser();
-		$this->current_user = $user;
 		
-		if ( isset( $this->current_user->lang )){
+		$this->current_user = $user;
+		$this->data['current_user'] = $this->current_user;
 
+		if ( isset( $this->current_user->lang )){
 			if(isset($_GET['lang_user'])){
 				$this->load->model(array('Users_m'));
 				$user->lang = $_GET['lang_user'];
 				$this->Users_m->updateLang($user->id,$user->lang);
 			}
 
-			$this->data['current_user'] = $this->current_user;
 			$this->lang->load('global', $this->current_user->lang);
 		}else{
 			$this->lang->load('global');
@@ -55,6 +55,8 @@ class MY_Controller extends CI_Controller {
 
 		if ( isset( $this->current_user->agence_id )){
 			$this->data['agence_users'] = $this->Users_m->getUserAgenceListAuthorize($this->current_user->agence_id,$this->current_user->id);
+		}else{
+			$this->data['agence_users'] = array();
 		}
 
 
@@ -221,7 +223,7 @@ class MY_Controller extends CI_Controller {
         $user = $this->session->get_userdata('user');
       
         if(!$user || !isset($user['user']) || !isset($user['user']->id)){
-            //redirect('/users/login');
+            redirect('/users/login');
         }else{
             $user = $user['user'];
         }

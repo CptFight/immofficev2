@@ -29,6 +29,9 @@
   width: 100%;
   text-align: center; }
 
+#annonces_table_filter, #favoris_table_filter, #owner_table_filter, #rappels_table_filter, #liste_table_filter{
+  float:left;
+}
 /*
  * Image replacement
  */
