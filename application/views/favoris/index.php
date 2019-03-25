@@ -15,7 +15,7 @@
         <form action="" method="POST">
             <div class="col-sm-5"> 
                 <select name="zip_code" data-placeholder="" id="zip_code" class="form-control">
-                    <option value=""><?php echo $this->lang->line('nothing'); ?></option>
+                    <option value=""></option>
                     <?php foreach($zip_codes as $key => $zip_code) { ?>
                         <option value="<?php echo $zip_code; ?>" <?php if ($zip_code == $zip_code_selected) { echo "selected"; } ?>><?php echo $zip_code; ?></option> 
                     <?php } ?>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-sm-5"> 
                 <select name="status_favoris" data-placeholder="" id="status_favoris" class="form-control">
-                    <option value=""><?php echo $this->lang->line('nothing'); ?></option>
+                    <option value=""></option>
                     <?php foreach($status_favoris as $key => $status) { ?>
                         <option value="<?php echo $status->id; ?>" <?php if ($status->id == $status_favoris_id_selected) { echo "selected"; } ?>><?php echo $status->name; ?></option> 
                     <?php } ?>

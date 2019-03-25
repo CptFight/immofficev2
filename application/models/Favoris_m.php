@@ -149,7 +149,31 @@ class Favoris_m extends MY_Model {
     }
 
     public function countDataLastRequest($params){
-        $this->db->select('count(*) as count');
+        $this->db->select('count(*) as count, 
+            favoris.id as id, 
+            favoris.user_id as user_id, 
+            favoris.tags as tags, 
+            rappels.tags as rappel_tags, 
+            rappels.id as rappel_id, 
+            favoris.note as note, 
+            favoris.adress as adress,
+            favoris.status_id as status_id,
+            favoris.owner_id as owner_id, 
+            status.name as status_name, 
+            status.id as status_id, 
+            status.color as status_color, 
+            favoris.tel as tel, 
+            rappels.note as rappel_note, 
+            favoris.owner_name as owner_name_old,
+            owners.name as owner_name, 
+            owners.status_id as owner_status_id, 
+            owners.tel as owner_tel, 
+            owners.email as owner_email, 
+            owners.note as owner_note, 
+
+          ');
+
+      #  $this->db->select('count(*) as count, status.id as status_id, ');
 
         $this->db->join('rappels','rappels.favoris_id = favoris.id', 'left');
         $this->db->join('users','users.id = favoris.user_id');
@@ -192,6 +216,15 @@ class Favoris_m extends MY_Model {
         }else{
             $this->db->where('favoris.archive',0);
         }
+
+        if(isset($params["zip_code"]) && $params['zip_code']){
+            $this->db->where('favoris.zip_code',$params['zip_code']);
+        }
+
+        if(isset($params["status_favoris_id"]) && $params['status_favoris_id']){
+            $this->db->where('favoris.status_id',$params['status_favoris_id']);
+        }
+
 
         return $this->db->get($this->_db)->row()->count;
     }
