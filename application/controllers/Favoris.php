@@ -5,11 +5,45 @@ class Favoris extends MY_Controller {
 
 	public function index() {
 		/* Custom Scripts */
+		$this->load->model(array('Status_m',"Favoris_m"));
+		$this->data['status_favoris'] = $this->Status_m->getStatus($this->current_user->agence_id,'favoris');
+		#print_r($this->data['status_favoris']);
+		#die();
 		if($this->input->get('archive')){
 			$this->data['archive'] = $this->input->get('archive');
 		}else{
 			$this->data['archive'] = 0;
 		}
+
+		$params = array(
+			"id" => false,
+			"search" => false,
+			"start" => false,
+			"length" => false,
+			"order" => false,
+			"user_id" => false,
+			"archive" => $this->data['archive']
+		);
+
+		$favoris = $this->Favoris_m->get($params);
+		$zip_codes_list = array();
+		foreach($favoris as $key => $favori){
+			$zip_codes_list[$favori->zip_code] = $favori->zip_code;
+		}
+		asort($zip_codes_list);
+		
+		$this->data['zip_codes'] = array_keys($zip_codes_list);
+
+		if($this->input->post('search') ){
+			$zip_code =  $this->input->post('zip_code') ;
+			$status_favoris_id = $this->input->post('status_favoris') ;
+			$this->data['zip_code_selected'] = $zip_code;
+			$this->data['status_favoris_id_selected'] = $status_favoris_id;
+		}else{
+			$this->data['zip_code_selected'] = false;
+			$this->data['status_favoris_id_selected'] = false;
+		}
+
 
 		$this->load->view('template', $this->data);
 	}
@@ -301,6 +335,8 @@ class Favoris extends MY_Controller {
 		$length = 0;
 		$user_id = 0;
 		$archive = 0;
+		$status_favoris_id = false;
+		$zip_code = false;
 		if($this->input->get('start')){
 			$start = $this->input->get('start');
 		}
@@ -315,6 +351,14 @@ class Favoris extends MY_Controller {
 
 		if($this->input->get('archive')){
 			$archive = $this->input->get('archive');
+		}
+
+		if($this->input->get('zip_code')){
+			$zip_code = $this->input->get('zip_code');
+		}
+
+		if($this->input->get('status_favoris_id')){
+			$status_favoris_id = $this->input->get('status_favoris_id');
 		}
 
 		$order = false;
@@ -350,7 +394,9 @@ class Favoris extends MY_Controller {
 			"length" => $length,
 			"order" => $order,
 			"user_id" => $user_id,
-			"archive" => $archive
+			"archive" => $archive,
+			"zip_code" => $zip_code,
+			"status_favoris_id" => $status_favoris_id
 		);
 
 		

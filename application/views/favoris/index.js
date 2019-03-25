@@ -116,7 +116,7 @@ favoris.activeFavorisRappel = function(){
 /* ------------------- */
 favoris.initTableDatatablesResponsive = function () {
     var table = $('#favoris_table');
-    
+
     if(!favoris.tableObject){
         favoris.tableObject = table.dataTable({
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
@@ -140,7 +140,9 @@ favoris.initTableDatatablesResponsive = function () {
             "ajax": {
                 data : {
                     archive : $('#archive').val(),
-                    user_id : $('#user_id').val()
+                    user_id : $('#user_id').val(),
+                    zip_code : $('#zip_code').val(),
+                    status_favoris_id : $('#status_favoris').val()
                 },
                 url : base_url()+"index.php/favoris/getAllannoncesDataTable",
             },
@@ -235,6 +237,8 @@ favoris.initTableDatatablesResponsive = function () {
         });
     }
 
+
+
 };
 
 
@@ -258,7 +262,6 @@ favoris.init = function(){
 *********************************/
 $(document).ready(function() {     
     favoris.init();
-
 });
 
 

@@ -18,6 +18,7 @@ class Favoris_m extends MY_Model {
           favoris.status_id as status_id,
           favoris.owner_id as owner_id, 
           status.name as status_name, 
+          status.id as status_id, 
           status.color as status_color, 
           favoris.tel as tel, 
           rappels.note as rappel_note, 
@@ -82,6 +83,14 @@ class Favoris_m extends MY_Model {
                 $this->db->where('favoris.archive',$params['archive']);
             }else{
                 $this->db->where('favoris.archive',0);
+            }
+
+            if(isset($params["zip_code"]) && $params['zip_code']){
+                $this->db->where('favoris.zip_code',$params['zip_code']);
+            }
+
+            if(isset($params["status_favoris_id"]) && $params['status_favoris_id']){
+                $this->db->where('favoris.status_id',$params['status_favoris_id']);
             }
 
             if(isset($params['order'])){

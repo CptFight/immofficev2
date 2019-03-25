@@ -10,6 +10,32 @@
 
     <input type="hidden" name="archive" id="archive" value="<?php echo $archive; ?>">
 
+    <br/><hr/>
+    <div class="row">
+        <form action="" method="POST">
+            <div class="col-sm-5"> 
+                <select name="zip_code" data-placeholder="" id="zip_code" class="form-control">
+                    <option value=""><?php echo $this->lang->line('nothing'); ?></option>
+                    <?php foreach($zip_codes as $key => $zip_code) { ?>
+                        <option value="<?php echo $zip_code; ?>" <?php if ($zip_code == $zip_code_selected) { echo "selected"; } ?>><?php echo $zip_code; ?></option> 
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="col-sm-5"> 
+                <select name="status_favoris" data-placeholder="" id="status_favoris" class="form-control">
+                    <option value=""><?php echo $this->lang->line('nothing'); ?></option>
+                    <?php foreach($status_favoris as $key => $status) { ?>
+                        <option value="<?php echo $status->id; ?>" <?php if ($status->id == $status_favoris_id_selected) { echo "selected"; } ?>><?php echo $status->name; ?></option> 
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="col-sm-2"> 
+                <button name="search" class="btn" style="float:right" value="search" type="submit"><span><?php echo $this->lang->line('search'); ?></span></button>
+            </div>
+        </form>
+    </div>
+    <hr/>
+
     <!-- TODO ME : AJOUTER VERIFICATION FORM + LABELS 
     <form action="" method="POST">-->
     
