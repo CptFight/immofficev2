@@ -21,7 +21,7 @@ class Favoris extends MY_Controller {
 			"start" => false,
 			"length" => false,
 			"order" => false,
-			"user_id" => false,
+			"user_id" => $this->current_user->id,
 			"archive" => $this->data['archive']
 		);
 
