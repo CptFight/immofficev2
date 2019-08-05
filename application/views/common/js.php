@@ -32,7 +32,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/chosen/chosen.jquery.js"></script>
 
 <!-- locationpicker -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoQI37V-l-pmDlxdiGJf53h8XLAPmFlMA"></script> 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiGhRBLXT1CiPuThpyZJ9MPwml87F_0A"></script> 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/global/plugins/locationpicker.jquery.js"></script>
 
 

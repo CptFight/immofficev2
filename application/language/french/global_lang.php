@@ -465,6 +465,10 @@
 	$lang["event_24_body"] = "Oubliez vos fichiers excel, une grosse mise à jour vient d'être faite. <br/>Vous allez pouvoir découvrir un tas de nouvelles fonctionnalités ! Elles sont détaillées plus bas dans les cases : archive, status, switch utilisateur, propriétaires, suivis et paramètres.<br/>Si vous avez la moindre question ou que vous ne retrouvez plus une information sur votre compte n'hésitez pas à nous en faire par !";
 
 
+	$lang["event_25_title"] = "Migration 2ememain";
+	$lang["event_25_body"] = "2ememain est en train de changer son site web.<br/>Malheureusement certaines fonctionnalités comme la recherche par code postal ne marche plus pour le moment. <br/> Nous sommes obligés d'attendre quelques jours qu'ils finalisent leur migration avant de pouvoir nous adapter. <br/>C'est pourquoi, vous ne trouverez donc plus d'annonces 2ememain sur Immoffice jusqu'à correction du problème! <br/>" ;
+
+
 	$lang["suggestion_label"] = "Si vous avez des suggestions pour l'amélioration d'Immoffice; n'hésitez pas à nous les faire parvenir depuis ce formulaire. ";
 	$lang["put_your_message_here"] = "Inscrivez votre message ici";
 	$lang["send"] = "Envoyer";

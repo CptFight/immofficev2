@@ -459,6 +459,12 @@
     $lang["event_24_title"] = "Dat is veel verandering !";
     $lang["event_24_body"] = "Vergeet uw Excel files, een grote update werd uitgevoerd. <br/>Jullie zullen een heleboel nieuwe functionaliteiten ontdekken!<br/>Meer details vindt u hieronder: archief, status, gebruiker switch, eigenaar, opvolging en parameters;<br/>Als u nog vragen hebt of als u informatie op uw account niet meer terugvindt, aarzel dan niet om ons te contacteren!";
 
+   
+
+    $lang["event_25_title"] = "Migratie 2ememain";
+    $lang["event_25_body"] = "2ememain is bezig zijn website te veranderen. <br/> Helaas werken sommige functies, zoals zoeken op postcode, niet meer. <br/> We moeten een paar dagen wachten voordat ze hun migratie hebben voltooid voordat we ons kunnen aanpassen. <br/> Daarom vindt u geen advertenties meer op Immoffice totdat u het probleem verhelpt! <br/>" ;
+
+
 
     $lang["save_search"] = "Zoekopdracht bewaren";
 

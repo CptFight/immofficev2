@@ -1,6 +1,7 @@
 
 <section class="apparitionright l-news-section">
     <ul class="m-news-list">
+       
         <li>
             <article>
                 <i class="fa fa-briefcase"></i>

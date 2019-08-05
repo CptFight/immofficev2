@@ -95,7 +95,7 @@ zipcodes.getDistanceFromLatLonInMeter = function(lat1,lon1,lat2,lon2) {
 
 zipcodes.setGoogleMap = function(zipCode,radius){
 
-    getRemoteContent("https://maps.googleapis.com/maps/api/geocode/json?address="+zipCode+",belgium&sensor=false&key=AIzaSyAvjFjp5hRq_ipP39YWgGFZOMnopRKsplo", function(response){
+    getRemoteContent("https://maps.googleapis.com/maps/api/geocode/json?address="+zipCode+",belgium&sensor=false&key=AIzaSyCMiGhRBLXT1CiPuThpyZJ9MPwml87F_0A", function(response){
         var obj = JSON.parse(response);
 
         if(typeof obj.results[0].geometry != 'undefined'){
@@ -136,7 +136,7 @@ zipcodes.setGoogleMap = function(zipCode,radius){
 }
 
 zipcodes.getPosFromZipcode = function(zipcode){
-    getRemoteContent("https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+",belgium&sensor=false&key=AIzaSyAvjFjp5hRq_ipP39YWgGFZOMnopRKsplo", function(response){
+    getRemoteContent("https://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+",belgium&sensor=false&key=AIzaSyCMiGhRBLXT1CiPuThpyZJ9MPwml87F_0A", function(response){
         var obj = JSON.parse(response);
         if(typeof obj.results[0].geometry != 'undefined'){
             var radius = $(zipcodes.input_radius).val();

@@ -1,5 +1,4 @@
 <section class="l-annonces-search l-annonces-section apparitionright">
-   
     <form action="" method="POST">
     <input type="hidden" name="id" value='<?php echo $annonce->id; ?>'>
        
